@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[iLee]]></title>
+  <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
+  <link href="http://ilee.co.uk/atom.xml" rel="self"/>
+  <link href="http://ilee.co.uk"/>
+  <updated>2013-08-06T13:18:49.504Z</updated>
+  <id>http://ilee.co.uk/</id>
+  <author>
+    <name><![CDATA[Lee Crossley]]></name>
+    <email><![CDATA[leee@hotmail.co.uk]]></email>
+  </author>
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://ilee.co.uk/hello-world/"/>
+    <id>http://ilee.co.uk/hello-world/</id>
+    <published>2013-08-05T07:54:43.000Z</published>
+    <updated>2013-08-06T09:37:52.000Z</updated>
+    <content type="html"><![CDATA[<p>Hello World!</p>
+]]></content>
+  </entry>
+</feed>
