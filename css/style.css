@@ -2,7 +2,7 @@
   font-family: 'FontAwesome';
   font-style: normal;
   font-weight: normal;
-  src: url("css/font/fontawesome-webfont.eot?#iefix") format('embedded-opentype'), url("css/font/fontawesome-webfont.woff") format('woff'), url("css/font/fontawesome-webfont.ttf") format('truetype'), url("css/font/fontawesome-webfont.svg#FontAwesomeRegular") format('svg');
+  src: url("font/fontawesome-webfont.eot?#iefix") format('embedded-opentype'), url("font/fontawesome-webfont.woff") format('woff'), url("font/fontawesome-webfont.ttf") format('truetype'), url("font/fontawesome-webfont.svg#FontAwesomeRegular") format('svg');
 }
 * {
   margin: 0;
