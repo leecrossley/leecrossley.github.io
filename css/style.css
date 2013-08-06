@@ -114,11 +114,8 @@ a:hover {
 article {
   background: #fff;
 }
-article.page {
-  padding-left: 20px;
-}
-article.page .icon {
-  display: none;
+article.page .icon:before {
+  content: '\f02e';
 }
 article.post .icon:before {
   content: '\f016';
@@ -225,7 +222,7 @@ article header .icon {
 }
 article header .icon:before {
   position: absolute;
-  font: 32px FontAwesome;
+  font: 55px FontAwesome;
   top: 0;
   left: 0;
   width: 32px;
