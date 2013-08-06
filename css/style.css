@@ -396,9 +396,6 @@ article .entry .pullquote {
   font-size: 1.5em;
 }
 article footer {
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 1px solid #ddd;
   color: #999;
   font-size: 0.9em;
   line-height: 16px;
@@ -427,7 +424,7 @@ article footer .categories,
 article footer .tags {
   position: relative;
   padding-left: 25px;
-  margin: 5px 0;
+  margin: 25px 0;
 }
 article footer .categories:before,
 article footer .tags:before {
@@ -444,11 +441,50 @@ article footer .tags:before {
   top: 3px;
   left: 2px;
 }
-article footer .addthis {
-  margin-top: 15px;
+article footer .share {
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  margin: 0 0 10px;
+  width: 100%;
+  font-size: 3.6em;
+  cursor: default;
 }
-article footer .addthis iframe {
-  margin-top: 0;
+article footer .share a {
+  position: relative;
+  top: 30px;
+  color: #999;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+article footer .share a:hover {
+  top: 14px;
+}
+article footer .share a.icon-facebook:before {
+  content: '\f09a';
+}
+article footer .share a.icon-facebook:hover {
+  color: #305c99;
+}
+article footer .share a.icon-twitter:before {
+  content: '\f099';
+}
+article footer .share a.icon-twitter:hover {
+  color: #00cdff;
+}
+article footer .share a.icon-google-plus:before {
+  content: '\f0d5';
+}
+article footer .share a.icon-google-plus:hover {
+  color: #d24228;
+}
+article footer .share a.icon-linkedin:before {
+  content: '\f0e1';
+}
+article footer .share a.icon-linkedin:hover {
+  color: #007bb6;
 }
 #comment {
   padding: 20px;
