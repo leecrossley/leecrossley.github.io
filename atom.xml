@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-07T13:23:12.474Z</updated>
+  <updated>2013-08-07T13:41:01.232Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/do-we-need-designers-for-the-web/"/>
     <id>http://ilee.co.uk/do-we-need-designers-for-the-web/</id>
     <published>2013-08-07T11:54:10.000Z</published>
-    <updated>2013-08-07T13:21:45.000Z</updated>
+    <updated>2013-08-07T13:40:44.000Z</updated>
     <content type="html"><![CDATA[<h2>The world is turning flat</h2>
 <p>Print designers that design for the web are stepping close to the edge.</p>
 <p><img src="/img/flat-world.png" alt="The world is flat"></p>
@@ -37,7 +37,7 @@
 <h2>Good developers</h2>
 <p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
 <h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing if they want to design for the web or even apps.</p>
+<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/design/" term="design"/>
