@@ -704,31 +704,31 @@ article footer .share a.icon-linkedin:hover {
   float: left;
   width: 20%;
 }
-#sidebar .social li.facebook .icon {
+#sidebar .social li.facebook .icon:hover {
   background-color: #2980b9;
 }
 #sidebar .social li.facebook a:before {
   content: '\f09a';
 }
-#sidebar .social li.twitter .icon {
+#sidebar .social li.twitter .icon:hover {
   background-color: #3498db;
 }
 #sidebar .social li.twitter a:before {
   content: '\f099';
 }
-#sidebar .social li.github .icon {
-  background-color: #bdc3c7;
+#sidebar .social li.github .icon:hover {
+  background-color: #7f8c8d;
 }
 #sidebar .social li.github a:before {
   content: '\f09b';
 }
-#sidebar .social li.google-plus .icon {
+#sidebar .social li.google-plus .icon:hover {
   background-color: #e74c3c;
 }
 #sidebar .social li.google-plus a:before {
   content: '\f0d5';
 }
-#sidebar .social li.linkedin .icon {
+#sidebar .social li.linkedin .icon:hover {
   background-color: #007bb6;
 }
 #sidebar .social li.linkedin a:before {
@@ -756,6 +756,7 @@ article footer .share a.icon-linkedin:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background-color: #bdc3c7;
 }
 #sidebar .social .icon:hover {
   -webkit-box-shadow: 0px 0px 0px 2px #fff;
