@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>web | iLee | developer blog</title>
+  <title>Do We Need Designers for the Web? | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="The world is turning flat, print designers that design for the web are stepping close to the edge.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Do We Need Designers for the Web?"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="http://ilee.co.uk/img/flat-world.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -99,12 +99,7 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">web</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -114,7 +109,7 @@
       
       
   
-    <h1 class="title"><a href="/do-we-need-designers-for-the-web/">Do We Need Designers for the Web?</a></h1>
+    <h1 class="title">Do We Need Designers for the Web?</h1>
   
 
     </header>
@@ -148,7 +143,20 @@
     <footer>
       
         
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/do-we-need-designers-for-the-web"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Do We Need Designers for the Web?&url=http://ilee.co.uk/do-we-need-designers-for-the-web&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/do-we-need-designers-for-the-web"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/do-we-need-designers-for-the-web&title=Do We Need Designers for the Web?"></a>
+</div>
+
         
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>, <a href="/tags/design/">design</a>
+  </div>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -156,55 +164,12 @@
 </article>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-06T16:15:06.000Z">6th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/static-site-generators/">Static Site Generators</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn&#39;t bigger be better? It turns out it&#39;s not.</p>
-<h2><em>We</em> got it wrong</h2>
-<ul>
-<li>Static HTML files are fast, no need for in-memory caching.</li>
-<li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
-<li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
-</ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and &quot;last updated&quot; dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
-<h2>Enter the Static Site Generator</h2>
-<p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don&#39;t have to use one off the shelf, they&#39;re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
-<p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
-<h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io">github</a> pages, with a custom domain name. I&#39;m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn&#39;t notice the page loading.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-</article>
-
-
-  
-
-  
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -220,7 +185,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>

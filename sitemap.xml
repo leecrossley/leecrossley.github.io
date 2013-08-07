@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/do-we-need-designers-for-the-web/</loc>
+    <lastmod>2013-08-07T13:21:45.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/static-site-generators/</loc>
-    <lastmod>2013-08-06T21:23:35.000Z</lastmod>
+    <lastmod>2013-08-07T13:06:57.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/about-me/</loc>
     <lastmod>2013-08-06T16:03:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://ilee.co.uk</loc>
+    <lastmod>2013-08-07T13:22:03.762Z</lastmod>
   </url>
 </urlset>
