@@ -133,6 +133,9 @@ article.link .title a:after {
   padding-left: 10px;
   vertical-align: super;
 }
+article .gist-meta {
+  display: none;
+}
 article .post-content {
   padding: 20px 20px 15px 77px;
   margin-bottom: 50px;
