@@ -4,12 +4,161 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-09T07:39:58.035Z</updated>
+  <updated>2013-08-10T15:32:08.097Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[A Functional Javascript Library]]></title>
+    <link href="http://ilee.co.uk/functional-javascript-library/"/>
+    <id>http://ilee.co.uk/functional-javascript-library/</id>
+    <published>2013-08-10T14:38:54.000Z</published>
+    <updated>2013-08-10T15:30:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
+<p>functional.js is (go on, guess) a functional JavaScript library I&#39;m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming">point-free / tacit</a> programming in JavaScript.</p>
+<p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/">jasmine</a> tests are below).</p>
+<p>I&#39;m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming">functional-level programming</a> but it&#39;s pretty tough ;). <a href="https://github.com/leecrossley/functional-js">Contributions</a> are more than welcome if you fancy some brain pain.</p>
+<h3>Basic λ.curry example</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="keyword">function</span>(word1, word2) {
+    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;
+});
+
+<span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);
+<span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);
+
+expect(result).toEqual(<span class="string">"Hello World"</span>);
+</pre></td></tr></table></figure>
+
+<h3>Another λ.curry example</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="keyword">function</span>(arg1, arg2, arg3) {
+    <span class="keyword">return</span> arg1 + arg2 + arg3;
+}); 
+
+<span class="keyword">var</span> add3 = add(<span class="number">3</span>),
+    add5 = add3(<span class="number">2</span>);
+
+expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
+expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);
+expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
+expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
+</pre></td></tr></table></figure>
+
+<h3>Curried λ.each example</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="keyword">var</span> result = [],
+    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];
+
+<span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> result.push(item);
+};
+
+<span class="keyword">var</span> addToResult = λ.each(addTo);
+expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);
+
+addToResult(items);
+expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);
+</pre></td></tr></table></figure>
+
+<h3>Curried λ.map example</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
+
+<span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
+    <span class="keyword">return</span> number * <span class="number">2</span>;
+};
+
+<span class="keyword">var</span> doubleMap = λ.map(doubleUp);
+expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);
+
+<span class="keyword">var</span> result = doubleMap(items);
+expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);
+</pre></td></tr></table></figure>
+
+<h3>Curried λ.reduce example</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
+
+<span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> {</span>
+    <span class="keyword">return</span> arg1 * arg2;
+};
+
+<span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);
+expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);
+
+<span class="keyword">var</span> result = multiplyReduceFrom1(items);
+expect(result).toEqual(<span class="number">6</span>);
+</pre></td></tr></table></figure>
+
+<h2>Why?</h2>
+<p>I like <del>torture</del> to push myself as a developer.</p>
+<h2>Great, but, erm, why?</h2>
+<p>By extending functions into chains of functions with fewer arguments (currying), you can fix earlier known values and return a function that only accepts future values. This avoids repetition, a good programming practice, and will assist my high-level function refinement.</p>
+<p>Libraries like <a href="http://underscorejs.org/">underscore</a> can&#39;t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There&#39;s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it&#39;s been developed further. It also has no dependencies.</p>
+<h2>Where can I get it?</h2>
+<ul>
+<li>$ git clone git@github.com:leecrossley/functional-js.git</li>
+<li>$ npm install functional.js</li>
+<li><a href="http://bit.ly/funcmin">functional.min.js</a></li>
+</ul>
+<h2>I have issues</h2>
+<p>As long as they&#39;re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues">github</a>.</p>
+<h2>Where&#39;s the λ key?</h2>
+<p>You&#39;re probably reading the wrong blog post :)</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[JavaScript Number Rounding]]></title>
     <link href="http://ilee.co.uk/javascript-arithmetic-number-rounding/"/>

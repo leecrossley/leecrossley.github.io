@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/functional-javascript-library/</loc>
+    <lastmod>2013-08-10T15:30:13.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/javascript-arithmetic-number-rounding/</loc>
     <lastmod>2013-08-09T07:39:23.000Z</lastmod>
   </url>
@@ -22,6 +26,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-08-09T07:39:58.041Z</lastmod>
+    <lastmod>2013-08-10T15:32:08.102Z</lastmod>
   </url>
 </urlset>
