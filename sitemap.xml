@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/multiple-function-composition/</loc>
+    <lastmod>2013-08-11T11:12:32.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/functional-javascript-library/</loc>
     <lastmod>2013-08-10T15:30:13.000Z</lastmod>
   </url>
@@ -26,6 +30,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-08-10T15:32:08.102Z</lastmod>
+    <lastmod>2013-08-11T11:14:54.021Z</lastmod>
   </url>
 </urlset>
