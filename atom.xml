@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-13T14:15:14.805Z</updated>
+  <updated>2013-08-13T14:21:05.616Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,13 +15,13 @@
     <link href="http://ilee.co.uk/road-to-hack-manchester/"/>
     <id>http://ilee.co.uk/road-to-hack-manchester/</id>
     <published>2013-08-13T13:00:58.000Z</published>
-    <updated>2013-08-13T14:13:24.000Z</updated>
+    <updated>2013-08-13T14:20:42.000Z</updated>
     <content type="html"><![CDATA[<h2>What is Hack Manchester?</h2>
 <p>It&#39;s a 24 hour coding competition located in Manchester that started in 2012. This year (as it was last year) it&#39;s held at the <a href="http://www.mosi.org.uk/">Museum of Science and Industry</a> and is on the 26th and 27th of October 2013 to kick off 2013&#39;s <a href="http://www.manchestersciencefestival.com/">Manchester Science Festival</a>. Props to <a href="https://twitter.com/ruby_gem">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie">@theallseeingpie</a> for their hard work in organising such a great coding event.</p>
 <h2>Hackathons</h2>
 <p>Getting top developers working and collaborating together on innovative web and/or mobile apps is always going to produce great results, make it into a competition and the results are even better :). I used to contract at NICE in Manchester where they&#39;d have hack days for the dev team within the organisation to drive forward creativity and new ideas. It&#39;s a fantastic way to work and there should be more of them.</p>
 <h2>Winning in 2012</h2>
-<p>If you know me, I&#39;ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive &quot;What&#39;s On&quot; app for MOSI. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal &quot;day planner&quot;. There&#39;s a <a href="http://vimeo.com/52477912">video here</a> if you&#39;re interested.</p>
+<p>If you know me, I&#39;ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive &quot;What&#39;s On&quot; app for the Museum of Science and Industry. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal &quot;day planner&quot;. There&#39;s a <a href="http://vimeo.com/52477912">video here</a> if you&#39;re interested.</p>
 <h2>The team is back</h2>
 <p>I&#39;m not <a href="http://en.wikipedia.org/wiki/Bring_Back...#Bring_Back...The_A-Team">Justin Lee Collins</a> but I&#39;ve brought the team back together. <a href="https://twitter.com/lee_crossley">Myself</a>, <a href="https://twitter.com/edhiley">@edhiley</a> and <a href="https://twitter.com/ryansroberts">@ryansroberts</a> have thrown some preliminary ideas in the pot and we&#39;re waiting for all the sponsor APIs to be announced.</p>
 <h2>Lessons learnt</h2>
