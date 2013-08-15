@@ -4,12 +4,36 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-13T14:21:05.616Z</updated>
+  <updated>2013-08-15T14:42:10.413Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Maximise Your Twitter Engagement]]></title>
+    <link href="http://ilee.co.uk/maximise-twitter-engagement/"/>
+    <id>http://ilee.co.uk/maximise-twitter-engagement/</id>
+    <published>2013-08-15T13:55:34.000Z</published>
+    <updated>2013-08-15T14:40:31.000Z</updated>
+    <content type="html"><![CDATA[<h2>Get more twitter retweets and favourites</h2>
+<p><a href="http://www.tweetthen.com/">TweetThen</a> allows you to calculate the optimal day and time for you to tweet, based on retweets and favourites your tweets have had in the past.</p>
+<h2>How does it work?</h2>
+<p>Visit <a href="http://www.tweetthen.com/">TweetThen</a> and authorise the website to access your twitter account. <strong>That&#39;s it!</strong> You&#39;ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
+<h2>Why should I bother?</h2>
+<p>Whether you&#39;re an individual or a company, you tweet because you want people to read it and engage with it. If you have an important tweet, you want to get the maximum possible exposure.</p>
+<p>Twitter is global and users/followers are from various timezones, so your optimal post time may not be what you think. Also, everyones followers are different, TweetThen tailors your date and times directly to your twitter account.</p>
+<h2>Is this a unique idea?</h2>
+<p>I&#39;ve found a couple of others doing similar things. One service is free but doesn&#39;t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
+<h2>Who wrote it?</h2>
+<p>If you&#39;ve not guessed by now, it&#39;s a little pet project I started yesterday. It&#39;s built using <a href="http://nodejs.org/">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
+<h2>Alpha?</h2>
+<p>It&#39;s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I&#39;m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
+<p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when&#39;s best to do it :)</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[The Road to Hack Manchester]]></title>
     <link href="http://ilee.co.uk/road-to-hack-manchester/"/>
