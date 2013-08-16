@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-16T12:44:44.974Z</updated>
+  <updated>2013-08-16T12:49:57.301Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/more-mobile-devices-than-socks/"/>
     <id>http://ilee.co.uk/more-mobile-devices-than-socks/</id>
     <published>2013-08-16T10:10:21.000Z</published>
-    <updated>2013-08-16T12:43:59.000Z</updated>
+    <updated>2013-08-16T12:49:52.000Z</updated>
     <content type="html"><![CDATA[<h2>The (cross-platform) mobile app developer burden</h2>
 <p>Serious mobile app developers and testers need access to every mobile and tablet device they want to target. Using the various emulators and simulators will only get you 90% of the way there.</p>
 <p><img src="/img/socks.png" alt="Socks"></p>
@@ -35,7 +35,7 @@
 <h2>Come on, keep up</h2>
 <p>With the mobile and tablet market developing at an incredibly fast rate, new devices are launched regularly, so you might as well keep your bank card out of your wallet.</p>
 <h2>Competitions</h2>
-<p>This is a great way to get your hands on new devices. I recently won a first prize in a <a href="http://www.phonegapwpchallenge.com/">Windows Phone Challenge</a> that landed me a shiny new Nokia Lumia 820 (that sits nicely next to me Nokia Lumia 920).</p>
+<p>This is a great way to get your hands on new devices. I recently won a first prize in a <a href="http://www.phonegapwpchallenge.com/">Windows Phone Challenge</a> that landed me a shiny new Nokia Lumia 820 (that sits nicely next to my Nokia Lumia 920).</p>
 <h2>Where does this leave us?</h2>
 <p>With draws full of mobile and tablets and not enough money to buy socks. Oh, but with killer apps :)</p>
 ]]></content>
