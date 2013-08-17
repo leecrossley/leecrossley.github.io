@@ -264,25 +264,11 @@ article .entry .video-container {
   margin-top: 15px;
 }
 article .entry blockquote {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  font-style: italic;
-  font-family: "Georgia", serif;
-  font-size: 1.2em;
-  padding: 0 30px 15px;
-  text-align: center;
+  padding: 1em;
+  border-left: 0.5em solid #eee;
 }
-article .entry blockquote footer {
-  border-top: none;
-  font-size: 0.8em;
-  line-height: 1;
-  margin: 20px 0 0;
-  padding-top: 0;
-}
-article .entry blockquote footer cite:before {
-  content: '—';
-  color: #ccc;
-  padding: 0 0.5em;
+article .entry blockquote p {
+  margin: 0;
 }
 article .entry code,
 article .entry pre {
@@ -498,15 +484,18 @@ article footer .share a.icon-linkedin:hover {
 #pagination a {
   display: block;
   padding: 5px 10px;
-  background: #ddd;
-  color: #999;
+  background: #bdc3c7;
+  color: #fff;
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  text-shadow: 0 0 1px #fff;
   margin-bottom: 50px;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  transition: background 0.2s ease;
 }
 #pagination a:hover {
   background: #16a085;
-  color: #fff;
   text-decoration: none;
   text-shadow: none;
 }

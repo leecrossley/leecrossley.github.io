@@ -4,12 +4,112 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-16T18:13:50.813Z</updated>
+  <updated>2013-08-17T14:27:39.866Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Ways to Declare JavaScript Functions]]></title>
+    <link href="http://ilee.co.uk/different-ways-to-declare-javascript-functions/"/>
+    <id>http://ilee.co.uk/different-ways-to-declare-javascript-functions/</id>
+    <published>2013-08-17T12:12:13.000Z</published>
+    <updated>2013-08-17T14:26:28.000Z</updated>
+    <content type="html"><![CDATA[<h2>The different ways to declare a function in JavaScript</h2>
+<h3>To var, or not to var</h3>
+<p>You can declare a function as you would any other JavaScript variable:</p>
+<figure class="highlight lang-javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+};
+</pre></td></tr></table></figure>
+
+
+<p>Or you can declare it without a var in your statement:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
+}
+</pre></td></tr></table></figure>
+
+
+<h2>The difference</h2>
+<p>I recently read an accepted answer on Stack Overflow that stated:</p>
+<blockquote><p>&quot;<em>If you&#39;re in the global scope then there&#39;s no difference.</em>&quot;</p>
+<footer><strong>- Stack Overflow</strong></footer></blockquote>
+
+
+<p>I&#39;m sorry but I don&#39;t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn">for this</a>:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="keyword">try</span> {
+  func1();
+} <span class="keyword">catch</span> (ex) {
+  alert(ex);
+}
+
+<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  alert(<span class="string">"func1 success"</span>);
+};
+
+<span class="keyword">try</span> {
+  func2();
+} <span class="keyword">catch</span> (ex) {
+  alert(ex);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
+  alert(<span class="string">"func2 success"</span>);
+}
+</pre></td></tr></table></figure>
+
+
+<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
+<ul>
+<li>func1 (var format) is defined <strong>at</strong> runtime</li>
+<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting">hoisted</a>&quot;</li>
+</ul>
+<h2>Function expressions</h2>
+<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
+};
+</pre></td></tr></table></figure>
+
+
+<h2>Best practice</h2>
+<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you&#39;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
+<h2>CoffeeScript fans</h2>
+<p>If you&#39;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#39;s only one way you can define a function in coffeescript:</p>
+<figure class="highlight lang-coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="function"><span class="title">func</span></span> = -&gt;
+</pre></td></tr></table></figure>
+
+
+<p>Which is evaluated as a function expression, fortunately.</p>
+<p>Now seriously, get off my blog CoffeeScripters.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[More Mobile Devices Than Socks]]></title>
     <link href="http://ilee.co.uk/more-mobile-devices-than-socks/"/>
