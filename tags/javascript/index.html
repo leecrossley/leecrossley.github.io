@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/let-grunt-handle-your-tasks/">Let Grunt Handle Your Tasks</a>
+      </li>
+    
+      <li>
         <a href="/different-ways-to-declare-javascript-functions/">Ways to Declare JavaScript Functions</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/use-google-pagespeed-on-your-site/">Use Google PageSpeed on Your Site</a>
       </li>
     
-      <li>
-        <a href="/do-we-need-designers-for-the-web/">Do We Need Designers for the Web?</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -131,7 +131,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>2</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>5</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>6</small></li>
   
     <li><a href="/tags/web/">web</a><small>5</small></li>
   
@@ -141,6 +141,122 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title tag">javascript</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-18T08:47:54.000Z">18th Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/let-grunt-handle-your-tasks/">Let Grunt Handle Your Tasks</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>Grunt - the task runner for JavaScript</h2>
+<p>Let grunt handle all your JavaScript tasks. It doesn&#39;t take sick days, pays attention and watches what you&#39;re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It&#39;s easy to configure and once it&#39;s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I&#39;m just going to cover the basics here for now.</p>
+<h2>Getting the ball rolling</h2>
+<p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<h3>The Grunt CLI</h3>
+<p>Assuming you&#39;re a serious developer, you&#39;ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install -g grunt-cli
+</pre></td></tr></table></figure>
+
+
+<p>You can now run &quot;grunt&quot; from anywhere. Happy times.</p>
+<h3>The Gruntfile.js</h3>
+<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
+</pre></td></tr></table></figure>
+
+
+<p>You can then define some tasks in your Gruntfile.js, here&#39;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>jasmine: {
+    src: <span class="string">"functional.min.js"</span>,
+    options: {
+        specs: <span class="string">"spec.js"</span>
+    }
+}
+</pre></td></tr></table></figure>
+
+
+<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js">spec.js</a>.</p>
+<p>You can run it by doing:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">grunt</span> jasmine
+</pre></td></tr></table></figure>
+
+
+<h3>Combining tasks</h3>
+<p>In the above example, it&#39;s unlikely that you&#39;ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
+</pre></td></tr></table></figure>
+
+
+<p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
+<h3>Watching for changes</h3>
+<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing &quot;grunt test&quot; and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>watch: {
+    files: [
+        <span class="string">"*.js"</span>,
+        <span class="string">"!functional.min.js"</span>
+    ],
+    tasks: [<span class="string">"test"</span>]
+}
+</pre></td></tr></table></figure>
+
+
+<p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">grunt</span> watch
+</pre></td></tr></table></figure>
+
+
+<p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
