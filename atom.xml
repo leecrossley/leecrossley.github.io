@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-19T10:28:00.226Z</updated>
+  <updated>2013-08-19T10:35:08.565Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/shake-gesture-detection-in-phonegap/"/>
     <id>http://ilee.co.uk/shake-gesture-detection-in-phonegap/</id>
     <published>2013-08-19T09:48:27.000Z</published>
-    <updated>2013-08-19T10:27:33.000Z</updated>
+    <updated>2013-08-19T10:34:51.000Z</updated>
     <content type="html"><![CDATA[<h2>Detecting shake events in your <a href="http://phonegap.com/">PhoneGap</a> / Cordova apps</h2>
 <p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
 <p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
@@ -47,7 +47,7 @@ shake.stopWatch();
 
 <h2>Platforms</h2>
 <p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
-<p>Don&#39;t be an Outkast - Shake it, shake, shake it, shake it (oh oh).</p>
+<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
