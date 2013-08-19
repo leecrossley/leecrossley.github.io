@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>design | iLee | developer blog</title>
+  <title>phonegap | iLee | developer blog</title>
   <meta name="author" content="Lee Crossley">
   <meta name="description" content="I write code that sounds awesome and music that's bug free">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -144,7 +144,7 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">design</h2>
+<h2 class="archive-title tag">phonegap</h2>
 
 
   
@@ -154,38 +154,48 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-07T11:54:10.000Z">7th Aug 2013</time>
+        <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
       
       
   
-    <h1 class="title"><a href="/do-we-need-designers-for-the-web/">Do We Need Designers for the Web?</a></h1>
+    <h1 class="title"><a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It&#39;s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that&#39;s what users want, something that&#39;s easy to use and understand. It loads quickly too, but that&#39;s a discussion for another day.</p>
-<h2>The &quot;Flat UI&quot; / &quot;Metro&quot; era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
-<ul>
-<li><p><a href="https://www.gov.uk/designprinciples">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
-</ul>
-<p>By now you&#39;ve probably realised I&#39;m not just talking about the web, I&#39;m talking about mobile apps too.</p>
-<h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/">Flat UI</a>, which this blog uses. You don&#39;t need to worry about gradient colours or shadow colours and depth (sorry if that&#39;s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
-<h2>Good developers</h2>
-<p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
+        <h2>Detecting shake events in your <a href="http://phonegap.com/">PhoneGap</a> / Cordova apps</h2>
+<p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
+<p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
+<h2>The gist</h2>
+<p>I wrote a <a href="https://gist.github.com/leecrossley/4078996">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
+<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
+<h2>Using shake.js</h2>
+<p>If you&#39;re interested in using shake.js, it&#39;s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
+<figure class="highlight lang-javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> onShake = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="comment">// Code fired when a shake is detected</span>
+};
+
+<span class="comment">// Start watching for shake gestures and call "onShake"</span>
+shake.startWatch(onShake);
+
+<span class="comment">// Stop watching for shake gestures</span>
+shake.stopWatch();
+</pre></td></tr></table></figure>
+
+
+<h2>Platforms</h2>
+<p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
+<p>Don&#39;t be an Outkast - Shake it, shake, shake it, shake it (oh oh).</p>
 
       
     </div>

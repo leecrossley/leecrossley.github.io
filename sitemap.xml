@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/shake-gesture-detection-in-phonegap/</loc>
+    <lastmod>2013-08-19T10:27:33.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/let-grunt-handle-your-tasks/</loc>
     <lastmod>2013-08-18T10:39:23.000Z</lastmod>
   </url>
@@ -54,6 +58,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-08-18T10:41:25.434Z</lastmod>
+    <lastmod>2013-08-19T10:28:00.236Z</lastmod>
   </url>
 </urlset>
