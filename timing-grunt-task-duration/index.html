@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>design | iLee | developer blog</title>
+  <title>Timing Grunt Task Duration | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="How to automatically time the duration of each grunt task and output the time in milliseconds to the console.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Timing Grunt Task Duration"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -143,56 +143,87 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">design</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-07T11:54:10.000Z">7th Aug 2013</time>
+        <time datetime="2013-08-20T12:37:41.000Z">20th Aug 2013</time>
       
       
   
-    <h1 class="title"><a href="/do-we-need-designers-for-the-web/">Do We Need Designers for the Web?</a></h1>
+    <h1 class="title">Timing Grunt Task Duration</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It&#39;s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that&#39;s what users want, something that&#39;s easy to use and understand. It loads quickly too, but that&#39;s a discussion for another day.</p>
-<h2>The &quot;Flat UI&quot; / &quot;Metro&quot; era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
+        <h2>Timing is everything</h2>
+<p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
+<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
+<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
+<h2>grunt-timer</h2>
+<p>I threw <a href="https://npmjs.org/package/grunt-timer">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
+<h2>Shouldn&#39;t this be part of Grunt?</h2>
+<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it&#39;s a little hacky the way I&#39;ve done it using hooks and the time isn&#39;t 100% accurate.</p>
+<p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
+<h2>How do I use it?</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-timer <span class="comment">## --save</span>
+</pre></td></tr></table></figure>
+
+
+<p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
+</pre></td></tr></table></figure>
+
+
+<p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt);
+</pre></td></tr></table></figure>
+
+<h2>Example output</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="title">Running</span> <span class="string">"run:500"</span> (run) task
+<span class="number">500ms</span> task ran
+Task <span class="string">'run:500'</span> took <span class="number">502ms</span>
+</pre></td></tr></table></figure>
+
+
+<h2>Issues</h2>
+<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
 <ul>
-<li><p><a href="https://www.gov.uk/designprinciples">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
+<li>The last task duration is output after the &quot;Done, without errors&quot;.</li>
+<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
 </ul>
-<p>By now you&#39;ve probably realised I&#39;m not just talking about the web, I&#39;m talking about mobile apps too.</p>
-<h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/">Flat UI</a>, which this blog uses. You don&#39;t need to worry about gradient colours or shadow colours and depth (sorry if that&#39;s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
-<h2>Good developers</h2>
-<p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
+<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer">git repo</a>.</p>
 
       
     </div>
     <footer>
       
         
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/timing-grunt-task-duration"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Timing Grunt Task Duration&url=http://ilee.co.uk/timing-grunt-task-duration&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/timing-grunt-task-duration"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/timing-grunt-task-duration&title=Timing Grunt Task Duration"></a>
+</div>
+
         
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -200,9 +231,12 @@
 </article>
 
 
-  
-
-  
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -218,7 +252,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
