@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/shake-gesture-detection-in-phonegap/</loc>
+    <lastmod>2013-08-21T09:58:53.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/changing-url-without-page-refresh/</loc>
     <lastmod>2013-08-21T08:42:29.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/timing-grunt-task-duration/</loc>
     <lastmod>2013-08-20T13:01:05.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://ilee.co.uk/shake-gesture-detection-in-phonegap/</loc>
-    <lastmod>2013-08-19T10:34:51.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/let-grunt-handle-your-tasks/</loc>
@@ -66,6 +66,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-08-21T08:42:37.227Z</lastmod>
+    <lastmod>2013-08-21T09:59:09.413Z</lastmod>
   </url>
 </urlset>
