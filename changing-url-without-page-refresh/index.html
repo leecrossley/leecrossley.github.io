@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Changing Url Without Page Refresh | iLee</title>
+  <meta name="author" content="Lee Crossley">
+  <meta name="description" content="Not many web developers know but it's possible to completely change the relative url of a page without refreshing the page.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:title" content="Changing Url Without Page Refresh"/>
+  <meta property="og:site_name" content="iLee"/>
+  <meta property="og:image" content="http://ilee.co.uk/img/google-chrome.png" />
+  <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42989646-1', 'ilee.co.uk');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <div id="sidebar" class="alignleft"><header class="logo">
+  <h1>
+    <a href="/">iLee</a>
+    <span>I write code that sounds awesome and music that's bug free</span>
+  </h1>
+</header>
+
+<ul class="social">
+  <li class="facebook">
+    <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
+  </li>
+  <li class="twitter">
+    <a href="https://twitter.com/lee_crossley" target="_blank" class="icon"><i class="icon-twitter"></i></a>
+  </li>
+  <li class="github">
+    <a href="https://github.com/leecrossley" target="_blank" class="icon"><i class="icon-github"></i></a>
+  </li>
+  <li class="google-plus">
+    <a href="https://plus.google.com/100605644656941447412?rel=author" target="_blank" class="icon"><i class="icon-google-plus"></i></a>
+  </li>
+  <li class="linkedin">
+    <a href="http://uk.linkedin.com/in/leecrossley/" target="_blank" class="icon"><i class="icon-linkedin"></i></a>
+  </li>
+</ul>
+
+
+  <div class="widget tag">
+<ul class="entry">
+  
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/about-me">About Me</a></li>
+  
+    <li><a href="/archives">Archives</a></li>
+  
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/changing-url-without-page-refresh/">Changing Url Without Page Refresh</a>
+      </li>
+    
+      <li>
+        <a href="/timing-grunt-task-duration/">Timing Grunt Task Duration</a>
+      </li>
+    
+      <li>
+        <a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/let-grunt-handle-your-tasks/">Let Grunt Handle Your Tasks</a>
+      </li>
+    
+      <li>
+        <a href="/different-ways-to-declare-javascript-functions/">Ways to Declare JavaScript Functions</a>
+      </li>
+    
+      <li>
+        <a href="/more-mobile-devices-than-socks/">More Mobile Devices Than Socks</a>
+      </li>
+    
+      <li>
+        <a href="/maximise-twitter-engagement/">Maximise Your Twitter Engagement</a>
+      </li>
+    
+      <li>
+        <a href="/road-to-hack-manchester/">The Road to Hack Manchester</a>
+      </li>
+    
+      <li>
+        <a href="/iphone-fingerprint-recognition-for-developers/">Fingerprint Recognition for Developers</a>
+      </li>
+    
+      <li>
+        <a href="/multiple-function-composition/">Multiple Function Composition</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/android/">android</a><small>1</small></li>
+  
+    <li><a href="/tags/app/">app</a><small>3</small></li>
+  
+    <li><a href="/tags/design/">design</a><small>1</small></li>
+  
+    <li><a href="/tags/hack/">hack</a><small>1</small></li>
+  
+    <li><a href="/tags/iphone/">iphone</a><small>3</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
+  
+    <li><a href="/tags/phonegap/">phonegap</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>6</small></li>
+  
+  </ul>
+</div>
+
+</div>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-21T07:42:46.000Z">21st Aug 2013</time>
+      
+      
+  
+    <h1 class="title">Changing Url Without Page Refresh</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#39;t even try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+<p>I&#39;m not talking about just changing &quot;the bit after the hash (#)&quot; I&#39;m referring to the entire relative url. I&#39;m also not talking about iFrames either - this solution isn&#39;t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
+<h2>How it&#39;s done</h2>
+<p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
+<h3>The history.pushState() function</h3>
+<p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
+<ul>
+<li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
+</li>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &quot;your title&quot;).</p>
+</li>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &quot;loaded&quot; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#39;t try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+</li>
+</ul>
+<figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
+  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
+};
+history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
+expect(history.state).toEqual(state);
+</pre></td></tr></table></figure>
+
+
+<p>The above example will update the url in the address bar to be &quot;/new-page&quot; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<h3>The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
+<h3>The onpopstate event</h3>
+<p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
+<h2>Back to the future</h2>
+<p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
+<h2>Usages</h2>
+<p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
+<p>Have fun relocating.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/changing-url-without-page-refresh"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Changing Url Without Page Refresh&url=http://ilee.co.uk/changing-url-without-page-refresh&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/changing-url-without-page-refresh"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/changing-url-without-page-refresh&title=Changing Url Without Page Refresh"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/web/">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Lee Crossley
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script type="text/javascript">
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//ilee.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+</body>
+</html>
