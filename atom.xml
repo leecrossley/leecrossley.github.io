@@ -4,12 +4,49 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-21T10:00:07.826Z</updated>
+  <updated>2013-08-22T09:22:42.296Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Walter White Is Green in HTML]]></title>
+    <link href="http://ilee.co.uk/walter-white-is-green-in-html/"/>
+    <id>http://ilee.co.uk/walter-white-is-green-in-html/</id>
+    <published>2013-08-22T08:35:34.000Z</published>
+    <updated>2013-08-22T09:22:15.000Z</updated>
+    <content type="html"><![CDATA[<h2>What has &quot;Walter White&quot; got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I&#39;m a fan myself) but you&#39;re probably thinking <strong>where on earth is he going with this, &quot;Walter White&quot; isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
+<h3>Example</h3>
+<figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p>The above code snippet will actually colour the text &quot;Walter White&quot;, in a Breaking Bad green, automatically.</p>
+<p>Don&#39;t believe me? Here&#39;s a <a href="http://codepen.io/leecrossley/pen/DaLdt">live demo</a>. Apologies for the use of a font tag.</p>
+<h2>What is going on here?!</h2>
+<p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
+<h3>The cooking process</h3>
+<ol>
+<li>Replace all invalid hexadecimal characters with &quot;0&quot;</li>
+<li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
+<li>Take the first 2 hexadecimal characters from each group</li>
+</ol>
+<p><strong>Et voilà!</strong></p>
+<p>No? Let&#39;s step through the example.</p>
+<ol>
+<li>&quot;Walter White&quot; becomes &quot;0a00e000000e&quot; when replacing invalid hexadecimal characters with &quot;0&quot;</li>
+<li>&quot;0a00e000000e&quot; is 12 characters long, so dividing into 3 groups gives &quot;0a00 e000 000e&quot;</li>
+<li>Taking the first 2 hexadecimal characters from each group in &quot;0a00 e000 000e&quot; produces &quot;0a e0 00&quot;</li>
+</ol>
+<p><strong>&quot;Walter White&quot; = &quot;#0ae000&quot;</strong></p>
+<p>I would have expected it to be blue, but I&#39;m guessing the process isn&#39;t 100% pure :)</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Changing Url Without Page Refresh]]></title>
     <link href="http://ilee.co.uk/changing-url-without-page-refresh/"/>

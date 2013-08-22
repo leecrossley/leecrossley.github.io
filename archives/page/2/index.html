@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a>
+      </li>
+    
+      <li>
         <a href="/changing-url-without-page-refresh/">Changing Url Without Page Refresh</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/iphone-fingerprint-recognition-for-developers/">Fingerprint Recognition for Developers</a>
       </li>
     
-      <li>
-        <a href="/multiple-function-composition/">Multiple Function Composition</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -131,13 +131,15 @@
   
     <li><a href="/tags/hack/">hack</a><small>1</small></li>
   
+    <li><a href="/tags/html/">html</a><small>1</small></li>
+  
     <li><a href="/tags/iphone/">iphone</a><small>3</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>8</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>1</small></li>
   
-    <li><a href="/tags/web/">web</a><small>6</small></li>
+    <li><a href="/tags/web/">web</a><small>7</small></li>
   
   </ul>
 </div>
@@ -145,6 +147,95 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title">Archives</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-11T10:31:55.000Z">11th Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/multiple-function-composition/">Multiple Function Composition</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>&quot;Function Composition&quot; sounds complicated, what is it?</h2>
+<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
+<h3>Basic example using <a href="https://github.com/leecrossley/functional-js">functional.js</a> to combine two functions</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
+    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
+};
+<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
+    <span class="keyword">return</span> a + <span class="number">1</span>;
+};
+<span class="keyword">var</span> composed = λ.compose(f, g);
+
+expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
+</pre></td></tr></table></figure>
+
+<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned &quot;hello 2&quot; as a single result. Thanks to <a href="https://twitter.com/ryansroberts">@ryansroberts</a> for this one.</p>
+<h3>Example using <a href="https://github.com/leecrossley/functional-js">functional.js</a> to combine three functions</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
+    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
+};
+<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
+    <span class="keyword">return</span> a + <span class="number">1</span>;
+};
+<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
+    <span class="keyword">return</span> a * <span class="number">100</span>;
+};
+<span class="keyword">var</span> composed = λ.compose(e, f, g);
+
+expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
+</pre></td></tr></table></figure>
+
+<p>This example illustrates the combining of multiple functions, passing the output from function &quot;g&quot; as a parameter to function &quot;f&quot;, then passing the output from function &quot;f&quot; as a parameter to function &quot;e&quot;. This leaves you with a single returned result, in this case &quot;hello 201&quot;.</p>
+<h2>Ah ha! This is just inheritance for JavaScript</h2>
+<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
+<h2>What&#39;s the benefit?</h2>
+<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It&#39;s the future, things move on... you&#39;re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
+<h2>functional.js (λ)</h2>
+<p>It&#39;s coming on, and expect more function-level programming support soon. Don&#39;t be shy to contribute and note that I&#39;m currently using 4 soft spaces for tabs, don&#39;t make me go all Crockford on you.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
