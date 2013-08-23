@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/what-is-javascript-strict-mode/</loc>
+    <lastmod>2013-08-23T10:27:38.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/walter-white-is-green-in-html/</loc>
     <lastmod>2013-08-22T09:22:15.000Z</lastmod>
   </url>
@@ -70,6 +74,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-08-22T09:22:42.313Z</lastmod>
+    <lastmod>2013-08-23T10:28:27.857Z</lastmod>
   </url>
 </urlset>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Static Site Generators | iLee</title>
+  <title>What Is JavaScript Strict Mode? | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="You may not have noticed but static HTML is taking back the web">
+  <meta name="description" content="What exactly is 'strict mode' in JavaScript and why/when should it be used.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Static Site Generators"/>
+  <meta property="og:title" content="What Is JavaScript Strict Mode?"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.blogcdn.com/www.engadget.com/media/2012/09/9-22-2012html5.jpg" />
+  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -151,31 +151,43 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-06T16:15:06.000Z">6th Aug 2013</time>
+        <time datetime="2013-08-23T09:46:39.000Z">23rd Aug 2013</time>
       
       
   
-    <h1 class="title">Static Site Generators</h1>
+    <h1 class="title">What Is JavaScript Strict Mode?</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn&#39;t bigger be better? It turns out it&#39;s not.</p>
-<h2><em>We</em> got it wrong</h2>
-<ul>
-<li>Static HTML files are fast, no need for in-memory caching.</li>
-<li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
-<li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
-</ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and &quot;last updated&quot; dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
-<h2>Enter the Static Site Generator</h2>
-<p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don&#39;t have to use one off the shelf, they&#39;re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
-<p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
-<h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io">github</a> pages, with a custom domain name. I&#39;m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn&#39;t notice the page loading.</p>
+        <h2>The &quot;strict mode&quot; pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as &quot;strict mode&quot;. I first came across this when using <a href="http://www.jslint.com/">jslint</a> many moons ago with it&#39;s &quot;missing &#39;use strict&#39; pragma&quot; error message.</p>
+<p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
+<h2>How to use it</h2>
+<p>You invoke strict mode by placing the string &quot;use strict&quot; at the top of your JavaScript file or function.</p>
+<figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
+</pre></td></tr></table></figure>
+
+
+<h2>Why use it</h2>
+<p>All it does it enforce good practices, here are a few examples:</p>
+<h3>Duplicate properties</h3>
+<p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
+<h3>The &quot;with&quot; statement</h3>
+<p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
+<h3>Variable declaration</h3>
+<p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
+<h2>A note on browsers</h2>
+<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
+<h2>Let&#39;s end on a laugh</h2>
+<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd">this</a>:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
+alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
+</pre></td></tr></table></figure>
 
       
     </div>
@@ -183,17 +195,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Static Site Generators&url=http://ilee.co.uk/static-site-generators&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/static-site-generators&title=Static Site Generators"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=What Is JavaScript Strict Mode?&url=http://ilee.co.uk/what-is-javascript-strict-mode&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/what-is-javascript-strict-mode&title=What Is JavaScript Strict Mode?"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/">web</a>
+    <a href="/tags/javascript/">javascript</a>
   </div>
 
       
