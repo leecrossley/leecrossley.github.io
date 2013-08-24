@@ -4,12 +4,40 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-23T10:28:27.840Z</updated>
+  <updated>2013-08-24T09:36:13.241Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Meet My Friend David DM]]></title>
+    <link href="http://ilee.co.uk/meet-my-friend-david-dm/"/>
+    <id>http://ilee.co.uk/meet-my-friend-david-dm/</id>
+    <published>2013-08-24T08:33:34.000Z</published>
+    <updated>2013-08-24T09:34:29.000Z</updated>
+    <content type="html"><![CDATA[<h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
+<p><a href="https://david-dm.org/">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
+<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
+<p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
+<h2>Using David</h2>
+<p>David is free for public repos on Github, I don&#39;t think there is a private repo version yet and you can&#39;t use other providers such as bitbucket.</p>
+<p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
+<h3>David informs with badges</h3>
+<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
+<h3>David informs with RSS</h3>
+<p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
+<h2>Improvements</h2>
+<p>There are many improvements that I hope are implemented soon:</p>
+<ul>
+<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
+<li>Version info from npm is cached for a whole day, this is too long.</li>
+<li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
+</ul>
+<p>If I see &quot;<a href="https://github.com/alanshaw">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[What Is JavaScript Strict Mode?]]></title>
     <link href="http://ilee.co.uk/what-is-javascript-strict-mode/"/>

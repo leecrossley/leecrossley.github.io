@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Do We Need Designers for the Web? | iLee</title>
+  <title>Meet My Friend David DM | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="The world is turning flat, print designers that design for the web are stepping close to the edge.">
+  <meta name="description" content="Let my friend David monitor your node.js project dependencies for you. He's got your back.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Do We Need Designers for the Web?"/>
+  <meta property="og:title" content="Meet My Friend David DM"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ilee.co.uk/img/flat-world.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/david-dm.jpg" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -151,38 +151,35 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-07T11:54:10.000Z">7th Aug 2013</time>
+        <time datetime="2013-08-24T08:33:34.000Z">24th Aug 2013</time>
       
       
   
-    <h1 class="title">Do We Need Designers for the Web?</h1>
+    <h1 class="title">Meet My Friend David DM</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It&#39;s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that&#39;s what users want, something that&#39;s easy to use and understand. It loads quickly too, but that&#39;s a discussion for another day.</p>
-<h2>The &quot;Flat UI&quot; / &quot;Metro&quot; era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
+        <h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
+<p><a href="https://david-dm.org/">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
+<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
+<p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
+<h2>Using David</h2>
+<p>David is free for public repos on Github, I don&#39;t think there is a private repo version yet and you can&#39;t use other providers such as bitbucket.</p>
+<p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
+<h3>David informs with badges</h3>
+<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
+<h3>David informs with RSS</h3>
+<p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
+<h2>Improvements</h2>
+<p>There are many improvements that I hope are implemented soon:</p>
 <ul>
-<li><p><a href="https://www.gov.uk/designprinciples">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
+<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
+<li>Version info from npm is cached for a whole day, this is too long.</li>
+<li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
 </ul>
-<p>By now you&#39;ve probably realised I&#39;m not just talking about the web, I&#39;m talking about mobile apps too.</p>
-<h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/">Flat UI</a>, which this blog uses. You don&#39;t need to worry about gradient colours or shadow colours and depth (sorry if that&#39;s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
-<h2>Good developers</h2>
-<p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
+<p>If I see &quot;<a href="https://github.com/alanshaw">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
 
       
     </div>
@@ -190,17 +187,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/do-we-need-designers-for-the-web"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Do We Need Designers for the Web?&url=http://ilee.co.uk/do-we-need-designers-for-the-web&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/do-we-need-designers-for-the-web"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/do-we-need-designers-for-the-web&title=Do We Need Designers for the Web?"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/meet-my-friend-david-dm"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Meet My Friend David DM&url=http://ilee.co.uk/meet-my-friend-david-dm&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/meet-my-friend-david-dm"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/meet-my-friend-david-dm&title=Meet My Friend David DM"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/">web</a>, <a href="/tags/design/">design</a>
+    <a href="/tags/javascript/">javascript</a>
   </div>
 
       

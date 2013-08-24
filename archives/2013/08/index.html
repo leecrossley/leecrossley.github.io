@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/meet-my-friend-david-dm/">Meet My Friend David DM</a>
+      </li>
+    
+      <li>
         <a href="/what-is-javascript-strict-mode/">What Is JavaScript Strict Mode?</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/maximise-twitter-engagement/">Maximise Your Twitter Engagement</a>
       </li>
     
-      <li>
-        <a href="/road-to-hack-manchester/">The Road to Hack Manchester</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -135,7 +135,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>3</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>9</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>10</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>1</small></li>
   
@@ -147,6 +147,56 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title">2013/8</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-24T08:33:34.000Z">24th Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/meet-my-friend-david-dm/">Meet My Friend David DM</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
+<p><a href="https://david-dm.org/">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
+<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
+<p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
+<h2>Using David</h2>
+<p>David is free for public repos on Github, I don&#39;t think there is a private repo version yet and you can&#39;t use other providers such as bitbucket.</p>
+<p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
+<h3>David informs with badges</h3>
+<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
+<h3>David informs with RSS</h3>
+<p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
+<h2>Improvements</h2>
+<p>There are many improvements that I hope are implemented soon:</p>
+<ul>
+<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
+<li>Version info from npm is cached for a whole day, this is too long.</li>
+<li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
+</ul>
+<p>If I see &quot;<a href="https://github.com/alanshaw">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
@@ -796,58 +846,6 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <h2>Alpha?</h2>
 <p>It&#39;s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I&#39;m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
 <p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when&#39;s best to do it :)</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-13T13:00:58.000Z">13th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/road-to-hack-manchester/">The Road to Hack Manchester</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>What is Hack Manchester?</h2>
-<p>It&#39;s a 24 hour coding competition located in Manchester that started in 2012. This year (as it was last year) it&#39;s held at the <a href="http://www.mosi.org.uk/">Museum of Science and Industry</a> and is on the 26th and 27th of October 2013 to kick off 2013&#39;s <a href="http://www.manchestersciencefestival.com/">Manchester Science Festival</a>. Props to <a href="https://twitter.com/ruby_gem">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie">@theallseeingpie</a> for their hard work in organising such a great coding event.</p>
-<h2>Hackathons</h2>
-<p>Getting top developers working and collaborating together on innovative web and/or mobile apps is always going to produce great results, make it into a competition and the results are even better :). I used to contract at NICE in Manchester where they&#39;d have hack days for the dev team within the organisation to drive forward creativity and new ideas. It&#39;s a fantastic way to work and there should be more of them.</p>
-<h2>Winning in 2012</h2>
-<p>If you know me, I&#39;ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive &quot;What&#39;s On&quot; app for the Museum of Science and Industry. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal &quot;day planner&quot;. There&#39;s a <a href="http://vimeo.com/52477912">video here</a> if you&#39;re interested.</p>
-<h2>The team is back</h2>
-<p>I&#39;m not <a href="http://en.wikipedia.org/wiki/Bring_Back...#Bring_Back...The_A-Team">Justin Lee Collins</a> but I&#39;ve brought the team back together. <a href="https://twitter.com/lee_crossley">Myself</a>, <a href="https://twitter.com/edhiley">@edhiley</a> and <a href="https://twitter.com/ryansroberts">@ryansroberts</a> have thrown some preliminary ideas in the pot and we&#39;re waiting for all the sponsor APIs to be announced.</p>
-<h2>Lessons learnt</h2>
-<p>We learnt some things from last year that I&#39;m happy to share with you:</p>
-<ul>
-<li><strong>Idea planning.</strong> Don&#39;t do any <em>coding</em> before the day (it&#39;s against the rules) but having some ideas of what you&#39;re going to code and reading any documentation before hand will save you time (and fighting) on the day.</li>
-<li><strong>Have your tool chain / dev environment ready.</strong> Last year <em>one of our team members</em> tried to download xcode right at the start of the coding session.</li>
-<li><strong>Be realistic about what you&#39;re building.</strong> Time flies, it&#39;ll be 4am before you know it and you don&#39;t want to add extra stress to the caffeine + no sleep equation. Make sure you&#39;re realistic about what you can achieve, review this constantly and have contingency plans.</li>
-<li><strong>Know the sponsors.</strong> If you&#39;re using a sponsors API, it&#39;s crucial that you have a relationship with them if you&#39;re going to need help. It&#39;ll save you time and they&#39;ll be excited to see what you&#39;re doing.</li>
-<li><strong>Have breaks and enjoy it.</strong> We found that coming back to things after a short break made us more productive. Fortunately the nice guys at Hack Manchester organise food and snacks etc for you. It&#39;s your free time, take the time to meet other people and find out what they&#39;re up to. I always meet great people at hack events.</li>
-</ul>
-<h2>Tickets</h2>
-<p>Tickets for Hack Manchester 2013 went <a href="http://hackmanchester.eventbrite.com/">on sale yesterday</a> and were selling pretty fast. I scooped up 3 tickets for my team, if you missed your chance to get yours there will be other opportunities, so I suggest following <a href="https://twitter.com/HackManchester">@HackManchester</a> on twitter to find out when the next wave will be released.</p>
-<h2>Shhhh</h2>
-<p>I&#39;ll probably not be discussing any preliminary hack ideas here, but I like Guinness and if you&#39;re around Manchester...</p>
 
       
     </div>
