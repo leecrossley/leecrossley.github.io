@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Static Site Generators | iLee</title>
+  <title>Social Message Plugin for Cordova 3.0 | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="You may not have noticed but static HTML is taking back the web">
+  <meta name="description" content="Post messages to Facebook, Twitter and others easily with the new Social Message plugin for Cordova 3.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Static Site Generators"/>
+  <meta property="og:title" content="Social Message Plugin for Cordova 3.0"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.blogcdn.com/www.engadget.com/media/2012/09/9-22-2012html5.jpg" />
+  <meta property="og:image" content="https://2.gravatar.com/avatar/467b6e8a473f45a15ac9514a30c15c3d?s=150" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -151,31 +151,46 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-06T16:15:06.000Z">6th Aug 2013</time>
+        <time datetime="2013-08-26T15:34:51.000Z">26th Aug 2013</time>
       
       
   
-    <h1 class="title">Static Site Generators</h1>
+    <h1 class="title">Social Message Plugin for Cordova 3.0</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn&#39;t bigger be better? It turns out it&#39;s not.</p>
-<h2><em>We</em> got it wrong</h2>
-<ul>
-<li>Static HTML files are fast, no need for in-memory caching.</li>
-<li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
-<li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
-</ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and &quot;last updated&quot; dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
-<h2>Enter the Static Site Generator</h2>
-<p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don&#39;t have to use one off the shelf, they&#39;re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
-<p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
-<h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io">github</a> pages, with a custom domain name. I&#39;m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn&#39;t notice the page loading.</p>
+        <h2>The old Social Message plugin</h2>
+<p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
+<p>The plugin bridged functionality between PhoneGap / Cordova&#39;s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn&#39;t follow any <em>strict</em> standards.</p>
+<h2>New plugin architecture</h2>
+<p>If you&#39;re a developer for PhoneGap / Cordova, you&#39;ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
+<p>I&#39;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message">Social Message plugin</a> has been rewritten to support the &quot;add plugin&quot; command.</p>
+<h2>Usage</h2>
+<h3>1 step install</h3>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git
+</pre></td></tr></table></figure>
+
+<p><strong>Way-hey!</strong> That&#39;s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
+<h3>In your JavaScript</h3>
+<p>After your deviceready event has been fired, you can simply pass your message as an argument:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.socialmessage.send(<span class="string">"This is a test message"</span>);
+</pre></td></tr></table></figure>
+
+<p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, you can add an array argument such as:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.socialmessage.send(<span class="string">"This is a test message"</span>, [<span class="string">"PostToFacebook"</span>, <span class="string">"PostToTwitter"</span>]);
+</pre></td></tr></table></figure>
+
+<p>This example will only allow the user to post the message to Facebook or Twitter.</p>
+<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity">here</a>. You should omit the &quot;UIActivityType&quot; prefix when adding to your array.</p>
+<h2>Platform support</h2>
+<p>The plugin is currently only implemented for iOS but I&#39;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
+<h2>Just a thought...</h2>
+<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager...</p>
 
       
     </div>
@@ -183,17 +198,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Static Site Generators&url=http://ilee.co.uk/static-site-generators&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/static-site-generators&title=Static Site Generators"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/social-message-plugin-for-cordova-30"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Social Message Plugin for Cordova 3.0&url=http://ilee.co.uk/social-message-plugin-for-cordova-30&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/social-message-plugin-for-cordova-30"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/social-message-plugin-for-cordova-30&title=Social Message Plugin for Cordova 3.0"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/">web</a>
+    <a href="/tags/phonegap/">phonegap</a>, <a href="/tags/iphone/">iphone</a>, <a href="/tags/javascript/">javascript</a>
   </div>
 
       
