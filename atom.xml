@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-27T15:47:31.225Z</updated>
+  <updated>2013-08-27T15:51:39.639Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,9 +15,9 @@
     <link href="http://ilee.co.uk/are-your-apps-ready-for-ios-7/"/>
     <id>http://ilee.co.uk/are-your-apps-ready-for-ios-7/</id>
     <published>2013-08-27T15:20:31.000Z</published>
-    <updated>2013-08-27T15:47:21.000Z</updated>
+    <updated>2013-08-27T15:51:35.000Z</updated>
     <content type="html"><![CDATA[<h2>iOS 7 is coming</h2>
-<p>The latest rumour is the 10th of September, in any case, it&#39;s coming, get your apps ready now if you haven&#39;t already. Don&#39;t ignore this advice, devices running iOS7 running apps that were build for iOS6 (or earlier!) will stick out like a sore thumb.</p>
+<p>The latest rumour is the 10th of September, in any case, it&#39;s coming, get your apps ready now if you haven&#39;t already. Don&#39;t ignore this advice, devices running iOS7 running apps that were built for iOS6 (or earlier!) will stick out like a sore thumb.</p>
 <h2>What&#39;s changing</h2>
 <h3>The user interface</h3>
 <p>One of the main changes is the look and feel and Apple want you to reflect these new guidelines in your apps. - The <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html">iOS 7 UI Transition Guide</a> (Apple login required) explains this in detail but it impacts textures, gradients, shadows, fonts, colours, navigation, buttons, arrows, keyboards, gauges, icons, actually, EVERYTHING.</p>
