@@ -133,7 +133,7 @@
   
     <li><a href="/tags/html/">html</a><small>1</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>4</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
   
@@ -163,7 +163,7 @@
       
         <h2>Numbers don&#39;t add up!</h2>
 <p><strong>0.1 + 0.2 = 0.30000000000000004</strong></p>
-<p>Sometimes numbers in JavaScript (and other languages) simply don&#39;t appear to add up. <a href="http://codepen.io/leecrossley/pen/DBJcE">Don&#39;t believe me?</a>.</p>
+<p>Sometimes numbers in JavaScript (and other languages) simply don&#39;t appear to add up. <a href="http://codepen.io/leecrossley/pen/DBJcE" target="_blank">Don&#39;t believe me?</a>.</p>
 <figure class="highlight lang-javascript"><figcaption><span>0.1 + 0.2 = 0.30000000000000004 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -181,9 +181,9 @@ console.log(result);
 
 <p>I discovered this in the early days of programming when building a JavaScript calculator, which fortunately is now nowhere to be seen :)</p>
 <h2>Floating point numbers</h2>
-<p>JavaScript uses <a href="http://en.wikipedia.org/wiki/Floating_point">Floating Point Numbers</a>, which don&#39;t cater for an accurate representations of a decimal. This means that as soon as the variable is interpreted at runtime, a rounding issue is introduced. Computers are faster and more efficient at dealing with computations on binary numbers, which produces the issue with the 17th decimal place.</p>
+<p>JavaScript uses <a href="http://en.wikipedia.org/wiki/Floating_point" target="_blank">Floating Point Numbers</a>, which don&#39;t cater for an accurate representations of a decimal. This means that as soon as the variable is interpreted at runtime, a rounding issue is introduced. Computers are faster and more efficient at dealing with computations on binary numbers, which produces the issue with the 17th decimal place.</p>
 <h2>How to fix it</h2>
-<p><a href="http://codepen.io/leecrossley/pen/hKmEa">Here&#39;s an example</a> of how I eliminate the rounding issues.</p>
+<p><a href="http://codepen.io/leecrossley/pen/hKmEa" target="_blank">Here&#39;s an example</a> of how I eliminate the rounding issues.</p>
 <figure class="highlight lang-javascript"><figcaption><span>0.1 + 0.2 = 0.3 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -215,10 +215,10 @@ console.log(result);
 </pre></td></tr></table></figure>
 
 
-<p>Essentially, I&#39;m calculating the smallest number, which if multiplied by either number I&#39;m adding together individually, would result in an integer. This is achieved by evaluating the number with the most numbers after the decimal point and what that value is. Once I have the multiplier, I use it on both the numbers I&#39;m adding together, then do the addition, then divide by the multiplier to return the numbers back to their original decimal state.</p>
+<p>Essentially, I‘m calculating the smallest number, which if multiplied by either number I’m adding together individually, would result in an integer. This is achieved by evaluating the number with the most numbers after the decimal point and what that value is. Once I have the multiplier, I use it on both the numbers I&#39;m adding together, then do the addition, then divide by the multiplier to return the numbers back to their original decimal state.</p>
 <p>By performing the addition on integers, no rounding issues occur.</p>
 <h2>Libraries</h2>
-<p>If you&#39;re needing precision with lots of complex calculations, there are JavaScript libraries specifically for this (although some are horrible Java ports). <a href="https://github.com/MikeMcl/bignumber.js/">bignumber.js</a> looks OK and I remember using <a href="http://www.leemon.com/crypto/BigInt.js">bigint.js</a> with <a href="https://twitter.com/danielcassidy">@danielcassidy</a> and <a href="https://twitter.com/anttears">@anttears</a> back in the day.</p>
+<p>If you&#39;re needing precision with lots of complex calculations, there are JavaScript libraries specifically for this (although some are horrible Java ports). <a href="https://github.com/MikeMcl/bignumber.js/" target="_blank">bignumber.js</a> looks OK and I remember using <a href="http://www.leemon.com/crypto/BigInt.js" target="_blank">bigint.js</a> with <a href="https://twitter.com/danielcassidy" target="_blank">@danielcassidy</a> and <a href="https://twitter.com/anttears" target="_blank">@anttears</a> back in the day.</p>
 
       
     </div>

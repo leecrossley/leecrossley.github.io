@@ -133,7 +133,7 @@
   
     <li><a href="/tags/html/">html</a><small>1</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>4</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
   
@@ -161,11 +161,11 @@
     </header>
     <div class="entry">
       
-        <h2>The &quot;strict mode&quot; pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as &quot;strict mode&quot;. I first came across this when using <a href="http://www.jslint.com/">jslint</a> many moons ago with it&#39;s &quot;missing &#39;use strict&#39; pragma&quot; error message.</p>
+        <h2>The “strict mode” pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
 <p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
 <h2>How to use it</h2>
-<p>You invoke strict mode by placing the string &quot;use strict&quot; at the top of your JavaScript file or function.</p>
+<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
 <figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="string">"use strict"</span>;
 </pre></td></tr></table></figure>
@@ -175,14 +175,14 @@
 <p>All it does it enforce good practices, here are a few examples:</p>
 <h3>Duplicate properties</h3>
 <p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3>The &quot;with&quot; statement</h3>
+<h3>The “with” statement</h3>
 <p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
 <h3>Variable declaration</h3>
 <p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
 <h2>A note on browsers</h2>
 <p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
 <h2>Let&#39;s end on a laugh</h2>
-<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd">this</a>:</p>
+<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="string">"use strict"</span>;

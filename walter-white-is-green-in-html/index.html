@@ -133,7 +133,7 @@
   
     <li><a href="/tags/html/">html</a><small>1</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>4</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
   
@@ -161,33 +161,33 @@
     </header>
     <div class="entry">
       
-        <h2>What has &quot;Walter White&quot; got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I&#39;m a fan myself) but you&#39;re probably thinking <strong>where on earth is he going with this, &quot;Walter White&quot; isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
+        <h2>What has “Walter White” got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I‘m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
 <h3>Example</h3>
 <figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 
-<p>The above code snippet will actually colour the text &quot;Walter White&quot;, in a Breaking Bad green, automatically.</p>
-<p>Don&#39;t believe me? Here&#39;s a <a href="http://codepen.io/leecrossley/pen/DaLdt">live demo</a>. Apologies for the use of a font tag.</p>
+<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
+<p>Don‘t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
 <h2>What is going on here?!</h2>
 <p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
 <h3>The cooking process</h3>
 <ol>
-<li>Replace all invalid hexadecimal characters with &quot;0&quot;</li>
+<li>Replace all invalid hexadecimal characters with “0”</li>
 <li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
 <li>Take the first 2 hexadecimal characters from each group</li>
 </ol>
 <p><strong>Et voilà!</strong></p>
 <p>No? Let&#39;s step through the example.</p>
 <ol>
-<li>&quot;Walter White&quot; becomes &quot;0a00e000000e&quot; when replacing invalid hexadecimal characters with &quot;0&quot;</li>
-<li>&quot;0a00e000000e&quot; is 12 characters long, so dividing into 3 groups gives &quot;0a00 e000 000e&quot;</li>
-<li>Taking the first 2 hexadecimal characters from each group in &quot;0a00 e000 000e&quot; produces &quot;0a e0 00&quot;</li>
+<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
+<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
+<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
 </ol>
-<p><strong>&quot;Walter White&quot; = &quot;#0ae000&quot;</strong></p>
-<p>I would have expected it to be blue, but I&#39;m guessing the process isn&#39;t 100% pure :)</p>
+<p><strong>“Walter White” = “#0ae000”</strong></p>
+<p>I would have expected it to be blue, but I‘m guessing the process isn’t 100% pure :)</p>
 
       
     </div>

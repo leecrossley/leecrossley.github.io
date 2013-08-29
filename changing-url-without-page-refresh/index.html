@@ -133,7 +133,7 @@
   
     <li><a href="/tags/html/">html</a><small>1</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>4</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
   
@@ -162,8 +162,8 @@
     <div class="entry">
       
         <h2>Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#39;t even try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
-<p>I&#39;m not talking about just changing &quot;the bit after the hash (#)&quot; I&#39;m referring to the entire relative url. I&#39;m also not talking about iFrames either - this solution isn&#39;t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won‘t even try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
+<p>I‘m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I‘m also not talking about iFrames either - this solution isn’t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
 <p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
 <h2>How it&#39;s done</h2>
 <p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
@@ -172,9 +172,9 @@
 <ul>
 <li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
 </li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &quot;your title&quot;).</p>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
 </li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &quot;loaded&quot; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#39;t try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won‘t try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
 </li>
 </ul>
 <figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -190,7 +190,7 @@ expect(history.state).toEqual(state);
 </pre></td></tr></table></figure>
 
 
-<p>The above example will update the url in the address bar to be &quot;/new-page&quot; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
 <h3>The history.replaceState() function</h3>
 <p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
 <h3>The onpopstate event</h3>

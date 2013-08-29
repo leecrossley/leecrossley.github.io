@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-27T15:52:34.910Z</updated>
+  <updated>2013-08-29T17:50:49.532Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -17,10 +17,10 @@
     <published>2013-08-27T15:20:31.000Z</published>
     <updated>2013-08-27T15:52:31.000Z</updated>
     <content type="html"><![CDATA[<h2>iOS 7 is coming</h2>
-<p>The latest rumour is the 10th of September, in any case, it&#39;s coming, get your apps ready now if you haven&#39;t already. Don&#39;t ignore this advice, devices running iOS7 running apps that were built for iOS6 (or earlier!) will stick out like a sore thumb.</p>
+<p>The latest rumour is the 10th of September, in any case, it‘s coming, get your apps ready now if you haven’t already. Don&#39;t ignore this advice, devices running iOS7 running apps that were built for iOS6 (or earlier!) will stick out like a sore thumb.</p>
 <h2>What&#39;s changing</h2>
 <h3>The user interface</h3>
-<p>One of the main changes is the look and feel and Apple want you to reflect these new guidelines in your apps. - The <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html">iOS 7 UI Transition Guide</a> (Apple login required) explains this in detail but it impacts textures, gradients, shadows, fonts, colours, navigation, buttons, arrows, keyboards, gauges, icons, actually, EVERYTHING.</p>
+<p>One of the main changes is the look and feel and Apple want you to reflect these new guidelines in your apps. - The <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) explains this in detail but it impacts textures, gradients, shadows, fonts, colours, navigation, buttons, arrows, keyboards, gauges, icons, actually, EVERYTHING.</p>
 <h3>New APIs</h3>
 <p>It&#39;s not just all fluff. There are many changes coming to APIs, including:</p>
 <ul>
@@ -36,7 +36,7 @@
 <p>Who knows, there might even be <a href="/iphone-fingerprint-recognition-for-developers/">Fingerprint recognition</a>.</p>
 <h2>The upshot</h2>
 <p>In order for your existing apps to run properly and effectively on iOS 7, your code is likely to need changes. In some cases these changes could be extensive, depending on the complexity of the app.</p>
-<p>If you don&#39;t upgrade your app, it&#39;ll be 100x worse than when we made the upgrade to retina images or to the slightly larger 4&quot; screen on the iPhone 5.</p>
+<p>If you don‘t upgrade your app, it’ll be 100x worse than when we made the upgrade to retina images or to the slightly larger 4&quot; screen on the iPhone 5.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
@@ -49,10 +49,10 @@
     <updated>2013-08-26T15:59:44.000Z</updated>
     <content type="html"><![CDATA[<h2>The old Social Message plugin</h2>
 <p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
-<p>The plugin bridged functionality between PhoneGap / Cordova&#39;s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn&#39;t follow any <em>strict</em> standards.</p>
+<p>The plugin bridged functionality between PhoneGap / Cordova‘s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
 <h2>New plugin architecture</h2>
-<p>If you&#39;re a developer for PhoneGap / Cordova, you&#39;ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
-<p>I&#39;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message">Social Message plugin</a> has been rewritten to support the &quot;add plugin&quot; command.</p>
+<p>If you‘re a developer for PhoneGap / Cordova, you’ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
+<p>I&#39;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
 <h2>Usage</h2>
 <h3>1 step install</h3>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
@@ -72,11 +72,11 @@
 </pre></td></tr></table></figure>
 
 <p>This example will only allow the user to post the message to Facebook or Twitter.</p>
-<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity">here</a>. You should omit the &quot;UIActivityType&quot; prefix when adding to your array.</p>
+<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank">here</a>. You should omit the “UIActivityType” prefix when adding to your array.</p>
 <h2>Platform support</h2>
 <p>The plugin is currently only implemented for iOS but I&#39;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
-<h2>Just a thought...</h2>
-<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager...</p>
+<h2>Just a thought…</h2>
+<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager…</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
@@ -89,24 +89,24 @@
     <published>2013-08-24T08:33:34.000Z</published>
     <updated>2013-08-24T09:46:29.000Z</updated>
     <content type="html"><![CDATA[<h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
-<p><a href="https://david-dm.org/">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
-<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
+<p><a href="https://david-dm.org/" target="_blank">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
+<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer" target="_blank">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
 <p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
 <h2>Using David</h2>
-<p>David is free for public repos on Github, I don&#39;t think there is a private repo version yet and you can&#39;t use other providers such as bitbucket.</p>
+<p>David is free for public repos on Github, I don‘t think there is a private repo version yet and you can’t use other providers such as bitbucket.</p>
 <p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
 <h3>David informs with badges</h3>
-<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
+<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer" target="_blank">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
 <h3>David informs with RSS</h3>
 <p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
 <h2>Improvements</h2>
 <p>There are many improvements that I hope are implemented soon:</p>
 <ul>
-<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
+<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png" target="_blank">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
 <li>Version info from npm is cached for a whole day, this is too long.</li>
 <li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
 </ul>
-<p>If I see &quot;<a href="https://github.com/alanshaw">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
+<p>If I see &quot;<a href="https://github.com/alanshaw" target="_blank">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -116,11 +116,11 @@
     <id>http://ilee.co.uk/what-is-javascript-strict-mode/</id>
     <published>2013-08-23T09:46:39.000Z</published>
     <updated>2013-08-23T10:27:38.000Z</updated>
-    <content type="html"><![CDATA[<h2>The &quot;strict mode&quot; pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as &quot;strict mode&quot;. I first came across this when using <a href="http://www.jslint.com/">jslint</a> many moons ago with it&#39;s &quot;missing &#39;use strict&#39; pragma&quot; error message.</p>
+    <content type="html"><![CDATA[<h2>The “strict mode” pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
 <p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
 <h2>How to use it</h2>
-<p>You invoke strict mode by placing the string &quot;use strict&quot; at the top of your JavaScript file or function.</p>
+<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
 <figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="string">"use strict"</span>;
 </pre></td></tr></table></figure>
@@ -130,14 +130,14 @@
 <p>All it does it enforce good practices, here are a few examples:</p>
 <h3>Duplicate properties</h3>
 <p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3>The &quot;with&quot; statement</h3>
+<h3>The “with” statement</h3>
 <p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
 <h3>Variable declaration</h3>
 <p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
 <h2>A note on browsers</h2>
 <p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
 <h2>Let&#39;s end on a laugh</h2>
-<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd">this</a>:</p>
+<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="string">"use strict"</span>;
@@ -152,33 +152,33 @@ alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</s
     <id>http://ilee.co.uk/walter-white-is-green-in-html/</id>
     <published>2013-08-22T08:35:34.000Z</published>
     <updated>2013-08-22T09:22:15.000Z</updated>
-    <content type="html"><![CDATA[<h2>What has &quot;Walter White&quot; got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I&#39;m a fan myself) but you&#39;re probably thinking <strong>where on earth is he going with this, &quot;Walter White&quot; isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
+    <content type="html"><![CDATA[<h2>What has “Walter White” got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I‘m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
 <h3>Example</h3>
 <figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 
-<p>The above code snippet will actually colour the text &quot;Walter White&quot;, in a Breaking Bad green, automatically.</p>
-<p>Don&#39;t believe me? Here&#39;s a <a href="http://codepen.io/leecrossley/pen/DaLdt">live demo</a>. Apologies for the use of a font tag.</p>
+<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
+<p>Don‘t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
 <h2>What is going on here?!</h2>
 <p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
 <h3>The cooking process</h3>
 <ol>
-<li>Replace all invalid hexadecimal characters with &quot;0&quot;</li>
+<li>Replace all invalid hexadecimal characters with “0”</li>
 <li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
 <li>Take the first 2 hexadecimal characters from each group</li>
 </ol>
 <p><strong>Et voilà!</strong></p>
 <p>No? Let&#39;s step through the example.</p>
 <ol>
-<li>&quot;Walter White&quot; becomes &quot;0a00e000000e&quot; when replacing invalid hexadecimal characters with &quot;0&quot;</li>
-<li>&quot;0a00e000000e&quot; is 12 characters long, so dividing into 3 groups gives &quot;0a00 e000 000e&quot;</li>
-<li>Taking the first 2 hexadecimal characters from each group in &quot;0a00 e000 000e&quot; produces &quot;0a e0 00&quot;</li>
+<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
+<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
+<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
 </ol>
-<p><strong>&quot;Walter White&quot; = &quot;#0ae000&quot;</strong></p>
-<p>I would have expected it to be blue, but I&#39;m guessing the process isn&#39;t 100% pure :)</p>
+<p><strong>“Walter White” = “#0ae000”</strong></p>
+<p>I would have expected it to be blue, but I‘m guessing the process isn’t 100% pure :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
@@ -190,8 +190,8 @@ alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</s
     <published>2013-08-21T07:42:46.000Z</published>
     <updated>2013-08-21T08:42:29.000Z</updated>
     <content type="html"><![CDATA[<h2>Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#39;t even try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
-<p>I&#39;m not talking about just changing &quot;the bit after the hash (#)&quot; I&#39;m referring to the entire relative url. I&#39;m also not talking about iFrames either - this solution isn&#39;t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won‘t even try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
+<p>I‘m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I‘m also not talking about iFrames either - this solution isn’t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
 <p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
 <h2>How it&#39;s done</h2>
 <p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
@@ -200,9 +200,9 @@ alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</s
 <ul>
 <li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
 </li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &quot;your title&quot;).</p>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
 </li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &quot;loaded&quot; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#39;t try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won‘t try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
 </li>
 </ul>
 <figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -218,7 +218,7 @@ expect(history.state).toEqual(state);
 </pre></td></tr></table></figure>
 
 
-<p>The above example will update the url in the address bar to be &quot;/new-page&quot; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
 <h3>The history.replaceState() function</h3>
 <p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
 <h3>The onpopstate event</h3>
@@ -240,12 +240,12 @@ expect(history.state).toEqual(state);
     <updated>2013-08-20T13:01:05.000Z</updated>
     <content type="html"><![CDATA[<h2>Timing is everything</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
-<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
+<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
 <p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
 <h2>grunt-timer</h2>
-<p>I threw <a href="https://npmjs.org/package/grunt-timer">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
+<p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
 <h2>Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it&#39;s a little hacky the way I&#39;ve done it using hooks and the time isn&#39;t 100% accurate.</p>
+<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it‘s a little hacky the way I’ve done it using hooks and the time isn&#39;t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
 <h2>How do I use it?</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
@@ -279,10 +279,10 @@ Task <span class="string">'run:500'</span> took <span class="number">502ms</span
 <h2>Issues</h2>
 <p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
 <ul>
-<li>The last task duration is output after the &quot;Done, without errors&quot;.</li>
+<li>The last task duration is output after the “Done, without errors”.</li>
 <li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
 </ul>
-<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer">git repo</a>.</p>
+<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -292,14 +292,14 @@ Task <span class="string">'run:500'</span> took <span class="number">502ms</span
     <id>http://ilee.co.uk/shake-gesture-detection-in-phonegap/</id>
     <published>2013-08-19T09:48:27.000Z</published>
     <updated>2013-08-21T09:58:53.000Z</updated>
-    <content type="html"><![CDATA[<h2>Detecting shake events in your <a href="http://phonegap.com/">PhoneGap</a> / Cordova apps</h2>
+    <content type="html"><![CDATA[<h2>Detecting shake events in your <a href="http://phonegap.com/" target="_blank">PhoneGap</a> / Cordova apps</h2>
 <p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
 <p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
 <h2>The gist</h2>
-<p>I wrote a <a href="https://gist.github.com/leecrossley/4078996">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
-<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
+<p>I wrote a <a href="https://gist.github.com/leecrossley/4078996" target="_blank">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
+<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
 <h2>Using shake.js</h2>
-<p>If you&#39;re interested in using shake.js, it&#39;s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
+<p>If you‘re interested in using shake.js, it’s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
 <figure class="highlight lang-javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -323,7 +323,7 @@ shake.stopWatch();
 
 <h2>Platforms</h2>
 <p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
-<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
+<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
@@ -336,21 +336,21 @@ shake.stopWatch();
     <published>2013-08-18T08:47:54.000Z</published>
     <updated>2013-08-18T10:39:23.000Z</updated>
     <content type="html"><![CDATA[<h2>Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn&#39;t take sick days, pays attention and watches what you&#39;re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It&#39;s easy to configure and once it&#39;s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>Let grunt handle all your JavaScript tasks. It doesn‘t take sick days, pays attention and watches what you’re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It‘s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
 <p>I&#39;m just going to cover the basics here for now.</p>
 <h2>Getting the ball rolling</h2>
 <p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
 <h3>The Grunt CLI</h3>
-<p>Assuming you&#39;re a serious developer, you&#39;ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
+<p>Assuming you‘re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">npm</span> install -g grunt-cli
 </pre></td></tr></table></figure>
 
 
-<p>You can now run &quot;grunt&quot; from anywhere. Happy times.</p>
+<p>You can now run “grunt” from anywhere. Happy times.</p>
 <h3>The Gruntfile.js</h3>
-<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -379,7 +379,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js">spec.js</a>.</p>
+<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank">spec.js</a>.</p>
 <p>You can run it by doing:</p>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">grunt</span> jasmine
@@ -387,7 +387,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 
 <h3>Combining tasks</h3>
-<p>In the above example, it&#39;s unlikely that you&#39;ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
+<p>In the above example, it‘s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
 </pre></td></tr></table></figure>
@@ -395,7 +395,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
 <h3>Watching for changes</h3>
-<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing &quot;grunt test&quot; and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -449,11 +449,11 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 <h2>The difference</h2>
 <p>I recently read an accepted answer on Stack Overflow that stated:</p>
-<blockquote><p>&quot;<em>If you&#39;re in the global scope then there&#39;s no difference.</em>&quot;</p>
+<blockquote><p>&quot;<em>If you‘re in the global scope then there’s no difference.</em>&quot;</p>
 <footer><strong>- Stack Overflow</strong></footer></blockquote>
 
 
-<p>I&#39;m sorry but I don&#39;t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn">for this</a>:</p>
+<p>I‘m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -498,7 +498,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
 <ul>
 <li>func1 (var format) is defined <strong>at</strong> runtime</li>
-<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting">hoisted</a>&quot;</li>
+<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>&quot;</li>
 </ul>
 <h2>Function expressions</h2>
 <p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
@@ -534,7 +534,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <p><img src="/img/socks.png" alt="Socks"></p>
 <h2>Why should I use real mobiles and tablets?</h2>
 <h3>Connection types and failure</h3>
-<p>If you&#39;re transferring data you need to ensure it works with any type of connection (whether it&#39;s via 2G, 3G, 4G or WIFI etc) and if that connection fails, it&#39;s handled elegantly. You should also test for switching connection types. Different devices also have different connection possibilities.</p>
+<p>If you‘re transferring data you need to ensure it works with any type of connection (whether it’s via 2G, 3G, 4G or WIFI etc) and if that connection fails, it&#39;s handled elegantly. You should also test for switching connection types. Different devices also have different connection possibilities.</p>
 <h3>3rd party alerts and notifications</h3>
 <p>To ensure your app responds appropriately when there&#39;s an unexpected condition, such as an incoming phone call, message, email, push notification or other type of intrusive alert.</p>
 <h3>Performance</h3>
@@ -544,11 +544,11 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <h2>They&#39;re expensive!</h2>
 <p>Physical devices are costly to acquire, once you have 20 (and that&#39;s really not a lot) you could have easily spent £10K! These devices grow old quickly and their resale value drops drastically, not that you can sell them anyway, you need them for legacy testing.</p>
 <h2>Old devices</h2>
-<p>It&#39;s not just the new, cutting edge devices you need to buy (although they are usually the most expensive), it&#39;s the old legacy devices that often use older operating system versions you need too. I&#39;ve trawled ebay many times looking for devices that have a specific issue.</p>
+<p>It‘s not just the new, cutting edge devices you need to buy (although they are usually the most expensive), it’s the old legacy devices that often use older operating system versions you need too. I&#39;ve trawled ebay many times looking for devices that have a specific issue.</p>
 <h2>Come on, keep up</h2>
 <p>With the mobile and tablet market developing at an incredibly fast rate, new devices are launched regularly, so you might as well keep your bank card out of your wallet.</p>
 <h2>Competitions</h2>
-<p>This is a great way to get your hands on new devices. I recently won a first prize in a <a href="http://www.phonegapwpchallenge.com/">Windows Phone Challenge</a> that landed me a shiny new Nokia Lumia 820 (that sits nicely next to my Nokia Lumia 920).</p>
+<p>This is a great way to get your hands on new devices. I recently won a first prize in a <a href="http://www.phonegapwpchallenge.com/" target="_blank">Windows Phone Challenge</a> that landed me a shiny new Nokia Lumia 820 (that sits nicely next to my Nokia Lumia 920).</p>
 <h2>Where does this leave us?</h2>
 <p>With draws full of mobile and tablets and not enough money to buy socks. Oh, but with killer apps :)</p>
 ]]></content>
@@ -561,18 +561,18 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     <published>2013-08-15T13:55:34.000Z</published>
     <updated>2013-08-15T14:40:31.000Z</updated>
     <content type="html"><![CDATA[<h2>Get more twitter retweets and favourites</h2>
-<p><a href="http://www.tweetthen.com/">TweetThen</a> allows you to calculate the optimal day and time for you to tweet, based on retweets and favourites your tweets have had in the past.</p>
+<p><a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> allows you to calculate the optimal day and time for you to tweet, based on retweets and favourites your tweets have had in the past.</p>
 <h2>How does it work?</h2>
-<p>Visit <a href="http://www.tweetthen.com/">TweetThen</a> and authorise the website to access your twitter account. <strong>That&#39;s it!</strong> You&#39;ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
+<p>Visit <a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> and authorise the website to access your twitter account. <strong>That&#39;s it!</strong> You&#39;ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
 <h2>Why should I bother?</h2>
 <p>Whether you&#39;re an individual or a company, you tweet because you want people to read it and engage with it. If you have an important tweet, you want to get the maximum possible exposure.</p>
 <p>Twitter is global and users/followers are from various timezones, so your optimal post time may not be what you think. Also, everyones followers are different, TweetThen tailors your date and times directly to your twitter account.</p>
 <h2>Is this a unique idea?</h2>
-<p>I&#39;ve found a couple of others doing similar things. One service is free but doesn&#39;t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
+<p>I‘ve found a couple of others doing similar things. One service is free but doesn’t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
 <h2>Who wrote it?</h2>
-<p>If you&#39;ve not guessed by now, it&#39;s a little pet project I started yesterday. It&#39;s built using <a href="http://nodejs.org/">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
+<p>If you‘ve not guessed by now, it’s a little pet project I started yesterday. It&#39;s built using <a href="http://nodejs.org/" target="_blank">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
 <h2>Alpha?</h2>
-<p>It&#39;s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I&#39;m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
+<p>It‘s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I’m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
 <p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when&#39;s best to do it :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
@@ -585,26 +585,26 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     <published>2013-08-13T13:00:58.000Z</published>
     <updated>2013-08-13T14:20:42.000Z</updated>
     <content type="html"><![CDATA[<h2>What is Hack Manchester?</h2>
-<p>It&#39;s a 24 hour coding competition located in Manchester that started in 2012. This year (as it was last year) it&#39;s held at the <a href="http://www.mosi.org.uk/">Museum of Science and Industry</a> and is on the 26th and 27th of October 2013 to kick off 2013&#39;s <a href="http://www.manchestersciencefestival.com/">Manchester Science Festival</a>. Props to <a href="https://twitter.com/ruby_gem">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie">@theallseeingpie</a> for their hard work in organising such a great coding event.</p>
+<p>It‘s a 24 hour coding competition located in Manchester that started in 2012. This year (as it was last year) it’s held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> and is on the 26th and 27th of October 2013 to kick off 2013&#39;s <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>. Props to <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a> for their hard work in organising such a great coding event.</p>
 <h2>Hackathons</h2>
-<p>Getting top developers working and collaborating together on innovative web and/or mobile apps is always going to produce great results, make it into a competition and the results are even better :). I used to contract at NICE in Manchester where they&#39;d have hack days for the dev team within the organisation to drive forward creativity and new ideas. It&#39;s a fantastic way to work and there should be more of them.</p>
+<p>Getting top developers working and collaborating together on innovative web and/or mobile apps is always going to produce great results, make it into a competition and the results are even better :). I used to contract at NICE in Manchester where they‘d have hack days for the dev team within the organisation to drive forward creativity and new ideas. It’s a fantastic way to work and there should be more of them.</p>
 <h2>Winning in 2012</h2>
-<p>If you know me, I&#39;ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive &quot;What&#39;s On&quot; app for the Museum of Science and Industry. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal &quot;day planner&quot;. There&#39;s a <a href="http://vimeo.com/52477912">video here</a> if you&#39;re interested.</p>
+<p>If you know me, I‘ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive “What’s On” app for the Museum of Science and Industry. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal “day planner”. There&#39;s a <a href="http://vimeo.com/52477912" target="_blank">video here</a> if you&#39;re interested.</p>
 <h2>The team is back</h2>
-<p>I&#39;m not <a href="http://en.wikipedia.org/wiki/Bring_Back...#Bring_Back...The_A-Team">Justin Lee Collins</a> but I&#39;ve brought the team back together. <a href="https://twitter.com/lee_crossley">Myself</a>, <a href="https://twitter.com/edhiley">@edhiley</a> and <a href="https://twitter.com/ryansroberts">@ryansroberts</a> have thrown some preliminary ideas in the pot and we&#39;re waiting for all the sponsor APIs to be announced.</p>
+<p>I&#39;m not <a href="http://en.wikipedia.org/wiki/Bring_Back...#Bring_Back...The_A-Team" target="_blank">Justin Lee Collins</a> but I&#39;ve brought the team back together. <a href="https://twitter.com/lee_crossley" target="_blank">Myself</a>, <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> have thrown some preliminary ideas in the pot and we&#39;re waiting for all the sponsor APIs to be announced.</p>
 <h2>Lessons learnt</h2>
 <p>We learnt some things from last year that I&#39;m happy to share with you:</p>
 <ul>
-<li><strong>Idea planning.</strong> Don&#39;t do any <em>coding</em> before the day (it&#39;s against the rules) but having some ideas of what you&#39;re going to code and reading any documentation before hand will save you time (and fighting) on the day.</li>
+<li><strong>Idea planning.</strong> Don&#39;t do any <em>coding</em> before the day (it‘s against the rules) but having some ideas of what you’re going to code and reading any documentation before hand will save you time (and fighting) on the day.</li>
 <li><strong>Have your tool chain / dev environment ready.</strong> Last year <em>one of our team members</em> tried to download xcode right at the start of the coding session.</li>
-<li><strong>Be realistic about what you&#39;re building.</strong> Time flies, it&#39;ll be 4am before you know it and you don&#39;t want to add extra stress to the caffeine + no sleep equation. Make sure you&#39;re realistic about what you can achieve, review this constantly and have contingency plans.</li>
-<li><strong>Know the sponsors.</strong> If you&#39;re using a sponsors API, it&#39;s crucial that you have a relationship with them if you&#39;re going to need help. It&#39;ll save you time and they&#39;ll be excited to see what you&#39;re doing.</li>
-<li><strong>Have breaks and enjoy it.</strong> We found that coming back to things after a short break made us more productive. Fortunately the nice guys at Hack Manchester organise food and snacks etc for you. It&#39;s your free time, take the time to meet other people and find out what they&#39;re up to. I always meet great people at hack events.</li>
+<li><strong>Be realistic about what you&#39;re building.</strong> Time flies, it‘ll be 4am before you know it and you don’t want to add extra stress to the caffeine + no sleep equation. Make sure you&#39;re realistic about what you can achieve, review this constantly and have contingency plans.</li>
+<li><strong>Know the sponsors.</strong> If you‘re using a sponsors API, it’s crucial that you have a relationship with them if you‘re going to need help. It’ll save you time and they‘ll be excited to see what you’re doing.</li>
+<li><strong>Have breaks and enjoy it.</strong> We found that coming back to things after a short break made us more productive. Fortunately the nice guys at Hack Manchester organise food and snacks etc for you. It‘s your free time, take the time to meet other people and find out what they’re up to. I always meet great people at hack events.</li>
 </ul>
 <h2>Tickets</h2>
-<p>Tickets for Hack Manchester 2013 went <a href="http://hackmanchester.eventbrite.com/">on sale yesterday</a> and were selling pretty fast. I scooped up 3 tickets for my team, if you missed your chance to get yours there will be other opportunities, so I suggest following <a href="https://twitter.com/HackManchester">@HackManchester</a> on twitter to find out when the next wave will be released.</p>
+<p>Tickets for Hack Manchester 2013 went <a href="http://hackmanchester.eventbrite.com/" target="_blank">on sale yesterday</a> and were selling pretty fast. I scooped up 3 tickets for my team, if you missed your chance to get yours there will be other opportunities, so I suggest following <a href="https://twitter.com/HackManchester" target="_blank">@HackManchester</a> on twitter to find out when the next wave will be released.</p>
 <h2>Shhhh</h2>
-<p>I&#39;ll probably not be discussing any preliminary hack ideas here, but I like Guinness and if you&#39;re around Manchester...</p>
+<p>I‘ll probably not be discussing any preliminary hack ideas here, but I like Guinness and if you’re around Manchester…</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
@@ -617,17 +617,17 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     <published>2013-08-12T07:21:53.000Z</published>
     <updated>2013-08-12T07:58:51.000Z</updated>
     <content type="html"><![CDATA[<h2>The new iPhone fingerprint recognition API</h2>
-<p>As a mobile app developer, I follow new mobile technologies very closely. You&#39;ve probably noticed yourself an abundance of rumours on various sites about the upcoming &quot;Fingerprint Recognition&quot; seen in the new beta version of iOS7. This suggests the hardware capabilities will be available on the next version of the iPhone (iPhone 5S?).</p>
-<p>The &quot;BiometricKitUI&quot; directory can be found in the &quot;Accessibility Bundles&quot; and judging by the small amount of documentation, implies that the fingerprint sensor will be part of the home button.</p>
+<p>As a mobile app developer, I follow new mobile technologies very closely. You&#39;ve probably noticed yourself an abundance of rumours on various sites about the upcoming “Fingerprint Recognition” seen in the new beta version of iOS7. This suggests the hardware capabilities will be available on the next version of the iPhone (iPhone 5S?).</p>
+<p>The “BiometricKitUI” directory can be found in the “Accessibility Bundles” and judging by the small amount of documentation, implies that the fingerprint sensor will be part of the home button.</p>
 <p><img src="/img/fingerprint-iphone.png" alt="Fingerprint scanning on iPhone"></p>
 <h2>Will it be available to app developers?</h2>
 <p>This is what I want to know :) I can see several usages for the core system, such as a login alternative to swipe and pin, verification for app store purchases, parental control, restricted apps and maybe even user profiles, although apple have always seemed to push for everyone having their own device for some reason ;).</p>
 <h2>When will we know?</h2>
-<p>I&#39;m sure app developers at the top banks know, with this being a possible security option for them. I&#39;m going to ask some of my tweeps today and will post an update when I find out.</p>
+<p>I‘m sure app developers at the top banks know, with this being a possible security option for them. I’m going to ask some of my tweeps today and will post an update when I find out.</p>
 <p>It&#39;s strongly believed that the new iPhone will be available on the 10th of September 2013, I also imagine the iOS7 release to be scheduled for around this time, as in past years.</p>
 <h2>Will it be any good?</h2>
-<p>I&#39;ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I&#39;ve found it to be unreliable and a nuisance. Will Apple&#39;s implementation and hardware be better? Having just acquired &quot;AuthenTec&quot; for $356 million in July 2012 you&#39;d like to hope so. If not, I&#39;m sure they&#39;ll tell us we&#39;re &quot;holding it wrong&quot; :)</p>
-<h2>&quot;i&quot;Lee, is this blog going to be Apple-y?</h2>
+<p>I‘ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I’ve found it to be unreliable and a nuisance. Will Apple‘s implementation and hardware be better? Having just acquired “AuthenTec” for $356 million in July 2012 you’d like to hope so. If not, I‘m sure they’ll tell us we&#39;re “holding it wrong” :)</p>
+<h2>“i”Lee, is this blog going to be Apple-y?</h2>
 <p>No. Not at all (actually being serious here). Although MacBook Pros are the best. Please don&#39;t give them fingerprint recognition.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
@@ -639,9 +639,9 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     <id>http://ilee.co.uk/multiple-function-composition/</id>
     <published>2013-08-11T10:31:55.000Z</published>
     <updated>2013-08-11T11:12:32.000Z</updated>
-    <content type="html"><![CDATA[<h2>&quot;Function Composition&quot; sounds complicated, what is it?</h2>
-<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
-<h3>Basic example using <a href="https://github.com/leecrossley/functional-js">functional.js</a> to combine two functions</h3>
+    <content type="html"><![CDATA[<h2>“Function Composition” sounds complicated, what is it?</h2>
+<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
+<h3>Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -662,8 +662,8 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
 </pre></td></tr></table></figure>
 
-<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned &quot;hello 2&quot; as a single result. Thanks to <a href="https://twitter.com/ryansroberts">@ryansroberts</a> for this one.</p>
-<h3>Example using <a href="https://github.com/leecrossley/functional-js">functional.js</a> to combine three functions</h3>
+<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned “hello 2” as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
+<h3>Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -690,13 +690,13 @@ expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"he
 expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
 </pre></td></tr></table></figure>
 
-<p>This example illustrates the combining of multiple functions, passing the output from function &quot;g&quot; as a parameter to function &quot;f&quot;, then passing the output from function &quot;f&quot; as a parameter to function &quot;e&quot;. This leaves you with a single returned result, in this case &quot;hello 201&quot;.</p>
+<p>This example illustrates the combining of multiple functions, passing the output from function “g” as a parameter to function “f”, then passing the output from function “f” as a parameter to function “e”. This leaves you with a single returned result, in this case “hello 201”.</p>
 <h2>Ah ha! This is just inheritance for JavaScript</h2>
-<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
+<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
 <h2>What&#39;s the benefit?</h2>
-<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It&#39;s the future, things move on... you&#39;re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
+<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It‘s the future, things move on… you’re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
 <h2>functional.js (λ)</h2>
-<p>It&#39;s coming on, and expect more function-level programming support soon. Don&#39;t be shy to contribute and note that I&#39;m currently using 4 soft spaces for tabs, don&#39;t make me go all Crockford on you.</p>
+<p>It‘s coming on, and expect more function-level programming support soon. Don’t be shy to contribute and note that I‘m currently using 4 soft spaces for tabs, don’t make me go all Crockford on you.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -707,9 +707,9 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
     <published>2013-08-10T14:38:54.000Z</published>
     <updated>2013-08-10T15:30:13.000Z</updated>
     <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
-<p>functional.js is (go on, guess) a functional JavaScript library I&#39;m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming">point-free / tacit</a> programming in JavaScript.</p>
-<p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/">jasmine</a> tests are below).</p>
-<p>I&#39;m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming">functional-level programming</a> but it&#39;s pretty tough ;). <a href="https://github.com/leecrossley/functional-js">Contributions</a> are more than welcome if you fancy some brain pain.</p>
+<p>functional.js is (go on, guess) a functional JavaScript library I&#39;m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
+<p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank">jasmine</a> tests are below).</p>
+<p>I&#39;m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank">functional-level programming</a> but it&#39;s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank">Contributions</a> are more than welcome if you fancy some brain pain.</p>
 <h3>Basic λ.curry example</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -835,15 +835,15 @@ expect(result).toEqual(<span class="number">6</span>);
 <p>I like <del>torture</del> to push myself as a developer.</p>
 <h2>Great, but, erm, why?</h2>
 <p>By extending functions into chains of functions with fewer arguments (currying), you can fix earlier known values and return a function that only accepts future values. This avoids repetition, a good programming practice, and will assist my high-level function refinement.</p>
-<p>Libraries like <a href="http://underscorejs.org/">underscore</a> can&#39;t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There&#39;s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it&#39;s been developed further. It also has no dependencies.</p>
+<p>Libraries like <a href="http://underscorejs.org/" target="_blank">underscore</a> can‘t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There’s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it&#39;s been developed further. It also has no dependencies.</p>
 <h2>Where can I get it?</h2>
 <ul>
 <li>$ git clone git@github.com:leecrossley/functional-js.git</li>
 <li>$ npm install functional.js</li>
-<li><a href="http://bit.ly/funcmin">functional.min.js</a></li>
+<li><a href="http://bit.ly/funcmin" target="_blank">functional.min.js</a></li>
 </ul>
 <h2>I have issues</h2>
-<p>As long as they&#39;re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues">github</a>.</p>
+<p>As long as they&#39;re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues" target="_blank">github</a>.</p>
 <h2>Where&#39;s the λ key?</h2>
 <p>You&#39;re probably reading the wrong blog post :)</p>
 ]]></content>
@@ -857,7 +857,7 @@ expect(result).toEqual(<span class="number">6</span>);
     <updated>2013-08-09T07:39:23.000Z</updated>
     <content type="html"><![CDATA[<h2>Numbers don&#39;t add up!</h2>
 <p><strong>0.1 + 0.2 = 0.30000000000000004</strong></p>
-<p>Sometimes numbers in JavaScript (and other languages) simply don&#39;t appear to add up. <a href="http://codepen.io/leecrossley/pen/DBJcE">Don&#39;t believe me?</a>.</p>
+<p>Sometimes numbers in JavaScript (and other languages) simply don&#39;t appear to add up. <a href="http://codepen.io/leecrossley/pen/DBJcE" target="_blank">Don&#39;t believe me?</a>.</p>
 <figure class="highlight lang-javascript"><figcaption><span>0.1 + 0.2 = 0.30000000000000004 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -875,9 +875,9 @@ console.log(result);
 
 <p>I discovered this in the early days of programming when building a JavaScript calculator, which fortunately is now nowhere to be seen :)</p>
 <h2>Floating point numbers</h2>
-<p>JavaScript uses <a href="http://en.wikipedia.org/wiki/Floating_point">Floating Point Numbers</a>, which don&#39;t cater for an accurate representations of a decimal. This means that as soon as the variable is interpreted at runtime, a rounding issue is introduced. Computers are faster and more efficient at dealing with computations on binary numbers, which produces the issue with the 17th decimal place.</p>
+<p>JavaScript uses <a href="http://en.wikipedia.org/wiki/Floating_point" target="_blank">Floating Point Numbers</a>, which don&#39;t cater for an accurate representations of a decimal. This means that as soon as the variable is interpreted at runtime, a rounding issue is introduced. Computers are faster and more efficient at dealing with computations on binary numbers, which produces the issue with the 17th decimal place.</p>
 <h2>How to fix it</h2>
-<p><a href="http://codepen.io/leecrossley/pen/hKmEa">Here&#39;s an example</a> of how I eliminate the rounding issues.</p>
+<p><a href="http://codepen.io/leecrossley/pen/hKmEa" target="_blank">Here&#39;s an example</a> of how I eliminate the rounding issues.</p>
 <figure class="highlight lang-javascript"><figcaption><span>0.1 + 0.2 = 0.3 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -909,10 +909,10 @@ console.log(result);
 </pre></td></tr></table></figure>
 
 
-<p>Essentially, I&#39;m calculating the smallest number, which if multiplied by either number I&#39;m adding together individually, would result in an integer. This is achieved by evaluating the number with the most numbers after the decimal point and what that value is. Once I have the multiplier, I use it on both the numbers I&#39;m adding together, then do the addition, then divide by the multiplier to return the numbers back to their original decimal state.</p>
+<p>Essentially, I‘m calculating the smallest number, which if multiplied by either number I’m adding together individually, would result in an integer. This is achieved by evaluating the number with the most numbers after the decimal point and what that value is. Once I have the multiplier, I use it on both the numbers I&#39;m adding together, then do the addition, then divide by the multiplier to return the numbers back to their original decimal state.</p>
 <p>By performing the addition on integers, no rounding issues occur.</p>
 <h2>Libraries</h2>
-<p>If you&#39;re needing precision with lots of complex calculations, there are JavaScript libraries specifically for this (although some are horrible Java ports). <a href="https://github.com/MikeMcl/bignumber.js/">bignumber.js</a> looks OK and I remember using <a href="http://www.leemon.com/crypto/BigInt.js">bigint.js</a> with <a href="https://twitter.com/danielcassidy">@danielcassidy</a> and <a href="https://twitter.com/anttears">@anttears</a> back in the day.</p>
+<p>If you&#39;re needing precision with lots of complex calculations, there are JavaScript libraries specifically for this (although some are horrible Java ports). <a href="https://github.com/MikeMcl/bignumber.js/" target="_blank">bignumber.js</a> looks OK and I remember using <a href="http://www.leemon.com/crypto/BigInt.js" target="_blank">bigint.js</a> with <a href="https://twitter.com/danielcassidy" target="_blank">@danielcassidy</a> and <a href="https://twitter.com/anttears" target="_blank">@anttears</a> back in the day.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -924,9 +924,9 @@ console.log(result);
     <updated>2013-08-08T09:55:13.000Z</updated>
     <content type="html"><![CDATA[<h2>Why?</h2>
 <p>The short of it - speeding up your website is a great thing to do all round. It improves visitor experience, retention, and conversions. With data mobile browsing becoming increasingly popular, saving those extra few KB to download can make a big difference to your users.</p>
-<p>On April 9th 2010 <a href="http://googlewebmastercentral.blogspot.co.uk/2010/04/using-site-speed-in-web-search-ranking.html">Google officially announced</a> the inclusion of a new &quot;signal&quot; in their search ranking algorithms. You guessed it, page speed. So it goes without saying that using Google PageSpeed on your site could also improve your search engine rankings.</p>
+<p>On April 9th 2010 <a href="http://googlewebmastercentral.blogspot.co.uk/2010/04/using-site-speed-in-web-search-ranking.html" target="_blank">Google officially announced</a> the inclusion of a new “signal” in their search ranking algorithms. You guessed it, page speed. So it goes without saying that using Google PageSpeed on your site could also improve your search engine rankings.</p>
 <h2>It&#39;s free?</h2>
-<p>Yes and no, Google are in it for the €€€ in their Irish pocket. The Google PageSpeed <a href="https://developers.google.com/speed/pagespeed/insights">Insights</a> are currently (and I imagine will always be) free, but the Google PageSpeed <a href="https://developers.google.com/speed/pagespeed/service">Service</a> is only a limited free trial. Lose <em>wait</em> that way and the pounds are sure to drop off.</p>
+<p>Yes and no, Google are in it for the €€€ in their Irish pocket. The Google PageSpeed <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">Insights</a> are currently (and I imagine will always be) free, but the Google PageSpeed <a href="https://developers.google.com/speed/pagespeed/service" target="_blank">Service</a> is only a limited free trial. Lose <em>wait</em> that way and the pounds are sure to drop off.</p>
 <h2>Insights vs Service</h2>
 <p>The Insights allow Google to analyse your website and generate suggestions to help make it faster. The PageSpeed score is any number up to 100 (the higher the better, but Google have suggested you should aim for 85 and above). They also colour code suggestions to help you see which changes will give you the highest impact and potentially quick wins (they&#39;re red). Their current suggestions are mainly:</p>
 <ul>
@@ -941,9 +941,9 @@ console.log(result);
 <p><img src="/img/response-speed.png" alt="200ms Response"></p>
 <p>Some of the Insights guidance is (probably intentionally) tough to follow and may also be constrained by the technology or hosting you&#39;re using. Do not fear, Google is here, with their quick and easy, automated service. Alternatively, you could just use a <a href="http://ilee.co.uk/static-site-generators/">Static Site Generator</a> with some sensible hosting. I&#39;ll probably go over some of the more tricky suggestions at a later date.</p>
 <h2>Don&#39;t just do it once</h2>
-<p>Do it every night if you can - and make sure you&#39;re always on top. As for PageSpeed Insights, because the web is fast paced and continually evolving, they&#39;re iterative. Just like the main search algorithm, expect the PageSpeed algorithm and suggestions to change frequently.</p>
+<p>Do it every night if you can - and make sure you‘re always on top. As for PageSpeed Insights, because the web is fast paced and continually evolving, they’re iterative. Just like the main search algorithm, expect the PageSpeed algorithm and suggestions to change frequently.</p>
 <h2>This blog</h2>
-<p>Bragging time again. This site currently (at the time of writing) has a desktop PageSpeed score of 97/100. That&#39;s better than Facebook, Twitter, ebay etc and equal to Google&#39;s own score for Google.com. Yey for me.</p>
+<p>Bragging time again. This site currently (at the time of writing) has a desktop PageSpeed score of 97/100. That‘s better than Facebook, Twitter, ebay etc and equal to Google’s own score for Google.com. Yey for me.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
@@ -957,20 +957,20 @@ console.log(result);
 <p>Print designers that design for the web are stepping close to the edge.</p>
 <p><img src="/img/flat-world.png" alt="The world is flat"></p>
 <h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It&#39;s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that&#39;s what users want, something that&#39;s easy to use and understand. It loads quickly too, but that&#39;s a discussion for another day.</p>
-<h2>The &quot;Flat UI&quot; / &quot;Metro&quot; era</h2>
+<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It‘s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that’s what users want, something that‘s easy to use and understand. It loads quickly too, but that’s a discussion for another day.</p>
+<h2>The “Flat UI” / “Metro” era</h2>
 <p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
 <ul>
-<li><p><a href="https://www.gov.uk/designprinciples">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
+<li><p><a href="https://www.gov.uk/designprinciples" target="_blank">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
 </li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
+<li><p><a href="http://developer.windowsphone.com/en-us/design/principles" target="_blank">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
 </li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
+<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
 </li>
 </ul>
-<p>By now you&#39;ve probably realised I&#39;m not just talking about the web, I&#39;m talking about mobile apps too.</p>
+<p>By now you‘ve probably realised I’m not just talking about the web, I&#39;m talking about mobile apps too.</p>
 <h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/">Flat UI</a>, which this blog uses. You don&#39;t need to worry about gradient colours or shadow colours and depth (sorry if that&#39;s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
+<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/" target="_blank">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/" target="_blank">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators" target="_blank">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/" target="_blank">Flat UI</a>, which this blog uses. You don‘t need to worry about gradient colours or shadow colours and depth (sorry if that’s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
 <h2>Good developers</h2>
 <p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
 <h2>Where does this leave print designers?</h2>
@@ -986,20 +986,20 @@ console.log(result);
     <published>2013-08-06T16:15:06.000Z</published>
     <updated>2013-08-07T13:06:57.000Z</updated>
     <content type="html"><![CDATA[<h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn&#39;t bigger be better? It turns out it&#39;s not.</p>
+<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn‘t bigger be better? It turns out it’s not.</p>
 <h2><em>We</em> got it wrong</h2>
 <ul>
 <li>Static HTML files are fast, no need for in-memory caching.</li>
 <li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
 <li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
 </ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and &quot;last updated&quot; dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
+<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and “last updated” dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
 <h2>Enter the Static Site Generator</h2>
 <p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don&#39;t have to use one off the shelf, they&#39;re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
+<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don‘t have to use one off the shelf, they’re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
 <p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
 <h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io">github</a> pages, with a custom domain name. I&#39;m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn&#39;t notice the page loading.</p>
+<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io" target="_blank">github</a> pages, with a custom domain name. I‘m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn’t notice the page loading.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
