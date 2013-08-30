@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/plugin-registry-for-cordova-phonegap/</loc>
+    <lastmod>2013-08-30T18:11:04.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/are-your-apps-ready-for-ios-7/</loc>
     <lastmod>2013-08-27T15:52:31.000Z</lastmod>
   </url>
@@ -86,6 +90,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-08-29T17:50:49.553Z</lastmod>
+    <lastmod>2013-08-30T18:11:16.332Z</lastmod>
   </url>
 </urlset>

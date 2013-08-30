@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shake Gesture Detection in PhoneGap | iLee</title>
+  <title>Plugin Registry for Cordova/PhoneGap | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="How to detect shake gestures when writing a web based hybrid app in PhoneGap (Cordova).">
+  <meta name="description" content="A searchable list of all Cordova / PhoneGap plugins, with simple representation of the platforms and engines supported.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Shake Gesture Detection in PhoneGap"/>
+  <meta property="og:title" content="Plugin Registry for Cordova/PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
   <meta property="og:image" content="https://2.gravatar.com/avatar/467b6e8a473f45a15ac9514a30c15c3d?s=150" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
@@ -151,48 +151,37 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
+        <time datetime="2013-08-30T17:39:42.000Z">30th Aug 2013</time>
       
       
   
-    <h1 class="title">Shake Gesture Detection in PhoneGap</h1>
+    <h1 class="title">Plugin Registry for Cordova/PhoneGap</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>Detecting shake events in your <a href="http://phonegap.com/" target="_blank">PhoneGap</a> / Cordova apps</h2>
-<p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
-<p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
-<h2>The gist</h2>
-<p>I wrote a <a href="https://gist.github.com/leecrossley/4078996" target="_blank">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
-<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
-<h2>Using shake.js</h2>
-<p>If you‘re interested in using shake.js, it’s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
-<figure class="highlight lang-javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> onShake = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  <span class="comment">// Code fired when a shake is detected</span>
-};
+        <h2>The PhoneGap-Gap</h2>
+<p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
+<p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
+<blockquote>&quot;<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>&quot;</blockquote>
 
-<span class="comment">// Start watching for shake gestures and call "onShake"</span>
-shake.startWatch(onShake);
-
-<span class="comment">// Stop watching for shake gestures</span>
-shake.stopWatch();
-</pre></td></tr></table></figure>
-
-
-<h2>Platforms</h2>
-<p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
-<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
+<h2>Making dreams come true</h2>
+<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That&#39;s right, <em>I&#39;ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
+<h3><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
+<p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
+<ul>
+<li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
+<li><strong>Search</strong>. Search on plugin name and keywords</li>
+<li><strong>Authors List</strong>. List of all plugin authors, with how many plugins and a total count</li>
+<li><strong>Author Page</strong>. List of all plugins by an author (and avatar), and a link to their GitHub</li>
+<li><strong>Plugins List</strong>. List of all plugins and a total count</li>
+<li><strong>Plugin Details</strong>. Details such as plugin description, supported platforms, engines, keyword tags, link to GitHub and installation instructions</li>
+<li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
+</ul>
+<h2>Suggestions, comments and feedback</h2>
+<p>All welcome, one thing I&#39;m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
+<p>Please add your own plugins or any plugins you have used.</p>
 
       
     </div>
@@ -200,17 +189,17 @@ shake.stopWatch();
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/shake-gesture-detection-in-phonegap"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Shake Gesture Detection in PhoneGap&url=http://ilee.co.uk/shake-gesture-detection-in-phonegap&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/shake-gesture-detection-in-phonegap"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/shake-gesture-detection-in-phonegap&title=Shake Gesture Detection in PhoneGap"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/plugin-registry-for-cordova-phonegap"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Plugin Registry for Cordova/PhoneGap&url=http://ilee.co.uk/plugin-registry-for-cordova-phonegap&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/plugin-registry-for-cordova-phonegap"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/plugin-registry-for-cordova-phonegap&title=Plugin Registry for Cordova/PhoneGap"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/phonegap/">phonegap</a>, <a href="/tags/iphone/">iphone</a>, <a href="/tags/android/">android</a>
+    <a href="/tags/phonegap/">phonegap</a>, <a href="/tags/iphone/">iphone</a>, <a href="/tags/android/">android</a>, <a href="/tags/web/">web</a>
   </div>
 
       

@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/are-your-apps-ready-for-ios-7/">Are Your Apps Ready for iOS 7?</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/let-grunt-handle-your-tasks/">Let Grunt Handle Your Tasks</a>
       </li>
     
-      <li>
-        <a href="/different-ways-to-declare-javascript-functions/">Ways to Declare JavaScript Functions</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -123,7 +123,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>1</small></li>
+    <li><a href="/tags/android/">android</a><small>2</small></li>
   
     <li><a href="/tags/app/">app</a><small>4</small></li>
   
@@ -133,13 +133,13 @@
   
     <li><a href="/tags/html/">html</a><small>1</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>4</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>2</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>3</small></li>
   
-    <li><a href="/tags/web/">web</a><small>7</small></li>
+    <li><a href="/tags/web/">web</a><small>8</small></li>
   
   </ul>
 </div>
@@ -147,6 +147,128 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title">2013</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-17T12:12:13.000Z">17th Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/different-ways-to-declare-javascript-functions/">Ways to Declare JavaScript Functions</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>The different ways to declare a function in JavaScript</h2>
+<h3>To var, or not to var</h3>
+<p>You can declare a function as you would any other JavaScript variable:</p>
+<figure class="highlight lang-javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+};
+</pre></td></tr></table></figure>
+
+
+<p>Or you can declare it without a var in your statement:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
+}
+</pre></td></tr></table></figure>
+
+
+<h2>The difference</h2>
+<p>I recently read an accepted answer on Stack Overflow that stated:</p>
+<blockquote><p>&quot;<em>If you‘re in the global scope then there’s no difference.</em>&quot;</p>
+<footer><strong>- Stack Overflow</strong></footer></blockquote>
+
+
+<p>I‘m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="keyword">try</span> {
+  func1();
+} <span class="keyword">catch</span> (ex) {
+  alert(ex);
+}
+
+<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  alert(<span class="string">"func1 success"</span>);
+};
+
+<span class="keyword">try</span> {
+  func2();
+} <span class="keyword">catch</span> (ex) {
+  alert(ex);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
+  alert(<span class="string">"func2 success"</span>);
+}
+</pre></td></tr></table></figure>
+
+
+<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
+<ul>
+<li>func1 (var format) is defined <strong>at</strong> runtime</li>
+<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>&quot;</li>
+</ul>
+<h2>Function expressions</h2>
+<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
+};
+</pre></td></tr></table></figure>
+
+
+<h2>Best practice</h2>
+<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you&#39;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
+<h2>CoffeeScript fans</h2>
+<p>If you&#39;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#39;s only one way you can define a function in coffeescript:</p>
+<figure class="highlight lang-coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="function"><span class="title">func</span></span> = -&gt;
+</pre></td></tr></table></figure>
+
+
+<p>Which is evaluated as a function expression, fortunately.</p>
+<p>Now seriously, get off my blog CoffeeScripters.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
@@ -799,58 +921,14 @@ console.log(result);
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-06T16:15:06.000Z">6th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/static-site-generators/">Static Site Generators</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn‘t bigger be better? It turns out it’s not.</p>
-<h2><em>We</em> got it wrong</h2>
-<ul>
-<li>Static HTML files are fast, no need for in-memory caching.</li>
-<li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
-<li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
-</ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and “last updated” dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
-<h2>Enter the Static Site Generator</h2>
-<p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don‘t have to use one off the shelf, they’re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
-<p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
-<h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io" target="_blank">github</a> pages, with a custom domain name. I‘m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn’t notice the page loading.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
 
   
 <nav id="pagination">
   
     <a href="/archives/2013/" class="alignleft prev">Prev</a>
   
+  
+    <a href="/archives/2013/page/3/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
