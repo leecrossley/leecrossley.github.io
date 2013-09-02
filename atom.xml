@@ -4,12 +4,148 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-08-30T18:11:16.311Z</updated>
+  <updated>2013-09-02T16:10:41.490Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Functional First, Last, Every(thing)]]></title>
+    <link href="http://ilee.co.uk/functional-first-last-everything/"/>
+    <id>http://ilee.co.uk/functional-first-last-everything/</id>
+    <published>2013-09-02T10:40:32.000Z</published>
+    <updated>2013-09-02T16:09:55.000Z</updated>
+    <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
+<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
+<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
+<h2>Examples</h2>
+<h3>You&#39;re the λ.first</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> firstEven = λ.first(even);
+<span class="keyword">var</span> firstOdd = λ.first(odd);
+
+expect(firstEven(items)).toEqual(<span class="number">2</span>);
+expect(firstOdd(items)).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>My λ.last</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> lastEven = λ.last(even);
+<span class="keyword">var</span> lastOdd = λ.last(odd);
+
+expect(lastEven(items)).toEqual(<span class="number">2</span>);
+expect(lastOdd(items)).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>My λ.every(thing)</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> everyEven = λ.every(even);
+<span class="keyword">var</span> everyOdd = λ.every(odd);
+
+expect(everyEven(items)).toEqual(<span class="literal">true</span>);
+expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
+</pre></td></tr></table></figure>
+
+<p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
+<h3>λ.partition</h3>
+<p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> partitionEven = λ.partition(even);
+
+<span class="keyword">var</span> result = partitionEven(items);
+
+expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
+</pre></td></tr></table></figure>
+
+
+<h2>Contribute, Contribute, Contribute</h2>
+<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Plugin Registry for Cordova/PhoneGap]]></title>
     <link href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/"/>
@@ -979,37 +1115,5 @@ console.log(result);
 <p>Bragging time again. This site currently (at the time of writing) has a desktop PageSpeed score of 97/100. That‘s better than Facebook, Twitter, ebay etc and equal to Google’s own score for Google.com. Yey for me.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Do We Need Designers for the Web?]]></title>
-    <link href="http://ilee.co.uk/do-we-need-designers-for-the-web/"/>
-    <id>http://ilee.co.uk/do-we-need-designers-for-the-web/</id>
-    <published>2013-08-07T11:54:10.000Z</published>
-    <updated>2013-08-07T13:40:44.000Z</updated>
-    <content type="html"><![CDATA[<h2>The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It‘s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that’s what users want, something that‘s easy to use and understand. It loads quickly too, but that’s a discussion for another day.</p>
-<h2>The “Flat UI” / “Metro” era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
-<ul>
-<li><p><a href="https://www.gov.uk/designprinciples" target="_blank">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles" target="_blank">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
-</ul>
-<p>By now you‘ve probably realised I’m not just talking about the web, I&#39;m talking about mobile apps too.</p>
-<h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/" target="_blank">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/" target="_blank">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators" target="_blank">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/" target="_blank">Flat UI</a>, which this blog uses. You don‘t need to worry about gradient colours or shadow colours and depth (sorry if that’s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
-<h2>Good developers</h2>
-<p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-    <category scheme="http://ilee.co.uk/tags/design/" term="design"/>
   </entry>
 </feed>

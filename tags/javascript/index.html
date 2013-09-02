@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/functional-first-last-everything/">Functional First, Last, Every(thing)</a>
+      </li>
+    
+      <li>
         <a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/let-grunt-handle-your-tasks/">Let Grunt Handle Your Tasks</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -135,7 +135,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>11</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>12</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>3</small></li>
   
@@ -147,6 +147,164 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title tag">javascript</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-02T10:40:32.000Z">2nd Sep 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/functional-first-last-everything/">Functional First, Last, Every(thing)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>functional.js (λ)</h2>
+<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
+<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
+<h2>Examples</h2>
+<h3>You&#39;re the λ.first</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> firstEven = λ.first(even);
+<span class="keyword">var</span> firstOdd = λ.first(odd);
+
+expect(firstEven(items)).toEqual(<span class="number">2</span>);
+expect(firstOdd(items)).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>My λ.last</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> lastEven = λ.last(even);
+<span class="keyword">var</span> lastOdd = λ.last(odd);
+
+expect(lastEven(items)).toEqual(<span class="number">2</span>);
+expect(lastOdd(items)).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>My λ.every(thing)</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> everyEven = λ.every(even);
+<span class="keyword">var</span> everyOdd = λ.every(odd);
+
+expect(everyEven(items)).toEqual(<span class="literal">true</span>);
+expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
+</pre></td></tr></table></figure>
+
+<p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
+<h3>λ.partition</h3>
+<p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> partitionEven = λ.partition(even);
+
+<span class="keyword">var</span> result = partitionEven(items);
+
+expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
+</pre></td></tr></table></figure>
+
+
+<h2>Contribute, Contribute, Contribute</h2>
+<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
