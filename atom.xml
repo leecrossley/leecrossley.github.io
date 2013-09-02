@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-02T16:10:41.490Z</updated>
+  <updated>2013-09-02T16:13:48.461Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/functional-first-last-everything/"/>
     <id>http://ilee.co.uk/functional-first-last-everything/</id>
     <published>2013-09-02T10:40:32.000Z</published>
-    <updated>2013-09-02T16:09:55.000Z</updated>
+    <updated>2013-09-02T16:13:29.000Z</updated>
     <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
 <p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
 <p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
