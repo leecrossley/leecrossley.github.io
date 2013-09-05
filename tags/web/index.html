@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a>
+      </li>
+    
+      <li>
         <a href="/selling-some-domain-names/">Selling Some Domain Names</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/changing-url-without-page-refresh/">Changing Url Without Page Refresh</a>
       </li>
     
-      <li>
-        <a href="/timing-grunt-task-duration/">Timing Grunt Task Duration</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -129,17 +129,17 @@
   
     <li><a href="/tags/design/">design</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>1</small></li>
+    <li><a href="/tags/hack/">hack</a><small>2</small></li>
   
     <li><a href="/tags/html/">html</a><small>1</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>12</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>13</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>3</small></li>
   
-    <li><a href="/tags/web/">web</a><small>9</small></li>
+    <li><a href="/tags/web/">web</a><small>10</small></li>
   
   </ul>
 </div>
@@ -147,6 +147,125 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title tag">web</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-05T07:08:07.000Z">5th Sep 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>Manc JS</h2>
+<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
+<h2>The game</h2>
+<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
+<ul>
+<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
+<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
+</ul>
+<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
+<h2>My approach</h2>
+<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn‘t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
+<h3>Sub-bots</h3>
+<p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays "paper"</span>
+bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> bot = {};
+    
+    bot.winners = <span class="number">0</span>;
+    bot.lastPlay = <span class="string">""</span>;
+    
+    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> play = <span class="string">"paper"</span>;
+        bot.lastPlay = play;
+        <span class="keyword">return</span> play;
+    };
+
+    <span class="keyword">return</span> bot;
+})();
+</pre></td></tr></table></figure>
+
+<p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
+<p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
+<h3>We‘re gonna light it up, like it’s dynamite</h3>
+<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn&#39;t a good strategy, as water is a weak hand.</p>
+<p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
+<p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
+<h2>Tests</h2>
+<p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="comment">// Example of my noddy tests</span>
+it(<span class="string">"should init and set opponent"</span>, <span class="keyword">function</span>() {
+    init(<span class="string">"test"</span>);
+    expect(bot.opponent).toEqual(<span class="string">"test"</span>);
+});
+
+it(<span class="string">"should use paper as the first play"</span>, <span class="keyword">function</span>() {
+    <span class="comment">// First play always paper, as all bots have 0 wins</span>
+    <span class="comment">// NB: Should randomise the first bot :)</span>
+    expect(play()).toEqual(<span class="string">"paper"</span>);
+});
+
+it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="keyword">function</span>() {
+    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });
+    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);
+});
+</pre></td></tr></table></figure>
+
+<p>I wish we had more time to play. Maybe this could become an ongoing challenge..? Great night.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
