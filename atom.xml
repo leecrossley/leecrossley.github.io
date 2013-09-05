@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-05T08:04:46.338Z</updated>
+  <updated>2013-09-05T08:12:24.621Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/rock-paper-scissors-manc_js/"/>
     <id>http://ilee.co.uk/rock-paper-scissors-manc_js/</id>
     <published>2013-09-05T07:08:07.000Z</published>
-    <updated>2013-09-05T08:03:51.000Z</updated>
+    <updated>2013-09-05T08:11:45.000Z</updated>
     <content type="html"><![CDATA[<h2>Manc JS</h2>
 <p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
 <h2>The game</h2>
@@ -103,7 +103,9 @@ it(<span class="string">"should win the first hand against rock and increment wi
 });
 </pre></td></tr></table></figure>
 
-<p>I wish we had more time to play. Maybe this could become an ongoing challenge..? Great night.</p>
+<h2>Result</h2>
+<p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
+<p>I wish we had more time to play. Maybe this could become an ongoing challenge..?</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/hack/" term="hack"/>
