@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>html | iLee | developer blog</title>
+  <title>Mongoose Docs and JSON.stringify | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="Sometimes numbers in JavaScript (and other languages) simply don't appear to add up. Here's why and how to fix it.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Mongoose Docs and JSON.stringify"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -145,61 +145,85 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">html</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-22T08:35:34.000Z">22nd Aug 2013</time>
+        <time datetime="2013-09-10T12:22:41.000Z">10th Sep 2013</time>
       
       
   
-    <h1 class="title"><a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a></h1>
+    <h1 class="title">Mongoose Docs and JSON.stringify</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>What has “Walter White” got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I‘m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
-<h3>Example</h3>
-<figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+        <h2>Mongoose JS</h2>
+<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
+<h2>Mongoose documents / objects</h2>
+<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
+<h3>The problem</h3>
+<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
+<figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
+    item.newProperty = <span class="string">"anything"</span>;
+});
+
+Items.find(<span class="keyword">function</span>(err, items) {
+    addProperty(items);
+    console.log(JSON.stringify(items));
+});
 </pre></td></tr></table></figure>
 
 
-<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
-<p>Don‘t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
-<h2>What is going on here?!</h2>
-<p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
-<h3>The cooking process</h3>
-<ol>
-<li>Replace all invalid hexadecimal characters with “0”</li>
-<li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
-<li>Take the first 2 hexadecimal characters from each group</li>
-</ol>
-<p><strong>Et voilà!</strong></p>
-<p>No? Let&#39;s step through the example.</p>
-<ol>
-<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
-<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
-<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
-</ol>
-<p><strong>“Walter White” = “#0ae000”</strong></p>
-<p>I would have expected it to be blue, but I‘m guessing the process isn’t 100% pure :)</p>
+<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
+<h3>The reason</h3>
+<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
+<h3>The solution</h3>
+<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
+<figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
+    addProperty(items);
+    console.log(JSON.stringify(items));
+});
+</pre></td></tr></table></figure>
+
+
+<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
+<p>Mystery solved.</p>
 
       
     </div>
     <footer>
       
         
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/mongoose-documents-and-jsonstringify"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Mongoose Docs and JSON.stringify&url=http://ilee.co.uk/mongoose-documents-and-jsonstringify&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/mongoose-documents-and-jsonstringify"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/mongoose-documents-and-jsonstringify&title=Mongoose Docs and JSON.stringify"></a>
+</div>
+
         
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -207,9 +231,12 @@
 </article>
 
 
-  
-
-  
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -225,7 +252,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>

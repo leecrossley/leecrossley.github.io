@@ -4,12 +4,64 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-05T08:13:53.018Z</updated>
+  <updated>2013-09-10T13:02:26.622Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Mongoose Docs and JSON.stringify]]></title>
+    <link href="http://ilee.co.uk/mongoose-documents-and-jsonstringify/"/>
+    <id>http://ilee.co.uk/mongoose-documents-and-jsonstringify/</id>
+    <published>2013-09-10T12:22:41.000Z</published>
+    <updated>2013-09-10T13:02:05.000Z</updated>
+    <content type="html"><![CDATA[<h2>Mongoose JS</h2>
+<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
+<h2>Mongoose documents / objects</h2>
+<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
+<h3>The problem</h3>
+<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
+<figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
+    item.newProperty = <span class="string">"anything"</span>;
+});
+
+Items.find(<span class="keyword">function</span>(err, items) {
+    addProperty(items);
+    console.log(JSON.stringify(items));
+});
+</pre></td></tr></table></figure>
+
+
+<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
+<h3>The reason</h3>
+<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
+<h3>The solution</h3>
+<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
+<figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
+    addProperty(items);
+    console.log(JSON.stringify(items));
+});
+</pre></td></tr></table></figure>
+
+
+<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
+<p>Mystery solved.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Rock Paper Scissors @manc_js]]></title>
     <link href="http://ilee.co.uk/rock-paper-scissors-manc_js/"/>
@@ -997,155 +1049,6 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
 <p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It‘s the future, things move on… you’re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
 <h2>functional.js (λ)</h2>
 <p>It‘s coming on, and expect more function-level programming support soon. Don’t be shy to contribute and note that I‘m currently using 4 soft spaces for tabs, don’t make me go all Crockford on you.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[A Functional Javascript Library]]></title>
-    <link href="http://ilee.co.uk/functional-javascript-library/"/>
-    <id>http://ilee.co.uk/functional-javascript-library/</id>
-    <published>2013-08-10T14:38:54.000Z</published>
-    <updated>2013-08-10T15:30:13.000Z</updated>
-    <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
-<p>functional.js is (go on, guess) a functional JavaScript library I&#39;m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank">jasmine</a> tests are below).</p>
-<p>I&#39;m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank">functional-level programming</a> but it&#39;s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank">Contributions</a> are more than welcome if you fancy some brain pain.</p>
-<h3>Basic λ.curry example</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="keyword">function</span>(word1, word2) {
-    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;
-});
-
-<span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);
-<span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);
-
-expect(result).toEqual(<span class="string">"Hello World"</span>);
-</pre></td></tr></table></figure>
-
-<h3>Another λ.curry example</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="keyword">function</span>(arg1, arg2, arg3) {
-    <span class="keyword">return</span> arg1 + arg2 + arg3;
-}); 
-
-<span class="keyword">var</span> add3 = add(<span class="number">3</span>),
-    add5 = add3(<span class="number">2</span>);
-
-expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure>
-
-<h3>Curried λ.each example</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> result = [],
-    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];
-
-<span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> result.push(item);
-};
-
-<span class="keyword">var</span> addToResult = λ.each(addTo);
-expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);
-
-addToResult(items);
-expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);
-</pre></td></tr></table></figure>
-
-<h3>Curried λ.map example</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
-
-<span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
-    <span class="keyword">return</span> number * <span class="number">2</span>;
-};
-
-<span class="keyword">var</span> doubleMap = λ.map(doubleUp);
-expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = doubleMap(items);
-expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);
-</pre></td></tr></table></figure>
-
-<h3>Curried λ.reduce example</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
-
-<span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> {</span>
-    <span class="keyword">return</span> arg1 * arg2;
-};
-
-<span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);
-expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = multiplyReduceFrom1(items);
-expect(result).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure>
-
-<h2>Why?</h2>
-<p>I like <del>torture</del> to push myself as a developer.</p>
-<h2>Great, but, erm, why?</h2>
-<p>By extending functions into chains of functions with fewer arguments (currying), you can fix earlier known values and return a function that only accepts future values. This avoids repetition, a good programming practice, and will assist my high-level function refinement.</p>
-<p>Libraries like <a href="http://underscorejs.org/" target="_blank">underscore</a> can‘t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There’s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it&#39;s been developed further. It also has no dependencies.</p>
-<h2>Where can I get it?</h2>
-<ul>
-<li>$ git clone git@github.com:leecrossley/functional-js.git</li>
-<li>$ npm install functional.js</li>
-<li><a href="http://bit.ly/funcmin" target="_blank">functional.min.js</a></li>
-</ul>
-<h2>I have issues</h2>
-<p>As long as they&#39;re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues" target="_blank">github</a>.</p>
-<h2>Where&#39;s the λ key?</h2>
-<p>You&#39;re probably reading the wrong blog post :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
