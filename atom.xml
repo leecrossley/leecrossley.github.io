@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-10T13:02:26.622Z</updated>
+  <updated>2013-09-10T13:05:51.299Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/mongoose-documents-and-jsonstringify/"/>
     <id>http://ilee.co.uk/mongoose-documents-and-jsonstringify/</id>
     <published>2013-09-10T12:22:41.000Z</published>
-    <updated>2013-09-10T13:02:05.000Z</updated>
+    <updated>2013-09-10T13:05:44.000Z</updated>
     <content type="html"><![CDATA[<h2>Mongoose JS</h2>
 <p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
 <h2>Mongoose documents / objects</h2>
