@@ -149,267 +149,59 @@
 <h2 class="archive-title tag">phonegap</h2>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
+  <article>
+    <div class="post-content arch">
       
-        <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
-      
-      
+        <header>
   
-    <h1 class="title"><a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a></h1>
+    <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
   
-
-    </header>
-    <div class="entry">
+  <h2 class="title"><a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a></h2>
+</header>
+<div class="entry arch">
+  
+    Getting JSONP requests and your Node.js / Express server to play nicely.
+  
+</div>
       
-        <h2>Express JS</h2>
-<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
-<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
-<h2>Getting server data with Cordova</h2>
-<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
-<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
-<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>Then in my express node app, I do something like this:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
-    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
-    res.end();
-});
-</pre></td></tr></table></figure>
-
-
-<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome…</p>
-<h2>JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
-<h3>Setting up express</h3>
-<p>When configuring express, you need to set an additional property:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
-</pre></td></tr></table></figure>
-
-
-<h3>In your route code</h3>
-<p>Things get simplier:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
-});
-</pre></td></tr></table></figure>
-
-
-<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
-<p>Go and make yourself a coffee, you deserve it.</p>
-
+        <header>
+  
+    <time datetime="2013-08-30T17:39:42.000Z">30th Aug 2013</time>
+  
+  <h2 class="title"><a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a></h2>
+</header>
+<div class="entry arch">
+  
+    A searchable list of all Cordova / PhoneGap plugins, with simple representation of the platforms and engines supported.
+  
+</div>
+      
+        <header>
+  
+    <time datetime="2013-08-26T15:34:51.000Z">26th Aug 2013</time>
+  
+  <h2 class="title"><a href="/social-message-plugin-for-cordova-30/">Social Message Plugin for Cordova 3.0</a></h2>
+</header>
+<div class="entry arch">
+  
+    Post messages to Facebook, Twitter and others easily with the new Social Message plugin for Cordova 3.0
+  
+</div>
+      
+        <header>
+  
+    <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
+  
+  <h2 class="title"><a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a></h2>
+</header>
+<div class="entry arch">
+  
+    How to detect shake gestures when writing a web based hybrid app in PhoneGap (Cordova).
+  
+</div>
       
     </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-30T17:39:42.000Z">30th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>The PhoneGap-Gap</h2>
-<p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
-<p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
-<blockquote>&quot;<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>&quot;</blockquote>
-
-<h2>Making dreams come true</h2>
-<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That&#39;s right, <em>I&#39;ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
-<h3><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
-<p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
-<ul>
-<li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
-<li><strong>Search</strong>. Search on plugin name and keywords</li>
-<li><strong>Authors List</strong>. List of all plugin authors, with how many plugins and a total count</li>
-<li><strong>Author Page</strong>. List of all plugins by an author (and avatar), and a link to their GitHub</li>
-<li><strong>Plugins List</strong>. List of all plugins and a total count</li>
-<li><strong>Plugin Details</strong>. Details such as plugin description, supported platforms, engines, keyword tags, link to GitHub and installation instructions</li>
-<li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
-</ul>
-<h2>Suggestions, comments and feedback</h2>
-<p>All welcome, one thing I&#39;m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
-<p>Please add your own plugins or any plugins you have used.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-26T15:34:51.000Z">26th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/social-message-plugin-for-cordova-30/">Social Message Plugin for Cordova 3.0</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>The old Social Message plugin</h2>
-<p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
-<p>The plugin bridged functionality between PhoneGap / Cordova‘s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
-<h2>New plugin architecture</h2>
-<p>If you‘re a developer for PhoneGap / Cordova, you’ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
-<p>I&#39;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
-<h2>Usage</h2>
-<h3>1 step install</h3>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git
-</pre></td></tr></table></figure>
-
-<p><strong>Way-hey!</strong> That&#39;s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
-<h3>In your JavaScript</h3>
-<p>After your deviceready event has been fired, you can simply pass your message as an argument:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.socialmessage.send(<span class="string">"This is a test message"</span>);
-</pre></td></tr></table></figure>
-
-<p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, you can add an array argument such as:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.socialmessage.send(<span class="string">"This is a test message"</span>, [<span class="string">"PostToFacebook"</span>, <span class="string">"PostToTwitter"</span>]);
-</pre></td></tr></table></figure>
-
-<p>This example will only allow the user to post the message to Facebook or Twitter.</p>
-<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank">here</a>. You should omit the “UIActivityType” prefix when adding to your array.</p>
-<h2>Platform support</h2>
-<p>The plugin is currently only implemented for iOS but I&#39;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
-<h2>Just a thought…</h2>
-<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager…</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>Detecting shake events in your <a href="http://phonegap.com/" target="_blank">PhoneGap</a> / Cordova apps</h2>
-<p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
-<p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
-<h2>The gist</h2>
-<p>I wrote a <a href="https://gist.github.com/leecrossley/4078996" target="_blank">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
-<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
-<h2>Using shake.js</h2>
-<p>If you‘re interested in using shake.js, it’s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
-<figure class="highlight lang-javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> onShake = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  <span class="comment">// Code fired when a shake is detected</span>
-};
-
-<span class="comment">// Start watching for shake gestures and call "onShake"</span>
-shake.startWatch(onShake);
-
-<span class="comment">// Stop watching for shake gestures</span>
-shake.stopWatch();
-</pre></td></tr></table></figure>
-
-
-<h2>Platforms</h2>
-<p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
-<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
+  </article>
 
   
 </div></div>

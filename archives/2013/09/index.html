@@ -149,496 +149,71 @@
 <h2 class="archive-title">2013/9</h2>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
+  <article>
+    <div class="post-content arch">
       
-        <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
-      
-      
+        <header>
   
-    <h1 class="title"><a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a></h1>
+    <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
   
-
-    </header>
-    <div class="entry">
+  <h2 class="title"><a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a></h2>
+</header>
+<div class="entry arch">
+  
+    Getting JSONP requests and your Node.js / Express server to play nicely.
+  
+</div>
       
-        <h2>Express JS</h2>
-<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
-<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
-<h2>Getting server data with Cordova</h2>
-<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
-<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
-<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>Then in my express node app, I do something like this:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
-    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
-    res.end();
-});
-</pre></td></tr></table></figure>
-
-
-<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome…</p>
-<h2>JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
-<h3>Setting up express</h3>
-<p>When configuring express, you need to set an additional property:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
-</pre></td></tr></table></figure>
-
-
-<h3>In your route code</h3>
-<p>Things get simplier:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
-});
-</pre></td></tr></table></figure>
-
-
-<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
-<p>Go and make yourself a coffee, you deserve it.</p>
-
+        <header>
+  
+    <time datetime="2013-09-10T12:22:41.000Z">10th Sep 2013</time>
+  
+  <h2 class="title"><a href="/mongoose-documents-and-jsonstringify/">Mongoose Docs and JSON.stringify</a></h2>
+</header>
+<div class="entry arch">
+  
+    Why JSON.stringify() doesn't seem to work reliably on Mongoose JS objects.
+  
+</div>
+      
+        <header>
+  
+    <time datetime="2013-09-05T07:08:07.000Z">5th Sep 2013</time>
+  
+  <h2 class="title"><a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a></h2>
+</header>
+<div class="entry arch">
+  
+    My approach to writing a bot in 90 minutes to play Rock Paper Scissors against other bots
+  
+</div>
+      
+        <header>
+  
+    <time datetime="2013-09-04T12:02:18.000Z">4th Sep 2013</time>
+  
+  <h2 class="title"><a href="/selling-some-domain-names/">Selling Some Domain Names</a></h2>
+</header>
+<div class="entry arch">
+  
+    I'm selling off some of my domain names that I'm not using that other people might want.
+  
+</div>
+      
+        <header>
+  
+    <time datetime="2013-09-02T10:40:32.000Z">2nd Sep 2013</time>
+  
+  <h2 class="title"><a href="/functional-first-last-everything/">Functional First, Last, Every(thing)</a></h2>
+</header>
+<div class="entry arch">
+  
+    New featues of functional.js including "First", "Last" and "Every".
+  
+</div>
       
     </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-10T12:22:41.000Z">10th Sep 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/mongoose-documents-and-jsonstringify/">Mongoose Docs and JSON.stringify</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>Mongoose JS</h2>
-<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
-<h2>Mongoose documents / objects</h2>
-<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3>The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
-<figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
-    item.newProperty = <span class="string">"anything"</span>;
-});
-
-Items.find(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3>The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
-<h3>The solution</h3>
-<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
-<figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
-<p>Mystery solved.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-05T07:08:07.000Z">5th Sep 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>Manc JS</h2>
-<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
-<h2>The game</h2>
-<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
-<ul>
-<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
-<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
-</ul>
-<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
-<h2>My approach</h2>
-<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn‘t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
-<h3>Sub-bots</h3>
-<p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays "paper"</span>
-bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="keyword">var</span> bot = {};
-    
-    bot.winners = <span class="number">0</span>;
-    bot.lastPlay = <span class="string">""</span>;
-    
-    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> play = <span class="string">"paper"</span>;
-        bot.lastPlay = play;
-        <span class="keyword">return</span> play;
-    };
-
-    <span class="keyword">return</span> bot;
-})();
-</pre></td></tr></table></figure>
-
-<p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
-<p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
-<h3>We‘re gonna light it up, like it’s dynamite</h3>
-<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn&#39;t a good strategy, as water is a weak hand.</p>
-<p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
-<p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
-<h2>Tests</h2>
-<p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="comment">// Example of my noddy tests</span>
-it(<span class="string">"should init and set opponent"</span>, <span class="keyword">function</span>() {
-    init(<span class="string">"test"</span>);
-    expect(bot.opponent).toEqual(<span class="string">"test"</span>);
-});
-
-it(<span class="string">"should use paper as the first play"</span>, <span class="keyword">function</span>() {
-    <span class="comment">// First play always paper, as all bots have 0 wins</span>
-    <span class="comment">// NB: Should randomise the first bot :)</span>
-    expect(play()).toEqual(<span class="string">"paper"</span>);
-});
-
-it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="keyword">function</span>() {
-    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });
-    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);
-});
-</pre></td></tr></table></figure>
-
-<h2>Result</h2>
-<p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
-<p>I wish we had more time to play. Maybe this could become an ongoing challenge..?</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-04T12:02:18.000Z">4th Sep 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/selling-some-domain-names/">Selling Some Domain Names</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>Domain names to buy</h2>
-<p>Today I have listed some domain names to buy, including “domainnamestobuy.com” (should really stick them on there!). I was prompted to have this spring clean as I attempt to consolidate hosting providers and domain name registrars over the coming months.</p>
-<h2>Current list</h2>
-<p>The following domain names are now for sale on <a href="http://www.sedo.co.uk/main.php3?language=e&amp;partnerid=315645" target="_blank">sedo</a> (at the time of writing this some 1 or 2 listings are still pending):</p>
-<ul>
-<li>backingmusic.com (backing music, bought for $2,325 10 years ago)</li>
-<li>bidzer.co.uk (a possible bidding auction site)</li>
-<li>domainnamestobuy.com (to sell domain names)</li>
-<li>bookinbritain.com (hotel / room booking)</li>
-<li>bookinbritain.co.uk (hotel / room booking)</li>
-<li>bookingbritain.com (hotel / room booking)</li>
-<li>bookingbritain.co.uk (hotel / room booking)</li>
-<li>guesthousenetwork.co.uk (guest house booking)</li>
-<li>ifindrooms.com (hotel / room booking)</li>
-<li>ifindrooms.co.uk (hotel / room booking)</li>
-<li>myweightapp.com (weight app)</li>
-<li>myweightapp.co.uk (weight app)</li>
-<li>webdevelopmentmanchester.com (local web development)</li>
-</ul>
-<p>It&#39;s difficult to price a domain, but everything is negotiable, especially to my blog readers :) Make me an offer.</p>
-<p>Most of the domain names are hotel booking based, iFindRooms would also make a pretty good app name.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-02T10:40:32.000Z">2nd Sep 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/functional-first-last-everything/">Functional First, Last, Every(thing)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>functional.js (λ)</h2>
-<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
-<h2>Examples</h2>
-<h3>You&#39;re the λ.first</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> firstEven = λ.first(even);
-<span class="keyword">var</span> firstOdd = λ.first(odd);
-
-expect(firstEven(items)).toEqual(<span class="number">2</span>);
-expect(firstOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<h3>My λ.last</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> lastEven = λ.last(even);
-<span class="keyword">var</span> lastOdd = λ.last(odd);
-
-expect(lastEven(items)).toEqual(<span class="number">2</span>);
-expect(lastOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<h3>My λ.every(thing)</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> everyEven = λ.every(even);
-<span class="keyword">var</span> everyOdd = λ.every(odd);
-
-expect(everyEven(items)).toEqual(<span class="literal">true</span>);
-expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
-</pre></td></tr></table></figure>
-
-<p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
-<h3>λ.partition</h3>
-<p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> partitionEven = λ.partition(even);
-
-<span class="keyword">var</span> result = partitionEven(items);
-
-expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
-</pre></td></tr></table></figure>
-
-
-<h2>Contribute, Contribute, Contribute</h2>
-<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
+  </article>
 
   
 </div></div>
