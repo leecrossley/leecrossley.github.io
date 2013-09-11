@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>What Is JavaScript Strict Mode? | iLee</title>
+  <title>JSONP in Express/Node.js | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="What exactly is 'strict mode' in JavaScript and why/when should it be used.">
+  <meta name="description" content="Getting JSONP requests and your Node.js / Express server to play nicely.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="What Is JavaScript Strict Mode?"/>
+  <meta property="og:title" content="JSONP in Express/Node.js"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/express.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -151,43 +151,69 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-23T09:46:39.000Z">23rd Aug 2013</time>
+        <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
       
       
   
-    <h1 class="title">What Is JavaScript Strict Mode?</h1>
+    <h1 class="title">JSONP in Express/Node.js</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>The “strict mode” pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
-<p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
-<h2>How to use it</h2>
-<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
-<figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
-</pre></td></tr></table></figure>
-
-
-<h2>Why use it</h2>
-<p>All it does it enforce good practices, here are a few examples:</p>
-<h3>Duplicate properties</h3>
-<p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3>The “with” statement</h3>
-<p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
-<h3>Variable declaration</h3>
-<p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
-<h2>A note on browsers</h2>
-<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
-<h2>Let&#39;s end on a laugh</h2>
-<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
+        <h2>Express JS</h2>
+<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
+<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<h2>Getting server data with Cordova</h2>
+<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
-alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
+3
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
 </pre></td></tr></table></figure>
+
+
+<p>Then in my express node app, I do something like this:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
+    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
+    res.end();
+});
+</pre></td></tr></table></figure>
+
+
+<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
+<p>The issue is, I do my initial app development in Chrome…</p>
+<h2>JSONP to the rescue</h2>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<h3>Setting up express</h3>
+<p>When configuring express, you need to set an additional property:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
+</pre></td></tr></table></figure>
+
+
+<h3>In your route code</h3>
+<p>Things get simplier:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
+});
+</pre></td></tr></table></figure>
+
+
+<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
+<p>Go and make yourself a coffee, you deserve it.</p>
 
       
     </div>
@@ -195,17 +221,17 @@ alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</s
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=What Is JavaScript Strict Mode?&url=http://ilee.co.uk/what-is-javascript-strict-mode&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/what-is-javascript-strict-mode&title=What Is JavaScript Strict Mode?"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/jsonp-in-express-nodejs"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=JSONP in Express/Node.js&url=http://ilee.co.uk/jsonp-in-express-nodejs&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/jsonp-in-express-nodejs"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/jsonp-in-express-nodejs&title=JSONP in Express/Node.js"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/">javascript</a>
+    <a href="/tags/app/">app</a>, <a href="/tags/web/">web</a>, <a href="/tags/javascript/">javascript</a>, <a href="/tags/phonegap/">phonegap</a>
   </div>
 
       

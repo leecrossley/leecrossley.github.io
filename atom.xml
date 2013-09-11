@@ -4,12 +4,77 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-10T13:05:51.299Z</updated>
+  <updated>2013-09-11T10:40:28.233Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[JSONP in Express/Node.js]]></title>
+    <link href="http://ilee.co.uk/jsonp-in-express-nodejs/"/>
+    <id>http://ilee.co.uk/jsonp-in-express-nodejs/</id>
+    <published>2013-09-11T09:54:44.000Z</published>
+    <updated>2013-09-11T10:39:39.000Z</updated>
+    <content type="html"><![CDATA[<h2>Express JS</h2>
+<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
+<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<h2>Getting server data with Cordova</h2>
+<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p>Then in my express node app, I do something like this:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
+    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
+    res.end();
+});
+</pre></td></tr></table></figure>
+
+
+<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
+<p>The issue is, I do my initial app development in Chrome…</p>
+<h2>JSONP to the rescue</h2>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<h3>Setting up express</h3>
+<p>When configuring express, you need to set an additional property:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
+</pre></td></tr></table></figure>
+
+
+<h3>In your route code</h3>
+<p>Things get simplier:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
+});
+</pre></td></tr></table></figure>
+
+
+<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
+<p>Go and make yourself a coffee, you deserve it.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Mongoose Docs and JSON.stringify]]></title>
     <link href="http://ilee.co.uk/mongoose-documents-and-jsonstringify/"/>
@@ -984,72 +1049,5 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Multiple Function Composition]]></title>
-    <link href="http://ilee.co.uk/multiple-function-composition/"/>
-    <id>http://ilee.co.uk/multiple-function-composition/</id>
-    <published>2013-08-11T10:31:55.000Z</published>
-    <updated>2013-08-11T11:12:32.000Z</updated>
-    <content type="html"><![CDATA[<h2>“Function Composition” sounds complicated, what is it?</h2>
-<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
-<h3>Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(f, g);
-
-expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
-</pre></td></tr></table></figure>
-
-<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned “hello 2” as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
-<h3>Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a * <span class="number">100</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(e, f, g);
-
-expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
-</pre></td></tr></table></figure>
-
-<p>This example illustrates the combining of multiple functions, passing the output from function “g” as a parameter to function “f”, then passing the output from function “f” as a parameter to function “e”. This leaves you with a single returned result, in this case “hello 201”.</p>
-<h2>Ah ha! This is just inheritance for JavaScript</h2>
-<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
-<h2>What&#39;s the benefit?</h2>
-<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It‘s the future, things move on… you’re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
-<h2>functional.js (λ)</h2>
-<p>It‘s coming on, and expect more function-level programming support soon. Don’t be shy to contribute and note that I‘m currently using 4 soft spaces for tabs, don’t make me go all Crockford on you.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

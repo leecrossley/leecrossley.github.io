@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a>
+      </li>
+    
+      <li>
         <a href="/mongoose-documents-and-jsonstringify/">Mongoose Docs and JSON.stringify</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/what-is-javascript-strict-mode/">What Is JavaScript Strict Mode?</a>
       </li>
     
-      <li>
-        <a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -125,7 +125,7 @@
   
     <li><a href="/tags/android/">android</a><small>2</small></li>
   
-    <li><a href="/tags/app/">app</a><small>4</small></li>
+    <li><a href="/tags/app/">app</a><small>5</small></li>
   
     <li><a href="/tags/design/">design</a><small>1</small></li>
   
@@ -135,11 +135,11 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>14</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>15</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>3</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>4</small></li>
   
-    <li><a href="/tags/web/">web</a><small>10</small></li>
+    <li><a href="/tags/web/">web</a><small>11</small></li>
   
   </ul>
 </div>
@@ -147,6 +147,90 @@
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
 <h2 class="archive-title">2013</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>Express JS</h2>
+<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
+<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<h2>Getting server data with Cordova</h2>
+<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p>Then in my express node app, I do something like this:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
+    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
+    res.end();
+});
+</pre></td></tr></table></figure>
+
+
+<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
+<p>The issue is, I do my initial app development in Chrome…</p>
+<h2>JSONP to the rescue</h2>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<h3>Setting up express</h3>
+<p>When configuring express, you need to set an additional property:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
+</pre></td></tr></table></figure>
+
+
+<h3>In your route code</h3>
+<p>Things get simplier:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
+});
+</pre></td></tr></table></figure>
+
+
+<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
+<p>Go and make yourself a coffee, you deserve it.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
 
   
@@ -813,64 +897,6 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 </pre></td><td class="code"><pre><span class="string">"use strict"</span>;
 alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
 </pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-22T08:35:34.000Z">22nd Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>What has “Walter White” got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I‘m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
-<h3>Example</h3>
-<figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
-<p>Don‘t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
-<h2>What is going on here?!</h2>
-<p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
-<h3>The cooking process</h3>
-<ol>
-<li>Replace all invalid hexadecimal characters with “0”</li>
-<li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
-<li>Take the first 2 hexadecimal characters from each group</li>
-</ol>
-<p><strong>Et voilà!</strong></p>
-<p>No? Let&#39;s step through the example.</p>
-<ol>
-<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
-<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
-<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
-</ol>
-<p><strong>“Walter White” = “#0ae000”</strong></p>
-<p>I would have expected it to be blue, but I‘m guessing the process isn’t 100% pure :)</p>
 
       
     </div>

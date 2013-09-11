@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a>
+      </li>
+    
+      <li>
         <a href="/mongoose-documents-and-jsonstringify/">Mongoose Docs and JSON.stringify</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/what-is-javascript-strict-mode/">What Is JavaScript Strict Mode?</a>
       </li>
     
-      <li>
-        <a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -125,7 +125,7 @@
   
     <li><a href="/tags/android/">android</a><small>2</small></li>
   
-    <li><a href="/tags/app/">app</a><small>4</small></li>
+    <li><a href="/tags/app/">app</a><small>5</small></li>
   
     <li><a href="/tags/design/">design</a><small>1</small></li>
   
@@ -135,17 +135,75 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>14</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>15</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>3</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>4</small></li>
   
-    <li><a href="/tags/web/">web</a><small>10</small></li>
+    <li><a href="/tags/web/">web</a><small>11</small></li>
   
   </ul>
 </div>
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-22T08:35:34.000Z">22nd Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>What has “Walter White” got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I‘m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
+<h3>Example</h3>
+<figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
+<p>Don‘t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
+<h2>What is going on here?!</h2>
+<p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
+<h3>The cooking process</h3>
+<ol>
+<li>Replace all invalid hexadecimal characters with “0”</li>
+<li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
+<li>Take the first 2 hexadecimal characters from each group</li>
+</ol>
+<p><strong>Et voilà!</strong></p>
+<p>No? Let&#39;s step through the example.</p>
+<ol>
+<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
+<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
+<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
+</ol>
+<p><strong>“Walter White” = “#0ae000”</strong></p>
+<p>I would have expected it to be blue, but I‘m guessing the process isn’t 100% pure :)</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -772,95 +830,6 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <p>I‘ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I’ve found it to be unreliable and a nuisance. Will Apple‘s implementation and hardware be better? Having just acquired “AuthenTec” for $356 million in July 2012 you’d like to hope so. If not, I‘m sure they’ll tell us we&#39;re “holding it wrong” :)</p>
 <h2>“i”Lee, is this blog going to be Apple-y?</h2>
 <p>No. Not at all (actually being serious here). Although MacBook Pros are the best. Please don&#39;t give them fingerprint recognition.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-11T10:31:55.000Z">11th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/multiple-function-composition/">Multiple Function Composition</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>“Function Composition” sounds complicated, what is it?</h2>
-<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
-<h3>Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(f, g);
-
-expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
-</pre></td></tr></table></figure>
-
-<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned “hello 2” as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
-<h3>Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a * <span class="number">100</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(e, f, g);
-
-expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
-</pre></td></tr></table></figure>
-
-<p>This example illustrates the combining of multiple functions, passing the output from function “g” as a parameter to function “f”, then passing the output from function “f” as a parameter to function “e”. This leaves you with a single returned result, in this case “hello 201”.</p>
-<h2>Ah ha! This is just inheritance for JavaScript</h2>
-<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
-<h2>What&#39;s the benefit?</h2>
-<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It‘s the future, things move on… you’re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
-<h2>functional.js (λ)</h2>
-<p>It‘s coming on, and expect more function-level programming support soon. Don’t be shy to contribute and note that I‘m currently using 4 soft spaces for tabs, don’t make me go all Crockford on you.</p>
 
       
     </div>
