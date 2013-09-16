@@ -4,12 +4,64 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-11T11:41:26.951Z</updated>
+  <updated>2013-09-16T16:32:16.749Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Removing a Property in JavaScript]]></title>
+    <link href="http://ilee.co.uk/removing-a-property-in-javascript/"/>
+    <id>http://ilee.co.uk/removing-a-property-in-javascript/</id>
+    <published>2013-09-16T16:08:22.000Z</published>
+    <updated>2013-09-16T16:31:34.000Z</updated>
+    <content type="html"><![CDATA[<h2>Remove a JavaScript object property with delete</h2>
+<figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };
+<span class="keyword">delete</span> thing.prop1;
+expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+
+<p>Simple, done, use it. End of blog post :)</p>
+<p>If it&#39;s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
+<figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
+<span class="keyword">delete</span> thing[<span class="string">"prop"</span> + i];
+expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+
+<h2>What about deleting variables and functions?</h2>
+<p>This is JavaScript, it&#39;s <strong>not</strong> possible to delete variables e.g.</p>
+<figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+<span class="keyword">delete</span> thing; <span class="comment">// no no no</span>
+</pre></td></tr></table></figure>
+
+
+<p>It&#39;s <strong>not</strong> possible to delete functions declared in this way either.</p>
+<h2>The <em>DontDelete</em> attribute</h2>
+<p>There are also some attributes that can be set on properties to prevent their deletion misuse. <em>DontDelete</em> is an example of these, which is present in the length property:</p>
+<figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+<span class="keyword">delete</span> thing.length; <span class="comment">// no no no</span>
+</pre></td></tr></table></figure>
+
+
+<h2>Strict mode</h2>
+<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you&#39;re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
+<p>Happy strict deleting.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[JSONP in Express/Node.js]]></title>
     <link href="http://ilee.co.uk/jsonp-in-express-nodejs/"/>
@@ -1026,28 +1078,5 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
     <category scheme="http://ilee.co.uk/tags/hack/" term="hack"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Fingerprint Recognition for Developers]]></title>
-    <link href="http://ilee.co.uk/iphone-fingerprint-recognition-for-developers/"/>
-    <id>http://ilee.co.uk/iphone-fingerprint-recognition-for-developers/</id>
-    <published>2013-08-12T07:21:53.000Z</published>
-    <updated>2013-08-12T07:58:51.000Z</updated>
-    <content type="html"><![CDATA[<h2>The new iPhone fingerprint recognition API</h2>
-<p>As a mobile app developer, I follow new mobile technologies very closely. You&#39;ve probably noticed yourself an abundance of rumours on various sites about the upcoming “Fingerprint Recognition” seen in the new beta version of iOS7. This suggests the hardware capabilities will be available on the next version of the iPhone (iPhone 5S?).</p>
-<p>The “BiometricKitUI” directory can be found in the “Accessibility Bundles” and judging by the small amount of documentation, implies that the fingerprint sensor will be part of the home button.</p>
-<p><img src="/img/fingerprint-iphone.png" alt="Fingerprint scanning on iPhone"></p>
-<h2>Will it be available to app developers?</h2>
-<p>This is what I want to know :) I can see several usages for the core system, such as a login alternative to swipe and pin, verification for app store purchases, parental control, restricted apps and maybe even user profiles, although apple have always seemed to push for everyone having their own device for some reason ;).</p>
-<h2>When will we know?</h2>
-<p>I‘m sure app developers at the top banks know, with this being a possible security option for them. I’m going to ask some of my tweeps today and will post an update when I find out.</p>
-<p>It&#39;s strongly believed that the new iPhone will be available on the 10th of September 2013, I also imagine the iOS7 release to be scheduled for around this time, as in past years.</p>
-<h2>Will it be any good?</h2>
-<p>I‘ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I’ve found it to be unreliable and a nuisance. Will Apple‘s implementation and hardware be better? Having just acquired “AuthenTec” for $356 million in July 2012 you’d like to hope so. If not, I‘m sure they’ll tell us we&#39;re “holding it wrong” :)</p>
-<h2>“i”Lee, is this blog going to be Apple-y?</h2>
-<p>No. Not at all (actually being serious here). Although MacBook Pros are the best. Please don&#39;t give them fingerprint recognition.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
   </entry>
 </feed>

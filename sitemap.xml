@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/removing-a-property-in-javascript/</loc>
+    <lastmod>2013-09-16T16:31:34.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/jsonp-in-express-nodejs/</loc>
     <lastmod>2013-09-11T10:39:39.000Z</lastmod>
   </url>
@@ -110,6 +114,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-09-11T11:41:26.975Z</lastmod>
+    <lastmod>2013-09-16T16:32:16.773Z</lastmod>
   </url>
 </urlset>

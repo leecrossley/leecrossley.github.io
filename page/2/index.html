@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/removing-a-property-in-javascript/">Removing a Property in JavaScript</a>
+      </li>
+    
+      <li>
         <a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/meet-my-friend-david-dm/">Meet My Friend David DM</a>
       </li>
     
-      <li>
-        <a href="/what-is-javascript-strict-mode/">What Is JavaScript Strict Mode?</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -135,7 +135,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>5</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>15</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>16</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>4</small></li>
   
@@ -146,6 +146,64 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-23T09:46:39.000Z">23rd Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/what-is-javascript-strict-mode/">What Is JavaScript Strict Mode?</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>The “strict mode” pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
+<p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
+<h2>How to use it</h2>
+<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
+<figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
+</pre></td></tr></table></figure>
+
+
+<h2>Why use it</h2>
+<p>All it does it enforce good practices, here are a few examples:</p>
+<h3>Duplicate properties</h3>
+<p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
+<h3>The “with” statement</h3>
+<p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
+<h3>Variable declaration</h3>
+<p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
+<h2>A note on browsers</h2>
+<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
+<h2>Let&#39;s end on a laugh</h2>
+<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
+alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
+</pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -786,50 +844,6 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <p>Tickets for Hack Manchester 2013 went <a href="http://hackmanchester.eventbrite.com/" target="_blank">on sale yesterday</a> and were selling pretty fast. I scooped up 3 tickets for my team, if you missed your chance to get yours there will be other opportunities, so I suggest following <a href="https://twitter.com/HackManchester" target="_blank">@HackManchester</a> on twitter to find out when the next wave will be released.</p>
 <h2>Shhhh</h2>
 <p>I‘ll probably not be discussing any preliminary hack ideas here, but I like Guinness and if you’re around Manchester…</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-12T07:21:53.000Z">12th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/iphone-fingerprint-recognition-for-developers/">Fingerprint Recognition for Developers</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>The new iPhone fingerprint recognition API</h2>
-<p>As a mobile app developer, I follow new mobile technologies very closely. You&#39;ve probably noticed yourself an abundance of rumours on various sites about the upcoming “Fingerprint Recognition” seen in the new beta version of iOS7. This suggests the hardware capabilities will be available on the next version of the iPhone (iPhone 5S?).</p>
-<p>The “BiometricKitUI” directory can be found in the “Accessibility Bundles” and judging by the small amount of documentation, implies that the fingerprint sensor will be part of the home button.</p>
-<p><img src="/img/fingerprint-iphone.png" alt="Fingerprint scanning on iPhone"></p>
-<h2>Will it be available to app developers?</h2>
-<p>This is what I want to know :) I can see several usages for the core system, such as a login alternative to swipe and pin, verification for app store purchases, parental control, restricted apps and maybe even user profiles, although apple have always seemed to push for everyone having their own device for some reason ;).</p>
-<h2>When will we know?</h2>
-<p>I‘m sure app developers at the top banks know, with this being a possible security option for them. I’m going to ask some of my tweeps today and will post an update when I find out.</p>
-<p>It&#39;s strongly believed that the new iPhone will be available on the 10th of September 2013, I also imagine the iOS7 release to be scheduled for around this time, as in past years.</p>
-<h2>Will it be any good?</h2>
-<p>I‘ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I’ve found it to be unreliable and a nuisance. Will Apple‘s implementation and hardware be better? Having just acquired “AuthenTec” for $356 million in July 2012 you’d like to hope so. If not, I‘m sure they’ll tell us we&#39;re “holding it wrong” :)</p>
-<h2>“i”Lee, is this blog going to be Apple-y?</h2>
-<p>No. Not at all (actually being serious here). Although MacBook Pros are the best. Please don&#39;t give them fingerprint recognition.</p>
 
       
     </div>
