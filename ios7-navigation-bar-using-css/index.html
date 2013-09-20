@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS7 Navigation Bar Using CSS | iLee</title>
+  <meta name="author" content="Lee Crossley">
+  <meta name="description" content="How to implement an iOS7 style Navigation Bar using CSS, complete with transparency and blur effects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:title" content="iOS7 Navigation Bar Using CSS"/>
+  <meta property="og:site_name" content="iLee"/>
+  <meta property="og:image" content="http://dribbble.s3.amazonaws.com/users/181199/screenshots/1107058/ios7_1x.png" />
+  <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42989646-1', 'ilee.co.uk');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <div id="sidebar" class="alignleft"><header class="logo">
+  <h1>
+    <a href="/">iLee</a>
+    <span>I write code that sounds awesome and music that's bug free</span>
+  </h1>
+</header>
+
+<ul class="social">
+  <li class="facebook">
+    <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
+  </li>
+  <li class="twitter">
+    <a href="https://twitter.com/lee_crossley" target="_blank" class="icon"><i class="icon-twitter"></i></a>
+  </li>
+  <li class="github">
+    <a href="https://github.com/leecrossley" target="_blank" class="icon"><i class="icon-github"></i></a>
+  </li>
+  <li class="google-plus">
+    <a href="https://plus.google.com/100605644656941447412?rel=author" target="_blank" class="icon"><i class="icon-google-plus"></i></a>
+  </li>
+  <li class="linkedin">
+    <a href="http://uk.linkedin.com/in/leecrossley/" target="_blank" class="icon"><i class="icon-linkedin"></i></a>
+  </li>
+</ul>
+
+
+  <div class="widget tag">
+<ul class="entry">
+  
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/about-me">About Me</a></li>
+  
+    <li><a href="/archives">Archives</a></li>
+  
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/ios7-navigation-bar-using-css/">iOS7 Navigation Bar Using CSS</a>
+      </li>
+    
+      <li>
+        <a href="/executing-javascript-files-asynchronously/">Asynchronous JavaScript Files</a>
+      </li>
+    
+      <li>
+        <a href="/removing-a-property-in-javascript/">Removing a Property in JavaScript</a>
+      </li>
+    
+      <li>
+        <a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a>
+      </li>
+    
+      <li>
+        <a href="/mongoose-documents-and-jsonstringify/">Mongoose Docs and JSON.stringify</a>
+      </li>
+    
+      <li>
+        <a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a>
+      </li>
+    
+      <li>
+        <a href="/selling-some-domain-names/">Selling Some Domain Names</a>
+      </li>
+    
+      <li>
+        <a href="/functional-first-last-everything/">Functional First, Last, Every(thing)</a>
+      </li>
+    
+      <li>
+        <a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/are-your-apps-ready-for-ios-7/">Are Your Apps Ready for iOS 7?</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/android/">android</a><small>2</small></li>
+  
+    <li><a href="/tags/app/">app</a><small>6</small></li>
+  
+    <li><a href="/tags/design/">design</a><small>1</small></li>
+  
+    <li><a href="/tags/hack/">hack</a><small>2</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>2</small></li>
+  
+    <li><a href="/tags/iphone/">iphone</a><small>6</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>17</small></li>
+  
+    <li><a href="/tags/phonegap/">phonegap</a><small>5</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>12</small></li>
+  
+  </ul>
+</div>
+
+</div>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-20T10:15:11.000Z">20th Sep 2013</time>
+      
+      
+  
+    <h1 class="title">iOS7 Navigation Bar Using CSS</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>iOS7 elements with HTML and CSS</h2>
+<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
+<h2>The UINavigationBar</h2>
+<p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
+<h2>My implementation</h2>
+<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here&#39;s how I set about it.</p>
+<h3>The transparency</h3>
+<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
+<figure class="highlight lang-css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="id">#header</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span>;</span></span>
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span>;</span></span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span>
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px;</span></span>
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span>
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+
+<h3>The blur / frosting</h3>
+<p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
+<figure class="highlight lang-css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="class">.header-blur</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span>;</span></span>
+    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span> 
+    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span>;</span></span>
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+
+<p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
+<h3>iScroll</h3>
+<p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
+<h2>Demo</h2>
+<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/ios7-navigation-bar-using-css"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=iOS7 Navigation Bar Using CSS&url=http://ilee.co.uk/ios7-navigation-bar-using-css&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/ios7-navigation-bar-using-css"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/ios7-navigation-bar-using-css&title=iOS7 Navigation Bar Using CSS"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/iphone/">iphone</a>, <a href="/tags/app/">app</a>, <a href="/tags/phonegap/">phonegap</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Lee Crossley
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script type="text/javascript">
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//ilee.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+</body>
+</html>

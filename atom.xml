@@ -4,12 +4,102 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-18T15:36:33.096Z</updated>
+  <updated>2013-09-20T10:46:36.541Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[iOS7 Navigation Bar Using CSS]]></title>
+    <link href="http://ilee.co.uk/ios7-navigation-bar-using-css/"/>
+    <id>http://ilee.co.uk/ios7-navigation-bar-using-css/</id>
+    <published>2013-09-20T10:15:11.000Z</published>
+    <updated>2013-09-20T10:46:12.000Z</updated>
+    <content type="html"><![CDATA[<h2>iOS7 elements with HTML and CSS</h2>
+<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
+<h2>The UINavigationBar</h2>
+<p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
+<h2>My implementation</h2>
+<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here&#39;s how I set about it.</p>
+<h3>The transparency</h3>
+<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
+<figure class="highlight lang-css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="id">#header</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span>;</span></span>
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span>;</span></span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span>
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px;</span></span>
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span>
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+
+<h3>The blur / frosting</h3>
+<p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
+<figure class="highlight lang-css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="class">.header-blur</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span>;</span></span>
+    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span> 
+    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span>;</span></span>
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+
+<p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
+<h3>iScroll</h3>
+<p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
+<h2>Demo</h2>
+<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Asynchronous JavaScript Files]]></title>
     <link href="http://ilee.co.uk/executing-javascript-files-asynchronously/"/>
@@ -1081,29 +1171,5 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 <p>With draws full of mobile and tablets and not enough money to buy socks. Oh, but with killer apps :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Maximise Your Twitter Engagement]]></title>
-    <link href="http://ilee.co.uk/maximise-twitter-engagement/"/>
-    <id>http://ilee.co.uk/maximise-twitter-engagement/</id>
-    <published>2013-08-15T13:55:34.000Z</published>
-    <updated>2013-08-15T14:40:31.000Z</updated>
-    <content type="html"><![CDATA[<h2>Get more twitter retweets and favourites</h2>
-<p><a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> allows you to calculate the optimal day and time for you to tweet, based on retweets and favourites your tweets have had in the past.</p>
-<h2>How does it work?</h2>
-<p>Visit <a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> and authorise the website to access your twitter account. <strong>That&#39;s it!</strong> You&#39;ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
-<h2>Why should I bother?</h2>
-<p>Whether you&#39;re an individual or a company, you tweet because you want people to read it and engage with it. If you have an important tweet, you want to get the maximum possible exposure.</p>
-<p>Twitter is global and users/followers are from various timezones, so your optimal post time may not be what you think. Also, everyones followers are different, TweetThen tailors your date and times directly to your twitter account.</p>
-<h2>Is this a unique idea?</h2>
-<p>I‘ve found a couple of others doing similar things. One service is free but doesn’t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
-<h2>Who wrote it?</h2>
-<p>If you‘ve not guessed by now, it’s a little pet project I started yesterday. It&#39;s built using <a href="http://nodejs.org/" target="_blank">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
-<h2>Alpha?</h2>
-<p>It‘s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I’m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
-<p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when&#39;s best to do it :)</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>
