@@ -10,6 +10,7 @@
   <meta property="og:title" content="Plugin Registry for Cordova/PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
   <meta property="og:image" content="https://2.gravatar.com/avatar/467b6e8a473f45a15ac9514a30c15c3d?s=150" />
+  <style>body{background:#ecf0f1}.inner{opacity:0;transition:opacity 0.2s linear}a{color:#16a085}</style>
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -235,8 +236,9 @@
 </script>
 
 <script>
-(function(){var e=document.createElement("link");e.href="/css/style.css";
-e.rel="stylesheet";e.type="text/css";document.getElementsByTagName("head")[0].appendChild(e)})()
+(function(){"use strict";function e(){var e=document.createElement("link");e.href="/css/style.css";
+e.rel="stylesheet";e.type="text/css";document.getElementsByTagName("head")[0].appendChild(e)}if(window.attachEvent){
+window.attachEvent("onload",e)}else{window.addEventListener("load",e,false)}})()
 </script>
 </body>
 </html>
