@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-21T12:17:16.776Z</updated>
+  <updated>2013-09-21T12:19:55.535Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -330,8 +330,8 @@ Items.find(<span class="keyword">function</span>(err, items) {
   </entry>
   <entry>
     <title type="html"><![CDATA[Rock Paper Scissors @manc_js]]></title>
-    <link href="http://ilee.co.uk/rock-paper-scissors-@manc_js/"/>
-    <id>http://ilee.co.uk/rock-paper-scissors-@manc_js/</id>
+    <link href="http://ilee.co.uk/rock-paper-scissors-manc_js/"/>
+    <id>http://ilee.co.uk/rock-paper-scissors-manc_js/</id>
     <published>2013-09-05T07:08:07.000Z</published>
     <updated>2013-09-05T08:11:45.000Z</updated>
     <content type="html"><![CDATA[<h2>Manc JS</h2>
@@ -461,8 +461,8 @@ it(<span class="string">"should win the first hand against rock and increment wi
   </entry>
   <entry>
     <title type="html"><![CDATA[Functional First, Last, Every(thing)]]></title>
-    <link href="http://ilee.co.uk/functional-first-last-every(thing)/"/>
-    <id>http://ilee.co.uk/functional-first-last-every(thing)/</id>
+    <link href="http://ilee.co.uk/functional-first-last-everything/"/>
+    <id>http://ilee.co.uk/functional-first-last-everything/</id>
     <published>2013-09-02T10:40:32.000Z</published>
     <updated>2013-09-02T16:13:29.000Z</updated>
     <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
