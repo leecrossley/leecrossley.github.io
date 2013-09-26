@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Maximise Your Twitter Engagement | iLee</title>
+  <title>The JavaScript IsNumeric Function | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Get more twitter retweets and favourites by automatically calculating the optimal day and time for you to tweet.">
+  <meta name="description" content="How to reliably determine if an object is numerical in JavaScript.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Maximise Your Twitter Engagement"/>
+  <meta property="og:title" content="The JavaScript IsNumeric Function"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="https://si0.twimg.com/profile_images/378800000296480599/e7501285b50228bd6c747899e08b2902.png" />
+  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -151,30 +151,47 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-15T13:55:34.000Z">15th Aug 2013</time>
+        <time datetime="2013-09-26T16:16:00.000Z">26th Sep 2013</time>
       
       
   
-    <h1 class="title">Maximise Your Twitter Engagement</h1>
+    <h1 class="title">The JavaScript IsNumeric Function</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>Get more twitter retweets and favourites</h2>
-<p><a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> allows you to calculate the optimal day and time for you to tweet, based on retweets and favourites your tweets have had in the past.</p>
-<h2>How does it work?</h2>
-<p>Visit <a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> and authorise the website to access your twitter account. <strong>That&#39;s it!</strong> You&#39;ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
-<h2>Why should I bother?</h2>
-<p>Whether you&#39;re an individual or a company, you tweet because you want people to read it and engage with it. If you have an important tweet, you want to get the maximum possible exposure.</p>
-<p>Twitter is global and users/followers are from various timezones, so your optimal post time may not be what you think. Also, everyones followers are different, TweetThen tailors your date and times directly to your twitter account.</p>
-<h2>Is this a unique idea?</h2>
-<p>I‘ve found a couple of others doing similar things. One service is free but doesn’t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
-<h2>Who wrote it?</h2>
-<p>If you‘ve not guessed by now, it’s a little pet project I started yesterday. It&#39;s built using <a href="http://nodejs.org/" target="_blank">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
-<h2>Alpha?</h2>
-<p>It‘s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I’m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
-<p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when&#39;s best to do it :)</p>
+        <h2>isNumeric</h2>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
+<h3>Using npm</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
+</pre></td></tr></table></figure>
+
+<p>To then include isnumeric in your node app:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
+</pre></td></tr></table></figure>
+
+<h3>Direct dependency</h3>
+<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
+<h2>The code</h2>
+<p>Essentially, this is it:</p>
+<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
+    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
+    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
+};
+</pre></td></tr></table></figure>
+
+
+<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
+<h2>The tests</h2>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>Any disagreements or improvements please pull request.</p>
 
       
     </div>
@@ -182,17 +199,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/maximise-twitter-engagement"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Maximise Your Twitter Engagement&url=http://ilee.co.uk/maximise-twitter-engagement&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/maximise-twitter-engagement"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/maximise-twitter-engagement&title=Maximise Your Twitter Engagement"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=The JavaScript IsNumeric Function&url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric&title=The JavaScript IsNumeric Function"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/">web</a>, <a href="/tags/javascript/">javascript</a>
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/web/">web</a>, <a href="/tags/html/">html</a>
   </div>
 
       

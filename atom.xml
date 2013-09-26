@@ -4,12 +4,54 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-23T13:47:55.200Z</updated>
+  <updated>2013-09-26T16:35:56.153Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[The JavaScript IsNumeric Function]]></title>
+    <link href="http://ilee.co.uk/determine-if-a-javascript-object-is-numeric/"/>
+    <id>http://ilee.co.uk/determine-if-a-javascript-object-is-numeric/</id>
+    <published>2013-09-26T16:16:00.000Z</published>
+    <updated>2013-09-26T16:35:20.000Z</updated>
+    <content type="html"><![CDATA[<h2>isNumeric</h2>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
+<h3>Using npm</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
+</pre></td></tr></table></figure>
+
+<p>To then include isnumeric in your node app:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
+</pre></td></tr></table></figure>
+
+<h3>Direct dependency</h3>
+<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
+<h2>The code</h2>
+<p>Essentially, this is it:</p>
+<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
+    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
+    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
+};
+</pre></td></tr></table></figure>
+
+
+<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
+<h2>The tests</h2>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>Any disagreements or improvements please pull request.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[My Shiny New iPhone 5s]]></title>
     <link href="http://ilee.co.uk/my-shiny-new-iphone-5s/"/>
@@ -1074,106 +1116,6 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 
 <p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Ways to Declare JavaScript Functions]]></title>
-    <link href="http://ilee.co.uk/different-ways-to-declare-javascript-functions/"/>
-    <id>http://ilee.co.uk/different-ways-to-declare-javascript-functions/</id>
-    <published>2013-08-17T12:12:13.000Z</published>
-    <updated>2013-08-17T14:26:28.000Z</updated>
-    <content type="html"><![CDATA[<h2>The different ways to declare a function in JavaScript</h2>
-<h3>To var, or not to var</h3>
-<p>You can declare a function as you would any other JavaScript variable:</p>
-<figure class="highlight lang-javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
-
-
-<p>Or you can declare it without a var in your statement:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-}
-</pre></td></tr></table></figure>
-
-
-<h2>The difference</h2>
-<p>I recently read an accepted answer on Stack Overflow that stated:</p>
-<blockquote><p>&quot;<em>If you‘re in the global scope then there’s no difference.</em>&quot;</p>
-<footer><strong>- Stack Overflow</strong></footer></blockquote>
-
-
-<p>I‘m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="keyword">try</span> {
-  func1();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  alert(<span class="string">"func1 success"</span>);
-};
-
-<span class="keyword">try</span> {
-  func2();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-  alert(<span class="string">"func2 success"</span>);
-}
-</pre></td></tr></table></figure>
-
-
-<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
-<ul>
-<li>func1 (var format) is defined <strong>at</strong> runtime</li>
-<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>&quot;</li>
-</ul>
-<h2>Function expressions</h2>
-<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
-
-
-<h2>Best practice</h2>
-<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you&#39;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
-<h2>CoffeeScript fans</h2>
-<p>If you&#39;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#39;s only one way you can define a function in coffeescript:</p>
-<figure class="highlight lang-coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="function"><span class="title">func</span></span> = -&gt;
-</pre></td></tr></table></figure>
-
-
-<p>Which is evaluated as a function expression, fortunately.</p>
-<p>Now seriously, get off my blog CoffeeScripters.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
