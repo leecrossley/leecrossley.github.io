@@ -4,12 +4,49 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-09-26T16:35:56.153Z</updated>
+  <updated>2013-10-02T17:07:52.548Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Hack to Prevent JSON Hijacking]]></title>
+    <link href="http://ilee.co.uk/hack-to-prevent-json-hijacking/"/>
+    <id>http://ilee.co.uk/hack-to-prevent-json-hijacking/</id>
+    <published>2013-10-02T16:32:24.000Z</published>
+    <updated>2013-10-02T17:06:55.000Z</updated>
+    <content type="html"><![CDATA[<h2>JSON hijacking</h2>
+<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
+<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
+<h2>The hack</h2>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>JSON.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
+</pre></td></tr></table></figure>
+
+<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
+<p>Facebook use a similar variation to achieve the same result:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
+</pre></td></tr></table></figure>
+
+<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
+</pre></td></tr></table></figure>
+
+<h2>Limitations</h2>
+<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[The JavaScript IsNumeric Function]]></title>
     <link href="http://ilee.co.uk/determine-if-a-javascript-object-is-numeric/"/>
@@ -1024,99 +1061,5 @@ shake.stopWatch();
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Let Grunt Handle Your Tasks]]></title>
-    <link href="http://ilee.co.uk/let-grunt-handle-your-tasks/"/>
-    <id>http://ilee.co.uk/let-grunt-handle-your-tasks/</id>
-    <published>2013-08-18T08:47:54.000Z</published>
-    <updated>2013-08-18T10:39:23.000Z</updated>
-    <content type="html"><![CDATA[<h2>Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn‘t take sick days, pays attention and watches what you’re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It‘s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
-<p>I&#39;m just going to cover the basics here for now.</p>
-<h2>Getting the ball rolling</h2>
-<p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
-<h3>The Grunt CLI</h3>
-<p>Assuming you‘re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install -g grunt-cli
-</pre></td></tr></table></figure>
-
-
-<p>You can now run “grunt” from anywhere. Happy times.</p>
-<h3>The Gruntfile.js</h3>
-<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
-<p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
-</pre></td></tr></table></figure>
-
-
-<p>You can then define some tasks in your Gruntfile.js, here&#39;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>jasmine: {
-    src: <span class="string">"functional.min.js"</span>,
-    options: {
-        specs: <span class="string">"spec.js"</span>
-    }
-}
-</pre></td></tr></table></figure>
-
-
-<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank">spec.js</a>.</p>
-<p>You can run it by doing:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">grunt</span> jasmine
-</pre></td></tr></table></figure>
-
-
-<h3>Combining tasks</h3>
-<p>In the above example, it‘s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
-</pre></td></tr></table></figure>
-
-
-<p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
-<h3>Watching for changes</h3>
-<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>watch: {
-    files: [
-        <span class="string">"*.js"</span>,
-        <span class="string">"!functional.min.js"</span>
-    ],
-    tasks: [<span class="string">"test"</span>]
-}
-</pre></td></tr></table></figure>
-
-
-<p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">grunt</span> watch
-</pre></td></tr></table></figure>
-
-
-<p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>
