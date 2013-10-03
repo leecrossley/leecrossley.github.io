@@ -73,6 +73,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/which-mobile-app-platform-first/">Which Mobile App Platform First?</a>
+      </li>
+    
+      <li>
         <a href="/hack-to-prevent-json-hijacking/">Hack to Prevent JSON Hijacking</a>
       </li>
     
@@ -108,10 +112,6 @@
         <a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a>
       </li>
     
-      <li>
-        <a href="/selling-some-domain-names/">Selling Some Domain Names</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -123,9 +123,9 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>2</small></li>
+    <li><a href="/tags/android/">android</a><small>3</small></li>
   
-    <li><a href="/tags/app/">app</a><small>6</small></li>
+    <li><a href="/tags/app/">app</a><small>7</small></li>
   
     <li><a href="/tags/design/">design</a><small>1</small></li>
   
@@ -133,11 +133,11 @@
   
     <li><a href="/tags/html/">html</a><small>3</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>7</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>8</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>19</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>5</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>6</small></li>
   
     <li><a href="/tags/web/">web</a><small>14</small></li>
   
@@ -146,6 +146,69 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
+      
+      
+  
+    <h1 class="title"><a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>Detecting shake events in your <a href="http://phonegap.com/" target="_blank">PhoneGap</a> / Cordova apps</h2>
+<p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
+<p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
+<h2>The gist</h2>
+<p>I wrote a <a href="https://gist.github.com/leecrossley/4078996" target="_blank">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
+<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
+<h2>Using shake.js</h2>
+<p>If you‘re interested in using shake.js, it’s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
+<figure class="highlight lang-javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> onShake = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="comment">// Code fired when a shake is detected</span>
+};
+
+<span class="comment">// Start watching for shake gestures and call "onShake"</span>
+shake.startWatch(onShake);
+
+<span class="comment">// Stop watching for shake gestures</span>
+shake.stopWatch();
+</pre></td></tr></table></figure>
+
+
+<h2>Platforms</h2>
+<p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
+<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -912,59 +975,6 @@ console.log(result);
 <p>By performing the addition on integers, no rounding issues occur.</p>
 <h2>Libraries</h2>
 <p>If you&#39;re needing precision with lots of complex calculations, there are JavaScript libraries specifically for this (although some are horrible Java ports). <a href="https://github.com/MikeMcl/bignumber.js/" target="_blank">bignumber.js</a> looks OK and I remember using <a href="http://www.leemon.com/crypto/BigInt.js" target="_blank">bigint.js</a> with <a href="https://twitter.com/danielcassidy" target="_blank">@danielcassidy</a> and <a href="https://twitter.com/anttears" target="_blank">@anttears</a> back in the day.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-08T08:32:45.000Z">8th Aug 2013</time>
-      
-      
-  
-    <h1 class="title"><a href="/use-google-pagespeed-on-your-site/">Use Google PageSpeed on Your Site</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>Why?</h2>
-<p>The short of it - speeding up your website is a great thing to do all round. It improves visitor experience, retention, and conversions. With data mobile browsing becoming increasingly popular, saving those extra few KB to download can make a big difference to your users.</p>
-<p>On April 9th 2010 <a href="http://googlewebmastercentral.blogspot.co.uk/2010/04/using-site-speed-in-web-search-ranking.html" target="_blank">Google officially announced</a> the inclusion of a new “signal” in their search ranking algorithms. You guessed it, page speed. So it goes without saying that using Google PageSpeed on your site could also improve your search engine rankings.</p>
-<h2>It&#39;s free?</h2>
-<p>Yes and no, Google are in it for the €€€ in their Irish pocket. The Google PageSpeed <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">Insights</a> are currently (and I imagine will always be) free, but the Google PageSpeed <a href="https://developers.google.com/speed/pagespeed/service" target="_blank">Service</a> is only a limited free trial. Lose <em>wait</em> that way and the pounds are sure to drop off.</p>
-<h2>Insights vs Service</h2>
-<p>The Insights allow Google to analyse your website and generate suggestions to help make it faster. The PageSpeed score is any number up to 100 (the higher the better, but Google have suggested you should aim for 85 and above). They also colour code suggestions to help you see which changes will give you the highest impact and potentially quick wins (they&#39;re red). Their current suggestions are mainly:</p>
-<ul>
-<li>Eliminate external render-blocking Javascript and CSS</li>
-<li>Avoid landing page redirects</li>
-<li>Leverage browser caching</li>
-<li>Enable compression</li>
-<li>Reduce server response time to &lt; 200ms</li>
-<li>Minify HTML, CSS and JavaScript</li>
-<li>Optimise images</li>
-</ul>
-<p><img src="/img/response-speed.png" alt="200ms Response"></p>
-<p>Some of the Insights guidance is (probably intentionally) tough to follow and may also be constrained by the technology or hosting you&#39;re using. Do not fear, Google is here, with their quick and easy, automated service. Alternatively, you could just use a <a href="http://ilee.co.uk/static-site-generators/">Static Site Generator</a> with some sensible hosting. I&#39;ll probably go over some of the more tricky suggestions at a later date.</p>
-<h2>Don&#39;t just do it once</h2>
-<p>Do it every night if you can - and make sure you‘re always on top. As for PageSpeed Insights, because the web is fast paced and continually evolving, they’re iterative. Just like the main search algorithm, expect the PageSpeed algorithm and suggestions to change frequently.</p>
-<h2>This blog</h2>
-<p>Bragging time again. This site currently (at the time of writing) has a desktop PageSpeed score of 97/100. That‘s better than Facebook, Twitter, ebay etc and equal to Google’s own score for Google.com. Yey for me.</p>
 
       
     </div>

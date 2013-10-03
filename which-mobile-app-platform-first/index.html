@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Timing Grunt Task Duration | iLee</title>
+  <title>Which Mobile App Platform First? | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="How to automatically time the duration of each grunt task and output the time in milliseconds to the console.">
+  <meta name="description" content="Most people develop iOS mobile apps first but should they?">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Timing Grunt Task Duration"/>
+  <meta property="og:title" content="Which Mobile App Platform First?"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
+  <meta property="og:image" content="http://ilee.co.uk/img/app-platforms.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -151,61 +151,38 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-20T12:37:41.000Z">20th Aug 2013</time>
+        <time datetime="2013-10-03T16:10:34.000Z">3rd Oct 2013</time>
       
       
   
-    <h1 class="title">Timing Grunt Task Duration</h1>
+    <h1 class="title">Which Mobile App Platform First?</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>Timing is everything</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
-<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
-<h2>grunt-timer</h2>
-<p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2>Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it‘s a little hacky the way I’ve done it using hooks and the time isn&#39;t 100% accurate.</p>
-<p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2>How do I use it?</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-timer <span class="comment">## --save</span>
-</pre></td></tr></table></figure>
+        <h2>Developing apps for iOS first</h2>
+<p>A <a href="https://twitter.com/VickiHigham" target="_blank">friend</a> today asked me a very interesting question:</p>
+<blockquote><p>“Can you see a reason people would launch on iOS first?” … “they don&#39;t have the biggest market share”</p>
+<footer><strong>- @VickiHigham</strong></footer></blockquote>
 
 
-<p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
-</pre></td></tr></table></figure>
-
-
-<p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt);
-</pre></td></tr></table></figure>
-
-<h2>Example output</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="title">Running</span> <span class="string">"run:500"</span> (run) task
-<span class="number">500ms</span> task ran
-Task <span class="string">'run:500'</span> took <span class="number">502ms</span>
-</pre></td></tr></table></figure>
-
-
-<h2>Issues</h2>
-<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
+<p><img src="/img/app-platforms.png" alt="Mobile App Platforms"></p>
+<p>This got me thinking. Yes, it&#39;s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
+<p>I&#39;ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
+<h3>The curveball</h3>
+<p>In reality, it doesn‘t actually doesn’t make sense to develop for iOS first if you‘re going to be targeting multiple platforms (especially if you’re using something like Cordova / PhoneGap)… let me convince you why.</p>
+<h2>Developing apps for Android first</h2>
+<h3>It&#39;s all about the review process</h3>
+<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can&#39;t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
+<p>If you were to develop apps for Android first, because of the fast release process there would be a raft of benefits:</p>
 <ul>
-<li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
+<li>The app could potentially be released quicker</li>
+<li>Bugs can be fixed and released quicker</li>
+<li>A more robust version could then be released to iOS</li>
 </ul>
-<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
+<h2>Other considerations</h2>
+<p>Of course, there are other considerations, such as target location, device capabilities etc but we should be at least questioning the “iOS First” approach that seems to have become the default.</p>
 
       
     </div>
@@ -213,17 +190,17 @@ Task <span class="string">'run:500'</span> took <span class="number">502ms</span
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/timing-grunt-task-duration"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Timing Grunt Task Duration&url=http://ilee.co.uk/timing-grunt-task-duration&via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/timing-grunt-task-duration"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/timing-grunt-task-duration&title=Timing Grunt Task Duration"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/which-mobile-app-platform-first"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Which Mobile App Platform First?&url=http://ilee.co.uk/which-mobile-app-platform-first&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/which-mobile-app-platform-first"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/which-mobile-app-platform-first&title=Which Mobile App Platform First?"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/">javascript</a>
+    <a href="/tags/iphone/">iphone</a>, <a href="/tags/android/">android</a>, <a href="/tags/app/">app</a>, <a href="/tags/phonegap/">phonegap</a>
   </div>
 
       
