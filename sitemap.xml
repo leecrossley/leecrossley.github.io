@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/ios7-navigation-bar-using-css/</loc>
+    <lastmod>2013-10-08T11:47:32.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/which-mobile-app-platform-first/</loc>
     <lastmod>2013-10-03T16:53:00.000Z</lastmod>
   </url>
@@ -15,10 +19,6 @@
   <url>
     <loc>http://ilee.co.uk/my-shiny-new-iphone-5s/</loc>
     <lastmod>2013-09-23T12:48:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://ilee.co.uk/ios7-navigation-bar-using-css/</loc>
-    <lastmod>2013-09-20T10:46:12.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/executing-javascript-files-asynchronously/</loc>
@@ -138,6 +138,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-10-03T16:53:59.446Z</lastmod>
+    <lastmod>2013-10-08T11:48:10.848Z</lastmod>
   </url>
 </urlset>
