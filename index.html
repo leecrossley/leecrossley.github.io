@@ -472,7 +472,8 @@
 <p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
 <h2>Demo</h2>
 <p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
-<h2><strong>UPDATE 08/10/2013</strong> ## {#update}</h2>
+<h2 id="update"><strong>UPDATE 08/10/2013</strong></h2>
+
 <p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn‘t actually applying the blur to elements underneath the header because they aren’t nested.</p>
 <p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
 <p>Sounds hacky, but it&#39;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it‘s worth it, but I’ll do some performance testing.</p>
