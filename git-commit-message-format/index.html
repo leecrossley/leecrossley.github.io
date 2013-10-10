@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>phonegap | iLee | developer blog</title>
+  <title>Git Commit Message Format | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="There is a right way and a wrong way to write your git commit messages.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Git Commit Message Format"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="http://cdemyanovich.github.io/git_out_of_trouble/file/images/Git-Icon-1788C_small.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -147,89 +147,77 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">phonegap</h2>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-10T08:51:33.000Z">10th Oct 2013</time>
+      
+      
+  
+    <h1 class="title">Git Commit Message Format</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <h2>Format frustration</h2>
+<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it&#39;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
+<p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
+<h2>The right way</h2>
+<p>Follow these simple guideline(s):</p>
+<ul>
+<li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
+<li>Capitalise the first letter</li>
+<li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
+<li>Don&#39;t end with a full stop</li>
+<li>Reference issue numbers with a #</li>
+</ul>
+<p>Optional:</p>
+<ul>
+<li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
+<li>Prefix with “area: ” where the area is an identifier for the area of the code the commit relates to (personally I don&#39;t do this but it can be useful in some circumstances)</li>
+</ul>
+<h2>Why?</h2>
+<p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
+<p>If you take a look at auto generated git messages, you&#39;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
+<h2>Automated user git messages</h2>
+<p>Bad bad bad. You‘re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
 
-  <article>
-    <div class="post-content arch">
-      
-        <header>
-  
-    <time datetime="2013-10-03T16:10:34.000Z">3rd Oct 2013</time>
-  
-  <h2 class="title"><a href="/which-mobile-app-platform-first/">Which Mobile App Platform First?</a></h2>
-</header>
-<div class="entry arch">
-  
-    Most people develop iOS mobile apps first but should they?
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-20T10:15:11.000Z">20th Sep 2013</time>
-  
-  <h2 class="title"><a href="/ios7-navigation-bar-using-css/">iOS7 Navigation Bar Using CSS</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to implement an iOS7 style Navigation Bar using CSS, complete with transparency and blur effects.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-11T09:54:44.000Z">11th Sep 2013</time>
-  
-  <h2 class="title"><a href="/jsonp-in-express-nodejs/">JSONP in Express/Node.js</a></h2>
-</header>
-<div class="entry arch">
-  
-    Getting JSONP requests and your Node.js / Express server to play nicely.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-30T17:39:42.000Z">30th Aug 2013</time>
-  
-  <h2 class="title"><a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a></h2>
-</header>
-<div class="entry arch">
-  
-    A searchable list of all Cordova / PhoneGap plugins, with simple representation of the platforms and engines supported.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-26T15:34:51.000Z">26th Aug 2013</time>
-  
-  <h2 class="title"><a href="/social-message-plugin-for-cordova-30/">Social Message Plugin for Cordova 3.0</a></h2>
-</header>
-<div class="entry arch">
-  
-    Post messages to Facebook, Twitter and others easily with the new Social Message plugin for Cordova 3.0
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
-  
-  <h2 class="title"><a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to detect shake gestures when writing a web based hybrid app in PhoneGap (Cordova).
-  
-</div>
       
     </div>
-  </article>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/git-commit-message-format"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Git Commit Message Format&url=http://ilee.co.uk/git-commit-message-format&via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/git-commit-message-format"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/git-commit-message-format&title=Git Commit Message Format"></a>
+</div>
 
+        
+        
   
+  <div class="tags">
+    <a href="/tags/git/">git</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -245,7 +233,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
