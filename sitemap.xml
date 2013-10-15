@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/use-the-right-http-status-codes/</loc>
+    <lastmod>2013-10-15T15:25:55.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/git-commit-message-format/</loc>
     <lastmod>2013-10-10T09:35:36.000Z</lastmod>
   </url>
@@ -142,6 +146,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-10-15T14:31:54.691Z</lastmod>
+    <lastmod>2013-10-15T15:26:05.495Z</lastmod>
   </url>
 </urlset>
