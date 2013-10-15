@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-10-15T15:26:05.461Z</updated>
+  <updated>2013-10-15T15:28:23.189Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,11 +15,11 @@
     <link href="http://ilee.co.uk/use-the-right-http-status-codes/"/>
     <id>http://ilee.co.uk/use-the-right-http-status-codes/</id>
     <published>2013-10-15T14:39:29.000Z</published>
-    <updated>2013-10-15T15:25:55.000Z</updated>
+    <updated>2013-10-15T15:28:19.000Z</updated>
     <content type="html"><![CDATA[<h2>HTTP status codes</h2>
 <p>Every response from a server carries an HTTP status code, this provides clients with the ability to formally identify the status of the response and has other uses, such as identifying a type of error.</p>
 <p>I&#39;m currently working with a &quot;<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">RESTful</a>&quot; (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
-<p>An API especially should use the correct status codes so that responses to basic requests can be defined only by status codes, without the need for any additional data.</p>
+<p>An API especially should use the correct status codes so that responses to basic requests can be defined by status codes, without the need for any additional data.</p>
 <h2>The basics</h2>
 <ul>
 <li><strong>1xx</strong> - Hang on</li>
