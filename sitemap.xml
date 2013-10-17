@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/social-message-plugin-for-cordova-30/</loc>
+    <lastmod>2013-10-17T14:49:57.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://ilee.co.uk/ios7-navigation-bar-using-css/</loc>
+    <lastmod>2013-10-17T14:45:56.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/use-the-right-http-status-codes/</loc>
     <lastmod>2013-10-15T15:28:19.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/git-commit-message-format/</loc>
     <lastmod>2013-10-10T09:35:36.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://ilee.co.uk/ios7-navigation-bar-using-css/</loc>
-    <lastmod>2013-10-08T11:51:24.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/which-mobile-app-platform-first/</loc>
@@ -63,10 +67,6 @@
   <url>
     <loc>http://ilee.co.uk/are-your-apps-ready-for-ios-7/</loc>
     <lastmod>2013-08-27T15:52:31.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://ilee.co.uk/social-message-plugin-for-cordova-30/</loc>
-    <lastmod>2013-08-26T15:59:44.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/meet-my-friend-david-dm/</loc>
@@ -146,6 +146,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-10-16T09:08:00.990Z</lastmod>
+    <lastmod>2013-10-17T14:50:24.984Z</lastmod>
   </url>
 </urlset>
