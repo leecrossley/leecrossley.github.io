@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-10-17T14:50:24.944Z</updated>
+  <updated>2013-10-17T14:54:58.065Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -881,7 +881,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
     <link href="http://ilee.co.uk/social-message-plugin-for-cordova-30/"/>
     <id>http://ilee.co.uk/social-message-plugin-for-cordova-30/</id>
     <published>2013-08-26T15:34:51.000Z</published>
-    <updated>2013-10-17T14:49:57.000Z</updated>
+    <updated>2013-10-17T14:54:53.000Z</updated>
     <content type="html"><![CDATA[<h2>The old Social Message plugin</h2>
 <p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
 <p>The plugin bridged functionality between PhoneGap / Cordova‘s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
@@ -925,7 +925,7 @@ window.socialmessage.send(message);
 <h2>Platform support</h2>
 <p>The plugin is currently only implemented for iOS but I&#39;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
 <h2>Just a thought…</h2>
-<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager…</p>
+<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager… <em><a href="http://www.plugreg.com" target="_blank">cough</a></em></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
