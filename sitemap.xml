@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/add-structured-data-to-your-blog/</loc>
+    <lastmod>2013-10-25T10:21:15.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/finding-cordova-plugins-for-your-apps/</loc>
     <lastmod>2013-10-25T08:50:39.000Z</lastmod>
   </url>
@@ -150,6 +154,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-10-25T08:51:07.981Z</lastmod>
+    <lastmod>2013-10-25T10:22:56.744Z</lastmod>
   </url>
 </urlset>
