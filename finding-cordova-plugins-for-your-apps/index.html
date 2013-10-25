@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>android | iLee | developer blog</title>
+  <title>Finding Cordova Plugins for Your Apps | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="It's now even easier to find Cordova / PhoneGap plugins with PlugReg.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Finding Cordova Plugins for Your Apps"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="http://www.plugreg.com/img/plugreg-large.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -148,65 +148,84 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">android</h2>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-24T07:50:38.000Z" itemprop="datePublished">24th Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Finding Cordova Plugins for Your Apps</h1>
+  
 
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>PlugReg</h2>
+<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
+<h3>What&#39;s changed</h3>
+<p>Some of the new features and bug fixes:</p>
+<ul>
+<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
+<li><strong>Logo</strong>. Shiny new logo</li>
+<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
+</ul>
+<p>I fixed the ordering by doing:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
+    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+}
 
-  <article>
-    <div class="post-content arch">
-      
-        <header>
-  
-    <time datetime="2013-10-24T07:50:38.000Z">24th Oct 2013</time>
-  
-  <h2 class="title"><a href="/finding-cordova-plugins-for-your-apps/">Finding Cordova Plugins for Your Apps</a></h2>
-</header>
-<div class="entry arch">
-  
-    It's now even easier to find Cordova / PhoneGap plugins with PlugReg.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-10-03T16:10:34.000Z">3rd Oct 2013</time>
-  
-  <h2 class="title"><a href="/which-mobile-app-platform-first/">Which Mobile App Platform First?</a></h2>
-</header>
-<div class="entry arch">
-  
-    Most people develop iOS mobile apps first but should they?
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-30T17:39:42.000Z">30th Aug 2013</time>
-  
-  <h2 class="title"><a href="/plugin-registry-for-cordova-phonegap/">Plugin Registry for Cordova/PhoneGap</a></h2>
-</header>
-<div class="entry arch">
-  
-    A searchable list of all Cordova / PhoneGap plugins, with simple representation of the platforms and engines supported.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-19T09:48:27.000Z">19th Aug 2013</time>
-  
-  <h2 class="title"><a href="/shake-gesture-detection-in-phonegap/">Shake Gesture Detection in PhoneGap</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to detect shake gestures when writing a web based hybrid app in PhoneGap (Cordova).
-  
-</div>
+...
+
+plugins.sort(byCase);
+</pre></td></tr></table></figure>
+
+<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
+<h2>Suggestions</h2>
+<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+
       
     </div>
-  </article>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Finding%20Cordova%20Plugins%20for%20Your%20Apps&amp;url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;title=Finding%20Cordova%20Plugins%20for%20Your%20Apps"></a>
+</div>
 
+        
+        
   
+  <div class="tags">
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -222,7 +241,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>

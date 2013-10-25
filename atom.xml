@@ -4,12 +4,53 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-10-17T14:54:58.065Z</updated>
+  <updated>2013-10-25T08:51:07.948Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Finding Cordova Plugins for Your Apps]]></title>
+    <link href="http://ilee.co.uk/finding-cordova-plugins-for-your-apps/"/>
+    <id>http://ilee.co.uk/finding-cordova-plugins-for-your-apps/</id>
+    <published>2013-10-24T07:50:38.000Z</published>
+    <updated>2013-10-25T08:50:39.000Z</updated>
+    <content type="html"><![CDATA[<h2>PlugReg</h2>
+<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
+<h3>What&#39;s changed</h3>
+<p>Some of the new features and bug fixes:</p>
+<ul>
+<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
+<li><strong>Logo</strong>. Shiny new logo</li>
+<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
+</ul>
+<p>I fixed the ordering by doing:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
+    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+}
+
+...
+
+plugins.sort(byCase);
+</pre></td></tr></table></figure>
+
+<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
+<h2>Suggestions</h2>
+<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Use the Right HTTP Status Codes]]></title>
     <link href="http://ilee.co.uk/use-the-right-http-status-codes/"/>
@@ -994,42 +1035,5 @@ alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</s
 </pre></td></tr></table></figure>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Walter White Is Green in HTML]]></title>
-    <link href="http://ilee.co.uk/walter-white-is-green-in-html/"/>
-    <id>http://ilee.co.uk/walter-white-is-green-in-html/</id>
-    <published>2013-08-22T08:35:34.000Z</published>
-    <updated>2013-08-22T09:22:15.000Z</updated>
-    <content type="html"><![CDATA[<h2>What has “Walter White” got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I‘m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
-<h3>Example</h3>
-<figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
-<p>Don‘t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
-<h2>What is going on here?!</h2>
-<p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
-<h3>The cooking process</h3>
-<ol>
-<li>Replace all invalid hexadecimal characters with “0”</li>
-<li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
-<li>Take the first 2 hexadecimal characters from each group</li>
-</ol>
-<p><strong>Et voilà!</strong></p>
-<p>No? Let&#39;s step through the example.</p>
-<ol>
-<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
-<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
-<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
-</ol>
-<p><strong>“Walter White” = “#0ae000”</strong></p>
-<p>I would have expected it to be blue, but I‘m guessing the process isn’t 100% pure :)</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
   </entry>
 </feed>
