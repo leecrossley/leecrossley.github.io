@@ -4,12 +4,68 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-10-25T10:22:56.707Z</updated>
+  <updated>2013-10-29T13:00:23.650Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Yet Another Hackathon Victory]]></title>
+    <link href="http://ilee.co.uk/yet-another-hackathon-victory/"/>
+    <id>http://ilee.co.uk/yet-another-hackathon-victory/</id>
+    <published>2013-10-29T11:35:50.000Z</published>
+    <updated>2013-10-29T12:59:59.000Z</updated>
+    <content type="html"><![CDATA[<h2>Hack Manchester</h2>
+<p><a href="http://www.hackmanchester.com/" target="_blank">Hack Manchester</a> is the premier 24-hour coding competition based in Manchester, by <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a>. This year (as before) it was held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> on the 26th and 27th of October 2013 as part of <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>.</p>
+<h2>We won again!</h2>
+<p>I blogged a few weeks ago (<a href="/road-to-hack-manchester">the road to Hack Manchester</a>) about winning back in 2012 and what it takes to win based on the lessons we learnt. Looks like it was good advice because <strong>WE&#39;VE GONE AND DONE IT AGAIN!</strong> Amazing job from my team mates <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a>. This give me a crazy record of 3 hack events and 3 wins.</p>
+<h2>The challenge</h2>
+<p>The challenge (sponsored by <a href="https://twitter.com/WebAppUK" target="_blank">Web Applications UK</a> was to write a game. More specifically, to write a browser-based game with a travel theme.</p>
+<p>For anyone that doesn‘t know what a browser is (there seem to be quite a few), it’s a computer program with a graphical user interface for displaying HTML files. So, we came up with a travel themed game (written in HTML / CSS / JavaScript for both the <a href="https://github.com/leecrossley/appsassin/tree/master/client/www" target="_blank">mobile clients</a> and server). Nothing to dispute there.</p>
+<p>Anyway, here is the more detailed brief we were given:</p>
+<blockquote><p>We&#39;re looking for the most entertaining and damn right addictive game you can muster. Have fun with it and create something great. The most original idea, with the best use of the travel theme and some impressive features thrown in will bag the prize…</p>
+<footer><strong>- Web Applications UK</strong></footer></blockquote>
+
+
+<h2>“Appsassin”</h2>
+<p>Our concept was to assassinate other players with your mobile phone (we supported Android and iOS, but it also probably works on Windows Phone and BlackBerry, with it being browser based), hence the comical name “appsassin” and url “appsass.in” :)</p>
+<h3>The game</h3>
+<h4>Signup</h4>
+<ul>
+<li>You signup by entering your mobile number and taking / uploading a picture of your face</li>
+<li>A game it set up on the game server by a moderator</li>
+<li>Registered players can enter a game if there are in the local vicinity</li>
+</ul>
+<h4>Playing</h4>
+<ul>
+<li>You are assigned a target (another player in the game)</li>
+<li>You can track your targets location (in realtime) via a map</li>
+<li>Txt messages are sent when you are within 100 meters of your target</li>
+<li>Txt messages are sent when the player after you is within 100 meters of you</li>
+<li>You “kill” your target by taking a picture of their face (and it passing facial recognition)</li>
+<li>If you kill a target, you get their target</li>
+<li>The winner is the last one standing</li>
+</ul>
+<h3>The tech</h3>
+<ul>
+<li>Node.js</li>
+<li>HTML / CSS / JavaScript</li>
+<li>Cordova</li>
+<li>Lambda Labs facial recognition</li>
+<li>OpenLayers / OpenStreetMap</li>
+<li>Clockwork SMS</li>
+</ul>
+<p>All the source code for the hack day code is available on <a href="https://github.com/leecrossley/appsassin" target="_blank">github</a>, let me know if you&#39;d like me to go into detail on any of the aspects.</p>
+<h2>What next?</h2>
+<p>We&#39;re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a>, including the music).</p>
+<h2>Thanks</h2>
+<p>A special thanks again to all the sponsors of the event and everyone involved in the organising and running. A huge success, again.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/hack/" term="hack"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Add Structured Data to Your Blog]]></title>
     <link href="http://ilee.co.uk/add-structured-data-to-your-blog/"/>
@@ -1052,34 +1108,6 @@ window.socialmessage.send(message);
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Meet My Friend David DM]]></title>
-    <link href="http://ilee.co.uk/meet-my-friend-david-dm/"/>
-    <id>http://ilee.co.uk/meet-my-friend-david-dm/</id>
-    <published>2013-08-24T08:33:34.000Z</published>
-    <updated>2013-08-24T09:46:29.000Z</updated>
-    <content type="html"><![CDATA[<h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
-<p><a href="https://david-dm.org/" target="_blank">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
-<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer" target="_blank">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
-<p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
-<h2>Using David</h2>
-<p>David is free for public repos on Github, I don‘t think there is a private repo version yet and you can’t use other providers such as bitbucket.</p>
-<p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
-<h3>David informs with badges</h3>
-<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer" target="_blank">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
-<h3>David informs with RSS</h3>
-<p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
-<h2>Improvements</h2>
-<p>There are many improvements that I hope are implemented soon:</p>
-<ul>
-<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png" target="_blank">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
-<li>Version info from npm is cached for a whole day, this is too long.</li>
-<li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
-</ul>
-<p>If I see &quot;<a href="https://github.com/alanshaw" target="_blank">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
-]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>
