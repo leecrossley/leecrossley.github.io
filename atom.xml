@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-10-29T13:02:38.567Z</updated>
+  <updated>2013-10-29T13:03:30.677Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/yet-another-hackathon-victory/"/>
     <id>http://ilee.co.uk/yet-another-hackathon-victory/</id>
     <published>2013-10-29T11:35:50.000Z</published>
-    <updated>2013-10-29T13:02:34.000Z</updated>
+    <updated>2013-10-29T13:03:26.000Z</updated>
     <content type="html"><![CDATA[<h2>Hack Manchester</h2>
 <p><a href="http://www.hackmanchester.com/" target="_blank">Hack Manchester</a> is the premier 24-hour coding competition based in Manchester, ran by <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a> (with help from others). This year (as before) it was held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> on the 26th and 27th of October 2013 as part of <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>.</p>
 <h2>We won again!</h2>
@@ -35,14 +35,14 @@
 <ul>
 <li>You signup by entering your mobile number and taking / uploading a picture of your face</li>
 <li>A game is set up on the game server by a moderator</li>
-<li>Registered players can enter a game if there are in the local vicinity</li>
+<li>Registered players can enter a game if they are in the local vicinity</li>
 </ul>
 <h4>Playing</h4>
 <ul>
 <li>You are assigned a target (another player in the game)</li>
 <li>You can track your targets location (in realtime) via a map</li>
-<li>Txt messages are sent when you are within 100 meters of your target</li>
-<li>Txt messages are sent when the player after you is within 100 meters of you</li>
+<li>Text messages are sent when you are within 100 meters of your target</li>
+<li>Text messages are sent when the player after you is within 100 meters of you</li>
 <li>You “kill” your target by taking a picture of their face (and it passing facial recognition)</li>
 <li>If you kill a target, you get their target</li>
 <li>The winner is the last one standing</li>
