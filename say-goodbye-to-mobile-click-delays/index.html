@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Finding Cordova Plugins for Your Apps | iLee</title>
+  <title>Say Goodbye to Mobile Click Delays | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="It's now even easier to find Cordova / PhoneGap plugins with PlugReg.">
+  <meta name="description" content="How to eliminate the 300ms delay for click events on mobile with FastClick">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Finding Cordova Plugins for Your Apps"/>
+  <meta property="og:title" content="Say Goodbye to Mobile Click Delays"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.plugreg.com/img/plugreg-large.png" />
+  <meta property="og:image" content="https://2.gravatar.com/avatar/782dd027d5a20fb3e5f97e04d1f580a6?s=150" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -154,45 +154,28 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-10-24T07:50:38.000Z" itemprop="datePublished">24th Oct 2013</time>
+        <time datetime="2013-10-31T16:25:21.000Z" itemprop="datePublished">31st Oct 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Finding Cordova Plugins for Your Apps</h1>
+    <h1 class="title" itemprop="name headline">Say Goodbye to Mobile Click Delays</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>PlugReg</h2>
-<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
-<h3>What&#39;s changed</h3>
-<p>Some of the new features and bug fixes:</p>
-<ul>
-<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
-<li><strong>Logo</strong>. Shiny new logo</li>
-<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
-</ul>
-<p>I fixed the ordering by doing:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
-    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-
-...
-
-plugins.sort(byCase);
-</pre></td></tr></table></figure>
-
-<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
-<h2>Suggestions</h2>
-<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+        <h2>Sluggish and unresponsive</h2>
+<p>If you‘ve done any kind of mobile development that’s HTML based, you&#39;ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
+<h2>Why the delay?</h2>
+<p>Mobiles and tablets automatically add a 300ms delay between the instant an element is clicked before firing the click event, the reason for this is the browser is waiting to see if you are actually performing a double click.</p>
+<h2>The solution</h2>
+<p>I&#39;ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank">FT Labs</a> that seems to have hit the nail on the head.</p>
+<h3><a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a></h3>
+<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you&#39;re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank">here on your mobile</a> for a working example.</p>
+<p>There&#39;s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
+<h2>Re-instantiating</h2>
+<p>There&#39;s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
+<p>Happy FastClick-ing.</p>
 
       
     </div>
@@ -200,17 +183,17 @@ plugins.sort(byCase);
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Finding%20Cordova%20Plugins%20for%20Your%20Apps&amp;url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;title=Finding%20Cordova%20Plugins%20for%20Your%20Apps"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/say-goodbye-to-mobile-click-delays"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Say%20Goodbye%20to%20Mobile%20Click%20Delays&amp;url=http://ilee.co.uk/say-goodbye-to-mobile-click-delays&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/say-goodbye-to-mobile-click-delays"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/say-goodbye-to-mobile-click-delays&amp;title=Say%20Goodbye%20to%20Mobile%20Click%20Delays"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

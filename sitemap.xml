@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/say-goodbye-to-mobile-click-delays/</loc>
+    <lastmod>2013-10-31T16:55:50.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/about-me/</loc>
     <lastmod>2013-10-30T12:56:23.000Z</lastmod>
   </url>
@@ -158,6 +162,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-10-30T12:57:16.379Z</lastmod>
+    <lastmod>2013-10-31T16:56:32.608Z</lastmod>
   </url>
 </urlset>
