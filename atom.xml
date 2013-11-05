@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-05T10:18:27.565Z</updated>
+  <updated>2013-11-05T16:53:35.986Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/froute-simple-nodejs-routing/"/>
     <id>http://ilee.co.uk/froute-simple-nodejs-routing/</id>
     <published>2013-11-05T08:42:47.000Z</published>
-    <updated>2013-11-05T10:18:23.000Z</updated>
+    <updated>2013-11-05T16:53:21.000Z</updated>
     <content type="html"><![CDATA[<h2>froute</h2>
 <p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that&#39;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
 <p><img src="/img/froute.png" alt="froute"></p>
@@ -99,7 +99,7 @@ expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span
 
 <h2>Behind the scenes</h2>
 <h3>froute-picker</h3>
-<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. I can also be used in isolation:</p>
+<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
 <h4>Picking parameters from a url template and matching a url to the template</h4>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
