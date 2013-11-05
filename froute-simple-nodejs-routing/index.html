@@ -188,49 +188,30 @@
 4
 5
 6
-7
-8
-9
 </pre></td><td class="code"><pre><span class="comment">// Register the static route "/apples" without params</span>
-<span class="keyword">var</span> routeToRegister = <span class="string">"/apples"</span>;
+<span class="keyword">var</span> template = <span class="string">"/apples"</span>;
 
 <span class="comment">// Bind the static route and it's callback</span>
 <span class="comment">// (handler) for when the route is matched later</span>
-<span class="keyword">var</span> bindResult = froute.bind(template, handler);
-
-expect(result).toBeTruthy();
-expect(froute.list().length).toEqual(<span class="number">1</span>);
+froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <p>You register routes with parameters in the following way, any parameters will then be passed to your handler function:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
-4
-5
-6
-7
 </pre></td><td class="code"><pre><span class="comment">// A route template with type and size parameters</span>
-<span class="keyword">var</span> routeTemplate = <span class="string">"/apple/{type}/size/{size}"</span>;
-
-<span class="keyword">var</span> bindResult = froute.bind(template, handler);
-
-expect(result).toBeTruthy();
-expect(froute.list().length).toEqual(<span class="number">1</span>);
+<span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
+froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <h3>Unregister routes</h3>
 <p>You unregister a route using the <strong>unbind</strong> function:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> unregistered = froute.unbind(<span class="string">"/apples"</span>);
-
-expect(unregistered.length).toEqual(<span class="number">1</span>);
-expect(froute.list().length).toEqual(<span class="number">0</span>);
+</pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
 </pre></td></tr></table></figure>
 
+<p>Unbound templates are returned by the unbind function.</p>
 <h3>Dispatch</h3>
 <p>When a url comes in, you call dispatch:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
@@ -253,6 +234,7 @@ expect(froute.list().length).toEqual(<span class="number">0</span>);
 11
 12
 13
+14
 </pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
     resultParams;
 
@@ -260,8 +242,9 @@ expect(froute.list().length).toEqual(<span class="number">0</span>);
     resultParams = params;
 });
 
-<span class="keyword">var</span> dispatchResult = froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
 
+<span class="comment">// Assertions</span>
 expect(bindResult).toBeTruthy();
 expect(dispatchResult).toBeTruthy();
 expect(froute.list().length).toEqual(<span class="number">1</span>);
