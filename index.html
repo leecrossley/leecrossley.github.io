@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/froute-simple-nodejs-routing/">froute - Simple Node.js Routing</a>
+      </li>
+    
+      <li>
         <a href="/say-goodbye-to-mobile-click-delays/">Say Goodbye to Mobile Click Delays</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/determine-if-a-javascript-object-is-numeric/">The JavaScript IsNumeric Function</a>
       </li>
     
-      <li>
-        <a href="/my-shiny-new-iphone-5s/">My Shiny New iPhone 5s</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -138,17 +138,180 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>10</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>20</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>21</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>8</small></li>
   
-    <li><a href="/tags/web/">web</a><small>18</small></li>
+    <li><a href="/tags/web/">web</a><small>19</small></li>
   
   </ul>
 </div>
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-05T08:42:47.000Z" itemprop="datePublished">5th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/froute-simple-nodejs-routing/" itemprop="url">froute - Simple Node.js Routing</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>froute</h2>
+<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple and powerful routing for node with expressive template matching. I wrote this in a day, that&#39;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+<p><img src="/img/froute.png" alt="froute"></p>
+<h2>Getting started</h2>
+<p>Install via npm:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install froute
+</pre></td></tr></table></figure>
+
+<p>Require the module in the usual way:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> froute = require(<span class="string">"froute"</span>);
+</pre></td></tr></table></figure>
+
+<h2>Using froute</h2>
+<p>There are essentially 2 or 3 functions you need to use.</p>
+<h3>Register routes</h3>
+<p>You register a route using the <strong>bind</strong> function:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="comment">// Register the static route "/apples" without params</span>
+<span class="keyword">var</span> routeToRegister = <span class="string">"/apples"</span>;
+
+<span class="comment">// Bind the static route and it's callback</span>
+<span class="comment">// (handler) for when the route is matched later</span>
+<span class="keyword">var</span> bindResult = froute.bind(template, handler);
+
+expect(result).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<p>You register routes with parameters in the following way, any parameters will then be passed to your handler function:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="comment">// A route template with type and size parameters</span>
+<span class="keyword">var</span> routeTemplate = <span class="string">"/apple/{type}/size/{size}"</span>;
+
+<span class="keyword">var</span> bindResult = froute.bind(template, handler);
+
+expect(result).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>Unregister routes</h3>
+<p>You unregister a route using the <strong>unbind</strong> function:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> unregistered = froute.unbind(<span class="string">"/apples"</span>);
+
+expect(unregistered.length).toEqual(<span class="number">1</span>);
+expect(froute.list().length).toEqual(<span class="number">0</span>);
+</pre></td></tr></table></figure>
+
+<h3>Dispatch</h3>
+<p>When a url comes in, you call dispatch:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+</pre></td></tr></table></figure>
+
+<p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
+<h3>Full example</h3>
+<p>A full example illustrating how the handler function works with params:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+    resultParams;
+
+<span class="keyword">var</span> bindResult = froute.bind(template, <span class="keyword">function</span>(params) {
+    resultParams = params;
+});
+
+<span class="keyword">var</span> dispatchResult = froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+
+expect(bindResult).toBeTruthy();
+expect(dispatchResult).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
+</pre></td></tr></table></figure>
+
+<h2>Behind the scenes</h2>
+<h3>froute-picker</h3>
+<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. I can also be used in isolation:</p>
+<h4>Picking parameters from a url template and matching a url to the template</h4>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+    picked = picker.pick(template),
+    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
+    result = matchUrl(picked);
+
+expect(result).not.toBeNull();
+expect(result.type).toEqual(<span class="string">"gala"</span>);
+expect(result.size).toEqual(<span class="string">"large"</span>);
+</pre></td></tr></table></figure>
+
+<h3>functional.js</h3>
+<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
+<h2>Issues and contributions</h2>
+<p>I&#39;m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<h2>An apple a day</h2>
+<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -695,64 +858,6 @@ plugins.sort(byCase);
 <h2>The tests</h2>
 <p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
 <p>Any disagreements or improvements please pull request.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-23T11:49:36.000Z" itemprop="datePublished">23rd Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/my-shiny-new-iphone-5s/" itemprop="url">My Shiny New iPhone 5s</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <p><img src="/img/iphone5s.png" alt="iLee iPhone 5s"></p>
-<h2>Mobile app developer</h2>
-<p>As an app developer, I&#39;m burdened with buying mobiles and tablets all the time and have <a href="/more-mobile-devices-than-socks/">more mobile devices than socks</a>. Having said that, I&#39;m actually planning to use my new iPhone for day-to-day usage too (i.e. actually making phone calls).</p>
-<h2>Crazy queuing</h2>
-<p><strong>I didn&#39;t queue</strong> for my new iPhone 5s, I also didn&#39;t <a href="http://news.sky.com/story/1144613/apple-iphone-fights-as-homeless-hired-to-queue" target="_blank">pay the homeless</a> to queue for me. I ordered in 60 seconds from the comfort of my home, on the o2 website and it arrived the next working day. Some people really need to get some common sense.</p>
-<h2>Thoughts on day one</h2>
-<h3>The good bits</h3>
-<ul>
-<li>Configuring from another iPhone backup was simple.</li>
-<li>The Apple A7 chip is <em>fast</em>, I feel the performance increase doing anything on the device.</li>
-<li>I&#39;m no photographer but the 8 megapixel camera with dual LED flash does live up to (some of) the hype. Burst mode is pretty cool too.</li>
-<li>The Touch ID home button is a <em>nice touch</em>, even if it <a href="http://istouchidhackedyet.com/" target="_blank">may have been hacked</a> already. You wouldn&#39;t use an iPhone if you had security concerns though, right? :)</li>
-<li>Free Apple apps. Sweet. Probably won&#39;t use them though.</li>
-<li>Apparently I can <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/news/newly-released-apple-iphone-5s-on-ebay-for-2000-8831594.html" target="_blank">sell it for up to £2K</a> right now on ebay.</li>
-</ul>
-<h3>The maybe-good bits</h3>
-<ul>
-<li>iBeacon, we‘ll see. Not surprised it’s not a standard of course.</li>
-</ul>
-<h3>The not-so-good bits</h3>
-<ul>
-<li>The screen, it&#39;s just OK. When can we have edge-to-edge displays?</li>
-<li>Battery life, it‘s depleting at the same fast rate as I’m used too. I&#39;ve <a href="http://www.ebay.co.uk/itm/130897161738" target="_blank">bought this</a> to overcome this slightly.</li>
-<li>A bit disappointed that there aren&#39;t many other innovative features.</li>
-</ul>
-<h2>Summary</h2>
-<p>It&#39;s pretty shiny. I can make phone calls.</p>
 
       
     </div>

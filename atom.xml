@@ -4,12 +4,154 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-01T18:55:50.345Z</updated>
+  <updated>2013-11-05T09:53:28.041Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[froute - Simple Node.js Routing]]></title>
+    <link href="http://ilee.co.uk/froute-simple-nodejs-routing/"/>
+    <id>http://ilee.co.uk/froute-simple-nodejs-routing/</id>
+    <published>2013-11-05T08:42:47.000Z</published>
+    <updated>2013-11-05T09:52:58.000Z</updated>
+    <content type="html"><![CDATA[<h2>froute</h2>
+<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple and powerful routing for node with expressive template matching. I wrote this in a day, that&#39;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+<p><img src="/img/froute.png" alt="froute"></p>
+<h2>Getting started</h2>
+<p>Install via npm:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install froute
+</pre></td></tr></table></figure>
+
+<p>Require the module in the usual way:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> froute = require(<span class="string">"froute"</span>);
+</pre></td></tr></table></figure>
+
+<h2>Using froute</h2>
+<p>There are essentially 2 or 3 functions you need to use.</p>
+<h3>Register routes</h3>
+<p>You register a route using the <strong>bind</strong> function:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="comment">// Register the static route "/apples" without params</span>
+<span class="keyword">var</span> routeToRegister = <span class="string">"/apples"</span>;
+
+<span class="comment">// Bind the static route and it's callback</span>
+<span class="comment">// (handler) for when the route is matched later</span>
+<span class="keyword">var</span> bindResult = froute.bind(template, handler);
+
+expect(result).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<p>You register routes with parameters in the following way, any parameters will then be passed to your handler function:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="comment">// A route template with type and size parameters</span>
+<span class="keyword">var</span> routeTemplate = <span class="string">"/apple/{type}/size/{size}"</span>;
+
+<span class="keyword">var</span> bindResult = froute.bind(template, handler);
+
+expect(result).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>Unregister routes</h3>
+<p>You unregister a route using the <strong>unbind</strong> function:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> unregistered = froute.unbind(<span class="string">"/apples"</span>);
+
+expect(unregistered.length).toEqual(<span class="number">1</span>);
+expect(froute.list().length).toEqual(<span class="number">0</span>);
+</pre></td></tr></table></figure>
+
+<h3>Dispatch</h3>
+<p>When a url comes in, you call dispatch:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+</pre></td></tr></table></figure>
+
+<p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
+<h3>Full example</h3>
+<p>A full example illustrating how the handler function works with params:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+    resultParams;
+
+<span class="keyword">var</span> bindResult = froute.bind(template, <span class="keyword">function</span>(params) {
+    resultParams = params;
+});
+
+<span class="keyword">var</span> dispatchResult = froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+
+expect(bindResult).toBeTruthy();
+expect(dispatchResult).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
+</pre></td></tr></table></figure>
+
+<h2>Behind the scenes</h2>
+<h3>froute-picker</h3>
+<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. I can also be used in isolation:</p>
+<h4>Picking parameters from a url template and matching a url to the template</h4>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+    picked = picker.pick(template),
+    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
+    result = matchUrl(picked);
+
+expect(result).not.toBeNull();
+expect(result.type).toEqual(<span class="string">"gala"</span>);
+expect(result.size).toEqual(<span class="string">"large"</span>);
+</pre></td></tr></table></figure>
+
+<h3>functional.js</h3>
+<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
+<h2>Issues and contributions</h2>
+<p>I&#39;m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<h2>An apple a day</h2>
+<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Say Goodbye to Mobile Click Delays]]></title>
     <link href="http://ilee.co.uk/say-goodbye-to-mobile-click-delays/"/>
@@ -1047,36 +1189,5 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Are Your Apps Ready for iOS 7?]]></title>
-    <link href="http://ilee.co.uk/are-your-apps-ready-for-ios-7/"/>
-    <id>http://ilee.co.uk/are-your-apps-ready-for-ios-7/</id>
-    <published>2013-08-27T15:20:31.000Z</published>
-    <updated>2013-08-27T15:52:31.000Z</updated>
-    <content type="html"><![CDATA[<h2>iOS 7 is coming</h2>
-<p>The latest rumour is the 10th of September, in any case, it‘s coming, get your apps ready now if you haven’t already. Don&#39;t ignore this advice, devices running iOS7 running apps that were built for iOS6 (or earlier!) will stick out like a sore thumb.</p>
-<h2>What&#39;s changing</h2>
-<h3>The user interface</h3>
-<p>One of the main changes is the look and feel and Apple want you to reflect these new guidelines in your apps. - The <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) explains this in detail but it impacts textures, gradients, shadows, fonts, colours, navigation, buttons, arrows, keyboards, gauges, icons, actually, EVERYTHING.</p>
-<h3>New APIs</h3>
-<p>It&#39;s not just all fluff. There are many changes coming to APIs, including:</p>
-<ul>
-<li>Multitasking</li>
-<li>UIKit</li>
-<li>AirDrop</li>
-<li>Sprite Kit</li>
-<li>Video</li>
-<li>Game Center</li>
-<li>Maps</li>
-</ul>
-<p>There will undoubtedly be better ways to do things that your app already does. Multitasking is going to be key.</p>
-<p>Who knows, there might even be <a href="/iphone-fingerprint-recognition-for-developers/">Fingerprint recognition</a>.</p>
-<h2>The upshot</h2>
-<p>In order for your existing apps to run properly and effectively on iOS 7, your code is likely to need changes. In some cases these changes could be extensive, depending on the complexity of the app.</p>
-<p>If you don‘t upgrade your app, it’ll be 100x worse than when we made the upgrade to retina images or to the slightly larger 4&quot; screen on the iPhone 5.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
   </entry>
 </feed>
