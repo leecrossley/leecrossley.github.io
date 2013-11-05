@@ -187,22 +187,16 @@
 2
 3
 4
-5
-6
-</pre></td><td class="code"><pre><span class="comment">// Register the static route "/apples" without params</span>
-<span class="keyword">var</span> template = <span class="string">"/apples"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apples"</span>;
 
-<span class="comment">// Bind the static route and it's callback</span>
-<span class="comment">// (handler) for when the route is matched later</span>
+<span class="comment">// Bind the static route and it's handler</span>
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
-<p>You register routes with parameters in the following way, any parameters will then be passed to your handler function:</p>
+<p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre><span class="comment">// A route template with type and size parameters</span>
-<span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
@@ -245,7 +239,7 @@ froute.bind(template, handler); <span class="comment">// true</span>
 
 froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
 
-<span class="comment">// Assertions</span>
+<span class="comment">// assertions</span>
 expect(bindResult).toBeTruthy();
 expect(dispatchResult).toBeTruthy();
 expect(froute.list().length).toEqual(<span class="number">1</span>);
@@ -269,7 +263,7 @@ expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span
     matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
     result = matchUrl(picked);
 
-expect(result).not.toBeNull();
+<span class="comment">// assertions</span>
 expect(result.type).toEqual(<span class="string">"gala"</span>);
 expect(result.size).toEqual(<span class="string">"large"</span>);
 </pre></td></tr></table></figure>
