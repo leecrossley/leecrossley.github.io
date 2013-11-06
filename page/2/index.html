@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/update-to-my-grunt-timer/">Update to My grunt-timer</a>
+      </li>
+    
+      <li>
         <a href="/froute-simple-nodejs-routing/">froute - Simple Node.js Routing</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/hack-to-prevent-json-hijacking/">Hack to Prevent JSON Hijacking</a>
       </li>
     
-      <li>
-        <a href="/determine-if-a-javascript-object-is-numeric/">The JavaScript IsNumeric Function</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -138,7 +138,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>10</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>21</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>8</small></li>
   
@@ -149,6 +149,68 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-26T16:16:00.000Z" itemprop="datePublished">26th Sep 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/determine-if-a-javascript-object-is-numeric/" itemprop="url">The JavaScript IsNumeric Function</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>isNumeric</h2>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
+<h3>Using npm</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
+</pre></td></tr></table></figure>
+
+<p>To then include isnumeric in your node app:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
+</pre></td></tr></table></figure>
+
+<h3>Direct dependency</h3>
+<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
+<h2>The code</h2>
+<p>Essentially, this is it:</p>
+<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
+    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
+    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
+};
+</pre></td></tr></table></figure>
+
+
+<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
+<h2>The tests</h2>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>Any disagreements or improvements please pull request.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -950,58 +1012,6 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 
 <h2>Contribute, Contribute, Contribute</h2>
 <p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-30T17:39:42.000Z" itemprop="datePublished">30th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/plugin-registry-for-cordova-phonegap/" itemprop="url">Plugin Registry for Cordova/PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>The PhoneGap-Gap</h2>
-<p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
-<p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
-<blockquote>&quot;<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>&quot;</blockquote>
-
-<h2>Making dreams come true</h2>
-<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That&#39;s right, <em>I&#39;ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
-<h3><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
-<p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
-<ul>
-<li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
-<li><strong>Search</strong>. Search on plugin name and keywords</li>
-<li><strong>Authors List</strong>. List of all plugin authors, with how many plugins and a total count</li>
-<li><strong>Author Page</strong>. List of all plugins by an author (and avatar), and a link to their GitHub</li>
-<li><strong>Plugins List</strong>. List of all plugins and a total count</li>
-<li><strong>Plugin Details</strong>. Details such as plugin description, supported platforms, engines, keyword tags, link to GitHub and installation instructions</li>
-<li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
-</ul>
-<h2>Suggestions, comments and feedback</h2>
-<p>All welcome, one thing I&#39;m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
-<p>Please add your own plugins or any plugins you have used.</p>
 
       
     </div>

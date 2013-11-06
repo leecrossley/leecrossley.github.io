@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/update-to-my-grunt-timer/">Update to My grunt-timer</a>
+      </li>
+    
+      <li>
         <a href="/froute-simple-nodejs-routing/">froute - Simple Node.js Routing</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/hack-to-prevent-json-hijacking/">Hack to Prevent JSON Hijacking</a>
       </li>
     
-      <li>
-        <a href="/determine-if-a-javascript-object-is-numeric/">The JavaScript IsNumeric Function</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -138,7 +138,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>10</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>21</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>8</small></li>
   
@@ -149,6 +149,61 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/update-to-my-grunt-timer/" itemprop="url">Update to My grunt-timer</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>New version of “grunt-timer”</h2>
+<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
+<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2>Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<ol>
+<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<ul>
+<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+</ul>
+</li>
+<li><p>A total elapsed time of all logged tasks is now also logged.</p>
+<ul>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+</ul>
+</li>
+<li><p>The initialisation period no longer contributes to logged times.</p>
+<ul>
+<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
+</ul>
+</li>
+</ol>
+<h2>Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -773,68 +828,6 @@ plugins.sort(byCase);
 
 <h2>Limitations</h2>
 <p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-26T16:16:00.000Z" itemprop="datePublished">26th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/determine-if-a-javascript-object-is-numeric/" itemprop="url">The JavaScript IsNumeric Function</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
-<h3>Using npm</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
-</pre></td></tr></table></figure>
-
-<p>To then include isnumeric in your node app:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
-</pre></td></tr></table></figure>
-
-<h3>Direct dependency</h3>
-<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
-<h2>The code</h2>
-<p>Essentially, this is it:</p>
-<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
-    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
-    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
-};
-</pre></td></tr></table></figure>
-
-
-<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
-<h2>The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
-<p>Any disagreements or improvements please pull request.</p>
 
       
     </div>

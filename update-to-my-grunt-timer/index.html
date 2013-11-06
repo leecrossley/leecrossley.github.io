@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>html | iLee | developer blog</title>
+  <title>Update to My grunt-timer | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="The improvements I've made in automatically timing the duration of grunt tasks with grunt-timer.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Update to My grunt-timer"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -148,77 +148,79 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">html</h2>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Update to My grunt-timer</h1>
+  
 
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>New version of “grunt-timer”</h2>
+<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
+<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2>Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<ol>
+<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<ul>
+<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+</ul>
+</li>
+<li><p>A total elapsed time of all logged tasks is now also logged.</p>
+<ul>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+</ul>
+</li>
+<li><p>The initialisation period no longer contributes to logged times.</p>
+<ul>
+<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
+</ul>
+</li>
+</ol>
+<h2>Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
 
-  <article>
-    <div class="post-content arch">
-      
-        <header>
-  
-    <time datetime="2013-10-25T09:45:35.000Z">25th Oct 2013</time>
-  
-  <h2 class="title"><a href="/add-structured-data-to-your-blog/">Add Structured Data to Your Blog</a></h2>
-</header>
-<div class="entry arch">
-  
-    By adding structured data to your blog, you're opening up lots of benefits and it's really easy.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-10-15T14:39:29.000Z">15th Oct 2013</time>
-  
-  <h2 class="title"><a href="/use-the-right-http-status-codes/">Use the Right HTTP Status Codes</a></h2>
-</header>
-<div class="entry arch">
-  
-    Here's a simple guide to using the correct HTML status codes.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-26T16:16:00.000Z">26th Sep 2013</time>
-  
-  <h2 class="title"><a href="/determine-if-a-javascript-object-is-numeric/">The JavaScript IsNumeric Function</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to reliably determine if an object is numerical in JavaScript.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-18T14:52:52.000Z">18th Sep 2013</time>
-  
-  <h2 class="title"><a href="/executing-javascript-files-asynchronously/">Asynchronous JavaScript Files</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to reliably execute JavaScript files asynchronously with HTML5 and before HTML5.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-22T08:35:34.000Z">22nd Aug 2013</time>
-  
-  <h2 class="title"><a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a></h2>
-</header>
-<div class="entry arch">
-  
-    Walter White is actually green in HTML. Let me explain before you think I've gone mad.
-  
-</div>
       
     </div>
-  </article>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/update-to-my-grunt-timer"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Update%20to%20My%20grunt-timer&amp;url=http://ilee.co.uk/update-to-my-grunt-timer&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/update-to-my-grunt-timer"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/update-to-my-grunt-timer&amp;title=Update%20to%20My%20grunt-timer"></a>
+</div>
 
+        
+        
   
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -234,7 +236,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>

@@ -4,18 +4,51 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-05T17:55:09.650Z</updated>
+  <updated>2013-11-06T16:42:18.154Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
   <entry>
+    <title type="html"><![CDATA[Update to My grunt-timer]]></title>
+    <link href="http://ilee.co.uk/update-to-my-grunt-timer/"/>
+    <id>http://ilee.co.uk/update-to-my-grunt-timer/</id>
+    <published>2013-11-06T16:25:14.000Z</published>
+    <updated>2013-11-06T16:41:58.000Z</updated>
+    <content type="html"><![CDATA[<h2>New version of “grunt-timer”</h2>
+<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
+<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2>Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<ol>
+<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<ul>
+<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+</ul>
+</li>
+<li><p>A total elapsed time of all logged tasks is now also logged.</p>
+<ul>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+</ul>
+</li>
+<li><p>The initialisation period no longer contributes to logged times.</p>
+<ul>
+<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
+</ul>
+</li>
+</ol>
+<h2>Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[froute - Simple Node.js Routing]]></title>
     <link href="http://ilee.co.uk/froute-simple-nodejs-routing/"/>
     <id>http://ilee.co.uk/froute-simple-nodejs-routing/</id>
     <published>2013-11-05T08:42:47.000Z</published>
-    <updated>2013-11-05T16:53:21.000Z</updated>
+    <updated>2013-11-06T16:04:40.000Z</updated>
     <content type="html"><![CDATA[<h2>froute</h2>
 <p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that&#39;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
 <p><img src="/img/froute.png" alt="froute"></p>
@@ -1133,38 +1166,5 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 <p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Plugin Registry for Cordova/PhoneGap]]></title>
-    <link href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/"/>
-    <id>http://ilee.co.uk/plugin-registry-for-cordova-phonegap/</id>
-    <published>2013-08-30T17:39:42.000Z</published>
-    <updated>2013-08-30T18:11:04.000Z</updated>
-    <content type="html"><![CDATA[<h2>The PhoneGap-Gap</h2>
-<p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
-<p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
-<blockquote>&quot;<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>&quot;</blockquote>
-
-<h2>Making dreams come true</h2>
-<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That&#39;s right, <em>I&#39;ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
-<h3><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
-<p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
-<ul>
-<li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
-<li><strong>Search</strong>. Search on plugin name and keywords</li>
-<li><strong>Authors List</strong>. List of all plugin authors, with how many plugins and a total count</li>
-<li><strong>Author Page</strong>. List of all plugins by an author (and avatar), and a link to their GitHub</li>
-<li><strong>Plugins List</strong>. List of all plugins and a total count</li>
-<li><strong>Plugin Details</strong>. Details such as plugin description, supported platforms, engines, keyword tags, link to GitHub and installation instructions</li>
-<li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
-</ul>
-<h2>Suggestions, comments and feedback</h2>
-<p>All welcome, one thing I&#39;m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
-<p>Please add your own plugins or any plugins you have used.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
 </feed>
