@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Timing Grunt Task Duration | iLee</title>
+  <title>PogoScript Plugin for Grunt | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="How to automatically time the duration of each grunt task and output the time in milliseconds to the console.">
+  <meta name="description" content="I've written a PogoScript plugin for Grunt to allow compilation automation with Grunt">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Timing Grunt Task Duration"/>
+  <meta property="og:title" content="PogoScript Plugin for Grunt"/>
   <meta property="og:site_name" content="iLee"/>
   <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
@@ -154,62 +154,96 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-20T12:37:41.000Z" itemprop="datePublished">20th Aug 2013</time>
+        <time datetime="2013-11-07T11:45:23.000Z" itemprop="datePublished">7th Nov 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Timing Grunt Task Duration</h1>
+    <h1 class="title" itemprop="name headline">PogoScript Plugin for Grunt</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Timing is everything</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
-<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
-<h2>grunt-timer</h2>
-<p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2>Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it‘s a little hacky the way I’ve done it using hooks and the time isn&#39;t 100% accurate.</p>
-<p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2>How do I use it?</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-timer <span class="comment">## --save</span>
+        <h2>PogoScript</h2>
+<blockquote>
+<p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
+</blockquote>
+<p>It&#39;s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
+<h2>A… transpiler… you?</h2>
+<p>Those who know me will know <strong>I&#39;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#39;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
+<h2>Automation</h2>
+<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don&#39;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#39;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I write one for <em>fun</em>.</p>
+<h2>Using grunt-pogo</h2>
+<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
+<h3>Install as a dev dependency</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
 </pre></td></tr></table></figure>
 
-
-<p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
+<h3>Load “grunt-pogo” in your Gruntfile.js</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
 </pre></td></tr></table></figure>
 
-
-<p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt);
-</pre></td></tr></table></figure>
-
-
-<h2>Example output</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+<h2>The pogo task</h2>
+<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
+<h3>Example configuration</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="title">Running</span> <span class="string">"run:500"</span> (run) task
-<span class="number">500ms</span> task ran
-Task <span class="string">'run:500'</span> took <span class="number">502ms</span>
+4
+5
+6
+7
+</pre></td><td class="code"><pre>pogo: {
+    compile: {
+        files: {
+            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]
+        }
+    }
+}
 </pre></td></tr></table></figure>
 
+<p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
+<h2>The code</h2>
+<h3>functional.js</h3>
+<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
+    <span class="keyword">var</span> compiled = compile(exists(files.src)),
+        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));
+    grunt.file.write(files.dest, combined);
+});
 
-<h2>Issues</h2>
-<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
-<ul>
-<li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
-</ul>
-<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
+<span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">return</span> grunt.file.exists(file);
+});
+
+<span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
+    <span class="keyword">return</span> compilePogo(grunt.file.read(src));
+});
+</pre></td></tr></table></figure>
+
+<h3>Testing</h3>
+<p>It&#39;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
+<h3>Source code</h3>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
+<h2>Future enhancements</h2>
+<p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
+<p><strong>Compilation automation for the nation</strong></p>
 
       
     </div>
@@ -217,10 +251,10 @@ Task <span class="string">'run:500'</span> took <span class="number">502ms</span
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/timing-grunt-task-duration"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Timing%20Grunt%20Task%20Duration&amp;url=http://ilee.co.uk/timing-grunt-task-duration&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/timing-grunt-task-duration"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/timing-grunt-task-duration&amp;title=Timing%20Grunt%20Task%20Duration"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/pogoscript-plugin-for-grunt"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=PogoScript%20Plugin%20for%20Grunt&amp;url=http://ilee.co.uk/pogoscript-plugin-for-grunt&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/pogoscript-plugin-for-grunt"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/pogoscript-plugin-for-grunt&amp;title=PogoScript%20Plugin%20for%20Grunt"></a>
 </div>
 
         

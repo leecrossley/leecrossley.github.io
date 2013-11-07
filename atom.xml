@@ -4,12 +4,101 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-06T16:42:18.154Z</updated>
+  <updated>2013-11-07T12:28:09.267Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[PogoScript Plugin for Grunt]]></title>
+    <link href="http://ilee.co.uk/pogoscript-plugin-for-grunt/"/>
+    <id>http://ilee.co.uk/pogoscript-plugin-for-grunt/</id>
+    <published>2013-11-07T11:45:23.000Z</published>
+    <updated>2013-11-07T12:27:07.000Z</updated>
+    <content type="html"><![CDATA[<h2>PogoScript</h2>
+<blockquote>
+<p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
+</blockquote>
+<p>It&#39;s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
+<h2>A… transpiler… you?</h2>
+<p>Those who know me will know <strong>I&#39;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#39;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
+<h2>Automation</h2>
+<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don&#39;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#39;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I write one for <em>fun</em>.</p>
+<h2>Using grunt-pogo</h2>
+<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
+<h3>Install as a dev dependency</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
+</pre></td></tr></table></figure>
+
+<h3>Load “grunt-pogo” in your Gruntfile.js</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
+</pre></td></tr></table></figure>
+
+<h2>The pogo task</h2>
+<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
+<h3>Example configuration</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>pogo: {
+    compile: {
+        files: {
+            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]
+        }
+    }
+}
+</pre></td></tr></table></figure>
+
+<p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
+<h2>The code</h2>
+<h3>functional.js</h3>
+<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
+    <span class="keyword">var</span> compiled = compile(exists(files.src)),
+        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));
+    grunt.file.write(files.dest, combined);
+});
+
+<span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">return</span> grunt.file.exists(file);
+});
+
+<span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
+    <span class="keyword">return</span> compilePogo(grunt.file.read(src));
+});
+</pre></td></tr></table></figure>
+
+<h3>Testing</h3>
+<p>It&#39;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
+<h3>Source code</h3>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
+<h2>Future enhancements</h2>
+<p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
+<p><strong>Compilation automation for the nation</strong></p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Update to My grunt-timer]]></title>
     <link href="http://ilee.co.uk/update-to-my-grunt-timer/"/>
@@ -1030,141 +1119,5 @@ it(<span class="string">"should win the first hand against rock and increment wi
 <p>Most of the domain names are hotel booking based, iFindRooms would also make a pretty good app name.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Functional First, Last, Every(thing)]]></title>
-    <link href="http://ilee.co.uk/functional-first-last-everything/"/>
-    <id>http://ilee.co.uk/functional-first-last-everything/</id>
-    <published>2013-09-02T10:40:32.000Z</published>
-    <updated>2013-09-02T16:13:29.000Z</updated>
-    <content type="html"><![CDATA[<h2>functional.js (λ)</h2>
-<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
-<h2>Examples</h2>
-<h3>You&#39;re the λ.first</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> firstEven = λ.first(even);
-<span class="keyword">var</span> firstOdd = λ.first(odd);
-
-expect(firstEven(items)).toEqual(<span class="number">2</span>);
-expect(firstOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<h3>My λ.last</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> lastEven = λ.last(even);
-<span class="keyword">var</span> lastOdd = λ.last(odd);
-
-expect(lastEven(items)).toEqual(<span class="number">2</span>);
-expect(lastOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<h3>My λ.every(thing)</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> everyEven = λ.every(even);
-<span class="keyword">var</span> everyOdd = λ.every(odd);
-
-expect(everyEven(items)).toEqual(<span class="literal">true</span>);
-expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
-</pre></td></tr></table></figure>
-
-<p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
-<h3>λ.partition</h3>
-<p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> partitionEven = λ.partition(even);
-
-<span class="keyword">var</span> result = partitionEven(items);
-
-expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
-</pre></td></tr></table></figure>
-
-
-<h2>Contribute, Contribute, Contribute</h2>
-<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>
