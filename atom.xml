@@ -4,12 +4,107 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-07T12:35:58.264Z</updated>
+  <updated>2013-11-12T10:22:55.408Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Get Adjacent Squares on a Grid]]></title>
+    <link href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/"/>
+    <id>http://ilee.co.uk/get-adjacent-squares-on-a-grid/</id>
+    <published>2013-11-12T09:25:32.000Z</published>
+    <updated>2013-11-12T10:22:17.000Z</updated>
+    <content type="html"><![CDATA[<h2>I&#39;m writing a game!</h2>
+<p>That‘s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I‘ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
+<h2>A list of adjacent squares</h2>
+<h3>The grid</h3>
+<p>Let‘s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="attr_selector">[1,1]</span> <span class="attr_selector">[2,1]</span> <span class="attr_selector">[3,1]</span> <span class="attr_selector">[4,1]</span> <span class="attr_selector">[5,1]</span> ..
+<span class="attr_selector">[1,2]</span> <span class="attr_selector">[2,2]</span> <span class="attr_selector">[3,2]</span> <span class="attr_selector">[4,2]</span> <span class="attr_selector">[5,2]</span> ..
+<span class="attr_selector">[1,3]</span> <span class="attr_selector">[2,3]</span> <span class="attr_selector">[3,3]</span> <span class="attr_selector">[4,3]</span> <span class="attr_selector">[5,3]</span> ..
+<span class="attr_selector">[1,4]</span> <span class="attr_selector">[2,4]</span> <span class="attr_selector">[3,4]</span> <span class="attr_selector">[4,4]</span> <span class="attr_selector">[5,4]</span> ..
+<span class="attr_selector">[1,5]</span> <span class="attr_selector">[2,5]</span> <span class="attr_selector">[3,5]</span> <span class="attr_selector">[4,5]</span> <span class="attr_selector">[5,5]</span> ..
+..    ..    ..    ..    ..    ..
+</pre></td></tr></table></figure>
+
+<p>This is actually a two dimensional array, which in reality is just an array of arrays. It‘s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
+<h3>Get adjacent squares</h3>
+<p>Using the above logic, we represent a square as array containing one x and one y co-ordinate (for example [2,2]). To get square adjacent to another, it&#39;s pretty simple with this system:</p>
+<ul>
+<li>Take one from the x co-ordinate [x-1,y]</li>
+<li>Add one to the x co-ordinate [x+1,y]</li>
+<li>Add one to the y co-ordinate [x,y+1]</li>
+<li>Take one from the y co-ordinate [x,y-1]</li>
+</ul>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
+</pre></td></tr></table></figure>
+
+<p>Meaning there is a maximum possibility of 4 adjacent squares to any other square.</p>
+<h3>Off the grid!</h3>
+<p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
+<ul>
+<li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
+<li>Check the y co-ordinate is greater than or equal to 1, but is also less than or equal to the height of the grid</li>
+</ul>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
+</pre></td></tr></table></figure>
+
+<h2>The solution</h2>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="keyword">var</span> width = <span class="number">5</span>,
+    height = <span class="number">5</span>;
+
+<span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> {</span>
+    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
+        y = square[<span class="number">1</span>];
+    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> {</span>
+    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
+        y = square[<span class="number">1</span>],
+        adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
+
+    <span class="keyword">return</span> adjacents.filter(isSquareOnGrid);
+}
+</pre></td></tr></table></figure>
+
+<p>I&#39;ve set the height and width to 5, but they can be anything. To get an array of adjacent squares, you pass the getAdjacents function a square:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
+getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
+</pre></td></tr></table></figure>
+
+<p>Hopefully you‘re also now interesting in what on earth I’m writing :)</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[PogoScript Plugin for Grunt]]></title>
     <link href="http://ilee.co.uk/pogoscript-plugin-for-grunt/"/>
@@ -1089,35 +1184,5 @@ it(<span class="string">"should win the first hand against rock and increment wi
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/hack/" term="hack"/>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Selling Some Domain Names]]></title>
-    <link href="http://ilee.co.uk/selling-some-domain-names/"/>
-    <id>http://ilee.co.uk/selling-some-domain-names/</id>
-    <published>2013-09-04T12:02:18.000Z</published>
-    <updated>2013-09-04T12:29:12.000Z</updated>
-    <content type="html"><![CDATA[<h2>Domain names to buy</h2>
-<p>Today I have listed some domain names to buy, including “domainnamestobuy.com” (should really stick them on there!). I was prompted to have this spring clean as I attempt to consolidate hosting providers and domain name registrars over the coming months.</p>
-<h2>Current list</h2>
-<p>The following domain names are now for sale on <a href="http://www.sedo.co.uk/main.php3?language=e&amp;partnerid=315645" target="_blank">sedo</a> (at the time of writing this some 1 or 2 listings are still pending):</p>
-<ul>
-<li>backingmusic.com (backing music, bought for $2,325 10 years ago)</li>
-<li>bidzer.co.uk (a possible bidding auction site)</li>
-<li>domainnamestobuy.com (to sell domain names)</li>
-<li>bookinbritain.com (hotel / room booking)</li>
-<li>bookinbritain.co.uk (hotel / room booking)</li>
-<li>bookingbritain.com (hotel / room booking)</li>
-<li>bookingbritain.co.uk (hotel / room booking)</li>
-<li>guesthousenetwork.co.uk (guest house booking)</li>
-<li>ifindrooms.com (hotel / room booking)</li>
-<li>ifindrooms.co.uk (hotel / room booking)</li>
-<li>myweightapp.com (weight app)</li>
-<li>myweightapp.co.uk (weight app)</li>
-<li>webdevelopmentmanchester.com (local web development)</li>
-</ul>
-<p>It&#39;s difficult to price a domain, but everything is negotiable, especially to my blog readers :) Make me an offer.</p>
-<p>Most of the domain names are hotel booking based, iFindRooms would also make a pretty good app name.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
 </feed>
