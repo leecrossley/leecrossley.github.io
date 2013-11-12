@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-12T10:31:51.802Z</updated>
+  <updated>2013-11-12T10:32:28.995Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/"/>
     <id>http://ilee.co.uk/get-adjacent-squares-on-a-grid/</id>
     <published>2013-11-12T09:25:32.000Z</published>
-    <updated>2013-11-12T10:31:24.000Z</updated>
+    <updated>2013-11-12T10:32:24.000Z</updated>
     <content type="html"><![CDATA[<h2>I&#39;m writing a game!</h2>
 <p>That‘s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I‘ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
 <h2>A list of adjacent squares</h2>
@@ -101,7 +101,7 @@
 getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
 </pre></td></tr></table></figure>
 
-<p>Hopefully you‘re also now interesting in what on earth I’m writing :)</p>
+<p>Hopefully you‘re also now interested in what on earth I’m writing :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
