@@ -185,7 +185,7 @@
 
 <p>This is actually a two dimensional array, which in reality is just an array of arrays. It‘s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
 <h3>Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as array containing one x and one y co-ordinate (for example [2,2]). To get square adjacent to another, it&#39;s pretty simple with this system:</p>
+<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#39;s pretty simple with this system:</p>
 <ul>
 <li>Take one from the x co-ordinate [x-1,y]</li>
 <li>Add one to the x co-ordinate [x+1,y]</li>
@@ -196,7 +196,7 @@
 </pre></td><td class="code"><pre><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
 </pre></td></tr></table></figure>
 
-<p>Meaning there is a maximum possibility of 4 adjacent squares to any other square.</p>
+<p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
 <h3>Off the grid!</h3>
 <p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
 <ul>
@@ -242,7 +242,7 @@
 }
 </pre></td></tr></table></figure>
 
-<p>I&#39;ve set the height and width to 5, but they can be anything. To get an array of adjacent squares, you pass the getAdjacents function a square:</p>
+<p>I&#39;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
