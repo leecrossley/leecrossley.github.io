@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/phonegap-plays-sound-on-mute/">PhoneGap Plays Sounds on Mute</a>
+      </li>
+    
+      <li>
         <a href="/get-adjacent-squares-on-a-grid/">Get Adjacent Squares on a Grid</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/use-the-right-http-status-codes/">Use the Right HTTP Status Codes</a>
       </li>
     
-      <li>
-        <a href="/git-commit-message-format/">Git Commit Message Format</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -124,7 +124,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>4</small></li>
+    <li><a href="/tags/android/">android</a><small>5</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
   
@@ -136,11 +136,11 @@
   
     <li><a href="/tags/html/">html</a><small>5</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>10</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>11</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>24</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>25</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>8</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>9</small></li>
   
     <li><a href="/tags/web/">web</a><small>19</small></li>
   
@@ -149,6 +149,127 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-05T07:08:07.000Z" itemprop="datePublished">5th Sep 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/rock-paper-scissors-manc_js/" itemprop="url">Rock Paper Scissors @manc_js</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Manc JS</h2>
+<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
+<h2>The game</h2>
+<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
+<ul>
+<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
+<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
+</ul>
+<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
+<h2>My approach</h2>
+<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn‘t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
+<h3>Sub-bots</h3>
+<p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays "paper"</span>
+bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> bot = {};
+    
+    bot.winners = <span class="number">0</span>;
+    bot.lastPlay = <span class="string">""</span>;
+    
+    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> play = <span class="string">"paper"</span>;
+        bot.lastPlay = play;
+        <span class="keyword">return</span> play;
+    };
+
+    <span class="keyword">return</span> bot;
+})();
+</pre></td></tr></table></figure>
+
+<p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
+<p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
+<h3>We‘re gonna light it up, like it’s dynamite</h3>
+<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn&#39;t a good strategy, as water is a weak hand.</p>
+<p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
+<p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
+<h2>Tests</h2>
+<p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="comment">// Example of my noddy tests</span>
+it(<span class="string">"should init and set opponent"</span>, <span class="keyword">function</span>() {
+    init(<span class="string">"test"</span>);
+    expect(bot.opponent).toEqual(<span class="string">"test"</span>);
+});
+
+it(<span class="string">"should use paper as the first play"</span>, <span class="keyword">function</span>() {
+    <span class="comment">// First play always paper, as all bots have 0 wins</span>
+    <span class="comment">// NB: Should randomise the first bot :)</span>
+    expect(play()).toEqual(<span class="string">"paper"</span>);
+});
+
+it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="keyword">function</span>() {
+    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });
+    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);
+});
+</pre></td></tr></table></figure>
+
+<h2>Result</h2>
+<p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
+<p>I wish we had more time to play. Maybe this could become an ongoing challenge..?</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -759,83 +880,6 @@ expect(history.state).toEqual(state);
 <h2>Usages</h2>
 <p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
 <p>Have fun relocating.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-20T12:37:41.000Z" itemprop="datePublished">20th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/timing-grunt-task-duration/" itemprop="url">Timing Grunt Task Duration</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Timing is everything</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
-<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
-<h2>grunt-timer</h2>
-<p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2>Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it‘s a little hacky the way I’ve done it using hooks and the time isn&#39;t 100% accurate.</p>
-<p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2>How do I use it?</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-timer <span class="comment">## --save</span>
-</pre></td></tr></table></figure>
-
-
-<p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
-</pre></td></tr></table></figure>
-
-
-<p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt);
-</pre></td></tr></table></figure>
-
-
-<h2>Example output</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="title">Running</span> <span class="string">"run:500"</span> (run) task
-<span class="number">500ms</span> task ran
-Task <span class="string">'run:500'</span> took <span class="number">502ms</span>
-</pre></td></tr></table></figure>
-
-
-<h2>Issues</h2>
-<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
-<ul>
-<li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
-</ul>
-<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
 
       
     </div>

@@ -4,12 +4,54 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-12T10:32:28.995Z</updated>
+  <updated>2013-11-14T08:30:28.113Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[PhoneGap Plays Sounds on Mute]]></title>
+    <link href="http://ilee.co.uk/phonegap-plays-sound-on-mute/"/>
+    <id>http://ilee.co.uk/phonegap-plays-sound-on-mute/</id>
+    <published>2013-11-14T07:56:56.000Z</published>
+    <updated>2013-11-14T08:29:52.000Z</updated>
+    <content type="html"><![CDATA[<h2>The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
+<h2>Working in 60 seconds, but…</h2>
+<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
+<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
+<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
+<h2><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
+<h2>The solution</h2>
+<p>My initial instinct was to query the state of the query mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2>Full example</h2>
+<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
+<h3>Install the media plugin</h3>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
+</pre></td></tr></table></figure>
+
+<h3>In your JavaScript</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);
+    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });
+};
+</pre></td></tr></table></figure>
+
+<p>An incontinent mute, goes without saying.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Get Adjacent Squares on a Grid]]></title>
     <link href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/"/>
@@ -1082,107 +1124,6 @@ Items.find(<span class="keyword">function</span>(err, items) {
 <p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
 <p>Mystery solved.</p>
 ]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Rock Paper Scissors @manc_js]]></title>
-    <link href="http://ilee.co.uk/rock-paper-scissors-manc_js/"/>
-    <id>http://ilee.co.uk/rock-paper-scissors-manc_js/</id>
-    <published>2013-09-05T07:08:07.000Z</published>
-    <updated>2013-09-05T08:11:45.000Z</updated>
-    <content type="html"><![CDATA[<h2>Manc JS</h2>
-<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
-<h2>The game</h2>
-<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
-<ul>
-<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
-<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
-</ul>
-<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
-<h2>My approach</h2>
-<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn‘t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
-<h3>Sub-bots</h3>
-<p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays "paper"</span>
-bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="keyword">var</span> bot = {};
-    
-    bot.winners = <span class="number">0</span>;
-    bot.lastPlay = <span class="string">""</span>;
-    
-    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> play = <span class="string">"paper"</span>;
-        bot.lastPlay = play;
-        <span class="keyword">return</span> play;
-    };
-
-    <span class="keyword">return</span> bot;
-})();
-</pre></td></tr></table></figure>
-
-<p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
-<p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
-<h3>We‘re gonna light it up, like it’s dynamite</h3>
-<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn&#39;t a good strategy, as water is a weak hand.</p>
-<p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
-<p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
-<h2>Tests</h2>
-<p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="comment">// Example of my noddy tests</span>
-it(<span class="string">"should init and set opponent"</span>, <span class="keyword">function</span>() {
-    init(<span class="string">"test"</span>);
-    expect(bot.opponent).toEqual(<span class="string">"test"</span>);
-});
-
-it(<span class="string">"should use paper as the first play"</span>, <span class="keyword">function</span>() {
-    <span class="comment">// First play always paper, as all bots have 0 wins</span>
-    <span class="comment">// NB: Should randomise the first bot :)</span>
-    expect(play()).toEqual(<span class="string">"paper"</span>);
-});
-
-it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="keyword">function</span>() {
-    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });
-    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);
-});
-</pre></td></tr></table></figure>
-
-<h2>Result</h2>
-<p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
-<p>I wish we had more time to play. Maybe this could become an ongoing challenge..?</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-    <category scheme="http://ilee.co.uk/tags/hack/" term="hack"/>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

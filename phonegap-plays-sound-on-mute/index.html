@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Meet My Friend David DM | iLee</title>
+  <title>PhoneGap Plays Sounds on Mute | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Let my friend David monitor your node.js project dependencies for you. He's got your back.">
+  <meta name="description" content="By default, the Cordova / PhoneGap media plugin will play audio when the device is set to mute!">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Meet My Friend David DM"/>
+  <meta property="og:title" content="PhoneGap Plays Sounds on Mute"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ilee.co.uk/img/david-dm.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/audio-mute.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -154,35 +154,46 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-24T08:33:34.000Z" itemprop="datePublished">24th Aug 2013</time>
+        <time datetime="2013-11-14T07:56:56.000Z" itemprop="datePublished">14th Nov 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Meet My Friend David DM</h1>
+    <h1 class="title" itemprop="name headline">PhoneGap Plays Sounds on Mute</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
-<p><a href="https://david-dm.org/" target="_blank">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
-<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer" target="_blank">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
-<p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
-<h2>Using David</h2>
-<p>David is free for public repos on Github, I don‘t think there is a private repo version yet and you can’t use other providers such as bitbucket.</p>
-<p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
-<h3>David informs with badges</h3>
-<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer" target="_blank">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
-<h3>David informs with RSS</h3>
-<p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
-<h2>Improvements</h2>
-<p>There are many improvements that I hope are implemented soon:</p>
-<ul>
-<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png" target="_blank">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
-<li>Version info from npm is cached for a whole day, this is too long.</li>
-<li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
-</ul>
-<p>If I see &quot;<a href="https://github.com/alanshaw" target="_blank">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
+        <h2>The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
+<h2>Working in 60 seconds, but…</h2>
+<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
+<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
+<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
+<h2><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
+<h2>The solution</h2>
+<p>My initial instinct was to query the state of the query mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2>Full example</h2>
+<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
+<h3>Install the media plugin</h3>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
+</pre></td></tr></table></figure>
+
+<h3>In your JavaScript</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);
+    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });
+};
+</pre></td></tr></table></figure>
+
+<p>An incontinent mute, goes without saying.</p>
 
       
     </div>
@@ -190,17 +201,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/meet-my-friend-david-dm"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Meet%20My%20Friend%20David%20DM&amp;url=http://ilee.co.uk/meet-my-friend-david-dm&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/meet-my-friend-david-dm"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/meet-my-friend-david-dm&amp;title=Meet%20My%20Friend%20David%20DM"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/phonegap-plays-sound-on-mute"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=PhoneGap%20Plays%20Sounds%20on%20Mute&amp;url=http://ilee.co.uk/phonegap-plays-sound-on-mute&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/phonegap-plays-sound-on-mute"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/phonegap-plays-sound-on-mute&amp;title=PhoneGap%20Plays%20Sounds%20on%20Mute"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
