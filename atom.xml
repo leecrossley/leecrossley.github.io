@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-14T08:30:28.113Z</updated>
+  <updated>2013-11-14T08:50:48.244Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/phonegap-plays-sound-on-mute/"/>
     <id>http://ilee.co.uk/phonegap-plays-sound-on-mute/</id>
     <published>2013-11-14T07:56:56.000Z</published>
-    <updated>2013-11-14T08:29:52.000Z</updated>
+    <updated>2013-11-14T08:50:42.000Z</updated>
     <content type="html"><![CDATA[<h2>The Cordova / PhoneGap media plugin</h2>
 <p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
 <h2>Working in 60 seconds, but…</h2>
@@ -25,7 +25,7 @@
 <h2><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
 <p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
 <h2>The solution</h2>
-<p>My initial instinct was to query the state of the query mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>My initial instinct was to query the state of the mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
 <p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
 <h2>Full example</h2>
 <p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
