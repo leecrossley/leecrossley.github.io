@@ -4,12 +4,81 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-14T08:50:48.244Z</updated>
+  <updated>2013-11-15T09:16:35.861Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Using Game Center with PhoneGap]]></title>
+    <link href="http://ilee.co.uk/using-game-center-with-phonegap/"/>
+    <id>http://ilee.co.uk/using-game-center-with-phonegap/</id>
+    <published>2013-11-15T07:36:07.000Z</published>
+    <updated>2013-11-15T09:16:05.000Z</updated>
+    <content type="html"><![CDATA[<h2>Leaderboards</h2>
+<p>I&#39;ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
+<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they&#39;ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
+<p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank">these basics</a>.</p>
+<p><img src="/img/phonegap-game-center.png" alt="PhoneGap iOS Game Center"></p>
+<h2>My Game Center plugin</h2>
+<p>A game center plugin didn&#39;t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
+<h3>Install via the CLI</h3>
+<p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git
+</pre></td></tr></table></figure>
+
+<h2>Basic usage</h2>
+<h3>Auth</h3>
+<p>It‘s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won&#39;t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
+</pre></td></tr></table></figure>
+
+<p>If there&#39;s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
+<p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
+<h3>Leaderboard</h3>
+<h4>Submitting a score</h4>
+<p>Ensure the user has been (successfully) authenticated and the leaderboard(s) have been configured in iTunes connect (use the leaderboard identifier assigned there as the leaderboardId).</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> scoreData = { 
+    score: <span class="number">100</span>, 
+    leaderboardId: <span class="string">"YOUR_ID"</span>
+};
+gamecenter.submitScore(onSuccess, onError, scoreData);
+</pre></td></tr></table></figure>
+
+<h4>Showing the native leaderboard</h4>
+<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there&#39;s no need to do any additional coding or user interface development to display a leaderboard.</p>
+<p>The period options are “today”, “week” or “all”.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> criteria = { 
+    period: <span class="string">"today"</span>,
+    leaderboardId: <span class="string">"YOUR_ID"</span>
+};
+gamecenter.showLeaderboard(onSuccess, onError, criteria);
+</pre></td></tr></table></figure>
+
+<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there&#39;s an issue and handle it.</p>
+<h3>iOS version support</h3>
+<p>I&#39;ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
+<h2>Source code</h2>
+<p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">on github</a>. Please log issues (ideally with pull requests ☺) on there.</p>
+<p>The plugin has had a huge uptake already with 11 repo stars within 8 hours of pushing the code!</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[PhoneGap Plays Sounds on Mute]]></title>
     <link href="http://ilee.co.uk/phonegap-plays-sound-on-mute/"/>
@@ -1073,57 +1142,5 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Mongoose Docs and JSON.stringify]]></title>
-    <link href="http://ilee.co.uk/mongoose-documents-and-jsonstringify/"/>
-    <id>http://ilee.co.uk/mongoose-documents-and-jsonstringify/</id>
-    <published>2013-09-10T12:22:41.000Z</published>
-    <updated>2013-09-10T13:05:44.000Z</updated>
-    <content type="html"><![CDATA[<h2>Mongoose JS</h2>
-<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
-<h2>Mongoose documents / objects</h2>
-<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3>The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
-<figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
-    item.newProperty = <span class="string">"anything"</span>;
-});
-
-Items.find(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3>The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
-<h3>The solution</h3>
-<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
-<figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
-<p>Mystery solved.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

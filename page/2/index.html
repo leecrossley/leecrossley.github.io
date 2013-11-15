@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/using-game-center-with-phonegap/">Using Game Center with PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/phonegap-plays-sound-on-mute/">PhoneGap Plays Sounds on Mute</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/finding-cordova-plugins-for-your-apps/">Finding Cordova Plugins for Your Apps</a>
       </li>
     
-      <li>
-        <a href="/use-the-right-http-status-codes/">Use the Right HTTP Status Codes</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -136,11 +136,11 @@
   
     <li><a href="/tags/html/">html</a><small>5</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>11</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>12</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>25</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>26</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>9</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>10</small></li>
   
     <li><a href="/tags/web/">web</a><small>19</small></li>
   
@@ -149,6 +149,58 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-15T14:39:29.000Z" itemprop="datePublished">15th Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/use-the-right-http-status-codes/" itemprop="url">Use the Right HTTP Status Codes</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>HTTP status codes</h2>
+<p>Every response from a server carries an HTTP status code, this provides clients with the ability to formally identify the status of the response and has other uses, such as identifying a type of error.</p>
+<p>I&#39;m currently working with a &quot;<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">RESTful</a>&quot; (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
+<p>An API especially should use the correct status codes so that responses to basic requests can be defined by status codes, without the need for any additional data.</p>
+<h2>The basics</h2>
+<ul>
+<li><strong>1xx</strong> - Hang on</li>
+<li><strong>2xx</strong> - <a href="http://www.youtube.com/watch?v=erETKfL9LbU" target="_blank">Sha-ting</a></li>
+<li><strong>3xx</strong> - Move away</li>
+<li><strong>4xx</strong> - That&#39;s your bad</li>
+<li><strong>5xx</strong> - That&#39;s my bad</li>
+</ul>
+<p>OK, so I‘m not being totally serious with these. I’m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">Wikipedia</a> for the list.</p>
+<h2>Test your status codes</h2>
+<p>There are some online tools to check your status codes, <a href="http://httpstatus.io/" target="_blank">httpstatus.io</a> looks good (and ends with .io, so it <em>must</em> be cool).</p>
+<h2>I&#39;m a tea pot</h2>
+<p>The Hyper Text Coffee Pot Control Protocol is a nonessential and humorous communications protocol for controlling, monitoring, and diagnosing coffee pots and has the following status code (yes this is real):</p>
+<ul>
+<li><strong>418</strong> I&#39;m a teapot (may be short and/or stout)</li>
+</ul>
+<p>Time for a coffee.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -771,80 +823,6 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
 <p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
 <p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
 <p>Go and make yourself a coffee, you deserve it.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-10T12:22:41.000Z" itemprop="datePublished">10th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/mongoose-documents-and-jsonstringify/" itemprop="url">Mongoose Docs and JSON.stringify</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Mongoose JS</h2>
-<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
-<h2>Mongoose documents / objects</h2>
-<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3>The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
-<figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
-    item.newProperty = <span class="string">"anything"</span>;
-});
-
-Items.find(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3>The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
-<h3>The solution</h3>
-<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
-<figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
-<p>Mystery solved.</p>
 
       
     </div>
