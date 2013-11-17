@@ -4,12 +4,47 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-15T09:16:35.861Z</updated>
+  <updated>2013-11-17T21:15:29.611Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Multiple Element Swipe Gesture]]></title>
+    <link href="http://ilee.co.uk/multiple-element-swipe-gesture/"/>
+    <id>http://ilee.co.uk/multiple-element-swipe-gesture/</id>
+    <published>2013-11-17T20:39:35.000Z</published>
+    <updated>2013-11-17T21:15:06.000Z</updated>
+    <content type="html"><![CDATA[<h2>The swipe gesture</h2>
+<p>It‘s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
+<h2>The solution</h2>
+<p>After testing <em>many solutions</em>, here‘s what I came up with (and I think it’s the optimum solution). I&#39;m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it‘s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">var</span> multiSwipe = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+    <span class="keyword">var</span> touch = e.touches[<span class="number">0</span>],
+        element = $(document.elementFromPoint(touch.clientX, touch.clientY));
+    <span class="comment">// ...</span>
+};
+
+$(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);
+</pre></td></tr></table></figure>
+
+<p>Essentially, I&#39;m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it&#39;s written for you. </p>
+<p>This code is about 10 times smaller than my first attempt and works 10 times faster. <code>document.elementFromPoint</code> is a very effective way to return the topmost element which lies under a given point.</p>
+<p>Hammer got it wrong, you <strong>can</strong> touch this.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Using Game Center with PhoneGap]]></title>
     <link href="http://ilee.co.uk/using-game-center-with-phonegap/"/>
@@ -1077,70 +1112,5 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
 <p>Happy strict deleting.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[JSONP in Express/Node.js]]></title>
-    <link href="http://ilee.co.uk/jsonp-in-express-nodejs/"/>
-    <id>http://ilee.co.uk/jsonp-in-express-nodejs/</id>
-    <published>2013-09-11T09:54:44.000Z</published>
-    <updated>2013-09-11T10:39:39.000Z</updated>
-    <content type="html"><![CDATA[<h2>Express JS</h2>
-<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
-<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
-<h2>Getting server data with Cordova</h2>
-<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
-<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
-<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>Then in my express node app, I do something like this:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
-    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
-    res.end();
-});
-</pre></td></tr></table></figure>
-
-
-<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome…</p>
-<h2>JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
-<h3>Setting up express</h3>
-<p>When configuring express, you need to set an additional property:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
-</pre></td></tr></table></figure>
-
-
-<h3>In your route code</h3>
-<p>Things get simplier:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
-});
-</pre></td></tr></table></figure>
-
-
-<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
-<p>Go and make yourself a coffee, you deserve it.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
   </entry>
 </feed>

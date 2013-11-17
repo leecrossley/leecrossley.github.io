@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/multiple-element-swipe-gesture/">Multiple Element Swipe Gesture</a>
+      </li>
+    
+      <li>
         <a href="/using-game-center-with-phonegap/">Using Game Center with PhoneGap</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/add-structured-data-to-your-blog/">Add Structured Data to Your Blog</a>
       </li>
     
-      <li>
-        <a href="/finding-cordova-plugins-for-your-apps/">Finding Cordova Plugins for Your Apps</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -134,21 +134,81 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>5</small></li>
+    <li><a href="/tags/html/">html</a><small>6</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>12</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>13</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>26</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>27</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>10</small></li>
   
-    <li><a href="/tags/web/">web</a><small>19</small></li>
+    <li><a href="/tags/web/">web</a><small>20</small></li>
   
   </ul>
 </div>
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-24T07:50:38.000Z" itemprop="datePublished">24th Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/finding-cordova-plugins-for-your-apps/" itemprop="url">Finding Cordova Plugins for Your Apps</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>PlugReg</h2>
+<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
+<h3>What&#39;s changed</h3>
+<p>Some of the new features and bug fixes:</p>
+<ul>
+<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
+<li><strong>Logo</strong>. Shiny new logo</li>
+<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
+</ul>
+<p>I fixed the ordering by doing:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
+    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+}
+
+...
+
+plugins.sort(byCase);
+</pre></td></tr></table></figure>
+
+<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
+<h2>Suggestions</h2>
+<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -739,90 +799,6 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
 <h2>Strict mode</h2>
 <p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you&#39;re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
 <p>Happy strict deleting.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-11T09:54:44.000Z" itemprop="datePublished">11th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/jsonp-in-express-nodejs/" itemprop="url">JSONP in Express/Node.js</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Express JS</h2>
-<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="nodejs.org">node</a> apps.</p>
-<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
-<h2>Getting server data with Cordova</h2>
-<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
-<figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
-<span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>Then in my express node app, I do something like this:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
-    res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
-    res.end();
-});
-</pre></td></tr></table></figure>
-
-
-<p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome…</p>
-<h2>JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
-<h3>Setting up express</h3>
-<p>When configuring express, you need to set an additional property:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
-</pre></td></tr></table></figure>
-
-
-<h3>In your route code</h3>
-<p>Things get simplier:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
-    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
-});
-</pre></td></tr></table></figure>
-
-
-<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
-<p>Go and make yourself a coffee, you deserve it.</p>
 
       
     </div>

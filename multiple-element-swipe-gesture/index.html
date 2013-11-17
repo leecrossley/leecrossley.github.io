@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>html | iLee | developer blog</title>
+  <title>Multiple Element Swipe Gesture | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="How to detect a user swiping across multiple DOM elements in JavaScript">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Multiple Element Swipe Gesture"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="http://iconify.it/wp-content/icons-large-alt/one-finger-swipe-right.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -148,89 +148,78 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">html</h2>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-17T20:39:35.000Z" itemprop="datePublished">17th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Multiple Element Swipe Gesture</h1>
+  
 
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>The swipe gesture</h2>
+<p>It‘s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
+<h2>The solution</h2>
+<p>After testing <em>many solutions</em>, here‘s what I came up with (and I think it’s the optimum solution). I&#39;m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it‘s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">var</span> multiSwipe = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+    <span class="keyword">var</span> touch = e.touches[<span class="number">0</span>],
+        element = $(document.elementFromPoint(touch.clientX, touch.clientY));
+    <span class="comment">// ...</span>
+};
 
-  <article>
-    <div class="post-content arch">
-      
-        <header>
-  
-    <time datetime="2013-11-17T20:39:35.000Z">17th Nov 2013</time>
-  
-  <h2 class="title"><a href="/multiple-element-swipe-gesture/">Multiple Element Swipe Gesture</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to detect a user swiping across multiple DOM elements in JavaScript
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-10-25T09:45:35.000Z">25th Oct 2013</time>
-  
-  <h2 class="title"><a href="/add-structured-data-to-your-blog/">Add Structured Data to Your Blog</a></h2>
-</header>
-<div class="entry arch">
-  
-    By adding structured data to your blog, you're opening up lots of benefits and it's really easy.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-10-15T14:39:29.000Z">15th Oct 2013</time>
-  
-  <h2 class="title"><a href="/use-the-right-http-status-codes/">Use the Right HTTP Status Codes</a></h2>
-</header>
-<div class="entry arch">
-  
-    Here's a simple guide to using the correct HTML status codes.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-26T16:16:00.000Z">26th Sep 2013</time>
-  
-  <h2 class="title"><a href="/determine-if-a-javascript-object-is-numeric/">The JavaScript IsNumeric Function</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to reliably determine if an object is numerical in JavaScript.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-18T14:52:52.000Z">18th Sep 2013</time>
-  
-  <h2 class="title"><a href="/executing-javascript-files-asynchronously/">Asynchronous JavaScript Files</a></h2>
-</header>
-<div class="entry arch">
-  
-    How to reliably execute JavaScript files asynchronously with HTML5 and before HTML5.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-22T08:35:34.000Z">22nd Aug 2013</time>
-  
-  <h2 class="title"><a href="/walter-white-is-green-in-html/">Walter White Is Green in HTML</a></h2>
-</header>
-<div class="entry arch">
-  
-    Walter White is actually green in HTML. Let me explain before you think I've gone mad.
-  
-</div>
+$(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);
+</pre></td></tr></table></figure>
+
+<p>Essentially, I&#39;m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it&#39;s written for you. </p>
+<p>This code is about 10 times smaller than my first attempt and works 10 times faster. <code>document.elementFromPoint</code> is a very effective way to return the topmost element which lies under a given point.</p>
+<p>Hammer got it wrong, you <strong>can</strong> touch this.</p>
+
       
     </div>
-  </article>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/multiple-element-swipe-gesture"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Multiple%20Element%20Swipe%20Gesture&amp;url=http://ilee.co.uk/multiple-element-swipe-gesture&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/multiple-element-swipe-gesture"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/multiple-element-swipe-gesture&amp;title=Multiple%20Element%20Swipe%20Gesture"></a>
+</div>
 
+        
+        
   
+  <div class="tags">
+    <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/html/" itemprop="keywords">html</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -246,7 +235,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
