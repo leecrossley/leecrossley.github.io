@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/grouping-consolelog()-output/">Grouping console.log() Output</a>
+      </li>
+    
+      <li>
         <a href="/multiple-element-swipe-gesture/">Multiple Element Swipe Gesture</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/yet-another-hackathon-victory/">Yet Another Hackathon Victory</a>
       </li>
     
-      <li>
-        <a href="/add-structured-data-to-your-blog/">Add Structured Data to Your Blog</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -138,7 +138,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>13</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>27</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>28</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>10</small></li>
   
@@ -149,6 +149,104 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-21T09:21:52.000Z" itemprop="datePublished">21st Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/grouping-consolelog()-output/" itemprop="url">Grouping console.log() Output</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>console.log()</h2>
+<p>If you‘ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<h2>The problem</h2>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#39;re looking for, to help identify it! e.g.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
+console.log(info1);
+console.log(info2);
+console.log(<span class="string">"MY GROUP END"</span>);
+</pre></td></tr></table></figure>
+
+<h2>The solution</h2>
+<h3>console.group()</h3>
+<p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+</pre></td></tr></table></figure>
+
+<h3>console.groupEnd()</h3>
+<p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<h3>console.groupCollapsed()</h3>
+<p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<h2>Objects and arrays</h2>
+<h3>console.table()</h3>
+<p>If you‘re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+console.table({
+    info1: { message: <span class="string">"message 1"</span> },
+    info2: { message: <span class="string">"message 2"</span> }
+});
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<p><strong>Happy, <em>clean</em> debugging!</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -881,109 +979,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 <p>We&#39;re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a>, including the music).</p>
 <h2>Thanks</h2>
 <p>A special thanks again to all the sponsors of the event and everyone involved in the organising and running. A huge success, again.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-25T09:45:35.000Z" itemprop="datePublished">25th Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/add-structured-data-to-your-blog/" itemprop="url">Add Structured Data to Your Blog</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Structured data</h2>
-<p>You&#39;ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
-<p>By using Structured Data, you&#39;re allowing search engines and bots to produce “Rich Snippets” from your data, as the structure and semantic meaning is defined.</p>
-<h3>Microdata</h3>
-<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank">W3C HTML Microdata Draft</a>, or you can just carry on reading and I&#39;ll show you how simple it really is.</p>
-<h2>This blog</h2>
-<p>Let‘s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
-<figure class="highlight lang-html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-            ...
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-<figure class="highlight lang-html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span> <span class="attribute">itemprop</span>=<span class="value">"datePublished"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">itemprop</span>=<span class="value">"name headline"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span> <span class="attribute">itemprop</span>=<span class="value">"articleBody"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-            ...
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-
-<p>There are 2 main differences:</p>
-<ul>
-<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I‘m writing a blog post and that I’m following the Schema.org standard.</li>
-<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don&#39;t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
-</ul>
-<h2>Testing</h2>
-<p>You‘ll want to ensure that what you’ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>.</p>
-<p><strong>There will be a day when you ALWAYS use structured data, make that day today.</strong></p>
 
       
     </div>

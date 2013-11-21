@@ -4,12 +4,88 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-17T21:15:29.611Z</updated>
+  <updated>2013-11-21T10:00:36.732Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Grouping console.log() Output]]></title>
+    <link href="http://ilee.co.uk/grouping-consolelog()-output/"/>
+    <id>http://ilee.co.uk/grouping-consolelog()-output/</id>
+    <published>2013-11-21T09:21:52.000Z</published>
+    <updated>2013-11-21T09:59:55.000Z</updated>
+    <content type="html"><![CDATA[<h2>console.log()</h2>
+<p>If you‘ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<h2>The problem</h2>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#39;re looking for, to help identify it! e.g.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
+console.log(info1);
+console.log(info2);
+console.log(<span class="string">"MY GROUP END"</span>);
+</pre></td></tr></table></figure>
+
+<h2>The solution</h2>
+<h3>console.group()</h3>
+<p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+</pre></td></tr></table></figure>
+
+<h3>console.groupEnd()</h3>
+<p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<h3>console.groupCollapsed()</h3>
+<p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<h2>Objects and arrays</h2>
+<h3>console.table()</h3>
+<p>If you‘re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+console.table({
+    info1: { message: <span class="string">"message 1"</span> },
+    info2: { message: <span class="string">"message 2"</span> }
+});
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<p><strong>Happy, <em>clean</em> debugging!</strong></p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Multiple Element Swipe Gesture]]></title>
     <link href="http://ilee.co.uk/multiple-element-swipe-gesture/"/>
@@ -1060,57 +1136,5 @@ plugins.sort(byCase);
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Removing a Property in JavaScript]]></title>
-    <link href="http://ilee.co.uk/removing-a-property-in-javascript/"/>
-    <id>http://ilee.co.uk/removing-a-property-in-javascript/</id>
-    <published>2013-09-16T16:08:22.000Z</published>
-    <updated>2013-09-16T16:31:34.000Z</updated>
-    <content type="html"><![CDATA[<h2>Remove a JavaScript object property with delete</h2>
-<figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };
-<span class="keyword">delete</span> thing.prop1;
-expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
-</pre></td></tr></table></figure>
-
-
-<p>Simple, done, use it. End of blog post :)</p>
-<p>If it&#39;s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
-<figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
-<span class="keyword">delete</span> thing[<span class="string">"prop"</span> + i];
-expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
-</pre></td></tr></table></figure>
-
-
-<h2>What about deleting variables and functions?</h2>
-<p>This is JavaScript, it&#39;s <strong>not</strong> possible to delete variables e.g.</p>
-<figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
-<span class="keyword">delete</span> thing; <span class="comment">// no no no</span>
-</pre></td></tr></table></figure>
-
-
-<p>It&#39;s <strong>not</strong> possible to delete functions declared in this way either.</p>
-<h2>The <em>DontDelete</em> attribute</h2>
-<p>There are also some attributes that can be set on properties to prevent their deletion misuse. <em>DontDelete</em> is an example of these, which is present in the length property:</p>
-<figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
-<span class="keyword">delete</span> thing.length; <span class="comment">// no no no</span>
-</pre></td></tr></table></figure>
-
-
-<h2>Strict mode</h2>
-<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you&#39;re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
-<p>Happy strict deleting.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

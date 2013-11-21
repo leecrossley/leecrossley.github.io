@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/grouping-consolelog()-output/</loc>
+    <lastmod>2013-11-21T09:59:55.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/multiple-element-swipe-gesture/</loc>
     <lastmod>2013-11-17T21:15:06.000Z</lastmod>
   </url>
@@ -190,6 +194,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-11-17T21:15:29.648Z</lastmod>
+    <lastmod>2013-11-21T10:00:36.767Z</lastmod>
   </url>
 </urlset>

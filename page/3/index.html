@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/grouping-consolelog()-output/">Grouping console.log() Output</a>
+      </li>
+    
+      <li>
         <a href="/multiple-element-swipe-gesture/">Multiple Element Swipe Gesture</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/yet-another-hackathon-victory/">Yet Another Hackathon Victory</a>
       </li>
     
-      <li>
-        <a href="/add-structured-data-to-your-blog/">Add Structured Data to Your Blog</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -138,7 +138,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>13</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>27</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>28</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>10</small></li>
   
@@ -149,6 +149,80 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-16T16:08:22.000Z" itemprop="datePublished">16th Sep 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/removing-a-property-in-javascript/" itemprop="url">Removing a Property in JavaScript</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Remove a JavaScript object property with delete</h2>
+<figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };
+<span class="keyword">delete</span> thing.prop1;
+expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+
+<p>Simple, done, use it. End of blog post :)</p>
+<p>If it&#39;s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
+<figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
+<span class="keyword">delete</span> thing[<span class="string">"prop"</span> + i];
+expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+
+<h2>What about deleting variables and functions?</h2>
+<p>This is JavaScript, it&#39;s <strong>not</strong> possible to delete variables e.g.</p>
+<figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+<span class="keyword">delete</span> thing; <span class="comment">// no no no</span>
+</pre></td></tr></table></figure>
+
+
+<p>It&#39;s <strong>not</strong> possible to delete functions declared in this way either.</p>
+<h2>The <em>DontDelete</em> attribute</h2>
+<p>There are also some attributes that can be set on properties to prevent their deletion misuse. <em>DontDelete</em> is an example of these, which is present in the length property:</p>
+<figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+<span class="keyword">delete</span> thing.length; <span class="comment">// no no no</span>
+</pre></td></tr></table></figure>
+
+
+<h2>Strict mode</h2>
+<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you&#39;re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
+<p>Happy strict deleting.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -852,64 +926,6 @@ window.socialmessage.send(message);
 <li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
 </ul>
 <p>If I see &quot;<a href="https://github.com/alanshaw" target="_blank">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-23T09:46:39.000Z" itemprop="datePublished">23rd Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/what-is-javascript-strict-mode/" itemprop="url">What Is JavaScript Strict Mode?</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>The “strict mode” pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
-<p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
-<h2>How to use it</h2>
-<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
-<figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
-</pre></td></tr></table></figure>
-
-
-<h2>Why use it</h2>
-<p>All it does it enforce good practices, here are a few examples:</p>
-<h3>Duplicate properties</h3>
-<p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3>The “with” statement</h3>
-<p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
-<h3>Variable declaration</h3>
-<p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
-<h2>A note on browsers</h2>
-<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
-<h2>Let&#39;s end on a laugh</h2>
-<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
-alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
-</pre></td></tr></table></figure>
 
       
     </div>

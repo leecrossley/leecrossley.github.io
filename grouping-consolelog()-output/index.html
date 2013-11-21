@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Multiple Function Composition | iLee</title>
+  <title>Grouping console.log() Output | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="functional.js has been given function composition support, this explains what it is and how to use it.">
+  <meta name="description" content="Grouping console.log() output will help you debug more effectively">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Multiple Function Composition"/>
+  <meta property="og:title" content="Grouping console.log() Output"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ih0.redbubble.net/image.14354785.9412/sticker,375x360.u2.png" />
+  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -154,74 +154,83 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-11T10:31:55.000Z" itemprop="datePublished">11th Aug 2013</time>
+        <time datetime="2013-11-21T09:21:52.000Z" itemprop="datePublished">21st Nov 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Multiple Function Composition</h1>
+    <h1 class="title" itemprop="name headline">Grouping console.log() Output</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>“Function Composition” sounds complicated, what is it?</h2>
-<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
-<h3>Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+        <h2>console.log()</h2>
+<p>If you‘ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<h2>The problem</h2>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#39;re looking for, to help identify it! e.g.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
+console.log(info1);
+console.log(info2);
+console.log(<span class="string">"MY GROUP END"</span>);
+</pre></td></tr></table></figure>
+
+<h2>The solution</h2>
+<h3>console.group()</h3>
+<p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+</pre></td></tr></table></figure>
+
+<h3>console.groupEnd()</h3>
+<p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<h3>console.groupCollapsed()</h3>
+<p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+console.log(info1);
+console.log(info2);
+console.groupEnd();
+</pre></td></tr></table></figure>
+
+<h2>Objects and arrays</h2>
+<h3>console.table()</h3>
+<p>If you‘re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(f, g);
-
-expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+console.table({
+    info1: { message: <span class="string">"message 1"</span> },
+    info2: { message: <span class="string">"message 2"</span> }
+});
+console.groupEnd();
 </pre></td></tr></table></figure>
 
-<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned “hello 2” as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
-<h3>Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a * <span class="number">100</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(e, f, g);
-
-expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
-</pre></td></tr></table></figure>
-
-<p>This example illustrates the combining of multiple functions, passing the output from function “g” as a parameter to function “f”, then passing the output from function “f” as a parameter to function “e”. This leaves you with a single returned result, in this case “hello 201”.</p>
-<h2>Ah ha! This is just inheritance for JavaScript</h2>
-<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
-<h2>What&#39;s the benefit?</h2>
-<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It‘s the future, things move on… you’re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
-<h2>functional.js (λ)</h2>
-<p>It‘s coming on, and expect more function-level programming support soon. Don’t be shy to contribute and note that I‘m currently using 4 soft spaces for tabs, don’t make me go all Crockford on you.</p>
+<p><strong>Happy, <em>clean</em> debugging!</strong></p>
 
       
     </div>
@@ -229,10 +238,10 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/multiple-function-composition"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Multiple%20Function%20Composition&amp;url=http://ilee.co.uk/multiple-function-composition&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/multiple-function-composition"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/multiple-function-composition&amp;title=Multiple%20Function%20Composition"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/grouping-consolelog()-output"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Grouping%20console.log()%20Output&amp;url=http://ilee.co.uk/grouping-consolelog()-output&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/grouping-consolelog()-output"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/grouping-consolelog()-output&amp;title=Grouping%20console.log()%20Output"></a>
 </div>
 
         
