@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-21T10:00:36.732Z</updated>
+  <updated>2013-11-21T11:50:02.948Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/grouping-consolelog()-output/"/>
     <id>http://ilee.co.uk/grouping-consolelog()-output/</id>
     <published>2013-11-21T09:21:52.000Z</published>
-    <updated>2013-11-21T09:59:55.000Z</updated>
+    <updated>2013-11-21T11:44:32.000Z</updated>
     <content type="html"><![CDATA[<h2>console.log()</h2>
 <p>If you‘ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
 <h2>The problem</h2>
@@ -82,6 +82,8 @@ console.table({
 console.groupEnd();
 </pre></td></tr></table></figure>
 
+<p><img src="/img/console-output.png" alt="Console Output"></p>
+<p>See the <a href="http://jsfiddle.net/Yb7gT/" target="_blank">jsfiddle here</a> - ensure you open the console, then click run.</p>
 <p><strong>Happy, <em>clean</em> debugging!</strong></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
