@@ -193,7 +193,7 @@ document.addEventListener(<span class="string">"click"</span>, doStuff);
 </pre></td></tr></table></figure>
 
 <p><strong>Great</strong>. What do you do if the alert text is dynamic? I&#39;ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn&#39;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and uglier, less maintainable and bug prone code.</p>
+<p>This problem isn&#39;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
 <h2>The right frame of <em>bind</em></h2>
 <p>Yes, I really did just make that joke. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#39;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
