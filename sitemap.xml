@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/nesting-ugly-anonymous-functions/</loc>
+    <lastmod>2013-11-27T13:32:14.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/grouping-consolelog()-output/</loc>
     <lastmod>2013-11-21T11:44:32.000Z</lastmod>
   </url>
@@ -194,6 +198,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-11-21T11:50:02.985Z</lastmod>
+    <lastmod>2013-11-27T13:33:18.942Z</lastmod>
   </url>
 </urlset>
