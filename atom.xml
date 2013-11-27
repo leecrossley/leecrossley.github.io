@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-27T13:36:18.114Z</updated>
+  <updated>2013-11-27T13:37:31.977Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/nesting-ugly-anonymous-functions/"/>
     <id>http://ilee.co.uk/nesting-ugly-anonymous-functions/</id>
     <published>2013-11-27T12:57:36.000Z</published>
-    <updated>2013-11-27T13:36:14.000Z</updated>
+    <updated>2013-11-27T13:37:27.000Z</updated>
     <content type="html"><![CDATA[<h2>We all do it</h2>
 <p>If you‘re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you&#39;ll have written code like this many times:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
@@ -46,7 +46,7 @@ document.addEventListener(<span class="string">"click"</span>, doStuff);
 <p><strong>Great</strong>. What do you do if the alert text is dynamic? I&#39;ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
 <p>This problem isn&#39;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
 <h2>The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#39;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
+<p>Yes, I really did just make that joke, it&#39;s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#39;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
