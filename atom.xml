@@ -4,18 +4,38 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-11-27T13:37:31.977Z</updated>
+  <updated>2013-11-28T10:31:27.890Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
   <entry>
+    <title type="html"><![CDATA[npm Cardiac Arrest]]></title>
+    <link href="http://ilee.co.uk/npm-cardiac-arrest/"/>
+    <id>http://ilee.co.uk/npm-cardiac-arrest/</id>
+    <published>2013-11-28T09:57:53.000Z</published>
+    <updated>2013-11-28T10:30:56.000Z</updated>
+    <content type="html"><![CDATA[<h2>It&#39;s happening again</h2>
+<h3>Beep, beep, beeeeeeep</h3>
+<p>The node package manager &quot;<a href="https://npmjs.org/" target="_blank">npm</a>&quot; is once again grinding to a halt. A <a href="http://blog.nodejs.org/2013/11/26/npm-post-mortem/" target="_blank">post-mortem</a> was published on the official nodejs blog after the recent downtime (November 4th / November 15th 2013), but it&#39;s problems are far from resolved (as demonstrated today).</p>
+<p><img src="/img/npm-beat.png" alt="npm Cardiac Arrest"></p>
+<h2>Keep it beating, keep it awesome</h2>
+<p>With no other alternative, npm is fundamental to node. More infrastructure is needed to continue to operate the npm registry (multi-master approach and <strong>throw hardware and people at it</strong>).</p>
+<p>In my personal opinion (and I know others echo this sentiment) there also needs to be a change to the way npm handles its dependencies. When currently installing a package, half of the registry is downloaded with it. There are ideas, such as materialising a vector of [package, version] -&gt; hash, but this is exceptionally tricky.</p>
+<p>The npm registry has served over 150 million requests and 33 million package downloads in the last week. This is 10 times as many requests and downloads as this time last year, with all signs pointing to further exponential growth.</p>
+<h2>Donate</h2>
+<p><strong>I&#39;ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you‘re a developer that’s ever used npm, <a href="https://scalenpm.org/" target="_blank">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
+<p><img src="/img/npm-thanks.png" alt="Thanks"></p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[Nesting Ugly Anonymous Functions]]></title>
     <link href="http://ilee.co.uk/nesting-ugly-anonymous-functions/"/>
     <id>http://ilee.co.uk/nesting-ugly-anonymous-functions/</id>
     <published>2013-11-27T12:57:36.000Z</published>
-    <updated>2013-11-27T13:37:27.000Z</updated>
+    <updated>2013-11-27T13:49:36.000Z</updated>
     <content type="html"><![CDATA[<h2>We all do it</h2>
 <p>If you‘re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you&#39;ll have written code like this many times:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
@@ -63,7 +83,7 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
 
 <p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
 <h2>A good <em>curry</em></h2>
-<p>You can&#39;t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog.</p>
+<p>You can&#39;t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -1040,101 +1060,5 @@ plugins.sort(byCase);
 <p>It&#39;s pretty shiny. I can make phone calls.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[iOS7 Navigation Bar Using CSS]]></title>
-    <link href="http://ilee.co.uk/ios7-navigation-bar-using-css/"/>
-    <id>http://ilee.co.uk/ios7-navigation-bar-using-css/</id>
-    <published>2013-09-20T10:15:11.000Z</published>
-    <updated>2013-10-17T14:45:56.000Z</updated>
-    <content type="html"><![CDATA[<h2>iOS7 elements with HTML and CSS</h2>
-<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
-<h2>The UINavigationBar</h2>
-<p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
-<h2>My implementation</h2>
-<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here&#39;s how I set about it.</p>
-<h3>The transparency</h3>
-<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
-<figure class="highlight lang-css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="id">#header</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span>
-    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px;</span></span>
-    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
-
-
-<h3>The blur / frosting</h3>
-<p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
-<figure class="highlight lang-css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="class">.header-blur</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span>;</span></span>
-    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span> 
-    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
-
-
-<p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
-<h3>iScroll</h3>
-<p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
-<h2>Demo</h2>
-<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
-<h2 id="update"><strong>UPDATE</strong></h2>
-
-<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn‘t actually applying the blur to elements underneath the header because they aren’t nested.</p>
-<p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
-<p>Sounds hacky, but it&#39;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it‘s worth it, but I’ll do some performance testing.</p>
-<p>The <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">example code</a> has been updated, feel free to fork.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
   </entry>
 </feed>

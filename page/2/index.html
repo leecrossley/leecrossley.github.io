@@ -74,6 +74,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/npm-cardiac-arrest/">npm Cardiac Arrest</a>
+      </li>
+    
+      <li>
         <a href="/nesting-ugly-anonymous-functions/">Nesting Ugly Anonymous Functions</a>
       </li>
     
@@ -109,10 +113,6 @@
         <a href="/froute-simple-nodejs-routing/">froute - Simple Node.js Routing</a>
       </li>
     
-      <li>
-        <a href="/say-goodbye-to-mobile-click-delays/">Say Goodbye to Mobile Click Delays</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -138,7 +138,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>13</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>29</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>30</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>10</small></li>
   
@@ -149,6 +149,49 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-31T16:25:21.000Z" itemprop="datePublished">31st Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/say-goodbye-to-mobile-click-delays/" itemprop="url">Say Goodbye to Mobile Click Delays</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Sluggish and unresponsive</h2>
+<p>If you‘ve done any kind of mobile development that’s HTML based, you&#39;ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
+<h2>Why the delay?</h2>
+<p>Mobiles and tablets automatically add a 300ms delay between the instant an element is clicked before firing the click event, the reason for this is the browser is waiting to see if you are actually performing a double click.</p>
+<h2>The solution</h2>
+<p>I&#39;ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank">FT Labs</a> that seems to have hit the nail on the head.</p>
+<h3><a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a></h3>
+<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you&#39;re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank">here on your mobile</a> for a working example.</p>
+<p>There&#39;s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
+<h2>Re-instantiating</h2>
+<p>There&#39;s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
+<p>Happy FastClick-ing.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -710,122 +753,6 @@ plugins.sort(byCase);
 </ul>
 <h2>Summary</h2>
 <p>It&#39;s pretty shiny. I can make phone calls.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-20T10:15:11.000Z" itemprop="datePublished">20th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/ios7-navigation-bar-using-css/" itemprop="url">iOS7 Navigation Bar Using CSS</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>iOS7 elements with HTML and CSS</h2>
-<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
-<h2>The UINavigationBar</h2>
-<p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
-<h2>My implementation</h2>
-<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here&#39;s how I set about it.</p>
-<h3>The transparency</h3>
-<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
-<figure class="highlight lang-css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="id">#header</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span>
-    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px;</span></span>
-    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
-
-
-<h3>The blur / frosting</h3>
-<p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
-<figure class="highlight lang-css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="class">.header-blur</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span>;</span></span>
-    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span> 
-    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
-
-
-<p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
-<h3>iScroll</h3>
-<p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
-<h2>Demo</h2>
-<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
-<h2 id="update"><strong>UPDATE</strong></h2>
-
-<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn‘t actually applying the blur to elements underneath the header because they aren’t nested.</p>
-<p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
-<p>Sounds hacky, but it&#39;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it‘s worth it, but I’ll do some performance testing.</p>
-<p>The <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">example code</a> has been updated, feel free to fork.</p>
 
       
     </div>

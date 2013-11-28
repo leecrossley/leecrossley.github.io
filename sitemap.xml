@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/npm-cardiac-arrest/</loc>
+    <lastmod>2013-11-28T10:30:56.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/nesting-ugly-anonymous-functions/</loc>
-    <lastmod>2013-11-27T13:37:27.000Z</lastmod>
+    <lastmod>2013-11-27T13:49:36.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/grouping-consolelog()-output/</loc>
@@ -198,6 +202,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-11-27T13:37:32.013Z</lastmod>
+    <lastmod>2013-11-28T10:31:27.926Z</lastmod>
   </url>
 </urlset>
