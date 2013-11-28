@@ -120,6 +120,10 @@ article {
 article.page .icon:before {
   content: '\f02e';
 }
+article.page .icon.contact:before {
+  font-size: 45px;
+  content: '\f0e0';
+}
 article.post .icon:before {
   content: '\f016';
 }
