@@ -255,6 +255,11 @@ article header .title a:hover {
   color: #16a085;
   text-decoration: none;
 }
+@media screen and (max-width: 600px) {
+  article .entry {
+    text-align: left !important;
+  }
+}
 article .entry {
   text-align: justify;
   line-height: 1.6;
