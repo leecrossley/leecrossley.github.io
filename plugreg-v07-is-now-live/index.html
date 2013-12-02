@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Static Site Generators | iLee</title>
+  <title>PlugReg v0.7 Is Now Live | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="You may not have noticed but static HTML is taking back the web">
+  <meta name="description" content="The latest version of the Cordova / PhoneGap plugin registry, plugreg, is now live.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Static Site Generators"/>
+  <meta property="og:title" content="PlugReg v0.7 Is Now Live"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.blogcdn.com/www.engadget.com/media/2012/09/9-22-2012html5.jpg" />
+  <meta property="og:image" content="https://www.gravatar.com/avatar/4e89a6651b8e7a3dc37622d7baa40600?s=150" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -160,31 +160,51 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-06T16:15:06.000Z" itemprop="datePublished">6th Aug 2013</time>
+        <time datetime="2013-12-02T11:24:44.000Z" itemprop="datePublished">2nd Dec 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Static Site Generators</h1>
+    <h1 class="title" itemprop="name headline">PlugReg v0.7 Is Now Live</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn‘t bigger be better? It turns out it’s not.</p>
-<h2><em>We</em> got it wrong</h2>
+        <h2>What&#39;s new</h2>
+<p>It&#39;s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank">@plugreg on twitter</a>.</p>
+<h3>Features</h3>
+<p>Here are some of the new features that have been implemented for v0.7:</p>
 <ul>
-<li>Static HTML files are fast, no need for in-memory caching.</li>
-<li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
-<li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
+<li><strong>Plugin details</strong>. New design and more info has been added:<ul>
+<li>Version number</li>
+<li>Last modified</li>
+<li>Stars</li>
+<li>Issues</li>
 </ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and “last updated” dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
-<h2>Enter the Static Site Generator</h2>
-<p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don‘t have to use one off the shelf, they’re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
-<p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
-<h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io" target="_blank">github</a> pages, with a custom domain name. I‘m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn’t notice the page loading.</p>
+</li>
+<li><strong>Avatars</strong>. Now hotlinks to gravatar or github identicons</li>
+<li><strong>Homepage</strong>. A new homepage design, giving various stats, such as:<ul>
+<li>Total number of plugins</li>
+<li>Total number of authors</li>
+<li>Recently Added Plugins (and when they were added)</li>
+<li>Recently Updated Plugins (and when they were updated)</li>
+<li>Authors with the Most Plugins (and how many plugins each)</li>
+<li>Authors with the Most Stars (combined from all their plugins)</li>
+<li>Plugins with the Most Stars (and how many stars)</li>
+<li>Plugins with the Most Issues (and how many issues)</li>
+</ul>
+</li>
+<li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
+<li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
+</ul>
+<h3>Refresh</h3>
+<p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
+<h3>API</h3>
+<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you&#39;d like to use it.</p>
+<h3>Bugs</h3>
+<p>There are also many, many bug fixes.</p>
+<h2>Future updates</h2>
+<p>Further updates are on the way shortly. If you&#39;d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank">@plugreg</a></p>
 
       
     </div>
@@ -192,17 +212,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Static%20Site%20Generators&amp;url=http://ilee.co.uk/static-site-generators&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/static-site-generators&amp;title=Static%20Site%20Generators"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/plugreg-v07-is-now-live"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=PlugReg%20v0.7%20Is%20Now%20Live&amp;url=http://ilee.co.uk/plugreg-v07-is-now-live&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/plugreg-v07-is-now-live"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/plugreg-v07-is-now-live&amp;title=PlugReg%20v0.7%20Is%20Now%20Live"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
   </div>
 
       

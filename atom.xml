@@ -4,12 +4,59 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-01T17:21:07.317Z</updated>
+  <updated>2013-12-02T11:47:36.320Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[PlugReg v0.7 Is Now Live]]></title>
+    <link href="http://ilee.co.uk/plugreg-v07-is-now-live/"/>
+    <id>http://ilee.co.uk/plugreg-v07-is-now-live/</id>
+    <published>2013-12-02T11:24:44.000Z</published>
+    <updated>2013-12-02T11:46:16.000Z</updated>
+    <content type="html"><![CDATA[<h2>What&#39;s new</h2>
+<p>It&#39;s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank">@plugreg on twitter</a>.</p>
+<h3>Features</h3>
+<p>Here are some of the new features that have been implemented for v0.7:</p>
+<ul>
+<li><strong>Plugin details</strong>. New design and more info has been added:<ul>
+<li>Version number</li>
+<li>Last modified</li>
+<li>Stars</li>
+<li>Issues</li>
+</ul>
+</li>
+<li><strong>Avatars</strong>. Now hotlinks to gravatar or github identicons</li>
+<li><strong>Homepage</strong>. A new homepage design, giving various stats, such as:<ul>
+<li>Total number of plugins</li>
+<li>Total number of authors</li>
+<li>Recently Added Plugins (and when they were added)</li>
+<li>Recently Updated Plugins (and when they were updated)</li>
+<li>Authors with the Most Plugins (and how many plugins each)</li>
+<li>Authors with the Most Stars (combined from all their plugins)</li>
+<li>Plugins with the Most Stars (and how many stars)</li>
+<li>Plugins with the Most Issues (and how many issues)</li>
+</ul>
+</li>
+<li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
+<li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
+</ul>
+<h3>Refresh</h3>
+<p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
+<h3>API</h3>
+<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you&#39;d like to use it.</p>
+<h3>Bugs</h3>
+<p>There are also many, many bug fixes.</p>
+<h2>Future updates</h2>
+<p>Further updates are on the way shortly. If you&#39;d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank">@plugreg</a></p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[npm Cardiac Arrest]]></title>
     <link href="http://ilee.co.uk/npm-cardiac-arrest/"/>
@@ -1024,41 +1071,5 @@ plugins.sort(byCase);
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[My Shiny New iPhone 5s]]></title>
-    <link href="http://ilee.co.uk/my-shiny-new-iphone-5s/"/>
-    <id>http://ilee.co.uk/my-shiny-new-iphone-5s/</id>
-    <published>2013-09-23T11:49:36.000Z</published>
-    <updated>2013-09-23T12:48:42.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="/img/iphone5s.png" alt="iLee iPhone 5s"></p>
-<h2>Mobile app developer</h2>
-<p>As an app developer, I&#39;m burdened with buying mobiles and tablets all the time and have <a href="/more-mobile-devices-than-socks/">more mobile devices than socks</a>. Having said that, I&#39;m actually planning to use my new iPhone for day-to-day usage too (i.e. actually making phone calls).</p>
-<h2>Crazy queuing</h2>
-<p><strong>I didn&#39;t queue</strong> for my new iPhone 5s, I also didn&#39;t <a href="http://news.sky.com/story/1144613/apple-iphone-fights-as-homeless-hired-to-queue" target="_blank">pay the homeless</a> to queue for me. I ordered in 60 seconds from the comfort of my home, on the o2 website and it arrived the next working day. Some people really need to get some common sense.</p>
-<h2>Thoughts on day one</h2>
-<h3>The good bits</h3>
-<ul>
-<li>Configuring from another iPhone backup was simple.</li>
-<li>The Apple A7 chip is <em>fast</em>, I feel the performance increase doing anything on the device.</li>
-<li>I&#39;m no photographer but the 8 megapixel camera with dual LED flash does live up to (some of) the hype. Burst mode is pretty cool too.</li>
-<li>The Touch ID home button is a <em>nice touch</em>, even if it <a href="http://istouchidhackedyet.com/" target="_blank">may have been hacked</a> already. You wouldn&#39;t use an iPhone if you had security concerns though, right? :)</li>
-<li>Free Apple apps. Sweet. Probably won&#39;t use them though.</li>
-<li>Apparently I can <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/news/newly-released-apple-iphone-5s-on-ebay-for-2000-8831594.html" target="_blank">sell it for up to £2K</a> right now on ebay.</li>
-</ul>
-<h3>The maybe-good bits</h3>
-<ul>
-<li>iBeacon, we‘ll see. Not surprised it’s not a standard of course.</li>
-</ul>
-<h3>The not-so-good bits</h3>
-<ul>
-<li>The screen, it&#39;s just OK. When can we have edge-to-edge displays?</li>
-<li>Battery life, it‘s depleting at the same fast rate as I’m used too. I&#39;ve <a href="http://www.ebay.co.uk/itm/130897161738" target="_blank">bought this</a> to overcome this slightly.</li>
-<li>A bit disappointed that there aren&#39;t many other innovative features.</li>
-</ul>
-<h2>Summary</h2>
-<p>It&#39;s pretty shiny. I can make phone calls.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
   </entry>
 </feed>
