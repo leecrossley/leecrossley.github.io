@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hack | iLee | developer blog</title>
+  <title>Pause between Grunt Tasks | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="How to pause between each grunt task and choose to continue or break">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+  <meta property="og:title" content="Pause between Grunt Tasks"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.gravatar.com/avatar/57e15d6acbd5f46c300a83b5e61db1de?s=200"/>
+  <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -154,53 +154,89 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper">
-<h2 class="archive-title tag">hack</h2>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-12-03T08:44:40.000Z" itemprop="datePublished">3rd Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Pause between Grunt Tasks</h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Pause for debugging</h2>
+<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
+<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
+<h2>grunt-pause</h2>
+<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2>Grunt core</h2>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
+<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2>Usage</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-pause <span class="comment">## --save-dev</span>
+</pre></td></tr></table></figure>
 
 
-  <article>
-    <div class="post-content arch">
-      
-        <header>
-  
-    <time datetime="2013-10-29T11:35:50.000Z">29th Oct 2013</time>
-  
-  <h2 class="title"><a href="/yet-another-hackathon-victory/">Yet Another Hackathon Victory</a></h2>
-</header>
-<div class="entry arch">
-  
-    A roundup of Hack Manchester 2013, what we built and winning again.
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-09-05T07:08:07.000Z">5th Sep 2013</time>
-  
-  <h2 class="title"><a href="/rock-paper-scissors-manc_js/">Rock Paper Scissors @manc_js</a></h2>
-</header>
-<div class="entry arch">
-  
-    My approach to writing a bot in 90 minutes to play Rock Paper Scissors against other bots
-  
-</div>
-      
-        <header>
-  
-    <time datetime="2013-08-13T13:00:58.000Z">13th Aug 2013</time>
-  
-  <h2 class="title"><a href="/road-to-hack-manchester/">The Road to Hack Manchester</a></h2>
-</header>
-<div class="entry arch">
-  
-    Preparing for the 2nd Hack Manchester (26th-27th October 2013) and lessons learnt from the last 2012 hackathon.
-  
-</div>
+<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
+</pre></td></tr></table></figure>
+
+
+<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    pause.init(grunt);
+</pre></td></tr></table></figure>
+
+
+<h2>Sample output</h2>
+<p>Sample screenshot of the console output:</p>
+<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
+<h2>Improvements?</h2>
+<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
+<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
+
       
     </div>
-  </article>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/pause-between-grunt-tasks"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Pause%20between%20Grunt%20Tasks&amp;url=http://ilee.co.uk/pause-between-grunt-tasks&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/pause-between-grunt-tasks"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/pause-between-grunt-tasks&amp;title=Pause%20between%20Grunt%20Tasks"></a>
+</div>
 
+        
+        
   
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
 </div></div>
     <div class="clearfix"></div>
   </div>
@@ -216,7 +252,7 @@
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//ilee.disqus.com/count.js';
+  dsq.src = '//ilee.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>

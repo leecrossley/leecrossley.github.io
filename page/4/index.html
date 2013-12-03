@@ -80,6 +80,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
+      </li>
+    
+      <li>
         <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
       </li>
     
@@ -115,10 +119,6 @@
         <a href="/pogoscript-plugin-for-grunt/">PogoScript Plugin for Grunt</a>
       </li>
     
-      <li>
-        <a href="/update-to-my-grunt-timer/">Update to My grunt-timer</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -144,7 +144,7 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>14</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>30</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>31</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>11</small></li>
   
@@ -155,6 +155,58 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-30T17:39:42.000Z" itemprop="datePublished">30th Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/plugin-registry-for-cordova-phonegap/" itemprop="url">Plugin Registry for Cordova/PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>The PhoneGap-Gap</h2>
+<p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
+<p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
+<blockquote>&quot;<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>&quot;</blockquote>
+
+<h2>Making dreams come true</h2>
+<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That&#39;s right, <em>I&#39;ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
+<h3><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
+<p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
+<ul>
+<li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
+<li><strong>Search</strong>. Search on plugin name and keywords</li>
+<li><strong>Authors List</strong>. List of all plugin authors, with how many plugins and a total count</li>
+<li><strong>Author Page</strong>. List of all plugins by an author (and avatar), and a link to their GitHub</li>
+<li><strong>Plugins List</strong>. List of all plugins and a total count</li>
+<li><strong>Plugin Details</strong>. Details such as plugin description, supported platforms, engines, keyword tags, link to GitHub and installation instructions</li>
+<li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
+</ul>
+<h2>Suggestions, comments and feedback</h2>
+<p>All welcome, one thing I&#39;m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
+<p>Please add your own plugins or any plugins you have used.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -759,128 +811,6 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 
 <p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-17T12:12:13.000Z" itemprop="datePublished">17th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/different-ways-to-declare-javascript-functions/" itemprop="url">Ways to Declare JavaScript Functions</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>The different ways to declare a function in JavaScript</h2>
-<h3>To var, or not to var</h3>
-<p>You can declare a function as you would any other JavaScript variable:</p>
-<figure class="highlight lang-javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
-
-
-<p>Or you can declare it without a var in your statement:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-}
-</pre></td></tr></table></figure>
-
-
-<h2>The difference</h2>
-<p>I recently read an accepted answer on Stack Overflow that stated:</p>
-<blockquote><p>&quot;<em>If you‘re in the global scope then there’s no difference.</em>&quot;</p>
-<footer><strong>- Stack Overflow</strong></footer></blockquote>
-
-
-<p>I‘m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="keyword">try</span> {
-  func1();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  alert(<span class="string">"func1 success"</span>);
-};
-
-<span class="keyword">try</span> {
-  func2();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-  alert(<span class="string">"func2 success"</span>);
-}
-</pre></td></tr></table></figure>
-
-
-<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
-<ul>
-<li>func1 (var format) is defined <strong>at</strong> runtime</li>
-<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>&quot;</li>
-</ul>
-<h2>Function expressions</h2>
-<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
-
-
-<h2>Best practice</h2>
-<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you&#39;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
-<h2>CoffeeScript fans</h2>
-<p>If you&#39;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#39;s only one way you can define a function in coffeescript:</p>
-<figure class="highlight lang-coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="function"><span class="title">func</span></span> = -&gt;
-</pre></td></tr></table></figure>
-
-
-<p>Which is evaluated as a function expression, fortunately.</p>
-<p>Now seriously, get off my blog CoffeeScripters.</p>
 
       
     </div>

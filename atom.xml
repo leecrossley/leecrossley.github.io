@@ -4,12 +4,55 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-02T11:47:36.320Z</updated>
+  <updated>2013-12-03T09:12:07.258Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Pause between Grunt Tasks]]></title>
+    <link href="http://ilee.co.uk/pause-between-grunt-tasks/"/>
+    <id>http://ilee.co.uk/pause-between-grunt-tasks/</id>
+    <published>2013-12-03T08:44:40.000Z</published>
+    <updated>2013-12-03T09:11:28.000Z</updated>
+    <content type="html"><![CDATA[<h2>Pause for debugging</h2>
+<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
+<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
+<h2>grunt-pause</h2>
+<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2>Grunt core</h2>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
+<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2>Usage</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-pause <span class="comment">## --save-dev</span>
+</pre></td></tr></table></figure>
+
+
+<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
+</pre></td></tr></table></figure>
+
+
+<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    pause.init(grunt);
+</pre></td></tr></table></figure>
+
+
+<h2>Sample output</h2>
+<p>Sample screenshot of the console output:</p>
+<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
+<h2>Improvements?</h2>
+<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
+<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[PlugReg v0.7 Is Now Live]]></title>
     <link href="http://ilee.co.uk/plugreg-v07-is-now-live/"/>
@@ -1029,47 +1072,5 @@ plugins.sort(byCase);
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[The JavaScript IsNumeric Function]]></title>
-    <link href="http://ilee.co.uk/determine-if-a-javascript-object-is-numeric/"/>
-    <id>http://ilee.co.uk/determine-if-a-javascript-object-is-numeric/</id>
-    <published>2013-09-26T16:16:00.000Z</published>
-    <updated>2013-09-26T16:35:20.000Z</updated>
-    <content type="html"><![CDATA[<h2>isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
-<h3>Using npm</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
-</pre></td></tr></table></figure>
-
-<p>To then include isnumeric in your node app:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
-</pre></td></tr></table></figure>
-
-<h3>Direct dependency</h3>
-<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
-<h2>The code</h2>
-<p>Essentially, this is it:</p>
-<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
-    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
-    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
-};
-</pre></td></tr></table></figure>
-
-
-<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
-<h2>The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
-<p>Any disagreements or improvements please pull request.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
   </entry>
 </feed>
