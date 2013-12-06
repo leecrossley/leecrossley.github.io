@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/looping-audio-with-phonegap/</loc>
+    <lastmod>2013-12-06T10:47:47.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/jsonp-in-express-nodejs/</loc>
     <lastmod>2013-12-03T09:25:13.000Z</lastmod>
   </url>
@@ -214,6 +218,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-12-03T09:25:19.026Z</lastmod>
+    <lastmod>2013-12-06T10:48:27.079Z</lastmod>
   </url>
 </urlset>

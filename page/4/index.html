@@ -80,6 +80,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
@@ -115,10 +119,6 @@
         <a href="/get-adjacent-squares-on-a-grid/">Get Adjacent Squares on a Grid</a>
       </li>
     
-      <li>
-        <a href="/pogoscript-plugin-for-grunt/">PogoScript Plugin for Grunt</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -130,7 +130,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>6</small></li>
+    <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
   
@@ -142,11 +142,11 @@
   
     <li><a href="/tags/html/">html</a><small>6</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>14</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>15</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>31</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>32</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>11</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>12</small></li>
   
     <li><a href="/tags/web/">web</a><small>21</small></li>
   
@@ -155,6 +155,164 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-02T10:40:32.000Z" itemprop="datePublished">2nd Sep 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/functional-first-last-everything/" itemprop="url">Functional First, Last, Every(thing)</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>functional.js (λ)</h2>
+<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
+<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
+<h2>Examples</h2>
+<h3>You&#39;re the λ.first</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> firstEven = λ.first(even);
+<span class="keyword">var</span> firstOdd = λ.first(odd);
+
+expect(firstEven(items)).toEqual(<span class="number">2</span>);
+expect(firstOdd(items)).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>My λ.last</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> lastEven = λ.last(even);
+<span class="keyword">var</span> lastOdd = λ.last(odd);
+
+expect(lastEven(items)).toEqual(<span class="number">2</span>);
+expect(lastOdd(items)).toEqual(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<h3>My λ.every(thing)</h3>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> everyEven = λ.every(even);
+<span class="keyword">var</span> everyOdd = λ.every(odd);
+
+expect(everyEven(items)).toEqual(<span class="literal">true</span>);
+expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
+</pre></td></tr></table></figure>
+
+<p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
+<h3>λ.partition</h3>
+<p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+
+<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
+};
+
+<span class="keyword">var</span> partitionEven = λ.partition(even);
+
+<span class="keyword">var</span> result = partitionEven(items);
+
+expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
+</pre></td></tr></table></figure>
+
+
+<h2>Contribute, Contribute, Contribute</h2>
+<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -695,122 +853,6 @@ shake.stopWatch();
 <h2>Platforms</h2>
 <p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
 <p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-18T08:47:54.000Z" itemprop="datePublished">18th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/let-grunt-handle-your-tasks/" itemprop="url">Let Grunt Handle Your Tasks</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn‘t take sick days, pays attention and watches what you’re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It‘s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
-<p>I&#39;m just going to cover the basics here for now.</p>
-<h2>Getting the ball rolling</h2>
-<p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
-<h3>The Grunt CLI</h3>
-<p>Assuming you‘re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install -g grunt-cli
-</pre></td></tr></table></figure>
-
-
-<p>You can now run “grunt” from anywhere. Happy times.</p>
-<h3>The Gruntfile.js</h3>
-<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
-<p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
-</pre></td></tr></table></figure>
-
-
-<p>You can then define some tasks in your Gruntfile.js, here&#39;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>jasmine: {
-    src: <span class="string">"functional.min.js"</span>,
-    options: {
-        specs: <span class="string">"spec.js"</span>
-    }
-}
-</pre></td></tr></table></figure>
-
-
-<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank">spec.js</a>.</p>
-<p>You can run it by doing:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">grunt</span> jasmine
-</pre></td></tr></table></figure>
-
-
-<h3>Combining tasks</h3>
-<p>In the above example, it‘s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
-</pre></td></tr></table></figure>
-
-
-<p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
-<h3>Watching for changes</h3>
-<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>watch: {
-    files: [
-        <span class="string">"*.js"</span>,
-        <span class="string">"!functional.min.js"</span>
-    ],
-    tasks: [<span class="string">"test"</span>]
-}
-</pre></td></tr></table></figure>
-
-
-<p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">grunt</span> watch
-</pre></td></tr></table></figure>
-
-
-<p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
 
       
     </div>

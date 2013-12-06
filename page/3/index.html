@@ -80,6 +80,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
@@ -115,10 +119,6 @@
         <a href="/get-adjacent-squares-on-a-grid/">Get Adjacent Squares on a Grid</a>
       </li>
     
-      <li>
-        <a href="/pogoscript-plugin-for-grunt/">PogoScript Plugin for Grunt</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -130,7 +130,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>6</small></li>
+    <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
   
@@ -142,11 +142,11 @@
   
     <li><a href="/tags/html/">html</a><small>6</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>14</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>15</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>31</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>32</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>11</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>12</small></li>
   
     <li><a href="/tags/web/">web</a><small>21</small></li>
   
@@ -155,6 +155,64 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-02T16:32:24.000Z" itemprop="datePublished">2nd Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/hack-to-prevent-json-hijacking/" itemprop="url">Hack to Prevent JSON Hijacking</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>JSON hijacking</h2>
+<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
+<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
+<h2>The hack</h2>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>JSON.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
+</pre></td></tr></table></figure>
+
+<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
+<p>Facebook use a similar variation to achieve the same result:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
+</pre></td></tr></table></figure>
+
+<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
+</pre></td></tr></table></figure>
+
+<h2>Limitations</h2>
+<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -860,164 +918,6 @@ it(<span class="string">"should win the first hand against rock and increment wi
 </ul>
 <p>It&#39;s difficult to price a domain, but everything is negotiable, especially to my blog readers :) Make me an offer.</p>
 <p>Most of the domain names are hotel booking based, iFindRooms would also make a pretty good app name.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-02T10:40:32.000Z" itemprop="datePublished">2nd Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/functional-first-last-everything/" itemprop="url">Functional First, Last, Every(thing)</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>functional.js (λ)</h2>
-<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
-<h2>Examples</h2>
-<h3>You&#39;re the λ.first</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> firstEven = λ.first(even);
-<span class="keyword">var</span> firstOdd = λ.first(odd);
-
-expect(firstEven(items)).toEqual(<span class="number">2</span>);
-expect(firstOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<h3>My λ.last</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> lastEven = λ.last(even);
-<span class="keyword">var</span> lastOdd = λ.last(odd);
-
-expect(lastEven(items)).toEqual(<span class="number">2</span>);
-expect(lastOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<h3>My λ.every(thing)</h3>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> everyEven = λ.every(even);
-<span class="keyword">var</span> everyOdd = λ.every(odd);
-
-expect(everyEven(items)).toEqual(<span class="literal">true</span>);
-expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
-</pre></td></tr></table></figure>
-
-<p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
-<h3>λ.partition</h3>
-<p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> partitionEven = λ.partition(even);
-
-<span class="keyword">var</span> result = partitionEven(items);
-
-expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
-</pre></td></tr></table></figure>
-
-
-<h2>Contribute, Contribute, Contribute</h2>
-<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
 
       
     </div>

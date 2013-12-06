@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Static Site Generators | iLee</title>
+  <title>Looping Audio with PhoneGap | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="You may not have noticed but static HTML is taking back the web">
+  <meta name="description" content="Playing media on repeat (looping indefinitely) with Cordova / PhoneGap">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Static Site Generators"/>
+  <meta property="og:title" content="Looping Audio with PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.blogcdn.com/www.engadget.com/media/2012/09/9-22-2012html5.jpg" />
+  <meta property="og:image" content="http://ilee.co.uk/img/audio-mute.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -160,31 +160,56 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-06T16:15:06.000Z" itemprop="datePublished">6th Aug 2013</time>
+        <time datetime="2013-12-06T10:05:49.000Z" itemprop="datePublished">6th Dec 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Static Site Generators</h1>
+    <h1 class="title" itemprop="name headline">Looping Audio with PhoneGap</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>You may not have noticed but static HTML is taking back the web</h2>
-<p>We all thought the days of static HTML websites were long gone when almighty server-side content management systems developed. With their powerful  architecture and databases, often requiring licence fees and a few dedicated GB of RAM on your web server, why wouldn‘t bigger be better? It turns out it’s not.</p>
-<h2><em>We</em> got it wrong</h2>
-<ul>
-<li>Static HTML files are fast, no need for in-memory caching.</li>
-<li>Static HTML files are secure, there&#39;s much less to try to hack.</li>
-<li>Static HTML files <strong>JUST WORK</strong> on virtually any hosting environment.</li>
-</ul>
-<p>OK, so what are we supposed to do, go back to coding like it&#39;s 1995? Managing common HTML between pages, sitemaps and “last updated” dates manually? Forgetting about new shiny technology like SASS and LESS, JADE and HAML? Not quite. </p>
-<h2>Enter the Static Site Generator</h2>
-<p>A Static Site Generator is a program which generates and outputs static HTML. The idea is that all the hard work is done upfront, so the user doesn&#39;t have to do the waiting. Think of it as <em>extreme caching</em> :)</p>
-<p>Many generators already exist for personal sites, blogs and reference sites etc, and are available for pretty much every language/platform you can imagine. You don‘t have to use one off the shelf, they’re pretty easy to put together (hence there being quite a few). It&#39;s also easy to get it working exactly how is best for you and your specific project.</p>
-<p>I wrote a bespoke static site generator for a client earlier this year, which ingested a source atom feed and translated the data to HTML5 and RDFa using C# (wasn&#39;t my language of choice but I was constrained by internal politics, I was just happy to get the static site generator approved).</p>
-<h2>This blog</h2>
-<p>As a final point, this blog is static HTML. It&#39;s hosted for free on <a href="https://github.com/leecrossley/leecrossley.github.io" target="_blank">github</a> pages, with a custom domain name. I‘m writing markdown right now and using node.js to generate the HTML and CSS. Hopefully you didn’t notice the page loading.</p>
+        <h2>Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I‘m using it in the game I’m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3>iOS</h3>
+<p>There&#39;s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
+
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
+myMedia.play({ numberOfLoops: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+<p>It‘s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
+<h3>Android</h3>
+<p>Here‘s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
+
+<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
+    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
+        myMedia.play();
+    }
+};
+
+myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
+myMedia.play();
+</pre></td></tr></table></figure>
+
+<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
+<p>Can we have a <code>repeat: true</code> please?</p>
 
       
     </div>
@@ -192,17 +217,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Static%20Site%20Generators&amp;url=http://ilee.co.uk/static-site-generators&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/static-site-generators"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/static-site-generators&amp;title=Static%20Site%20Generators"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/looping-audio-with-phonegap"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Looping%20Audio%20with%20PhoneGap&amp;url=http://ilee.co.uk/looping-audio-with-phonegap&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/looping-audio-with-phonegap"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/looping-audio-with-phonegap&amp;title=Looping%20Audio%20with%20PhoneGap"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

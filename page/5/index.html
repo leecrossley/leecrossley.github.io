@@ -80,6 +80,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
@@ -115,10 +119,6 @@
         <a href="/get-adjacent-squares-on-a-grid/">Get Adjacent Squares on a Grid</a>
       </li>
     
-      <li>
-        <a href="/pogoscript-plugin-for-grunt/">PogoScript Plugin for Grunt</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -130,7 +130,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>6</small></li>
+    <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
   
@@ -142,11 +142,11 @@
   
     <li><a href="/tags/html/">html</a><small>6</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>14</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>15</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>31</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>32</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>11</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>12</small></li>
   
     <li><a href="/tags/web/">web</a><small>21</small></li>
   
@@ -155,6 +155,122 @@
 
 </div>
     <div id="main-col" class="alignright"><div id="wrapper">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-18T08:47:54.000Z" itemprop="datePublished">18th Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/let-grunt-handle-your-tasks/" itemprop="url">Let Grunt Handle Your Tasks</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Grunt - the task runner for JavaScript</h2>
+<p>Let grunt handle all your JavaScript tasks. It doesn‘t take sick days, pays attention and watches what you’re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It‘s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I&#39;m just going to cover the basics here for now.</p>
+<h2>Getting the ball rolling</h2>
+<p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<h3>The Grunt CLI</h3>
+<p>Assuming you‘re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install -g grunt-cli
+</pre></td></tr></table></figure>
+
+
+<p>You can now run “grunt” from anywhere. Happy times.</p>
+<h3>The Gruntfile.js</h3>
+<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
+</pre></td></tr></table></figure>
+
+
+<p>You can then define some tasks in your Gruntfile.js, here&#39;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>jasmine: {
+    src: <span class="string">"functional.min.js"</span>,
+    options: {
+        specs: <span class="string">"spec.js"</span>
+    }
+}
+</pre></td></tr></table></figure>
+
+
+<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank">spec.js</a>.</p>
+<p>You can run it by doing:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">grunt</span> jasmine
+</pre></td></tr></table></figure>
+
+
+<h3>Combining tasks</h3>
+<p>In the above example, it‘s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
+</pre></td></tr></table></figure>
+
+
+<p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
+<h3>Watching for changes</h3>
+<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>watch: {
+    files: [
+        <span class="string">"*.js"</span>,
+        <span class="string">"!functional.min.js"</span>
+    ],
+    tasks: [<span class="string">"test"</span>]
+}
+</pre></td></tr></table></figure>
+
+
+<p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">grunt</span> watch
+</pre></td></tr></table></figure>
+
+
+<p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -858,59 +974,6 @@ console.log(result);
 <p>Do it every night if you can - and make sure you‘re always on top. As for PageSpeed Insights, because the web is fast paced and continually evolving, they’re iterative. Just like the main search algorithm, expect the PageSpeed algorithm and suggestions to change frequently.</p>
 <h2>This blog</h2>
 <p>Bragging time again. This site currently (at the time of writing) has a desktop PageSpeed score of 97/100. That‘s better than Facebook, Twitter, ebay etc and equal to Google’s own score for Google.com. Yey for me.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-07T11:54:10.000Z" itemprop="datePublished">7th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/do-we-need-designers-for-the-web/" itemprop="url">Do We Need Designers for the Web?</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It‘s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that’s what users want, something that‘s easy to use and understand. It loads quickly too, but that’s a discussion for another day.</p>
-<h2>The “Flat UI” / “Metro” era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
-<ul>
-<li><p><a href="https://www.gov.uk/designprinciples" target="_blank">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles" target="_blank">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
-</ul>
-<p>By now you‘ve probably realised I’m not just talking about the web, I&#39;m talking about mobile apps too.</p>
-<h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/" target="_blank">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/" target="_blank">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators" target="_blank">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/" target="_blank">Flat UI</a>, which this blog uses. You don‘t need to worry about gradient colours or shadow colours and depth (sorry if that’s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
-<h2>Good developers</h2>
-<p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
 
       
     </div>

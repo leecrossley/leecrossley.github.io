@@ -4,12 +4,64 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-03T09:25:18.990Z</updated>
+  <updated>2013-12-06T10:48:27.041Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Looping Audio with PhoneGap]]></title>
+    <link href="http://ilee.co.uk/looping-audio-with-phonegap/"/>
+    <id>http://ilee.co.uk/looping-audio-with-phonegap/</id>
+    <published>2013-12-06T10:05:49.000Z</published>
+    <updated>2013-12-06T10:47:47.000Z</updated>
+    <content type="html"><![CDATA[<h2>Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I‘m using it in the game I’m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3>iOS</h3>
+<p>There&#39;s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
+
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
+myMedia.play({ numberOfLoops: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+<p>It‘s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
+<h3>Android</h3>
+<p>Here‘s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
+
+<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
+    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
+        myMedia.play();
+    }
+};
+
+myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
+myMedia.play();
+</pre></td></tr></table></figure>
+
+<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
+<p>Can we have a <code>repeat: true</code> please?</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Pause between Grunt Tasks]]></title>
     <link href="http://ilee.co.uk/pause-between-grunt-tasks/"/>
@@ -1035,42 +1087,5 @@ plugins.sort(byCase);
     <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
     <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Hack to Prevent JSON Hijacking]]></title>
-    <link href="http://ilee.co.uk/hack-to-prevent-json-hijacking/"/>
-    <id>http://ilee.co.uk/hack-to-prevent-json-hijacking/</id>
-    <published>2013-10-02T16:32:24.000Z</published>
-    <updated>2013-10-02T17:06:55.000Z</updated>
-    <content type="html"><![CDATA[<h2>JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
-<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
-<h2>The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>JSON.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
-</pre></td></tr></table></figure>
-
-<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
-<p>Facebook use a similar variation to achieve the same result:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
-</pre></td></tr></table></figure>
-
-<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
-</pre></td></tr></table></figure>
-
-<h2>Limitations</h2>
-<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
 </feed>
