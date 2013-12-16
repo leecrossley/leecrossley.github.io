@@ -4,12 +4,86 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-06T10:48:27.041Z</updated>
+  <updated>2013-12-16T08:51:15.243Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Native Page Transitions with PhoneGap]]></title>
+    <link href="http://ilee.co.uk/native-page-transitions-with-phonegap/"/>
+    <id>http://ilee.co.uk/native-page-transitions-with-phonegap/</id>
+    <published>2013-12-16T07:11:57.000Z</published>
+    <updated>2013-12-16T08:50:41.000Z</updated>
+    <content type="html"><![CDATA[<p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
+<h2>Stop the press!</h2>
+<p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
+<p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
+<p><strong>I&#39;ve turned page transitions around</strong> (poor pun, I know).</p>
+<p><img src="/img/transition.png" alt="Page transition"></p>
+<h2>Video demo</h2>
+<p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
+<h2>Down to business</h2>
+<p>If you‘re a Cordova / PhoneGap developer, I’m sure you‘re already desperate to get started, so I’ll cut to the chase.</p>
+<h3>Install</h3>
+<p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">Github</a>.</p>
+<p>Assuming you&#39;re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
+</pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
+<h2>Transitions</h2>
+<h3>Flip</h3>
+<p>Flip page transition, with support for flipping left or right:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
+    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span>
+nativetransitions.flip(duration, direction, onComplete);
+</pre></td></tr></table></figure>
+
+<h3>Curl</h3>
+<p>Curl page transition, with support for flipping curling up or down:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
+    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span>
+nativetransitions.curl(duration, direction, onComplete);
+</pre></td></tr></table></figure>
+
+<h3>Fade</h3>
+<p>A simple fade page transition:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span>
+nativetransitions.fade(duration, onComplete);
+</pre></td></tr></table></figure>
+
+<h2>Example</h2>
+<p>Here&#39;s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>setTimeout(<span class="keyword">function</span>() {
+    <span class="comment">// Change your html here</span>
+}, <span class="number">50</span>);
+nativetransitions.flip(duration, direction);
+</pre></td></tr></table></figure>
+
+<h2>More transitions?</h2>
+<p>If you‘d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I&#39;ll see if I can implement it for you.</p>
+<p><strong>This is pretty flippin&#39; amazing stuff</strong> (OK, I&#39;ll stop now).</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+    <category scheme="http://ilee.co.uk/tags/HTML/" term="HTML"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Looping Audio with PhoneGap]]></title>
     <link href="http://ilee.co.uk/looping-audio-with-phonegap/"/>
@@ -1053,39 +1127,5 @@ plugins.sort(byCase);
 <p>Bad bad bad. You‘re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/git/" term="git"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Which Mobile App Platform First?]]></title>
-    <link href="http://ilee.co.uk/which-mobile-app-platform-first/"/>
-    <id>http://ilee.co.uk/which-mobile-app-platform-first/</id>
-    <published>2013-10-03T16:10:34.000Z</published>
-    <updated>2013-10-03T16:53:00.000Z</updated>
-    <content type="html"><![CDATA[<h2>Developing apps for iOS first</h2>
-<p>A <a href="https://twitter.com/VickiHigham" target="_blank">friend</a> today asked me a very interesting question:</p>
-<blockquote><p>“Can you see a reason people would launch on iOS first?” … “they don&#39;t have the biggest market share”</p>
-<footer><strong>- @VickiHigham</strong></footer></blockquote>
-
-
-<p><img src="/img/app-platforms.png" alt="Mobile App Platforms"></p>
-<p>This got me thinking. Yes, it&#39;s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
-<p>I&#39;ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
-<h3>The curveball</h3>
-<p>In reality, it doesn‘t actually doesn’t make sense to develop for iOS first if you‘re going to be targeting multiple platforms (especially if you’re using something like Cordova / PhoneGap)… let me convince you why.</p>
-<h2>Developing apps for Android first</h2>
-<h3>It&#39;s all about the review process</h3>
-<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can&#39;t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
-<p>If you were to develop apps for Android first, because of the fast release process there would be a raft of benefits:</p>
-<ul>
-<li>The app could potentially be released quicker</li>
-<li>Bugs can be fixed and released quicker</li>
-<li>A more robust version could then be released to iOS</li>
-</ul>
-<h2>Other considerations</h2>
-<p>Of course, there are other considerations, such as target location, device capabilities etc but we should be at least questioning the “iOS First” approach that seems to have become the default.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
   </entry>
 </feed>

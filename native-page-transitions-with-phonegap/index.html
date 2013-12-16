@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Meet My Friend David DM | iLee</title>
+  <title>Native Page Transitions with PhoneGap | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Let my friend David monitor your node.js project dependencies for you. He's got your back.">
+  <meta name="description" content="My new PhoneGap / Cordova plugin allows you to use native iOS transitions!">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Meet My Friend David DM"/>
+  <meta property="og:title" content="Native Page Transitions with PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ilee.co.uk/img/david-dm.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/transition.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -162,35 +162,78 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-24T08:33:34.000Z" itemprop="datePublished">24th Aug 2013</time>
+        <time datetime="2013-12-16T07:11:57.000Z" itemprop="datePublished">16th Dec 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Meet My Friend David DM</h1>
+    <h1 class="title" itemprop="name headline">Native Page Transitions with PhoneGap</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>David monitors your node.js dependencies to ensure they&#39;re up to date</h2>
-<p><a href="https://david-dm.org/" target="_blank">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
-<p>Here&#39;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer" target="_blank">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
-<p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
-<h2>Using David</h2>
-<p>David is free for public repos on Github, I don‘t think there is a private repo version yet and you can’t use other providers such as bitbucket.</p>
-<p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
-<h3>David informs with badges</h3>
-<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer" target="_blank">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#39;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
-<h3>David informs with RSS</h3>
-<p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
-<h2>Improvements</h2>
-<p>There are many improvements that I hope are implemented soon:</p>
-<ul>
-<li>Projects with no dependencies are shown as up to date - <a href="https://david-dm.org/leecrossley/functional-js.png" target="_blank">https://david-dm.org/leecrossley/functional-js.png</a>. Could have a no dependencies badge.</li>
-<li>Version info from npm is cached for a whole day, this is too long.</li>
-<li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
-</ul>
-<p>If I see &quot;<a href="https://github.com/alanshaw" target="_blank">David</a>&quot; in the pub, I&#39;ll get him a beer. You should too.</p>
+        <p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
+<h2>Stop the press!</h2>
+<p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
+<p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
+<p><strong>I&#39;ve turned page transitions around</strong> (poor pun, I know).</p>
+<p><img src="/img/transition.png" alt="Page transition"></p>
+<h2>Video demo</h2>
+<p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
+<h2>Down to business</h2>
+<p>If you‘re a Cordova / PhoneGap developer, I’m sure you‘re already desperate to get started, so I’ll cut to the chase.</p>
+<h3>Install</h3>
+<p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">Github</a>.</p>
+<p>Assuming you&#39;re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
+</pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
+<h2>Transitions</h2>
+<h3>Flip</h3>
+<p>Flip page transition, with support for flipping left or right:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
+    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span>
+nativetransitions.flip(duration, direction, onComplete);
+</pre></td></tr></table></figure>
+
+<h3>Curl</h3>
+<p>Curl page transition, with support for flipping curling up or down:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
+    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span>
+nativetransitions.curl(duration, direction, onComplete);
+</pre></td></tr></table></figure>
+
+<h3>Fade</h3>
+<p>A simple fade page transition:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span>
+nativetransitions.fade(duration, onComplete);
+</pre></td></tr></table></figure>
+
+<h2>Example</h2>
+<p>Here&#39;s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>setTimeout(<span class="keyword">function</span>() {
+    <span class="comment">// Change your html here</span>
+}, <span class="number">50</span>);
+nativetransitions.flip(duration, direction);
+</pre></td></tr></table></figure>
+
+<h2>More transitions?</h2>
+<p>If you‘d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I&#39;ll see if I can implement it for you.</p>
+<p><strong>This is pretty flippin&#39; amazing stuff</strong> (OK, I&#39;ll stop now).</p>
 
       
     </div>
@@ -198,17 +241,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/meet-my-friend-david-dm"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Meet%20My%20Friend%20David%20DM&amp;url=http://ilee.co.uk/meet-my-friend-david-dm&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/meet-my-friend-david-dm"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/meet-my-friend-david-dm&amp;title=Meet%20My%20Friend%20David%20DM"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/native-page-transitions-with-phonegap"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Native%20Page%20Transitions%20with%20PhoneGap&amp;url=http://ilee.co.uk/native-page-transitions-with-phonegap&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/native-page-transitions-with-phonegap"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/native-page-transitions-with-phonegap&amp;title=Native%20Page%20Transitions%20with%20PhoneGap"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/HTML/" itemprop="keywords">HTML</a>
   </div>
 
       
