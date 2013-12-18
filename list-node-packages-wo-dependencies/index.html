@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Timing Grunt Task Duration | iLee</title>
+  <title>List Node Packages w/o Dependencies | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="How to automatically time the duration of each grunt task and output the time in milliseconds to the console.">
+  <meta name="description" content="How to list globally or locally installed packages without dependency trees.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Timing Grunt Task Duration"/>
+  <meta property="og:title" content="List Node Packages w/o Dependencies"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
+  <meta property="og:image" content="https://raw.github.com/isaacs/npm/master/html/npm-256-square.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -162,62 +162,45 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-20T12:37:41.000Z" itemprop="datePublished">20th Aug 2013</time>
+        <time datetime="2013-12-18T13:18:02.000Z" itemprop="datePublished">18th Dec 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Timing Grunt Task Duration</h1>
+    <h1 class="title" itemprop="name headline">List Node Packages w/o Dependencies</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Timing is everything</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
-<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
-<h2>grunt-timer</h2>
-<p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2>Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it‘s a little hacky the way I’ve done it using hooks and the time isn&#39;t 100% accurate.</p>
-<p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2>How do I use it?</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-timer <span class="comment">## --save</span>
+        <h2>npm list</h2>
+<p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies…). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
+<h3>Added depth</h3>
+<p>Turns out there‘s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank">documentation for npm ls</a>.</p>
+<p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ npm ls --depth=0
 </pre></td></tr></table></figure>
 
-
-<p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
+<h3>Go global</h3>
+<p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
+<h2>I&#39;m getting errors!</h2>
+<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. &quot;npm ERR! max depth reached&quot; among others), although there was nothing really wrong.</p>
+<p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
+<h2>The complete command</h2>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ npm ls --depth=0 <span class="string">"$@"</span> 2&gt;/dev/null
 </pre></td></tr></table></figure>
 
-
-<p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt);
+<p>If you don‘t want to type this out all the time (I certainly don’t), you can alias it up:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span>$@<span class="string">" 2&gt;/dev/null"</span>
 </pre></td></tr></table></figure>
 
-
-<h2>Example output</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="title">Running</span> <span class="string">"run:500"</span> (run) task
-<span class="number">500ms</span> task ran
-Task <span class="string">'run:500'</span> took <span class="number">502ms</span>
+<p>Then usage is as simple as:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ npmls
 </pre></td></tr></table></figure>
 
-
-<h2>Issues</h2>
-<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
-<ul>
-<li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
-</ul>
-<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
 
       
     </div>
@@ -225,10 +208,10 @@ Task <span class="string">'run:500'</span> took <span class="number">502ms</span
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/timing-grunt-task-duration"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Timing%20Grunt%20Task%20Duration&amp;url=http://ilee.co.uk/timing-grunt-task-duration&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/timing-grunt-task-duration"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/timing-grunt-task-duration&amp;title=Timing%20Grunt%20Task%20Duration"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/list-node-packages-wo-dependencies"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=List%20Node%20Packages%20w/o%20Dependencies&amp;url=http://ilee.co.uk/list-node-packages-wo-dependencies&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/list-node-packages-wo-dependencies"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/list-node-packages-wo-dependencies&amp;title=List%20Node%20Packages%20w/o%20Dependencies"></a>
 </div>
 
         

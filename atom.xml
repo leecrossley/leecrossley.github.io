@@ -4,12 +4,50 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-16T08:51:15.243Z</updated>
+  <updated>2013-12-18T14:10:01.605Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[List Node Packages w/o Dependencies]]></title>
+    <link href="http://ilee.co.uk/list-node-packages-wo-dependencies/"/>
+    <id>http://ilee.co.uk/list-node-packages-wo-dependencies/</id>
+    <published>2013-12-18T13:18:02.000Z</published>
+    <updated>2013-12-18T14:09:12.000Z</updated>
+    <content type="html"><![CDATA[<h2>npm list</h2>
+<p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies…). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
+<h3>Added depth</h3>
+<p>Turns out there‘s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank">documentation for npm ls</a>.</p>
+<p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ npm ls --depth=0
+</pre></td></tr></table></figure>
+
+<h3>Go global</h3>
+<p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
+<h2>I&#39;m getting errors!</h2>
+<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. &quot;npm ERR! max depth reached&quot; among others), although there was nothing really wrong.</p>
+<p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
+<h2>The complete command</h2>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ npm ls --depth=0 <span class="string">"$@"</span> 2&gt;/dev/null
+</pre></td></tr></table></figure>
+
+<p>If you don‘t want to type this out all the time (I certainly don’t), you can alias it up:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span>$@<span class="string">" 2&gt;/dev/null"</span>
+</pre></td></tr></table></figure>
+
+<p>Then usage is as simple as:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ npmls
+</pre></td></tr></table></figure>
+
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Native Page Transitions with PhoneGap]]></title>
     <link href="http://ilee.co.uk/native-page-transitions-with-phonegap/"/>
@@ -1096,36 +1134,5 @@ plugins.sort(byCase);
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Git Commit Message Format]]></title>
-    <link href="http://ilee.co.uk/git-commit-message-format/"/>
-    <id>http://ilee.co.uk/git-commit-message-format/</id>
-    <published>2013-10-10T08:51:33.000Z</published>
-    <updated>2013-10-10T09:35:36.000Z</updated>
-    <content type="html"><![CDATA[<h2>Format frustration</h2>
-<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it&#39;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
-<p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
-<h2>The right way</h2>
-<p>Follow these simple guideline(s):</p>
-<ul>
-<li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
-<li>Capitalise the first letter</li>
-<li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
-<li>Don&#39;t end with a full stop</li>
-<li>Reference issue numbers with a #</li>
-</ul>
-<p>Optional:</p>
-<ul>
-<li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
-<li>Prefix with “area: ” where the area is an identifier for the area of the code the commit relates to (personally I don&#39;t do this but it can be useful in some circumstances)</li>
-</ul>
-<h2>Why?</h2>
-<p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
-<p>If you take a look at auto generated git messages, you&#39;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
-<h2>Automated user git messages</h2>
-<p>Bad bad bad. You‘re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/git/" term="git"/>
   </entry>
 </feed>
