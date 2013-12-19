@@ -354,6 +354,12 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </script>
 
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script type="text/javascript">
+    var stylesheet = document.createElement("link");
+    stylesheet.href = "/css/style.css";
+    stylesheet.rel = "stylesheet";
+    stylesheet.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(stylesheet);
+  </script>
 </body>
 </html>
