@@ -103,17 +103,6 @@ a:hover {
     margin-right: 0;
   }
 }
-#header #main-nav {
-  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  line-height: 2.5em;
-}
-#header #main-nav ul {
-  list-style: none;
-}
-#header #main-nav ul li {
-  float: left;
-  margin-left: 30px;
-}
 article {
   background: #fff;
 }
