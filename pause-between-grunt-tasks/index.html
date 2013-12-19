@@ -30,14 +30,97 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-12-03T08:44:40.000Z" itemprop="datePublished">3rd Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Pause between Grunt Tasks</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Pause for debugging</h2>
+<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
+<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
+<h2>grunt-pause</h2>
+<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2>Grunt core</h2>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
+<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2>Usage</h2>
+<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-pause <span class="comment">## --save-dev</span>
+</pre></td></tr></table></figure>
+
+
+<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
+</pre></td></tr></table></figure>
+
+
+<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    pause.init(grunt);
+</pre></td></tr></table></figure>
+
+
+<h2>Sample output</h2>
+<p>Sample screenshot of the console output:</p>
+<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
+<h2>Improvements?</h2>
+<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
+<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/pause-between-grunt-tasks"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Pause%20between%20Grunt%20Tasks&amp;url=http://ilee.co.uk/pause-between-grunt-tasks&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/pause-between-grunt-tasks"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/pause-between-grunt-tasks&amp;title=Pause%20between%20Grunt%20Tasks"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +213,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +223,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,90 +237,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-03T08:44:40.000Z" itemprop="datePublished">3rd Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">Pause between Grunt Tasks</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Pause for debugging</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
-<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
-<h2>grunt-pause</h2>
-<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
-<h2>Grunt core</h2>
-<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
-<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
-<h2>Usage</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-pause <span class="comment">## --save-dev</span>
-</pre></td></tr></table></figure>
-
-
-<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
-</pre></td></tr></table></figure>
-
-
-<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    pause.init(grunt);
-</pre></td></tr></table></figure>
-
-
-<h2>Sample output</h2>
-<p>Sample screenshot of the console output:</p>
-<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
-<h2>Improvements?</h2>
-<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
-<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/pause-between-grunt-tasks"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Pause%20between%20Grunt%20Tasks&amp;url=http://ilee.co.uk/pause-between-grunt-tasks&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/pause-between-grunt-tasks"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/pause-between-grunt-tasks&amp;title=Pause%20between%20Grunt%20Tasks"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

@@ -559,6 +559,62 @@ article footer .share a.icon-linkedin:hover {
 .archive article .post-content {
   margin-bottom: 0;
 }
+.logo {
+  -webkit-border-radius: 15em;
+  border-radius: 15em;
+  -webkit-box-shadow: inset 0px 0px 0px 3px #fff, 0px 4px 8px -2px rgba(100,100,100,0.2);
+  box-shadow: inset 0px 0px 0px 3px #fff, 0px 4px 8px -2px rgba(100,100,100,0.2);
+  background-color: #1abc9c;
+  width: 250px;
+  height: 250px;
+  margin: 0px auto 30px;
+  color: #fff;
+  border: 3px solid #1abc9c;
+  text-align: center;
+}
+@media screen and (max-width: 900px) {
+  .logo {
+    float: none;
+  }
+}
+.logo h1 {
+  font-size: 65px;
+  line-height: 65px;
+  margin-top: 54px;
+}
+.logo h1 a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -ms-transition: 0.4s;
+  transition: 0.4s;
+}
+.logo h1 a:hover {
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.logo h1 span {
+  padding-top: 20px;
+  display: inline-block;
+  clear: left;
+  font-size: 18px;
+  line-height: 23px;
+  width: 220px;
+}
 #sidebar {
   width: 270px;
   line-height: 1.8em;
@@ -599,57 +655,6 @@ article footer .share a.icon-linkedin:hover {
     float: none;
     width: 100%;
   }
-}
-#sidebar .logo {
-  -webkit-border-radius: 15em;
-  border-radius: 15em;
-  -webkit-box-shadow: inset 0px 0px 0px 3px #fff, 0px 4px 8px -2px rgba(100,100,100,0.2);
-  box-shadow: inset 0px 0px 0px 3px #fff, 0px 4px 8px -2px rgba(100,100,100,0.2);
-  background-color: #1abc9c;
-  width: 250px;
-  height: 250px;
-  margin: 0px auto 30px;
-  color: #fff;
-  border: 3px solid #1abc9c;
-  text-align: center;
-}
-#sidebar .logo h1 {
-  font-size: 65px;
-  line-height: 65px;
-  margin-top: 54px;
-}
-#sidebar .logo h1 a {
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
-  -ms-transition: 0.4s;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
-  -ms-transition: 0.4s;
-  transition: 0.4s;
-}
-#sidebar .logo h1 a:hover {
-  -webkit-transform: rotate(-8deg);
-  -moz-transform: rotate(-8deg);
-  -o-transform: rotate(-8deg);
-  -ms-transform: rotate(-8deg);
-  -webkit-transform: rotate(-8deg);
-  -moz-transform: rotate(-8deg);
-  -o-transform: rotate(-8deg);
-  -ms-transform: rotate(-8deg);
-  transform: rotate(-8deg);
-}
-#sidebar .logo h1 span {
-  padding-top: 20px;
-  display: inline-block;
-  clear: left;
-  font-size: 18px;
-  line-height: 23px;
-  width: 220px;
 }
 #sidebar .widget {
   background: #fff;

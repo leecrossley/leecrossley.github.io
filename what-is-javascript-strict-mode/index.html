@@ -30,14 +30,90 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-23T09:46:39.000Z" itemprop="datePublished">23rd Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">What Is JavaScript Strict Mode?</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>The “strict mode” pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
+<p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
+<h2>How to use it</h2>
+<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
+<figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
+</pre></td></tr></table></figure>
+
+
+<h2>Why use it</h2>
+<p>All it does it enforce good practices, here are a few examples:</p>
+<h3>Duplicate properties</h3>
+<p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
+<h3>The “with” statement</h3>
+<p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
+<h3>Variable declaration</h3>
+<p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
+<h2>A note on browsers</h2>
+<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
+<h2>Let&#39;s end on a laugh</h2>
+<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
+<figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
+alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
+</pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=What%20Is%20JavaScript%20Strict%20Mode?&amp;url=http://ilee.co.uk/what-is-javascript-strict-mode&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/what-is-javascript-strict-mode&amp;title=What%20Is%20JavaScript%20Strict%20Mode?"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +206,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +216,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,83 +230,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-23T09:46:39.000Z" itemprop="datePublished">23rd Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">What Is JavaScript Strict Mode?</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>The “strict mode” pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it‘s “missing ’use strict&#39; pragma” error message.</p>
-<p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
-<h2>How to use it</h2>
-<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
-<figure class="highlight lang-javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
-</pre></td></tr></table></figure>
-
-
-<h2>Why use it</h2>
-<p>All it does it enforce good practices, here are a few examples:</p>
-<h3>Duplicate properties</h3>
-<p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3>The “with” statement</h3>
-<p>Forget it (if you ever knew about it). It&#39;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
-<h3>Variable declaration</h3>
-<p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
-<h2>A note on browsers</h2>
-<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#39;s best to test your JavaScript (as always) in all browsers.</p>
-<h2>Let&#39;s end on a laugh</h2>
-<p>The strict operating context won&#39;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="string">"use strict"</span>;
-alert(Array(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
-</pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=What%20Is%20JavaScript%20Strict%20Mode?&amp;url=http://ilee.co.uk/what-is-javascript-strict-mode&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/what-is-javascript-strict-mode"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/what-is-javascript-strict-mode&amp;title=What%20Is%20JavaScript%20Strict%20Mode?"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

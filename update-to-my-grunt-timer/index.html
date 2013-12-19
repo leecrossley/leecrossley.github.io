@@ -30,14 +30,87 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Update to My grunt-timer</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>New version of “grunt-timer”</h2>
+<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
+<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2>Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<ol>
+<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<ul>
+<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+</ul>
+</li>
+<li><p>A total elapsed time of all logged tasks is now also logged.</p>
+<ul>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+</ul>
+</li>
+<li><p>The initialisation period no longer contributes to logged times.</p>
+<ul>
+<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
+</ul>
+</li>
+</ol>
+<h2>Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/update-to-my-grunt-timer"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Update%20to%20My%20grunt-timer&amp;url=http://ilee.co.uk/update-to-my-grunt-timer&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/update-to-my-grunt-timer"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/update-to-my-grunt-timer&amp;title=Update%20to%20My%20grunt-timer"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +203,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +213,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,80 +227,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">Update to My grunt-timer</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>New version of “grunt-timer”</h2>
-<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
-<h2>Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
-<ol>
-<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
-<ul>
-<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
-</ul>
-</li>
-<li><p>A total elapsed time of all logged tasks is now also logged.</p>
-<ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
-</ul>
-</li>
-<li><p>The initialisation period no longer contributes to logged times.</p>
-<ul>
-<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
-</ul>
-</li>
-</ol>
-<h2>Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/update-to-my-grunt-timer"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Update%20to%20My%20grunt-timer&amp;url=http://ilee.co.uk/update-to-my-grunt-timer&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/update-to-my-grunt-timer"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/update-to-my-grunt-timer&amp;title=Update%20to%20My%20grunt-timer"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

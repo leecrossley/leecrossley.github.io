@@ -30,14 +30,92 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-24T07:50:38.000Z" itemprop="datePublished">24th Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Finding Cordova Plugins for Your Apps</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>PlugReg</h2>
+<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
+<h3>What&#39;s changed</h3>
+<p>Some of the new features and bug fixes:</p>
+<ul>
+<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
+<li><strong>Logo</strong>. Shiny new logo</li>
+<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
+</ul>
+<p>I fixed the ordering by doing:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
+    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+}
+
+...
+
+plugins.sort(byCase);
+</pre></td></tr></table></figure>
+
+<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
+<h2>Suggestions</h2>
+<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Finding%20Cordova%20Plugins%20for%20Your%20Apps&amp;url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;title=Finding%20Cordova%20Plugins%20for%20Your%20Apps"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +208,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +218,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,85 +232,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-24T07:50:38.000Z" itemprop="datePublished">24th Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">Finding Cordova Plugins for Your Apps</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>PlugReg</h2>
-<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
-<h3>What&#39;s changed</h3>
-<p>Some of the new features and bug fixes:</p>
-<ul>
-<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
-<li><strong>Logo</strong>. Shiny new logo</li>
-<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
-</ul>
-<p>I fixed the ordering by doing:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
-    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-
-...
-
-plugins.sort(byCase);
-</pre></td></tr></table></figure>
-
-<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
-<h2>Suggestions</h2>
-<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Finding%20Cordova%20Plugins%20for%20Your%20Apps&amp;url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;title=Finding%20Cordova%20Plugins%20for%20Your%20Apps"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

@@ -30,14 +30,85 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-10T08:51:33.000Z" itemprop="datePublished">10th Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Git Commit Message Format</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Format frustration</h2>
+<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it&#39;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
+<p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
+<h2>The right way</h2>
+<p>Follow these simple guideline(s):</p>
+<ul>
+<li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
+<li>Capitalise the first letter</li>
+<li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
+<li>Don&#39;t end with a full stop</li>
+<li>Reference issue numbers with a #</li>
+</ul>
+<p>Optional:</p>
+<ul>
+<li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
+<li>Prefix with “area: ” where the area is an identifier for the area of the code the commit relates to (personally I don&#39;t do this but it can be useful in some circumstances)</li>
+</ul>
+<h2>Why?</h2>
+<p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
+<p>If you take a look at auto generated git messages, you&#39;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
+<h2>Automated user git messages</h2>
+<p>Bad bad bad. You‘re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/git-commit-message-format"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Git%20Commit%20Message%20Format&amp;url=http://ilee.co.uk/git-commit-message-format&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/git-commit-message-format"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/git-commit-message-format&amp;title=Git%20Commit%20Message%20Format"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/git/" itemprop="keywords">git</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +201,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +211,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,78 +225,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-10T08:51:33.000Z" itemprop="datePublished">10th Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">Git Commit Message Format</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Format frustration</h2>
-<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it&#39;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
-<p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
-<h2>The right way</h2>
-<p>Follow these simple guideline(s):</p>
-<ul>
-<li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
-<li>Capitalise the first letter</li>
-<li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
-<li>Don&#39;t end with a full stop</li>
-<li>Reference issue numbers with a #</li>
-</ul>
-<p>Optional:</p>
-<ul>
-<li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
-<li>Prefix with “area: ” where the area is an identifier for the area of the code the commit relates to (personally I don&#39;t do this but it can be useful in some circumstances)</li>
-</ul>
-<h2>Why?</h2>
-<p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
-<p>If you take a look at auto generated git messages, you&#39;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
-<h2>Automated user git messages</h2>
-<p>Bad bad bad. You‘re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/git-commit-message-format"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Git%20Commit%20Message%20Format&amp;url=http://ilee.co.uk/git-commit-message-format&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/git-commit-message-format"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/git-commit-message-format&amp;title=Git%20Commit%20Message%20Format"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/git/" itemprop="keywords">git</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

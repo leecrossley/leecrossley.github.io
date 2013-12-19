@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-18T14:11:30.143Z</updated>
+  <updated>2013-12-19T09:47:24.743Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -53,7 +53,7 @@
     <link href="http://ilee.co.uk/native-page-transitions-with-phonegap/"/>
     <id>http://ilee.co.uk/native-page-transitions-with-phonegap/</id>
     <published>2013-12-16T07:11:57.000Z</published>
-    <updated>2013-12-16T08:50:41.000Z</updated>
+    <updated>2013-12-19T09:37:47.000Z</updated>
     <content type="html"><![CDATA[<p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
 <h2>Stop the press!</h2>
 <p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
@@ -120,7 +120,7 @@ nativetransitions.flip(duration, direction);
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-    <category scheme="http://ilee.co.uk/tags/HTML/" term="HTML"/>
+    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Looping Audio with PhoneGap]]></title>

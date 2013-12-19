@@ -30,14 +30,93 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-14T07:56:56.000Z" itemprop="datePublished">14th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">PhoneGap Plays Sounds on Mute</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
+<h2>Working in 60 seconds, but…</h2>
+<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
+<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
+<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
+<h2><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
+<h2>The solution</h2>
+<p>My initial instinct was to query the state of the mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2>Full example</h2>
+<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
+<h3>Install the media plugin</h3>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
+</pre></td></tr></table></figure>
+
+<h3>In your JavaScript</h3>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);
+    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });
+};
+</pre></td></tr></table></figure>
+
+<p>An incontinent mute, goes without saying.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/phonegap-plays-sound-on-mute"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=PhoneGap%20Plays%20Sounds%20on%20Mute&amp;url=http://ilee.co.uk/phonegap-plays-sound-on-mute&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/phonegap-plays-sound-on-mute"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/phonegap-plays-sound-on-mute&amp;title=PhoneGap%20Plays%20Sounds%20on%20Mute"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +209,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +219,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,86 +233,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-14T07:56:56.000Z" itemprop="datePublished">14th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">PhoneGap Plays Sounds on Mute</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>The Cordova / PhoneGap media plugin</h2>
-<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
-<h2>Working in 60 seconds, but…</h2>
-<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
-<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
-<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
-<h2><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
-<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
-<h2>The solution</h2>
-<p>My initial instinct was to query the state of the mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
-<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
-<h2>Full example</h2>
-<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
-<h3>Install the media plugin</h3>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
-</pre></td></tr></table></figure>
-
-<h3>In your JavaScript</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
-    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);
-    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });
-};
-</pre></td></tr></table></figure>
-
-<p>An incontinent mute, goes without saying.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/phonegap-plays-sound-on-mute"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=PhoneGap%20Plays%20Sounds%20on%20Mute&amp;url=http://ilee.co.uk/phonegap-plays-sound-on-mute&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/phonegap-plays-sound-on-mute"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/phonegap-plays-sound-on-mute&amp;title=PhoneGap%20Plays%20Sounds%20on%20Mute"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

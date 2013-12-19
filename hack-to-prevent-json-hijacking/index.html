@@ -30,14 +30,90 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-10-02T16:32:24.000Z" itemprop="datePublished">2nd Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Hack to Prevent JSON Hijacking</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>JSON hijacking</h2>
+<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
+<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
+<h2>The hack</h2>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
+</pre></td></tr></table></figure>
+
+<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>JSON.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
+</pre></td></tr></table></figure>
+
+<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
+<p>Facebook use a similar variation to achieve the same result:</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
+</pre></td></tr></table></figure>
+
+<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
+<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
+</pre></td></tr></table></figure>
+
+<h2>Limitations</h2>
+<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/hack-to-prevent-json-hijacking"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Hack%20to%20Prevent%20JSON%20Hijacking&amp;url=http://ilee.co.uk/hack-to-prevent-json-hijacking&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/hack-to-prevent-json-hijacking"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/hack-to-prevent-json-hijacking&amp;title=Hack%20to%20Prevent%20JSON%20Hijacking"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +206,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +216,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,83 +230,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-02T16:32:24.000Z" itemprop="datePublished">2nd Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">Hack to Prevent JSON Hijacking</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
-<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
-<h2>The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
-</pre></td></tr></table></figure>
-
-<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>JSON.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
-</pre></td></tr></table></figure>
-
-<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
-<p>Facebook use a similar variation to achieve the same result:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
-</pre></td></tr></table></figure>
-
-<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
-</pre></td></tr></table></figure>
-
-<h2>Limitations</h2>
-<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/hack-to-prevent-json-hijacking"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Hack%20to%20Prevent%20JSON%20Hijacking&amp;url=http://ilee.co.uk/hack-to-prevent-json-hijacking&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/hack-to-prevent-json-hijacking"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/hack-to-prevent-json-hijacking&amp;title=Hack%20to%20Prevent%20JSON%20Hijacking"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

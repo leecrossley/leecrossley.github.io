@@ -30,14 +30,102 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-21T07:42:46.000Z" itemprop="datePublished">21st Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">Changing Url Without Page Refresh</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won‘t even try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
+<p>I‘m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I‘m also not talking about iFrames either - this solution isn’t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
+<h2>How it&#39;s done</h2>
+<p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
+<h3>The history.pushState() function</h3>
+<p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
+<ul>
+<li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
+</li>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
+</li>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won‘t try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
+</li>
+</ul>
+<figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
+  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
+};
+history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
+expect(history.state).toEqual(state);
+</pre></td></tr></table></figure>
+
+
+<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<h3>The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
+<h3>The onpopstate event</h3>
+<p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
+<h2>Back to the future</h2>
+<p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
+<h2>Usages</h2>
+<p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
+<p>Have fun relocating.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/changing-url-without-page-refresh"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Changing%20Url%20Without%20Page%20Refresh&amp;url=http://ilee.co.uk/changing-url-without-page-refresh&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/changing-url-without-page-refresh"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/changing-url-without-page-refresh&amp;title=Changing%20Url%20Without%20Page%20Refresh"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +218,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +228,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,95 +242,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-21T07:42:46.000Z" itemprop="datePublished">21st Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">Changing Url Without Page Refresh</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won‘t even try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
-<p>I‘m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I‘m also not talking about iFrames either - this solution isn’t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
-<p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
-<h2>How it&#39;s done</h2>
-<p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
-<h3>The history.pushState() function</h3>
-<p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
-<ul>
-<li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
-</li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
-</li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won‘t try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
-</li>
-</ul>
-<figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
-  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
-};
-history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
-expect(history.state).toEqual(state);
-</pre></td></tr></table></figure>
-
-
-<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
-<h3>The history.replaceState() function</h3>
-<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
-<h3>The onpopstate event</h3>
-<p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
-<h2>Back to the future</h2>
-<p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
-<h2>Usages</h2>
-<p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
-<p>Have fun relocating.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/changing-url-without-page-refresh"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Changing%20Url%20Without%20Page%20Refresh&amp;url=http://ilee.co.uk/changing-url-without-page-refresh&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/changing-url-without-page-refresh"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/changing-url-without-page-refresh&amp;title=Changing%20Url%20Without%20Page%20Refresh"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">

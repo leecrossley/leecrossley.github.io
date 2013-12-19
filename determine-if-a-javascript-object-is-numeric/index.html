@@ -30,14 +30,94 @@
 
 <body>
   <div id="content" class="inner">
-    <div id="sidebar" class="alignleft"><header class="logo">
-  <h1>
-    <a href="/">iLee</a>
-    <span>I write code that sounds awesome and music that's bug free</span>
-  </h1>
-</header>
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that's bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-09-26T16:16:00.000Z" itemprop="datePublished">26th Sep 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">The JavaScript IsNumeric Function</h1>
+  
 
-<ul class="social">
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>isNumeric</h2>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
+<h3>Using npm</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
+</pre></td></tr></table></figure>
+
+<p>To then include isnumeric in your node app:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
+</pre></td></tr></table></figure>
+
+<h3>Direct dependency</h3>
+<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
+<h2>The code</h2>
+<p>Essentially, this is it:</p>
+<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
+    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
+    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
+};
+</pre></td></tr></table></figure>
+
+
+<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
+<h2>The tests</h2>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>Any disagreements or improvements please pull request.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=The%20JavaScript%20IsNumeric%20Function&amp;url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric&amp;title=The%20JavaScript%20IsNumeric%20Function"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/html/" itemprop="keywords">html</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
   <li class="facebook">
     <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
   </li>
@@ -130,8 +210,6 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/HTML/">HTML</a><small>1</small></li>
-  
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
     <li><a href="/tags/app/">app</a><small>8</small></li>
@@ -142,7 +220,7 @@
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>6</small></li>
+    <li><a href="/tags/html/">html</a><small>7</small></li>
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
@@ -156,87 +234,6 @@
 </div>
 
 </div>
-    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-26T16:16:00.000Z" itemprop="datePublished">26th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline">The JavaScript IsNumeric Function</h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
-<h3>Using npm</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
-</pre></td></tr></table></figure>
-
-<p>To then include isnumeric in your node app:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
-</pre></td></tr></table></figure>
-
-<h3>Direct dependency</h3>
-<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
-<h2>The code</h2>
-<p>Essentially, this is it:</p>
-<figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
-    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
-    <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
-};
-</pre></td></tr></table></figure>
-
-
-<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
-<h2>The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
-<p>Any disagreements or improvements please pull request.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-<div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=The%20JavaScript%20IsNumeric%20Function&amp;url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/determine-if-a-javascript-object-is-numeric&amp;title=The%20JavaScript%20IsNumeric%20Function"></a>
-</div>
-
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/html/" itemprop="keywords">html</a>
-  </div>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view or add comments</noscript>
-  </div>
-</section>
-</div></div>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
