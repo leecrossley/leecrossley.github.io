@@ -668,7 +668,7 @@ article footer .share a.icon-linkedin:hover {
 @media screen and (max-width: 900px) {
   #sidebar .widget .entry a {
     display: inline-block;
-    padding: 6px 0px;
+    padding: 6px 12px 6px 0px;
     font-size: 1.3em;
   }
 }
@@ -709,8 +709,12 @@ article footer .share a.icon-linkedin:hover {
   color: #444;
 }
 #sidebar .tag small {
-  margin-left: 15px;
   color: #999;
+}
+@media screen and (min-width: 901px) {
+  #sidebar .tag small {
+    margin-left: 15px;
+  }
 }
 #sidebar .tag small:before {
   content: '(';
