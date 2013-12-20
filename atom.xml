@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-20T08:01:18.935Z</updated>
+  <updated>2013-12-20T08:02:01.742Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/using-npm-in-europe/"/>
     <id>http://ilee.co.uk/using-npm-in-europe/</id>
     <published>2013-12-20T07:37:13.000Z</published>
-    <updated>2013-12-20T08:01:07.000Z</updated>
+    <updated>2013-12-20T08:01:58.000Z</updated>
     <content type="html"><![CDATA[<h2>Protip</h2>
 <p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
 <p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
@@ -34,14 +34,14 @@
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt
-<span class="comment"># npm install grunt  4.71s user 1.69s system 29% cpu 21.573 total</span>
+<span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
 </pre></td></tr></table></figure>
 
 <p>Clear cache again and try the European mirror:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt npm install grunt --registry http://registry.npmjs.eu
-<span class="comment"># npm install grunt --registry http://registry.npmjs.eu  3.75s user 1.48s system 44% cpu 11.799 total</span>
+<span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
 </pre></td></tr></table></figure>
 
 <p>Which means it&#39;s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
