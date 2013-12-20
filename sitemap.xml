@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/using-npm-in-europe/</loc>
+    <lastmod>2013-12-20T08:01:07.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/native-page-transitions-with-phonegap/</loc>
     <lastmod>2013-12-19T09:37:47.000Z</lastmod>
   </url>
@@ -226,6 +230,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2013-12-19T10:46:58.951Z</lastmod>
+    <lastmod>2013-12-20T08:01:18.976Z</lastmod>
   </url>
 </urlset>

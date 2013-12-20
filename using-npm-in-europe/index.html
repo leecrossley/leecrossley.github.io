@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Finding Cordova Plugins for Your Apps | iLee</title>
+  <title>Using npm in Europe | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="It's now even easier to find Cordova / PhoneGap plugins with PlugReg.">
+  <meta name="description" content="The European mirror is significantly faster for developers based in Europe.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Finding Cordova Plugins for Your Apps"/>
+  <meta property="og:title" content="Using npm in Europe"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://www.plugreg.com/img/plugreg-large.png" />
+  <meta property="og:image" content="http://dailyjs.com/images/posts/npm-logo.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -42,45 +42,46 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-10-24T07:50:38.000Z" itemprop="datePublished">24th Oct 2013</time>
+        <time datetime="2013-12-20T07:37:13.000Z" itemprop="datePublished">20th Dec 2013</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Finding Cordova Plugins for Your Apps</h1>
+    <h1 class="title" itemprop="name headline">Using npm in Europe</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>PlugReg</h2>
-<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
-<h3>What&#39;s changed</h3>
-<p>Some of the new features and bug fixes:</p>
-<ul>
-<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
-<li><strong>Logo</strong>. Shiny new logo</li>
-<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
-</ul>
-<p>I fixed the ordering by doing:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
-    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-
-...
-
-plugins.sort(byCase);
+        <h2>Protip</h2>
+<p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
+<p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
 </pre></td></tr></table></figure>
 
-<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
-<h2>Suggestions</h2>
-<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+<h2>How much faster?</h2>
+<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it&#39;s faster.</p>
+<h3>Quick test</h3>
+<p>Let&#39;s pick a package with a few dependencies, <code>grunt</code>.</p>
+<p>First, let&#39;s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
+<h3>Timing</h3>
+<p>How do we actually go about timing an <code>npm install</code>? <code>time</code> is a basic command that&#39;s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
+<p>Let&#39;s give this a go:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ time npm install grunt
+<span class="comment"># npm install grunt  4.71s user 1.69s system 29% cpu 21.573 total</span>
+</pre></td></tr></table></figure>
+
+<p>Clear cache again and try the European mirror:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ time npm install grunt npm install grunt --registry http://registry.npmjs.eu
+<span class="comment"># npm install grunt --registry http://registry.npmjs.eu  3.75s user 1.48s system 44% cpu 11.799 total</span>
+</pre></td></tr></table></figure>
+
+<p>Which means it&#39;s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
+<p>Damn, now I don&#39;t have long enough to make a coffee.</p>
 
       
     </div>
@@ -88,17 +89,17 @@ plugins.sort(byCase);
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Finding%20Cordova%20Plugins%20for%20Your%20Apps&amp;url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/finding-cordova-plugins-for-your-apps&amp;title=Finding%20Cordova%20Plugins%20for%20Your%20Apps"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/using-npm-in-europe"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Using%20npm%20in%20Europe&amp;url=http://ilee.co.uk/using-npm-in-europe&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/using-npm-in-europe"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/using-npm-in-europe&amp;title=Using%20npm%20in%20Europe"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

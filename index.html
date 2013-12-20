@@ -43,6 +43,67 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-12-20T07:37:13.000Z" itemprop="datePublished">20th Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/using-npm-in-europe/" itemprop="url">Using npm in Europe</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Protip</h2>
+<p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
+<p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
+</pre></td></tr></table></figure>
+
+<h2>How much faster?</h2>
+<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it&#39;s faster.</p>
+<h3>Quick test</h3>
+<p>Let&#39;s pick a package with a few dependencies, <code>grunt</code>.</p>
+<p>First, let&#39;s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
+<h3>Timing</h3>
+<p>How do we actually go about timing an <code>npm install</code>? <code>time</code> is a basic command that&#39;s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
+<p>Let&#39;s give this a go:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ time npm install grunt
+<span class="comment"># npm install grunt  4.71s user 1.69s system 29% cpu 21.573 total</span>
+</pre></td></tr></table></figure>
+
+<p>Clear cache again and try the European mirror:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ time npm install grunt npm install grunt --registry http://registry.npmjs.eu
+<span class="comment"># npm install grunt --registry http://registry.npmjs.eu  3.75s user 1.48s system 44% cpu 11.799 total</span>
+</pre></td></tr></table></figure>
+
+<p>Which means it&#39;s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
+<p>Damn, now I don&#39;t have long enough to make a coffee.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-12-18T13:18:02.000Z" itemprop="datePublished">18th Dec 2013</time>
       
       
@@ -667,95 +728,6 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-15T07:36:07.000Z" itemprop="datePublished">15th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/using-game-center-with-phonegap/" itemprop="url">Using Game Center with PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>Leaderboards</h2>
-<p>I&#39;ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
-<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they&#39;ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
-<p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank">these basics</a>.</p>
-<p><img src="/img/phonegap-game-center.png" alt="PhoneGap iOS Game Center"></p>
-<h2>My Game Center plugin</h2>
-<p>A game center plugin didn&#39;t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
-<h3>Install via the CLI</h3>
-<p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git
-</pre></td></tr></table></figure>
-
-<h2>Basic usage</h2>
-<h3>Auth</h3>
-<p>It‘s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won&#39;t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
-</pre></td></tr></table></figure>
-
-<p>If there&#39;s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
-<p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
-<h3>Leaderboard</h3>
-<h4>Submitting a score</h4>
-<p>Ensure the user has been (successfully) authenticated and the leaderboard(s) have been configured in iTunes connect (use the leaderboard identifier assigned there as the leaderboardId).</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> scoreData = { 
-    score: <span class="number">100</span>, 
-    leaderboardId: <span class="string">"YOUR_ID"</span>
-};
-gamecenter.submitScore(onSuccess, onError, scoreData);
-</pre></td></tr></table></figure>
-
-<h4>Showing the native leaderboard</h4>
-<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there&#39;s no need to do any additional coding or user interface development to display a leaderboard.</p>
-<p>The period options are “today”, “week” or “all”.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> criteria = { 
-    period: <span class="string">"today"</span>,
-    leaderboardId: <span class="string">"YOUR_ID"</span>
-};
-gamecenter.showLeaderboard(onSuccess, onError, criteria);
-</pre></td></tr></table></figure>
-
-<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there&#39;s an issue and handle it.</p>
-<h3>iOS version support</h3>
-<p>I&#39;ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
-<h2>Source code</h2>
-<p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">on github</a>. Please log issues (ideally with pull requests ☺) on there.</p>
-<p>The plugin has had a huge uptake already with 11 repo stars within 8 hours of pushing the code!</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -809,6 +781,10 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
   <ul class="entry">
     
       <li>
+        <a href="/using-npm-in-europe/">Using npm in Europe</a>
+      </li>
+    
+      <li>
         <a href="/list-node-packages-wo-dependencies/">List Node Packages w/o Dependencies</a>
       </li>
     
@@ -844,10 +820,6 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
         <a href="/multiple-element-swipe-gesture/">Multiple Element Swipe Gesture</a>
       </li>
     
-      <li>
-        <a href="/using-game-center-with-phonegap/">Using Game Center with PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -873,7 +845,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
   
     <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>34</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>35</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
   
