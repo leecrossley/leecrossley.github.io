@@ -656,9 +656,21 @@ article footer .share a.icon-linkedin:hover {
   border-bottom: 1px solid #ddd;
   font-weight: normal;
 }
+@media screen and (max-width: 900px) {
+  #sidebar .widget .title {
+    font-size: 1.3em;
+  }
+}
 #sidebar .widget .entry {
   font-size: 0.9em;
   padding: 15px 20px;
+}
+@media screen and (max-width: 900px) {
+  #sidebar .widget .entry a {
+    display: inline-block;
+    padding: 6px 0px;
+    font-size: 1.3em;
+  }
 }
 #sidebar .widget ul,
 #sidebar .widget ol,
