@@ -248,6 +248,12 @@ article header .title a:hover {
   article .entry {
     text-align: left !important;
   }
+  article .entry a {
+    display: inline-block;
+    padding: 3px 7px;
+    background-color: #ecf0f1;
+    margin: 5px 0px;
+  }
 }
 article .entry {
   text-align: justify;
