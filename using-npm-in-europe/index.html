@@ -66,14 +66,14 @@
 <p>First, let&#39;s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
 <h3>Timing</h3>
 <p>How do we actually go about timing an <code>npm install</code>? Well, there&#39;s a basic command called <code>time</code> that&#39;s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
-<p>Let&#39;s give this a go:</p>
+<p>Let&#39;s give it a go:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt
 <span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
 </pre></td></tr></table></figure>
 
-<p>Clear cache again and try the European mirror:</p>
+<p>Now let&#39;s clear the cache again and try the European mirror:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt npm install grunt --registry http://registry.npmjs.eu
