@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Do We Need Designers for the Web? | iLee</title>
+  <title>Learn nodejs in 2014 | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="The world is turning flat, print designers that design for the web are stepping close to the edge.">
+  <meta name="description" content="If you haven't already, this is the year to learn node.js">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Do We Need Designers for the Web?"/>
+  <meta property="og:title" content="Learn nodejs in 2014"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ilee.co.uk/img/flat-world.png" />
+  <meta property="og:image" content="http://3.bp.blogspot.com/-BcS_O7pw0jk/UNnh4HkTwbI/AAAAAAAABlY/a6Qg1Dv8x4Y/s1600/nodejs-green.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -42,38 +42,58 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-07T11:54:10.000Z" itemprop="datePublished">7th Aug 2013</time>
+        <time datetime="2014-01-02T09:41:26.000Z" itemprop="datePublished">2nd Jan 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Do We Need Designers for the Web?</h1>
+    <h1 class="title" itemprop="name headline">Learn nodejs in 2014</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2>This blog</h2>
-<p>I&#39;m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I&#39;m not a designer</strong>, but this blog looks OK, right? It‘s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that’s what users want, something that‘s easy to use and understand. It loads quickly too, but that’s a discussion for another day.</p>
-<h2>The “Flat UI” / “Metro” era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
-<ul>
-<li><p><a href="https://www.gov.uk/designprinciples" target="_blank">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles" target="_blank">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
-</ul>
-<p>By now you‘ve probably realised I’m not just talking about the web, I&#39;m talking about mobile apps too.</p>
-<h2>But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/" target="_blank">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/" target="_blank">here</a>, if you&#39;re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators" target="_blank">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/" target="_blank">Flat UI</a>, which this blog uses. You don‘t need to worry about gradient colours or shadow colours and depth (sorry if that’s the wrong terminology, <strong>I&#39;m not a designer</strong> remember).</p>
-<h2>Good developers</h2>
-<p>A good developer that&#39;s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2>Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
+        <h2>The year of the node</h2>
+<p>If you haven&#39;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I&#39;ve put together a super quick start guide to kick you off.</p>
+<p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
+<h2>Super quick start</h2>
+<h3>Install</h3>
+<p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
+<h3>Create</h3>
+<p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>$ mkdir nodeapp
+$ cd nodeapp
+$ touch app.js
+</pre></td></tr></table></figure>
+
+<h3>Code</h3>
+<p>In your newly created JavaScript file, add the following code:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> http = require(<span class="string">"http"</span>);
+
+http.createServer(<span class="keyword">function</span>(req, res) {
+    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
+    res.end(<span class="string">"I know node.js!"</span>);
+}).listen(<span class="number">4000</span>);
+</pre></td></tr></table></figure>
+
+<h3>Run</h3>
+<p>Ensure you&#39;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ node app
+</pre></td></tr></table></figure>
+
+<p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
+<h2>Packages</h2>
+<p>You‘ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
+<p>Happy new year!</p>
 
       
     </div>
@@ -81,17 +101,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/do-we-need-designers-for-the-web"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Do%20We%20Need%20Designers%20for%20the%20Web?&amp;url=http://ilee.co.uk/do-we-need-designers-for-the-web&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/do-we-need-designers-for-the-web"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/do-we-need-designers-for-the-web&amp;title=Do%20We%20Need%20Designers%20for%20the%20Web?"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/learn-nodejs-in-2014"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Learn%20nodejs%20in%202014&amp;url=http://ilee.co.uk/learn-nodejs-in-2014&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/learn-nodejs-in-2014"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/learn-nodejs-in-2014&amp;title=Learn%20nodejs%20in%202014"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/design/" itemprop="keywords">design</a>
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

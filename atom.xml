@@ -4,12 +4,63 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2013-12-27T09:28:03.844Z</updated>
+  <updated>2014-01-02T10:14:48.576Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Learn nodejs in 2014]]></title>
+    <link href="http://ilee.co.uk/learn-nodejs-in-2014/"/>
+    <id>http://ilee.co.uk/learn-nodejs-in-2014/</id>
+    <published>2014-01-02T09:41:26.000Z</published>
+    <updated>2014-01-02T10:13:51.000Z</updated>
+    <content type="html"><![CDATA[<h2>The year of the node</h2>
+<p>If you haven&#39;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I&#39;ve put together a super quick start guide to kick you off.</p>
+<p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
+<h2>Super quick start</h2>
+<h3>Install</h3>
+<p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
+<h3>Create</h3>
+<p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>$ mkdir nodeapp
+$ cd nodeapp
+$ touch app.js
+</pre></td></tr></table></figure>
+
+<h3>Code</h3>
+<p>In your newly created JavaScript file, add the following code:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> http = require(<span class="string">"http"</span>);
+
+http.createServer(<span class="keyword">function</span>(req, res) {
+    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
+    res.end(<span class="string">"I know node.js!"</span>);
+}).listen(<span class="number">4000</span>);
+</pre></td></tr></table></figure>
+
+<h3>Run</h3>
+<p>Ensure you&#39;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
+<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ node app
+</pre></td></tr></table></figure>
+
+<p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
+<h2>Packages</h2>
+<p>You‘ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
+<p>Happy new year!</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Using npm in Europe]]></title>
     <link href="http://ilee.co.uk/using-npm-in-europe/"/>
@@ -1100,47 +1151,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 <p><strong>There will be a day when you ALWAYS use structured data, make that day today.</strong></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Finding Cordova Plugins for Your Apps]]></title>
-    <link href="http://ilee.co.uk/finding-cordova-plugins-for-your-apps/"/>
-    <id>http://ilee.co.uk/finding-cordova-plugins-for-your-apps/</id>
-    <published>2013-10-24T07:50:38.000Z</published>
-    <updated>2013-10-25T08:50:39.000Z</updated>
-    <content type="html"><![CDATA[<h2>PlugReg</h2>
-<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
-<h3>What&#39;s changed</h3>
-<p>Some of the new features and bug fixes:</p>
-<ul>
-<li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
-<li><strong>Logo</strong>. Shiny new logo</li>
-<li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
-</ul>
-<p>I fixed the ordering by doing:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
-    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-
-...
-
-plugins.sort(byCase);
-</pre></td></tr></table></figure>
-
-<p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
-<h2>Suggestions</h2>
-<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
 </feed>
