@@ -43,6 +43,77 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-01-03T08:25:40.000Z" itemprop="datePublished">3rd Jan 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/mobile-ux-to-impact-seo/" itemprop="url">Mobile UX to Impact SEO</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2>Optimise for mobile</h2>
+<p>With huge numbers of internet users using mobiles and tablet devices to browse the web, it’s more important than ever to optimise your website for these devices.</p>
+<h3>Creating a mobile website is not enough</h3>
+<p>If you truly want to engage users on mobile devices, you&#39;ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
+<h2>What exactly is <em>UX</em>?</h2>
+<p>UX stands for <strong>U</strong>ser e<strong>X</strong>perience, which is the comprehensive experience of a user interacting with a product (in this case a website and more specifically, a website on mobile devices). It encompasses factors such as easy of use and user gratification.</p>
+<h3>UX is hard</h3>
+<p>There&#39;s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
+<h2>Why UX?</h2>
+<p>It‘s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on users. After all, web traffic on its own means nothing.</p>
+<h2>PageSpeed insights</h2>
+<p>The <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">PageSpeed Insights</a> tool is now reporting mobile user experience, in addition to page speed. This is a great place to start to give you instant feedback on some tangible metrics. The tool currently analyses:</p>
+<ul>
+<li>Use of plugins</li>
+<li>Viewport metatag and content size within the viewport</li>
+<li>Size of touch/tap “clickable” interactions</li>
+<li>Font sizes</li>
+</ul>
+<p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
+<figure class="highlight lang-css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600</span>px) </span>{
+  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block;</span></span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px;</span></span>
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span>;</span></span>
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px;</span></span>
+  <span class="rule">}</span></span>
+}
+</pre></td></tr></table></figure>
+
+<h2>That&#39;s not the end</h2>
+<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it&#39;s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
+<p>If you have the luxury of a starting your mobile website from scratch or a rewrite, consider user experience right from the outset and get users involved in the process as early as possible.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-01-02T09:41:26.000Z" itemprop="datePublished">2nd Jan 2014</time>
       
       
@@ -647,106 +718,6 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-21T09:21:52.000Z" itemprop="datePublished">21st Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/grouping-consolelog()-output/" itemprop="url">Grouping console.log() Output</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2>console.log()</h2>
-<p>If you‘ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
-<h2>The problem</h2>
-<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#39;re looking for, to help identify it! e.g.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
-console.log(info1);
-console.log(info2);
-console.log(<span class="string">"MY GROUP END"</span>);
-</pre></td></tr></table></figure>
-
-<h2>The solution</h2>
-<h3>console.group()</h3>
-<p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
-console.log(info1);
-console.log(info2);
-</pre></td></tr></table></figure>
-
-<h3>console.groupEnd()</h3>
-<p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
-console.log(info1);
-console.log(info2);
-console.groupEnd();
-</pre></td></tr></table></figure>
-
-<h3>console.groupCollapsed()</h3>
-<p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
-console.log(info1);
-console.log(info2);
-console.groupEnd();
-</pre></td></tr></table></figure>
-
-<h2>Objects and arrays</h2>
-<h3>console.table()</h3>
-<p>If you‘re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
-console.table({
-    info1: { message: <span class="string">"message 1"</span> },
-    info2: { message: <span class="string">"message 2"</span> }
-});
-console.groupEnd();
-</pre></td></tr></table></figure>
-
-<p><img src="/img/console-output.png" alt="Console Output"></p>
-<p>See the <a href="http://jsfiddle.net/Yb7gT/" target="_blank">jsfiddle here</a> - ensure you open the console, then click run.</p>
-<p><strong>Happy, <em>clean</em> debugging!</strong></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -800,6 +771,10 @@ console.groupEnd();
   <ul class="entry">
     
       <li>
+        <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
+      </li>
+    
+      <li>
         <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
       </li>
     
@@ -835,10 +810,6 @@ console.groupEnd();
         <a href="/nesting-ugly-anonymous-functions/">Nesting Ugly Anonymous Functions</a>
       </li>
     
-      <li>
-        <a href="/grouping-consolelog()-output/">Grouping console.log() Output</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -860,15 +831,15 @@ console.groupEnd();
   
     <li><a href="/tags/hack/">hack</a><small>3</small></li>
   
-    <li><a href="/tags/html/">html</a><small>7</small></li>
+    <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>16</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>36</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>37</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
   
-    <li><a href="/tags/web/">web</a><small>21</small></li>
+    <li><a href="/tags/web/">web</a><small>22</small></li>
   
   </ul>
 </div>

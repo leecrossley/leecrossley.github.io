@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mongoose Docs and JSON.stringify | iLee</title>
+  <title>Mobile UX to Impact SEO | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Why JSON.stringify() doesn't seem to work reliably on Mongoose JS objects.">
+  <meta name="description" content="Google are starting to analyse the mobile user experience of websites">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Mongoose Docs and JSON.stringify"/>
+  <meta property="og:title" content="Mobile UX to Impact SEO"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/ux.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -42,23 +42,36 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-09-10T12:22:41.000Z" itemprop="datePublished">10th Sep 2013</time>
+        <time datetime="2014-01-03T08:25:40.000Z" itemprop="datePublished">3rd Jan 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Mongoose Docs and JSON.stringify</h1>
+    <h1 class="title" itemprop="name headline">Mobile UX to Impact SEO</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Mongoose JS</h2>
-<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
-<h2>Mongoose documents / objects</h2>
-<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3>The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
-<figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
+        <h2>Optimise for mobile</h2>
+<p>With huge numbers of internet users using mobiles and tablet devices to browse the web, it’s more important than ever to optimise your website for these devices.</p>
+<h3>Creating a mobile website is not enough</h3>
+<p>If you truly want to engage users on mobile devices, you&#39;ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
+<h2>What exactly is <em>UX</em>?</h2>
+<p>UX stands for <strong>U</strong>ser e<strong>X</strong>perience, which is the comprehensive experience of a user interacting with a product (in this case a website and more specifically, a website on mobile devices). It encompasses factors such as easy of use and user gratification.</p>
+<h3>UX is hard</h3>
+<p>There&#39;s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
+<h2>Why UX?</h2>
+<p>It‘s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on users. After all, web traffic on its own means nothing.</p>
+<h2>PageSpeed insights</h2>
+<p>The <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">PageSpeed Insights</a> tool is now reporting mobile user experience, in addition to page speed. This is a great place to start to give you instant feedback on some tangible metrics. The tool currently analyses:</p>
+<ul>
+<li>Use of plugins</li>
+<li>Viewport metatag and content size within the viewport</li>
+<li>Size of touch/tap “clickable” interactions</li>
+<li>Font sizes</li>
+</ul>
+<p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
+<figure class="highlight lang-css"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -66,35 +79,19 @@
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
-    item.newProperty = <span class="string">"anything"</span>;
-});
-
-Items.find(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
+</pre></td><td class="code"><pre><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600</span>px) </span>{
+  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block;</span></span>
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px;</span></span>
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span>;</span></span>
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px;</span></span>
+  <span class="rule">}</span></span>
+}
 </pre></td></tr></table></figure>
 
-
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3>The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
-<h3>The solution</h3>
-<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
-<figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
-    addProperty(items);
-    console.log(JSON.stringify(items));
-});
-</pre></td></tr></table></figure>
-
-
-<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
-<p>Mystery solved.</p>
+<h2>That&#39;s not the end</h2>
+<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it&#39;s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
+<p>If you have the luxury of a starting your mobile website from scratch or a rewrite, consider user experience right from the outset and get users involved in the process as early as possible.</p>
 
       
     </div>
@@ -102,17 +99,17 @@ Items.find(<span class="keyword">function</span>(err, items) {
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/mongoose-documents-and-jsonstringify"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Mongoose%20Docs%20and%20JSON.stringify&amp;url=http://ilee.co.uk/mongoose-documents-and-jsonstringify&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/mongoose-documents-and-jsonstringify"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/mongoose-documents-and-jsonstringify&amp;title=Mongoose%20Docs%20and%20JSON.stringify"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/mobile-ux-to-impact-seo"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Mobile%20UX%20to%20Impact%20SEO&amp;url=http://ilee.co.uk/mobile-ux-to-impact-seo&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/mobile-ux-to-impact-seo"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/mobile-ux-to-impact-seo&amp;title=Mobile%20UX%20to%20Impact%20SEO"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/html/" itemprop="keywords">html</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
