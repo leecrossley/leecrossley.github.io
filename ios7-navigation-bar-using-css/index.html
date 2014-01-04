@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,14 +64,14 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>iOS7 elements with HTML and CSS</h2>
-<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
-<h2>The UINavigationBar</h2>
+        <h2 id="iOS7_elements_with_HTML_and_CSS">iOS7 elements with HTML and CSS</h2>
+<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don’t seem to have implemented the <em>useful</em> elements.</p>
+<h2 id="The_UINavigationBar">The UINavigationBar</h2>
 <p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
-<h2>My implementation</h2>
-<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here&#39;s how I set about it.</p>
-<h3>The transparency</h3>
-<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
+<h2 id="My_implementation">My implementation</h2>
+<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here’s how I set about it.</p>
+<h3 id="The_transparency">The transparency</h3>
+<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn’t find a way to add any sort of blur effect to this element without distorting the header content.</p>
 <figure class="highlight lang-css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -74,24 +86,26 @@
 12
 13
 14
-</pre></td><td class="code"><pre><span class="id">#header</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span>
-    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px;</span></span>
-    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span>
+15
+</pre></td><td class="code"><pre>
+<span class="id">#header</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px</span></span>;
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px</span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span></span></span>;
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px</span></span>;
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
 <span class="rule">}</span></span>
 </pre></td></tr></table></figure>
 
 
-<h3>The blur / frosting</h3>
+<h3 id="The_blur_-2f-_frosting">The blur / frosting</h3>
 <p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
 <figure class="highlight lang-css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -108,34 +122,36 @@
 13
 14
 15
-</pre></td><td class="code"><pre><span class="class">.header-blur</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span>;</span></span>
-    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span> 
-    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
+16
+</pre></td><td class="code"><pre>
+<span class="class">.header-blur</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span></span></span>;
+    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>; 
+    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px</span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
 <span class="rule">}</span></span>
 </pre></td></tr></table></figure>
 
 
 <p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
-<h3>iScroll</h3>
+<h3 id="iScroll">iScroll</h3>
 <p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
-<h2>Demo</h2>
-<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
+<h2 id="Demo">Demo</h2>
+<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I’m also open to feedback as usual.</p>
 <h2 id="update"><strong>UPDATE</strong></h2>
 
-<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn‘t actually applying the blur to elements underneath the header because they aren’t nested.</p>
+<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn’t actually applying the blur to elements underneath the header because they aren’t nested.</p>
 <p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
-<p>Sounds hacky, but it&#39;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it‘s worth it, but I’ll do some performance testing.</p>
+<p>Sounds hacky, but it’s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it’s worth it, but I’ll do some performance testing.</p>
 <p>The <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">example code</a> has been updated, feel free to fork.</p>
 
       

@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,12 +64,12 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Playing media on repeat</h2>
-<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I‘m using it in the game I’m writing.</p>
-<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
-<h3>iOS</h3>
-<p>There&#39;s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
-<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
+        <h2 id="Playing_media_on_repeat">Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I’m using it in the game I’m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don’t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3 id="iOS">iOS</h3>
+<p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
 
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -65,9 +77,9 @@
 myMedia.play({ numberOfLoops: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
-<p>It‘s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
-<h3>Android</h3>
-<p>Here‘s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
+<h3 id="Android">Android</h3>
+<p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -90,7 +102,7 @@ myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my
 myMedia.play();
 </pre></td></tr></table></figure>
 
-<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
+<p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>
 
       

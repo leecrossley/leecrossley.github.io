@@ -5,7 +5,7 @@
   
   <title>Add Structured Data to Your Blog | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="By adding structured data to your blog, you're opening up lots of benefits and it's really easy.">
+  <meta name="description" content="By adding structured data to your blog, you&#39;re opening up lots of benefits and it&#39;s really easy.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="Add Structured Data to Your Blog"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,13 +64,13 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Structured data</h2>
-<p>You&#39;ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
-<p>By using Structured Data, you&#39;re allowing search engines and bots to produce “Rich Snippets” from your data, as the structure and semantic meaning is defined.</p>
-<h3>Microdata</h3>
-<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank">W3C HTML Microdata Draft</a>, or you can just carry on reading and I&#39;ll show you how simple it really is.</p>
-<h2>This blog</h2>
-<p>Let‘s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
+        <h2 id="Structured_data">Structured data</h2>
+<p>You’ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
+<p>By using Structured Data, you’re allowing search engines and bots to produce “Rich Snippets” from your data, as the structure and semantic meaning is defined.</p>
+<h3 id="Microdata">Microdata</h3>
+<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank">W3C HTML Microdata Draft</a>, or you can just carry on reading and I’ll show you how simple it really is.</p>
+<h2 id="This_blog">This blog</h2>
+<p>Let’s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
 <figure class="highlight lang-html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -72,7 +84,9 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
+14
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">header</span>&gt;</span>
             <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -87,6 +101,7 @@
 <span class="tag">&lt;/<span class="title">article</span>&gt;</span>
 </pre></td></tr></table></figure>
 
+
 <figure class="highlight lang-html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -100,7 +115,9 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
+14
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">header</span>&gt;</span>
             <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -118,11 +135,11 @@
 
 <p>There are 2 main differences:</p>
 <ul>
-<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I‘m writing a blog post and that I’m following the Schema.org standard.</li>
-<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don&#39;t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
+<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I’m writing a blog post and that I’m following the Schema.org standard.</li>
+<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don’t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
 </ul>
-<h2>Testing</h2>
-<p>You‘ll want to ensure that what you’ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>.</p>
+<h2 id="Testing">Testing</h2>
+<p>You’ll want to ensure that what you’ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>.</p>
 <p><strong>There will be a day when you ALWAYS use structured data, make that day today.</strong></p>
 
       

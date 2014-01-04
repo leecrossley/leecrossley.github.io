@@ -5,7 +5,7 @@
   
   <title>Mongoose Docs and JSON.stringify | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Why JSON.stringify() doesn't seem to work reliably on Mongoose JS objects.">
+  <meta name="description" content="Why JSON.stringify() doesn&#39;t seem to work reliably on Mongoose JS objects.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="Mongoose Docs and JSON.stringify"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,12 +64,12 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Mongoose JS</h2>
-<p>If you‘re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
-<h2>Mongoose documents / objects</h2>
-<p>The reason for this post isn‘t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3>The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
+        <h2 id="Mongoose_JS">Mongoose JS</h2>
+<p>If you’re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It’s “<em>elegant mongodb object modelling for node.js</em>“ and saves you writing endless mappings, castings and validation. If you’ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
+<h2 id="Mongoose_documents_-2f-_objects">Mongoose documents / objects</h2>
+<p>The reason for this post isn’t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
+<h3 id="The_problem">The problem</h3>
+<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here’s a simplified version to help me explain:</p>
 <figure class="highlight lang-javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -66,34 +78,38 @@
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="keyword">function</span>(item) {
+9
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> addProperty = λ.each(<span class="function"><span class="keyword">function</span><span class="params">(item)</span> {</span>
     item.newProperty = <span class="string">"anything"</span>;
 });
 
-Items.find(<span class="keyword">function</span>(err, items) {
+Items.find(<span class="function"><span class="keyword">function</span><span class="params">(err, items)</span> {</span>
     addProperty(items);
     console.log(JSON.stringify(items));
 });
 </pre></td></tr></table></figure>
 
 
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3>The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it‘s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
-<h3>The solution</h3>
+<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you’d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
+<h3 id="The_reason">The reason</h3>
+<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it’s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
+<h3 id="The_solution">The solution</h3>
 <p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
 <figure class="highlight lang-javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>Items.find().lean().exec(<span class="keyword">function</span>(err, items) {
+5
+</pre></td><td class="code"><pre>
+Items.find().lean().exec(<span class="function"><span class="keyword">function</span><span class="params">(err, items)</span> {</span>
     addProperty(items);
     console.log(JSON.stringify(items));
 });
 </pre></td></tr></table></figure>
 
 
-<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don‘t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
+<p>By specifying the “<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>“ option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don’t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
 <p>Mystery solved.</p>
 
       

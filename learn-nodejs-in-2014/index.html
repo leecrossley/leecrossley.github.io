@@ -5,7 +5,7 @@
   
   <title>Learn nodejs in 2014 | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="If you haven't already, this is the year to learn node.js">
+  <meta name="description" content="If you haven&#39;t already, this is the year to learn node.js">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="Learn nodejs in 2014"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,23 +64,23 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>The year of the node</h2>
-<p>If you haven&#39;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I&#39;ve put together a super quick start guide to kick you off.</p>
+        <h2 id="The_year_of_the_node">The year of the node</h2>
+<p>If you haven’t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I’ve put together a super quick start guide to kick you off.</p>
 <p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
-<h2>Super quick start</h2>
-<h3>Install</h3>
+<h2 id="Super_quick_start">Super quick start</h2>
+<h3 id="Install">Install</h3>
 <p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
-<h3>Create</h3>
+<h3 id="Create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre>$ mkdir nodeapp
-$ cd nodeapp
+$ <span class="built_in">cd</span> nodeapp
 $ touch app.js
 </pre></td></tr></table></figure>
 
-<h3>Code</h3>
+<h3 id="Code">Code</h3>
 <p>In your newly created JavaScript file, add the following code:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -78,21 +90,21 @@ $ touch app.js
 6
 </pre></td><td class="code"><pre><span class="keyword">var</span> http = require(<span class="string">"http"</span>);
 
-http.createServer(<span class="keyword">function</span>(req, res) {
+http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
     res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
     res.end(<span class="string">"I know node.js!"</span>);
 }).listen(<span class="number">4000</span>);
 </pre></td></tr></table></figure>
 
-<h3>Run</h3>
-<p>Ensure you&#39;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
+<h3 id="Run">Run</h3>
+<p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ node app
 </pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
-<h2>Packages</h2>
-<p>You‘ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
+<h2 id="Packages">Packages</h2>
+<p>You’ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
 <p>Happy new year!</p>
 
       

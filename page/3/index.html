@@ -5,7 +5,7 @@
   
   <title>Page 3 | iLee | developer blog</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="I write code that sounds awesome and music that's bug free">
+  <meta name="description" content="I write code that sounds awesome and music that&#39;s bug free">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta property="og:site_name" content="iLee"/>
@@ -33,11 +33,23 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper">
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -53,13 +65,13 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Structured data</h2>
-<p>You&#39;ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
-<p>By using Structured Data, you&#39;re allowing search engines and bots to produce “Rich Snippets” from your data, as the structure and semantic meaning is defined.</p>
-<h3>Microdata</h3>
-<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank">W3C HTML Microdata Draft</a>, or you can just carry on reading and I&#39;ll show you how simple it really is.</p>
-<h2>This blog</h2>
-<p>Let‘s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
+        <h2 id="Structured_data">Structured data</h2>
+<p>You’ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
+<p>By using Structured Data, you’re allowing search engines and bots to produce “Rich Snippets” from your data, as the structure and semantic meaning is defined.</p>
+<h3 id="Microdata">Microdata</h3>
+<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank">W3C HTML Microdata Draft</a>, or you can just carry on reading and I’ll show you how simple it really is.</p>
+<h2 id="This_blog">This blog</h2>
+<p>Let’s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
 <figure class="highlight lang-html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -73,7 +85,9 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
+14
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">header</span>&gt;</span>
             <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -88,6 +102,7 @@
 <span class="tag">&lt;/<span class="title">article</span>&gt;</span>
 </pre></td></tr></table></figure>
 
+
 <figure class="highlight lang-html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -101,7 +116,9 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
+14
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">header</span>&gt;</span>
             <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -119,11 +136,11 @@
 
 <p>There are 2 main differences:</p>
 <ul>
-<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I‘m writing a blog post and that I’m following the Schema.org standard.</li>
-<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don&#39;t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
+<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I’m writing a blog post and that I’m following the Schema.org standard.</li>
+<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don’t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
 </ul>
-<h2>Testing</h2>
-<p>You‘ll want to ensure that what you’ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>.</p>
+<h2 id="Testing">Testing</h2>
+<p>You’ll want to ensure that what you’ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank">W3C Validator</a>.</p>
 <p><strong>There will be a day when you ALWAYS use structured data, make that day today.</strong></p>
 
       
@@ -142,6 +159,18 @@
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -156,9 +185,9 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>PlugReg</h2>
-<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#39;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
-<h3>What&#39;s changed</h3>
+        <h2 id="PlugReg">PlugReg</h2>
+<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I’ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
+<h3 id="What-2019-s_changed">What’s changed</h3>
 <p>Some of the new features and bug fixes:</p>
 <ul>
 <li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
@@ -183,8 +212,8 @@ plugins.sort(byCase);
 </pre></td></tr></table></figure>
 
 <p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
-<h2>Suggestions</h2>
-<p>Please keep the suggestions coming, I‘m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
+<h2 id="Suggestions">Suggestions</h2>
+<p>Please keep the suggestions coming, I’m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
 
       
     </div>
@@ -202,6 +231,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -216,25 +257,25 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>HTTP status codes</h2>
+        <h2 id="HTTP_status_codes">HTTP status codes</h2>
 <p>Every response from a server carries an HTTP status code, this provides clients with the ability to formally identify the status of the response and has other uses, such as identifying a type of error.</p>
-<p>I&#39;m currently working with a &quot;<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">RESTful</a>&quot; (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
+<p>I’m currently working with a “<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">RESTful</a>“ (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
 <p>An API especially should use the correct status codes so that responses to basic requests can be defined by status codes, without the need for any additional data.</p>
-<h2>The basics</h2>
+<h2 id="The_basics">The basics</h2>
 <ul>
 <li><strong>1xx</strong> - Hang on</li>
 <li><strong>2xx</strong> - <a href="http://www.youtube.com/watch?v=erETKfL9LbU" target="_blank">Sha-ting</a></li>
 <li><strong>3xx</strong> - Move away</li>
-<li><strong>4xx</strong> - That&#39;s your bad</li>
-<li><strong>5xx</strong> - That&#39;s my bad</li>
+<li><strong>4xx</strong> - That’s your bad</li>
+<li><strong>5xx</strong> - That’s my bad</li>
 </ul>
-<p>OK, so I‘m not being totally serious with these. I’m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">Wikipedia</a> for the list.</p>
-<h2>Test your status codes</h2>
+<p>OK, so I’m not being totally serious with these. I’m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">Wikipedia</a> for the list.</p>
+<h2 id="Test_your_status_codes">Test your status codes</h2>
 <p>There are some online tools to check your status codes, <a href="http://httpstatus.io/" target="_blank">httpstatus.io</a> looks good (and ends with .io, so it <em>must</em> be cool).</p>
-<h2>I&#39;m a tea pot</h2>
+<h2 id="I-2019-m_a_tea_pot">I’m a tea pot</h2>
 <p>The Hyper Text Coffee Pot Control Protocol is a nonessential and humorous communications protocol for controlling, monitoring, and diagnosing coffee pots and has the following status code (yes this is real):</p>
 <ul>
-<li><strong>418</strong> I&#39;m a teapot (may be short and/or stout)</li>
+<li><strong>418</strong> I’m a teapot (may be short and/or stout)</li>
 </ul>
 <p>Time for a coffee.</p>
 
@@ -254,6 +295,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -268,28 +321,28 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Format frustration</h2>
-<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it&#39;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
+        <h2 id="Format_frustration">Format frustration</h2>
+<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it’s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
 <p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
-<h2>The right way</h2>
+<h2 id="The_right_way">The right way</h2>
 <p>Follow these simple guideline(s):</p>
 <ul>
 <li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
 <li>Capitalise the first letter</li>
 <li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
-<li>Don&#39;t end with a full stop</li>
+<li>Don’t end with a full stop</li>
 <li>Reference issue numbers with a #</li>
 </ul>
 <p>Optional:</p>
 <ul>
 <li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
-<li>Prefix with “area: ” where the area is an identifier for the area of the code the commit relates to (personally I don&#39;t do this but it can be useful in some circumstances)</li>
+<li>Prefix with “area: “ where the area is an identifier for the area of the code the commit relates to (personally I don’t do this but it can be useful in some circumstances)</li>
 </ul>
-<h2>Why?</h2>
+<h2 id="Why-3f-">Why?</h2>
 <p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
-<p>If you take a look at auto generated git messages, you&#39;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
-<h2>Automated user git messages</h2>
-<p>Bad bad bad. You‘re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
+<p>If you take a look at auto generated git messages, you’ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
+<h2 id="Automated_user_git_messages">Automated user git messages</h2>
+<p>Bad bad bad. You’re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
 
       
     </div>
@@ -307,6 +360,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -321,27 +386,27 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Developing apps for iOS first</h2>
+        <h2 id="Developing_apps_for_iOS_first">Developing apps for iOS first</h2>
 <p>A <a href="https://twitter.com/VickiHigham" target="_blank">friend</a> today asked me a very interesting question:</p>
-<blockquote><p>“Can you see a reason people would launch on iOS first?” … “they don&#39;t have the biggest market share”</p>
+<blockquote><p>“Can you see a reason people would launch on iOS first?” … “they don’t have the biggest market share”</p>
 <footer><strong>- @VickiHigham</strong></footer></blockquote>
 
 
 <p><img src="/img/app-platforms.png" alt="Mobile App Platforms"></p>
-<p>This got me thinking. Yes, it&#39;s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
-<p>I&#39;ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
-<h3>The curveball</h3>
-<p>In reality, it doesn‘t actually doesn’t make sense to develop for iOS first if you‘re going to be targeting multiple platforms (especially if you’re using something like Cordova / PhoneGap)… let me convince you why.</p>
-<h2>Developing apps for Android first</h2>
-<h3>It&#39;s all about the review process</h3>
-<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can&#39;t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
+<p>This got me thinking. Yes, it’s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
+<p>I’ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
+<h3 id="The_curveball">The curveball</h3>
+<p>In reality, it doesn’t actually doesn’t make sense to develop for iOS first if you’re going to be targeting multiple platforms (especially if you’re using something like Cordova / PhoneGap)… let me convince you why.</p>
+<h2 id="Developing_apps_for_Android_first">Developing apps for Android first</h2>
+<h3 id="It-2019-s_all_about_the_review_process">It’s all about the review process</h3>
+<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can’t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
 <p>If you were to develop apps for Android first, because of the fast release process there would be a raft of benefits:</p>
 <ul>
 <li>The app could potentially be released quicker</li>
 <li>Bugs can be fixed and released quicker</li>
 <li>A more robust version could then be released to iOS</li>
 </ul>
-<h2>Other considerations</h2>
+<h2 id="Other_considerations">Other considerations</h2>
 <p>Of course, there are other considerations, such as target location, device capabilities etc but we should be at least questioning the “iOS First” approach that seems to have become the default.</p>
 
       
@@ -360,6 +425,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -374,16 +451,16 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
+        <h2 id="JSON_hijacking">JSON hijacking</h2>
+<p>I recently needed to ensure a JSON service response couldn’t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there’s a nice little hack to prevent the hijack.</p>
 <p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
-<h2>The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<h2 id="The_hack">The hack</h2>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>JSON.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
 </pre></td></tr></table></figure>
@@ -394,13 +471,13 @@ plugins.sort(byCase);
 </pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
 </pre></td></tr></table></figure>
 
-<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
+<p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
 </pre></td></tr></table></figure>
 
-<h2>Limitations</h2>
-<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It‘s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
+<h2 id="Limitations">Limitations</h2>
+<p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
 
       
     </div>
@@ -418,6 +495,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -432,9 +521,9 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it‘s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
-<h3>Using npm</h3>
+        <h2 id="isNumeric">isNumeric</h2>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it’s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
+<h3 id="Using_npm">Using npm</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">npm</span> install isnumeric
 </pre></td></tr></table></figure>
@@ -444,24 +533,26 @@ plugins.sort(byCase);
 </pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="keyword">require</span>(<span class="string">"isnumeric"</span>);
 </pre></td></tr></table></figure>
 
-<h3>Direct dependency</h3>
+<h3 id="Direct_dependency">Direct dependency</h3>
 <p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
-<h2>The code</h2>
+<h2 id="The_code">The code</h2>
 <p>Essentially, this is it:</p>
 <figure class="highlight lang-javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
+5
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
     obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
     <span class="keyword">return</span> !isNaN(parseFloat(obj)) &amp;&amp; isFinite(obj) &amp;&amp; Object.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
 };
 </pre></td></tr></table></figure>
 
 
-<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
-<h2>The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>The first line of the function could be omitted if you weren’t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
+<h2 id="The_tests">The tests</h2>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it’s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
 <p>Any disagreements or improvements please pull request.</p>
 
       
@@ -480,6 +571,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -495,32 +598,32 @@ plugins.sort(byCase);
     <div class="entry" itemprop="articleBody">
       
         <p><img src="/img/iphone5s.png" alt="iLee iPhone 5s"></p>
-<h2>Mobile app developer</h2>
-<p>As an app developer, I&#39;m burdened with buying mobiles and tablets all the time and have <a href="/more-mobile-devices-than-socks/">more mobile devices than socks</a>. Having said that, I&#39;m actually planning to use my new iPhone for day-to-day usage too (i.e. actually making phone calls).</p>
-<h2>Crazy queuing</h2>
-<p><strong>I didn&#39;t queue</strong> for my new iPhone 5s, I also didn&#39;t <a href="http://news.sky.com/story/1144613/apple-iphone-fights-as-homeless-hired-to-queue" target="_blank">pay the homeless</a> to queue for me. I ordered in 60 seconds from the comfort of my home, on the o2 website and it arrived the next working day. Some people really need to get some common sense.</p>
-<h2>Thoughts on day one</h2>
-<h3>The good bits</h3>
+<h2 id="Mobile_app_developer">Mobile app developer</h2>
+<p>As an app developer, I’m burdened with buying mobiles and tablets all the time and have <a href="/more-mobile-devices-than-socks/">more mobile devices than socks</a>. Having said that, I’m actually planning to use my new iPhone for day-to-day usage too (i.e. actually making phone calls).</p>
+<h2 id="Crazy_queuing">Crazy queuing</h2>
+<p><strong>I didn’t queue</strong> for my new iPhone 5s, I also didn’t <a href="http://news.sky.com/story/1144613/apple-iphone-fights-as-homeless-hired-to-queue" target="_blank">pay the homeless</a> to queue for me. I ordered in 60 seconds from the comfort of my home, on the o2 website and it arrived the next working day. Some people really need to get some common sense.</p>
+<h2 id="Thoughts_on_day_one">Thoughts on day one</h2>
+<h3 id="The_good_bits">The good bits</h3>
 <ul>
 <li>Configuring from another iPhone backup was simple.</li>
 <li>The Apple A7 chip is <em>fast</em>, I feel the performance increase doing anything on the device.</li>
-<li>I&#39;m no photographer but the 8 megapixel camera with dual LED flash does live up to (some of) the hype. Burst mode is pretty cool too.</li>
-<li>The Touch ID home button is a <em>nice touch</em>, even if it <a href="http://istouchidhackedyet.com/" target="_blank">may have been hacked</a> already. You wouldn&#39;t use an iPhone if you had security concerns though, right? :)</li>
-<li>Free Apple apps. Sweet. Probably won&#39;t use them though.</li>
+<li>I’m no photographer but the 8 megapixel camera with dual LED flash does live up to (some of) the hype. Burst mode is pretty cool too.</li>
+<li>The Touch ID home button is a <em>nice touch</em>, even if it <a href="http://istouchidhackedyet.com/" target="_blank">may have been hacked</a> already. You wouldn’t use an iPhone if you had security concerns though, right? :)</li>
+<li>Free Apple apps. Sweet. Probably won’t use them though.</li>
 <li>Apparently I can <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/news/newly-released-apple-iphone-5s-on-ebay-for-2000-8831594.html" target="_blank">sell it for up to £2K</a> right now on ebay.</li>
 </ul>
-<h3>The maybe-good bits</h3>
+<h3 id="The_maybe-good_bits">The maybe-good bits</h3>
 <ul>
-<li>iBeacon, we‘ll see. Not surprised it’s not a standard of course.</li>
+<li>iBeacon, we’ll see. Not surprised it’s not a standard of course.</li>
 </ul>
-<h3>The not-so-good bits</h3>
+<h3 id="The_not-so-good_bits">The not-so-good bits</h3>
 <ul>
-<li>The screen, it&#39;s just OK. When can we have edge-to-edge displays?</li>
-<li>Battery life, it‘s depleting at the same fast rate as I’m used too. I&#39;ve <a href="http://www.ebay.co.uk/itm/130897161738" target="_blank">bought this</a> to overcome this slightly.</li>
-<li>A bit disappointed that there aren&#39;t many other innovative features.</li>
+<li>The screen, it’s just OK. When can we have edge-to-edge displays?</li>
+<li>Battery life, it’s depleting at the same fast rate as I’m used too. I’ve <a href="http://www.ebay.co.uk/itm/130897161738" target="_blank">bought this</a> to overcome this slightly.</li>
+<li>A bit disappointed that there aren’t many other innovative features.</li>
 </ul>
-<h2>Summary</h2>
-<p>It&#39;s pretty shiny. I can make phone calls.</p>
+<h2 id="Summary">Summary</h2>
+<p>It’s pretty shiny. I can make phone calls.</p>
 
       
     </div>
@@ -538,6 +641,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -552,14 +667,14 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>iOS7 elements with HTML and CSS</h2>
-<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
-<h2>The UINavigationBar</h2>
+        <h2 id="iOS7_elements_with_HTML_and_CSS">iOS7 elements with HTML and CSS</h2>
+<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don’t seem to have implemented the <em>useful</em> elements.</p>
+<h2 id="The_UINavigationBar">The UINavigationBar</h2>
 <p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
-<h2>My implementation</h2>
-<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here&#39;s how I set about it.</p>
-<h3>The transparency</h3>
-<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
+<h2 id="My_implementation">My implementation</h2>
+<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here’s how I set about it.</p>
+<h3 id="The_transparency">The transparency</h3>
+<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn’t find a way to add any sort of blur effect to this element without distorting the header content.</p>
 <figure class="highlight lang-css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -574,24 +689,26 @@ plugins.sort(byCase);
 12
 13
 14
-</pre></td><td class="code"><pre><span class="id">#header</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span>
-    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px;</span></span>
-    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span>
+15
+</pre></td><td class="code"><pre>
+<span class="id">#header</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">3</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px</span></span>;
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">44</span>px</span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">59</span>,<span class="number">89</span>,<span class="number">152</span>,<span class="number">0.8</span>)</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#eee</span></span></span>;
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20</span>px</span></span>;
+    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
 <span class="rule">}</span></span>
 </pre></td></tr></table></figure>
 
 
-<h3>The blur / frosting</h3>
+<h3 id="The_blur_-2f-_frosting">The blur / frosting</h3>
 <p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
 <figure class="highlight lang-css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -608,34 +725,36 @@ plugins.sort(byCase);
 13
 14
 15
-</pre></td><td class="code"><pre><span class="class">.header-blur</span> <span class="rules">{
-    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
-    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span>;</span></span>
-    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span> 
-    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span>;</span></span>
-    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span>;</span></span>
-    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
-    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
-    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>;</span></span>
+16
+</pre></td><td class="code"><pre>
+<span class="class">.header-blur</span> <span class="rules">{
+    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span></span></span>;
+    <span class="rule"><span class="attribute">-webkit-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">-moz-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">-ms-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>; 
+    <span class="rule"><span class="attribute">-o-filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">blur(<span class="number">10</span>px)</span></span></span>;
+    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">rgba(<span class="number">250</span>,<span class="number">250</span>,<span class="number">250</span>,<span class="number">0.9</span>)</span></span></span>;
+    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">44</span>px</span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;
 <span class="rule">}</span></span>
 </pre></td></tr></table></figure>
 
 
 <p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
-<h3>iScroll</h3>
+<h3 id="iScroll">iScroll</h3>
 <p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
-<h2>Demo</h2>
-<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
+<h2 id="Demo">Demo</h2>
+<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I’m also open to feedback as usual.</p>
 <h2 id="update"><strong>UPDATE</strong></h2>
 
-<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn‘t actually applying the blur to elements underneath the header because they aren’t nested.</p>
+<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn’t actually applying the blur to elements underneath the header because they aren’t nested.</p>
 <p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
-<p>Sounds hacky, but it&#39;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it‘s worth it, but I’ll do some performance testing.</p>
+<p>Sounds hacky, but it’s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it’s worth it, but I’ll do some performance testing.</p>
 <p>The <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">example code</a> has been updated, feel free to fork.</p>
 
       
@@ -654,6 +773,18 @@ plugins.sort(byCase);
 
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       <div class="icon"></div>
@@ -668,20 +799,22 @@ plugins.sort(byCase);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>It&#39;s easy-peasy-lemon-squeezy with HTML5</h2>
+        <h2 id="It-2019-s_easy-peasy-lemon-squeezy_with_HTML5">It’s easy-peasy-lemon-squeezy with HTML5</h2>
 <p>The <em>async</em> attribute added to HTML5 makes the job all too simple:</p>
 <figure class="highlight lang-html"><figcaption><span>async attribute </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+2
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 
 <p>This tells the browser to execute the script at the first opportunity after it has finished downloading, while the page continues parsing and before the window load event.</p>
-<h2>Pre-HTML5</h2>
-<p>I‘m writing an embeddable widget at the moment and unfortunately, can’t rely on browser support for the async attribute. This makes me sad, as I really can&#39;t block the page rendering.</p>
-<h3>Solution? Defer</h3>
+<h2 id="Pre-HTML5">Pre-HTML5</h2>
+<p>I’m writing an embeddable widget at the moment and unfortunately, can’t rely on browser support for the async attribute. This makes me sad, as I really can’t block the page rendering.</p>
+<h3 id="Solution-3f-_Defer">Solution? Defer</h3>
 <p>There is a <em>defer</em> attribute, with <a href="http://caniuse.com/script-defer" target="_blank">pretty good support</a> that will execute when the page has finished parsing. Not as good as executing while the page continues parsing though, like with the async attribute.</p>
-<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It‘s not perfect, the download doesn’t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
-<p>Here&#39;s the general gist (untested):</p>
+<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It’s not perfect, the download doesn’t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
+<p>Here’s the general gist (untested):</p>
 <figure class="highlight lang-javascript"><figcaption><span>general gist </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -697,7 +830,9 @@ plugins.sort(byCase);
 13
 14
 15
-</pre></td><td class="code"><pre>(<span class="keyword">function</span>() {
+16
+</pre></td><td class="code"><pre>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="string">"use strict"</span>;
     <span class="function"><span class="keyword">function</span> <span class="title">loadJSAsync</span><span class="params">()</span> {</span>
         <span class="keyword">var</span> js = document.createElement(<span class="string">"script"</span>);
@@ -715,7 +850,7 @@ plugins.sort(byCase);
 </pre></td></tr></table></figure>
 
 
-<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can&#39;t wait for all these old browsers to disappear.</p>
+<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can’t wait for all these old browsers to disappear.</p>
 
       
     </div>

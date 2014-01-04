@@ -5,7 +5,7 @@
   
   <title>Changing Url Without Page Refresh | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Not many web developers know but it's possible to completely change the relative url of a page without refreshing the page.">
+  <meta name="description" content="Not many web developers know but it&#39;s possible to completely change the relative url of a page without refreshing the page.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="Changing Url Without Page Refresh"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,20 +64,20 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won‘t even try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
-<p>I‘m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I‘m also not talking about iFrames either - this solution isn’t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+        <h2 id="Using_JavaScript_to_change_the_page_url_without_reloading">Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it’s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won’t even try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
+<p>I’m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I’m also not talking about iFrames either - this solution isn’t a hack, it’s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
 <p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
-<h2>How it&#39;s done</h2>
+<h2 id="How_it-2019-s_done">How it’s done</h2>
 <p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
-<h3>The history.pushState() function</h3>
+<h3 id="The_history-pushState-28-29-_function">The history.pushState() function</h3>
 <p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
 <ul>
 <li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
 </li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven’t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
 </li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won‘t try to get the new url and it doesn’t matter if it doesn&#39;t exist on the server.</p>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
 </li>
 </ul>
 <figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -73,7 +85,9 @@
 3
 4
 5
-</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
+6
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> state = {
   <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
 };
 history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
@@ -82,13 +96,13 @@ expect(history.state).toEqual(state);
 
 
 <p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
-<h3>The history.replaceState() function</h3>
-<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
-<h3>The onpopstate event</h3>
+<h3 id="The_history-replaceState-28-29-_function">The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I’ve never bothered to use this one.</p>
+<h3 id="The_onpopstate_event">The onpopstate event</h3>
 <p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
-<h2>Back to the future</h2>
+<h2 id="Back_to_the_future">Back to the future</h2>
 <p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
-<h2>Usages</h2>
+<h2 id="Usages">Usages</h2>
 <p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
 <p>Have fun relocating.</p>
 

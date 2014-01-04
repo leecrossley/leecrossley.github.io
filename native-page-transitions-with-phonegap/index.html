@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -53,25 +65,25 @@
     <div class="entry" itemprop="articleBody">
       
         <p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
-<h2>Stop the press!</h2>
+<h2 id="Stop_the_press-21-">Stop the press!</h2>
 <p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
 <p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
-<p><strong>I&#39;ve turned page transitions around</strong> (poor pun, I know).</p>
+<p><strong>I’ve turned page transitions around</strong> (poor pun, I know).</p>
 <p><img src="/img/transition.png" alt="Page transition"></p>
-<h2>Video demo</h2>
+<h2 id="Video_demo">Video demo</h2>
 <p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
-<h2>Down to business</h2>
-<p>If you‘re a Cordova / PhoneGap developer, I’m sure you‘re already desperate to get started, so I’ll cut to the chase.</p>
-<h3>Install</h3>
+<h2 id="Down_to_business">Down to business</h2>
+<p>If you’re a Cordova / PhoneGap developer, I’m sure you’re already desperate to get started, so I’ll cut to the chase.</p>
+<h3 id="Install">Install</h3>
 <p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">Github</a>.</p>
-<p>Assuming you&#39;re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
+<p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
 </pre></td></tr></table></figure>
 
 <p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
-<h2>Transitions</h2>
-<h3>Flip</h3>
+<h2 id="Transitions">Transitions</h2>
+<h3 id="Flip">Flip</h3>
 <p>Flip page transition, with support for flipping left or right:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -81,7 +93,7 @@
 nativetransitions.flip(duration, direction, onComplete);
 </pre></td></tr></table></figure>
 
-<h3>Curl</h3>
+<h3 id="Curl">Curl</h3>
 <p>Curl page transition, with support for flipping curling up or down:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -91,7 +103,7 @@ nativetransitions.flip(duration, direction, onComplete);
 nativetransitions.curl(duration, direction, onComplete);
 </pre></td></tr></table></figure>
 
-<h3>Fade</h3>
+<h3 id="Fade">Fade</h3>
 <p>A simple fade page transition:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -99,21 +111,21 @@ nativetransitions.curl(duration, direction, onComplete);
 nativetransitions.fade(duration, onComplete);
 </pre></td></tr></table></figure>
 
-<h2>Example</h2>
-<p>Here&#39;s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
+<h2 id="Example">Example</h2>
+<p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>setTimeout(<span class="keyword">function</span>() {
+</pre></td><td class="code"><pre>setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="comment">// Change your html here</span>
 }, <span class="number">50</span>);
 nativetransitions.flip(duration, direction);
 </pre></td></tr></table></figure>
 
-<h2>More transitions?</h2>
-<p>If you‘d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I&#39;ll see if I can implement it for you.</p>
-<p><strong>This is pretty flippin&#39; amazing stuff</strong> (OK, I&#39;ll stop now).</p>
+<h2 id="More_transitions-3f-">More transitions?</h2>
+<p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
+<p><strong>This is pretty flippin’ amazing stuff</strong> (OK, I’ll stop now).</p>
 
       
     </div>

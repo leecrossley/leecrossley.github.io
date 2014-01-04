@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>I&#39;m writing a game!</h2>
-<p>That‘s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I‘ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
-<h2>A list of adjacent squares</h2>
-<h3>The grid</h3>
-<p>Let‘s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
+        <h2 id="I-2019-m_writing_a_game-21-">I’m writing a game!</h2>
+<p>That’s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I’ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
+<h2 id="A_list_of_adjacent_squares">A list of adjacent squares</h2>
+<h3 id="The_grid">The grid</h3>
+<p>Let’s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -71,9 +83,9 @@
 ..    ..    ..    ..    ..    ..
 </pre></td></tr></table></figure>
 
-<p>This is actually a two dimensional array, which in reality is just an array of arrays. It‘s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
-<h3>Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#39;s pretty simple with this system:</p>
+<p>This is actually a two dimensional array, which in reality is just an array of arrays. It’s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it’ll just overcomplicate things.</p>
+<h3 id="Get_adjacent_squares">Get adjacent squares</h3>
+<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it’s pretty simple with this system:</p>
 <ul>
 <li>Take one from the x co-ordinate [x-1,y]</li>
 <li>Add one to the x co-ordinate [x+1,y]</li>
@@ -85,7 +97,7 @@
 </pre></td></tr></table></figure>
 
 <p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
-<h3>Off the grid!</h3>
+<h3 id="Off_the_grid-21-">Off the grid!</h3>
 <p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
 <ul>
 <li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
@@ -95,7 +107,7 @@
 </pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
 </pre></td></tr></table></figure>
 
-<h2>The solution</h2>
+<h2 id="The_solution">The solution</h2>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -130,14 +142,14 @@
 }
 </pre></td></tr></table></figure>
 
-<p>I&#39;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
+<p>I’ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
 getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
 </pre></td></tr></table></figure>
 
-<p>Hopefully you‘re also now interested in what on earth I’m writing :)</p>
+<p>Hopefully you’re also now interested in what on earth I’m writing :)</p>
 
       
     </div>

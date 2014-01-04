@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>functional.js (λ)</h2>
-<p>functional.js is a functional JavaScript library I&#39;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>I&#39;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I‘ve also started on some array functions. These array functions aren’t specifically unique, but they‘re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
-<h2>Examples</h2>
-<h3>You&#39;re the λ.first</h3>
+        <h2 id="functional-js_-28-3bb-29-">functional.js (λ)</h2>
+<p>functional.js is a functional JavaScript library I’m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
+<p>I’ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I’ve also started on some array functions. These array functions aren’t specifically unique, but they’re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
+<h2 id="Examples">Examples</h2>
+<h3 id="You-2019-re_the_-3bb-first">You’re the λ.first</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -87,7 +99,7 @@ expect(firstEven(items)).toEqual(<span class="number">2</span>);
 expect(firstOdd(items)).toEqual(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<h3>My λ.last</h3>
+<h3 id="My_-3bb-last">My λ.last</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -118,7 +130,7 @@ expect(lastEven(items)).toEqual(<span class="number">2</span>);
 expect(lastOdd(items)).toEqual(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<h3>My λ.every(thing)</h3>
+<h3 id="My_-3bb-every-28-thing-29-">My λ.every(thing)</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -150,7 +162,7 @@ expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
 </pre></td></tr></table></figure>
 
 <p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
-<h3>λ.partition</h3>
+<h3 id="-3bb-partition">λ.partition</h3>
 <p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -177,8 +189,8 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 </pre></td></tr></table></figure>
 
 
-<h2>Contribute, Contribute, Contribute</h2>
-<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#39;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
+<h2 id="Contribute-2c-_Contribute-2c-_Contribute">Contribute, Contribute, Contribute</h2>
+<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there’s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
 
       
     </div>

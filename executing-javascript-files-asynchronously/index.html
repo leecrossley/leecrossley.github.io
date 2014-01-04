@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,20 +64,22 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>It&#39;s easy-peasy-lemon-squeezy with HTML5</h2>
+        <h2 id="It-2019-s_easy-peasy-lemon-squeezy_with_HTML5">It’s easy-peasy-lemon-squeezy with HTML5</h2>
 <p>The <em>async</em> attribute added to HTML5 makes the job all too simple:</p>
 <figure class="highlight lang-html"><figcaption><span>async attribute </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+2
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 
 <p>This tells the browser to execute the script at the first opportunity after it has finished downloading, while the page continues parsing and before the window load event.</p>
-<h2>Pre-HTML5</h2>
-<p>I‘m writing an embeddable widget at the moment and unfortunately, can’t rely on browser support for the async attribute. This makes me sad, as I really can&#39;t block the page rendering.</p>
-<h3>Solution? Defer</h3>
+<h2 id="Pre-HTML5">Pre-HTML5</h2>
+<p>I’m writing an embeddable widget at the moment and unfortunately, can’t rely on browser support for the async attribute. This makes me sad, as I really can’t block the page rendering.</p>
+<h3 id="Solution-3f-_Defer">Solution? Defer</h3>
 <p>There is a <em>defer</em> attribute, with <a href="http://caniuse.com/script-defer" target="_blank">pretty good support</a> that will execute when the page has finished parsing. Not as good as executing while the page continues parsing though, like with the async attribute.</p>
-<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It‘s not perfect, the download doesn’t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
-<p>Here&#39;s the general gist (untested):</p>
+<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It’s not perfect, the download doesn’t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
+<p>Here’s the general gist (untested):</p>
 <figure class="highlight lang-javascript"><figcaption><span>general gist </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -81,7 +95,9 @@
 13
 14
 15
-</pre></td><td class="code"><pre>(<span class="keyword">function</span>() {
+16
+</pre></td><td class="code"><pre>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="string">"use strict"</span>;
     <span class="function"><span class="keyword">function</span> <span class="title">loadJSAsync</span><span class="params">()</span> {</span>
         <span class="keyword">var</span> js = document.createElement(<span class="string">"script"</span>);
@@ -99,7 +115,7 @@
 </pre></td></tr></table></figure>
 
 
-<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can&#39;t wait for all these old browsers to disappear.</p>
+<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can’t wait for all these old browsers to disappear.</p>
 
       
     </div>

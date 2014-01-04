@@ -5,7 +5,7 @@
   
   <title>Removing a Property in JavaScript | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="It's really easy to remove a property from a JavaScript object and it's frustrating how scarcely developers use it.">
+  <meta name="description" content="It&#39;s really easy to remove a property from a JavaScript object and it&#39;s frustrating how scarcely developers use it.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="Removing a Property in JavaScript"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,48 +64,56 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Remove a JavaScript object property with delete</h2>
+        <h2 id="Remove_a_JavaScript_object_property_with_delete">Remove a JavaScript object property with delete</h2>
 <figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };
+4
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };
 <span class="keyword">delete</span> thing.prop1;
 expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
 
 <p>Simple, done, use it. End of blog post :)</p>
-<p>If it&#39;s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
+<p>If it’s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
 <figure class="highlight lang-javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
+4
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
 <span class="keyword">delete</span> thing[<span class="string">"prop"</span> + i];
 expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
 
-<h2>What about deleting variables and functions?</h2>
-<p>This is JavaScript, it&#39;s <strong>not</strong> possible to delete variables e.g.</p>
+<h2 id="What_about_deleting_variables_and_functions-3f-">What about deleting variables and functions?</h2>
+<p>This is JavaScript, it’s <strong>not</strong> possible to delete variables e.g.</p>
 <figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+3
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> thing = <span class="string">"something"</span>;
 <span class="keyword">delete</span> thing; <span class="comment">// no no no</span>
 </pre></td></tr></table></figure>
 
 
-<p>It&#39;s <strong>not</strong> possible to delete functions declared in this way either.</p>
-<h2>The <em>DontDelete</em> attribute</h2>
+<p>It’s <strong>not</strong> possible to delete functions declared in this way either.</p>
+<h2 id="The_-3c-em-3e-DontDelete-3c-2f-em-3e-_attribute">The <em>DontDelete</em> attribute</h2>
 <p>There are also some attributes that can be set on properties to prevent their deletion misuse. <em>DontDelete</em> is an example of these, which is present in the length property:</p>
 <figure class="highlight lang-javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+3
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> thing = <span class="string">"something"</span>;
 <span class="keyword">delete</span> thing.length; <span class="comment">// no no no</span>
 </pre></td></tr></table></figure>
 
 
-<h2>Strict mode</h2>
-<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you&#39;re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
+<h2 id="Strict_mode">Strict mode</h2>
+<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you’re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
 <p>Happy strict deleting.</p>
 
       

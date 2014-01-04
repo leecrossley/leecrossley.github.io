@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,19 +64,19 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>We all do it</h2>
-<p>If you‘re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you&#39;ll have written code like this many times:</p>
+        <h2 id="We_all_do_it">We all do it</h2>
+<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="keyword">function</span>() {
+</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="comment">// handler code ...</span>
     alert(<span class="string">"document clicked and fired ugly nested function"</span>);
 });
 </pre></td></tr></table></figure>
 
-<p>You might be thinking <strong>what&#39;s wrong with that</strong>, but I hope you&#39;re thinking <strong>I‘m better than that, I’d do something like this</strong>:</p>
+<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -79,10 +91,10 @@
 document.addEventListener(<span class="string">"click"</span>, doStuff);
 </pre></td></tr></table></figure>
 
-<p><strong>Great</strong>. What do you do if the alert text is dynamic? I&#39;ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn&#39;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
-<h2>The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke, it&#39;s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#39;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
+<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
+<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
+<h2 id="The_right_frame_of_-3c-em-3e-bind-3c-2f-em-3e-">The right frame of <em>bind</em></h2>
+<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -98,8 +110,8 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
 </pre></td></tr></table></figure>
 
 <p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
-<h2>A good <em>curry</em></h2>
-<p>You can&#39;t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
+<h2 id="A_good_-3c-em-3e-curry-3c-2f-em-3e-">A good <em>curry</em></h2>
+<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
 
       
     </div>

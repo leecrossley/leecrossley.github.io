@@ -5,7 +5,7 @@
   
   <title>A Functional Javascript Library | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="functional.js is a functional JavaScript library I'm writing to facilitate currying and point-free programming in JavaScript.">
+  <meta name="description" content="functional.js is a functional JavaScript library I&#39;m writing to facilitate currying and point-free programming in JavaScript.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="A Functional Javascript Library"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>functional.js (λ)</h2>
-<p>functional.js is (go on, guess) a functional JavaScript library I&#39;m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
+        <h2 id="functional-js_-28-3bb-29-">functional.js (λ)</h2>
+<p>functional.js is (go on, guess) a functional JavaScript library I’m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
 <p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank">jasmine</a> tests are below).</p>
-<p>I&#39;m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank">functional-level programming</a> but it&#39;s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank">Contributions</a> are more than welcome if you fancy some brain pain.</p>
-<h3>Basic λ.curry example</h3>
+<p>I’m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank">functional-level programming</a> but it’s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank">Contributions</a> are more than welcome if you fancy some brain pain.</p>
+<h3 id="Basic_-3bb-curry_example">Basic λ.curry example</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -65,7 +77,7 @@
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="keyword">function</span>(word1, word2) {
+</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> {</span>
     <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;
 });
 
@@ -75,7 +87,7 @@
 expect(result).toEqual(<span class="string">"Hello World"</span>);
 </pre></td></tr></table></figure>
 
-<h3>Another λ.curry example</h3>
+<h3 id="Another_-3bb-curry_example">Another λ.curry example</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -87,7 +99,7 @@ expect(result).toEqual(<span class="string">"Hello World"</span>);
 9
 10
 11
-</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="keyword">function</span>(arg1, arg2, arg3) {
+</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> {</span>
     <span class="keyword">return</span> arg1 + arg2 + arg3;
 }); 
 
@@ -100,7 +112,7 @@ expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqu
 expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
 </pre></td></tr></table></figure>
 
-<h3>Curried λ.each example</h3>
+<h3 id="Curried_-3bb-each_example">Curried λ.each example</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -127,7 +139,7 @@ addToResult(items);
 expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);
 </pre></td></tr></table></figure>
 
-<h3>Curried λ.map example</h3>
+<h3 id="Curried_-3bb-map_example">Curried λ.map example</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -152,7 +164,7 @@ expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="str
 expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);
 </pre></td></tr></table></figure>
 
-<h3>Curried λ.reduce example</h3>
+<h3 id="Curried_-3bb-reduce_example">Curried λ.reduce example</h3>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -177,21 +189,21 @@ expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span 
 expect(result).toEqual(<span class="number">6</span>);
 </pre></td></tr></table></figure>
 
-<h2>Why?</h2>
+<h2 id="Why-3f-">Why?</h2>
 <p>I like <del>torture</del> to push myself as a developer.</p>
-<h2>Great, but, erm, why?</h2>
+<h2 id="Great-2c-_but-2c-_erm-2c-_why-3f-">Great, but, erm, why?</h2>
 <p>By extending functions into chains of functions with fewer arguments (currying), you can fix earlier known values and return a function that only accepts future values. This avoids repetition, a good programming practice, and will assist my high-level function refinement.</p>
-<p>Libraries like <a href="http://underscorejs.org/" target="_blank">underscore</a> can‘t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There’s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it&#39;s been developed further. It also has no dependencies.</p>
-<h2>Where can I get it?</h2>
+<p>Libraries like <a href="http://underscorejs.org/" target="_blank">underscore</a> can’t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There’s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it’s been developed further. It also has no dependencies.</p>
+<h2 id="Where_can_I_get_it-3f-">Where can I get it?</h2>
 <ul>
 <li>$ git clone git@github.com:leecrossley/functional-js.git</li>
 <li>$ npm install functional.js</li>
 <li><a href="http://bit.ly/funcmin" target="_blank">functional.min.js</a></li>
 </ul>
-<h2>I have issues</h2>
-<p>As long as they&#39;re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues" target="_blank">github</a>.</p>
-<h2>Where&#39;s the λ key?</h2>
-<p>You&#39;re probably reading the wrong blog post :)</p>
+<h2 id="I_have_issues">I have issues</h2>
+<p>As long as they’re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues" target="_blank">github</a>.</p>
+<h2 id="Where-2019-s_the_-3bb-_key-3f-">Where’s the λ key?</h2>
+<p>You’re probably reading the wrong blog post :)</p>
 
       
     </div>

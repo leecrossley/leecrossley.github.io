@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,50 +64,58 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Timing is everything</h2>
+        <h2 id="Timing_is_everything">Timing is everything</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
 <p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
-<h2>grunt-timer</h2>
+<p>Obviously you don’t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
+<h2 id="grunt-timer">grunt-timer</h2>
 <p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2>Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it‘s a little hacky the way I’ve done it using hooks and the time isn&#39;t 100% accurate.</p>
+<h2 id="Shouldn-2019-t_this_be_part_of_Grunt-3f-">Shouldn’t this be part of Grunt?</h2>
+<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2>How do I use it?</h2>
+<h2 id="How_do_I_use_it-3f-">How do I use it?</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-timer <span class="comment">## --save</span>
+2
+</pre></td><td class="code"><pre>
+<span class="comment">npm</span> <span class="comment">install</span> <span class="comment">grunt</span><span class="literal">-</span><span class="comment">timer</span> <span class="comment">##</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span>
 </pre></td></tr></table></figure>
 
 
 <p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
+2
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
 </pre></td></tr></table></figure>
 
 
 <p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+3
+</pre></td><td class="code"><pre>
+module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt);
 </pre></td></tr></table></figure>
 
 
-<h2>Example output</h2>
+<h2 id="Example_output">Example output</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="title">Running</span> <span class="string">"run:500"</span> (run) task
-<span class="number">500ms</span> task ran
-Task <span class="string">'run:500'</span> took <span class="number">502ms</span>
+4
+</pre></td><td class="code"><pre>
+Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span>
+<span class="number">500</span>ms <span class="keyword">task</span> ran
+Task <span class="string">'run:500'</span> took <span class="number">502</span>ms
 </pre></td></tr></table></figure>
 
 
-<h2>Issues</h2>
-<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
+<h2 id="Issues">Issues</h2>
+<p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
 <ul>
 <li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
+<li>Tasks that wrap multi-tasks are currently output (shouldn’t be, or if they are, should be a summary of all the multitasks).</li>
 </ul>
 <p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
 

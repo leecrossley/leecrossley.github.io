@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,15 +64,17 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Express JS</h2>
+        <h2 id="Express_JS">Express JS</h2>
 <p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="http://nodejs.org/" target="_blank">node</a> apps.</p>
-<p>I‘m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
-<h2>Getting server data with Cordova</h2>
-<p>It‘s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<p>I’m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<h2 id="Getting_server_data_with_Cordova">Getting server data with Cordova</h2>
+<p>It’s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
 <figure class="highlight lang-xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
+4
+</pre></td><td class="code"><pre>
+<span class="tag">&lt;<span class="title">widget</span>&gt;</span>
     <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
 <span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
 </pre></td></tr></table></figure>
@@ -72,7 +86,9 @@
 3
 4
 5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+6
+</pre></td><td class="code"><pre>
+app.get(<span class="string">"/test"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
     res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
     res.write(JSON.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
     res.end();
@@ -82,28 +98,32 @@
 
 <p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
 <p>The issue is, I do my initial app development in Chrome…</p>
-<h2>JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can‘t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
-<h3>Setting up express</h3>
+<h2 id="JSONP_to_the_rescue">JSONP to the rescue</h2>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can’t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<h3 id="Setting_up_express">Setting up express</h3>
 <p>When configuring express, you need to set an additional property:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
+2
+</pre></td><td class="code"><pre>
+app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
 </pre></td></tr></table></figure>
 
 
-<h3>In your route code</h3>
+<h3 id="In_your_route_code">In your route code</h3>
 <p>Things get simplier:</p>
 <figure class="highlight lang-javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="keyword">function</span>(req, res){
+4
+</pre></td><td class="code"><pre>
+app.get(<span class="string">"/test"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
     res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
 });
 </pre></td></tr></table></figure>
 
 
-<p>That‘s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn‘t hard was it? Shame they don’t make it this obvious in the documentation.</p>
+<p>That’s it, you’re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn’t hard was it? Shame they don’t make it this obvious in the documentation.</p>
 <p>Go and make yourself a coffee, you deserve it.</p>
 
       

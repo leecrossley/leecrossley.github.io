@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,30 +64,30 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>Leaderboards</h2>
-<p>I&#39;ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
-<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they&#39;ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
+        <h2 id="Leaderboards">Leaderboards</h2>
+<p>I’ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
+<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they’ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
 <p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank">these basics</a>.</p>
 <p><img src="/img/phonegap-game-center.png" alt="PhoneGap iOS Game Center"></p>
-<h2>My Game Center plugin</h2>
-<p>A game center plugin didn&#39;t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
-<h3>Install via the CLI</h3>
+<h2 id="My_Game_Center_plugin">My Game Center plugin</h2>
+<p>A game center plugin didn’t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
+<h3 id="Install_via_the_CLI">Install via the CLI</h3>
 <p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git
 </pre></td></tr></table></figure>
 
-<h2>Basic usage</h2>
-<h3>Auth</h3>
-<p>It‘s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won&#39;t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
+<h2 id="Basic_usage">Basic usage</h2>
+<h3 id="Auth">Auth</h3>
+<p>It’s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won’t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
 </pre></td></tr></table></figure>
 
-<p>If there&#39;s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
+<p>If there’s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
 <p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
-<h3>Leaderboard</h3>
-<h4>Submitting a score</h4>
+<h3 id="Leaderboard">Leaderboard</h3>
+<h4 id="Submitting_a_score">Submitting a score</h4>
 <p>Ensure the user has been (successfully) authenticated and the leaderboard(s) have been configured in iTunes connect (use the leaderboard identifier assigned there as the leaderboardId).</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -89,8 +101,8 @@
 gamecenter.submitScore(onSuccess, onError, scoreData);
 </pre></td></tr></table></figure>
 
-<h4>Showing the native leaderboard</h4>
-<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there&#39;s no need to do any additional coding or user interface development to display a leaderboard.</p>
+<h4 id="Showing_the_native_leaderboard">Showing the native leaderboard</h4>
+<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there’s no need to do any additional coding or user interface development to display a leaderboard.</p>
 <p>The period options are “today”, “week” or “all”.</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -104,10 +116,10 @@ gamecenter.submitScore(onSuccess, onError, scoreData);
 gamecenter.showLeaderboard(onSuccess, onError, criteria);
 </pre></td></tr></table></figure>
 
-<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there&#39;s an issue and handle it.</p>
-<h3>iOS version support</h3>
-<p>I&#39;ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
-<h2>Source code</h2>
+<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there’s an issue and handle it.</p>
+<h3 id="iOS_version_support">iOS version support</h3>
+<p>I’ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
+<h2 id="Source_code">Source code</h2>
 <p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">on github</a>. Please log issues (ideally with pull requests ☺) on there.</p>
 <p>The plugin has had a huge uptake already with 11 repo stars within 8 hours of pushing the code!</p>
 

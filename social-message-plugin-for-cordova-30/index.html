@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,20 +64,20 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>The old Social Message plugin</h2>
+        <h2 id="The_old_Social_Message_plugin">The old Social Message plugin</h2>
 <p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
-<p>The plugin bridged functionality between PhoneGap / Cordova‘s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
-<h2>New plugin architecture</h2>
-<p>If you‘re a developer for PhoneGap / Cordova, you’ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
-<p>I&#39;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
-<h2>Usage</h2>
-<h3>1 step install</h3>
+<p>The plugin bridged functionality between PhoneGap / Cordova’s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
+<h2 id="New_plugin_architecture">New plugin architecture</h2>
+<p>If you’re a developer for PhoneGap / Cordova, you’ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
+<p>I’m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
+<h2 id="Usage">Usage</h2>
+<h3 id="1_step_install">1 step install</h3>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git
 </pre></td></tr></table></figure>
 
-<p><strong>Way-hey!</strong> That&#39;s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
-<h3>In your JavaScript</h3>
+<p><strong>Way-hey!</strong> That’s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
+<h3 id="In_your_JavaScript">In your JavaScript</h3>
 <p>After your deviceready event has been fired, you can simply pass a message object with a “text” property to the send function:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -92,10 +104,10 @@ window.socialmessage.send(message);
 
 <p>This example will allow the user to only post the message to Facebook or Twitter.</p>
 <p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank">here</a>. You should omit the “UIActivityType” prefix when adding to your array.</p>
-<h2>Platform support</h2>
-<p>The plugin is currently only implemented for iOS but I&#39;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
-<h2>Just a thought…</h2>
-<p>Wouldn&#39;t it be great if there was some kind of plugin registry like node package manager… <em><a href="http://www.plugreg.com" target="_blank">cough</a></em></p>
+<h2 id="Platform_support">Platform support</h2>
+<p>The plugin is currently only implemented for iOS but I’m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
+<h2 id="Just_a_thought-2026-">Just a thought…</h2>
+<p>Wouldn’t it be great if there was some kind of plugin registry like node package manager… <em><a href="http://www.plugreg.com" target="_blank">cough</a></em></p>
 
       
     </div>

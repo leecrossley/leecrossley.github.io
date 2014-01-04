@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,10 +64,10 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>The swipe gesture</h2>
-<p>It‘s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
-<h2>The solution</h2>
-<p>After testing <em>many solutions</em>, here‘s what I came up with (and I think it’s the optimum solution). I&#39;m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it‘s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
+        <h2 id="The_swipe_gesture">The swipe gesture</h2>
+<p>It’s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
+<h2 id="The_solution">The solution</h2>
+<p>After testing <em>many solutions</em>, here’s what I came up with (and I think it’s the optimum solution). I’m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it’s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -72,7 +84,7 @@
 $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);
 </pre></td></tr></table></figure>
 
-<p>Essentially, I&#39;m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it&#39;s written for you. </p>
+<p>Essentially, I’m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it’s written for you. </p>
 <p>This code is about 10 times smaller than my first attempt and works 10 times faster. <code>document.elementFromPoint</code> is a very effective way to return the topmost element which lies under a given point.</p>
 <p>Hammer got it wrong, you <strong>can</strong> touch this.</p>
 

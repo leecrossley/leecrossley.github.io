@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-01-03T09:29:19.548Z</updated>
+  <updated>2014-01-04T14:07:11.447Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -16,17 +16,17 @@
     <id>http://ilee.co.uk/mobile-ux-to-impact-seo/</id>
     <published>2014-01-03T08:25:40.000Z</published>
     <updated>2014-01-03T09:29:16.000Z</updated>
-    <content type="html"><![CDATA[<h2>Optimise for mobile</h2>
+    <content type="html"><![CDATA[<h2 id="Optimise_for_mobile">Optimise for mobile</h2>
 <p>With huge numbers of internet users using mobiles and tablet devices to browse the web, it’s more important than ever to optimise your website for these devices.</p>
-<h3>Creating a mobile website is not enough</h3>
-<p>If you truly want to engage users on mobile devices, you&#39;ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
-<h2>What exactly is <em>UX</em>?</h2>
+<h3 id="Creating_a_mobile_website_is_not_enough">Creating a mobile website is not enough</h3>
+<p>If you truly want to engage users on mobile devices, you’ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
+<h2 id="What_exactly_is_-3c-em-3e-UX-3c-2f-em-3e-3f-">What exactly is <em>UX</em>?</h2>
 <p>UX stands for <strong>U</strong>ser e<strong>X</strong>perience, which is the comprehensive experience of a user interacting with a product (in this case a website and more specifically, a website on mobile devices). It encompasses factors such as ease-of-use and user gratification.</p>
-<h3>UX is hard</h3>
-<p>There&#39;s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
-<h2>Why UX?</h2>
-<p>It‘s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
-<h2>PageSpeed insights</h2>
+<h3 id="UX_is_hard">UX is hard</h3>
+<p>There’s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
+<h2 id="Why_UX-3f-">Why UX?</h2>
+<p>It’s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
+<h2 id="PageSpeed_insights">PageSpeed insights</h2>
 <p>The <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">PageSpeed Insights</a> tool is now reporting mobile user experience, in addition to page speed. This is a great place to start to give you instant feedback on some tangible metrics. The tool currently analyses:</p>
 <ul>
 <li>Use of plugins</li>
@@ -45,16 +45,16 @@
 8
 </pre></td><td class="code"><pre><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600</span>px) </span>{
   <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block;</span></span>
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px;</span></span>
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span>;</span></span>
-    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px;</span></span>
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px</span></span>;
+    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px</span></span>;
   <span class="rule">}</span></span>
 }
 </pre></td></tr></table></figure>
 
-<h2>That&#39;s not the end</h2>
-<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it&#39;s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
+<h2 id="That-2019-s_not_the_end">That’s not the end</h2>
+<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it’s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
 <p>If you have the luxury of a starting your mobile website from scratch or a rewrite, consider user experience right from the outset and get users involved in the process as early as possible.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
@@ -68,23 +68,23 @@
     <id>http://ilee.co.uk/learn-nodejs-in-2014/</id>
     <published>2014-01-02T09:41:26.000Z</published>
     <updated>2014-01-02T10:13:51.000Z</updated>
-    <content type="html"><![CDATA[<h2>The year of the node</h2>
-<p>If you haven&#39;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I&#39;ve put together a super quick start guide to kick you off.</p>
+    <content type="html"><![CDATA[<h2 id="The_year_of_the_node">The year of the node</h2>
+<p>If you haven’t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I’ve put together a super quick start guide to kick you off.</p>
 <p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
-<h2>Super quick start</h2>
-<h3>Install</h3>
+<h2 id="Super_quick_start">Super quick start</h2>
+<h3 id="Install">Install</h3>
 <p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
-<h3>Create</h3>
+<h3 id="Create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre>$ mkdir nodeapp
-$ cd nodeapp
+$ <span class="built_in">cd</span> nodeapp
 $ touch app.js
 </pre></td></tr></table></figure>
 
-<h3>Code</h3>
+<h3 id="Code">Code</h3>
 <p>In your newly created JavaScript file, add the following code:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -94,21 +94,21 @@ $ touch app.js
 6
 </pre></td><td class="code"><pre><span class="keyword">var</span> http = require(<span class="string">"http"</span>);
 
-http.createServer(<span class="keyword">function</span>(req, res) {
+http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
     res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
     res.end(<span class="string">"I know node.js!"</span>);
 }).listen(<span class="number">4000</span>);
 </pre></td></tr></table></figure>
 
-<h3>Run</h3>
-<p>Ensure you&#39;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
+<h3 id="Run">Run</h3>
+<p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ node app
 </pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
-<h2>Packages</h2>
-<p>You‘ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
+<h2 id="Packages">Packages</h2>
+<p>You’ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
 <p>Happy new year!</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
@@ -119,36 +119,36 @@ http.createServer(<span class="keyword">function</span>(req, res) {
     <id>http://ilee.co.uk/using-npm-in-europe/</id>
     <published>2013-12-20T07:37:13.000Z</published>
     <updated>2013-12-20T08:12:23.000Z</updated>
-    <content type="html"><![CDATA[<h2>Protip</h2>
+    <content type="html"><![CDATA[<h2 id="Protip">Protip</h2>
 <p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
 <p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
 </pre></td></tr></table></figure>
 
-<h2>How much faster?</h2>
-<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it&#39;s faster.</p>
-<h3>Quick test</h3>
-<p>Let&#39;s pick a package with a few dependencies, <code>grunt</code>.</p>
-<p>First, let&#39;s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
-<h3>Timing</h3>
-<p>How do we actually go about timing an <code>npm install</code>? Well, there&#39;s a basic command called <code>time</code> that&#39;s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
-<p>Let&#39;s give it a go:</p>
+<h2 id="How_much_faster-3f-">How much faster?</h2>
+<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
+<h3 id="Quick_test">Quick test</h3>
+<p>Let’s pick a package with a few dependencies, <code>grunt</code>.</p>
+<p>First, let’s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
+<h3 id="Timing">Timing</h3>
+<p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
+<p>Let’s give it a go:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt
 <span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
 </pre></td></tr></table></figure>
 
-<p>Now let&#39;s clear the cache again and try the European mirror:</p>
+<p>Now let’s clear the cache again and try the European mirror:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt --registry http://registry.npmjs.eu
 <span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
 </pre></td></tr></table></figure>
 
-<p>21.573s vs 11.799s means it&#39;s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
-<p>Damn, now I don&#39;t have long enough to make a coffee.</p>
+<p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
+<p>Damn, now I don’t have long enough to make a coffee.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -158,28 +158,28 @@ http.createServer(<span class="keyword">function</span>(req, res) {
     <id>http://ilee.co.uk/list-node-packages-wo-dependencies/</id>
     <published>2013-12-18T13:18:02.000Z</published>
     <updated>2013-12-18T14:11:27.000Z</updated>
-    <content type="html"><![CDATA[<h2>npm list</h2>
+    <content type="html"><![CDATA[<h2 id="npm_list">npm list</h2>
 <p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies…). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
-<h3>Added depth</h3>
-<p>Turns out there‘s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank">documentation for npm ls</a>.</p>
+<h3 id="Added_depth">Added depth</h3>
+<p>Turns out there’s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank">documentation for npm ls</a>.</p>
 <p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npm ls --depth=0
+</pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span>
 </pre></td></tr></table></figure>
 
-<h3>Go global</h3>
+<h3 id="Go_global">Go global</h3>
 <p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
-<h2>I&#39;m getting errors!</h2>
-<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. &quot;npm ERR! max depth reached&quot; among others), although there was nothing really wrong.</p>
+<h2 id="I-2019-m_getting_errors-21-">I’m getting errors!</h2>
+<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. “npm ERR! max depth reached” among others), although there was nothing really wrong.</p>
 <p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
-<h2>The complete command</h2>
+<h2 id="The_complete_command">The complete command</h2>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npm ls --depth=0 <span class="string">"$@"</span> 2&gt;/dev/null
+</pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null
 </pre></td></tr></table></figure>
 
-<p>If you don‘t want to type this out all the time (I certainly don’t), you can alias it up:</p>
+<p>If you don’t want to type this out all the time (I certainly don’t), you can alias it up:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span>$@<span class="string">" 2&gt;/dev/null"</span>
+</pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span>
 </pre></td></tr></table></figure>
 
 <p>Then usage is as simple as:</p>
@@ -197,25 +197,25 @@ http.createServer(<span class="keyword">function</span>(req, res) {
     <published>2013-12-16T07:11:57.000Z</published>
     <updated>2013-12-19T09:37:47.000Z</updated>
     <content type="html"><![CDATA[<p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
-<h2>Stop the press!</h2>
+<h2 id="Stop_the_press-21-">Stop the press!</h2>
 <p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
 <p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
-<p><strong>I&#39;ve turned page transitions around</strong> (poor pun, I know).</p>
+<p><strong>I’ve turned page transitions around</strong> (poor pun, I know).</p>
 <p><img src="/img/transition.png" alt="Page transition"></p>
-<h2>Video demo</h2>
+<h2 id="Video_demo">Video demo</h2>
 <p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
-<h2>Down to business</h2>
-<p>If you‘re a Cordova / PhoneGap developer, I’m sure you‘re already desperate to get started, so I’ll cut to the chase.</p>
-<h3>Install</h3>
+<h2 id="Down_to_business">Down to business</h2>
+<p>If you’re a Cordova / PhoneGap developer, I’m sure you’re already desperate to get started, so I’ll cut to the chase.</p>
+<h3 id="Install">Install</h3>
 <p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">Github</a>.</p>
-<p>Assuming you&#39;re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
+<p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
 </pre></td></tr></table></figure>
 
 <p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
-<h2>Transitions</h2>
-<h3>Flip</h3>
+<h2 id="Transitions">Transitions</h2>
+<h3 id="Flip">Flip</h3>
 <p>Flip page transition, with support for flipping left or right:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -225,7 +225,7 @@ http.createServer(<span class="keyword">function</span>(req, res) {
 nativetransitions.flip(duration, direction, onComplete);
 </pre></td></tr></table></figure>
 
-<h3>Curl</h3>
+<h3 id="Curl">Curl</h3>
 <p>Curl page transition, with support for flipping curling up or down:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -235,7 +235,7 @@ nativetransitions.flip(duration, direction, onComplete);
 nativetransitions.curl(duration, direction, onComplete);
 </pre></td></tr></table></figure>
 
-<h3>Fade</h3>
+<h3 id="Fade">Fade</h3>
 <p>A simple fade page transition:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -243,21 +243,21 @@ nativetransitions.curl(duration, direction, onComplete);
 nativetransitions.fade(duration, onComplete);
 </pre></td></tr></table></figure>
 
-<h2>Example</h2>
-<p>Here&#39;s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
+<h2 id="Example">Example</h2>
+<p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>setTimeout(<span class="keyword">function</span>() {
+</pre></td><td class="code"><pre>setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="comment">// Change your html here</span>
 }, <span class="number">50</span>);
 nativetransitions.flip(duration, direction);
 </pre></td></tr></table></figure>
 
-<h2>More transitions?</h2>
-<p>If you‘d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I&#39;ll see if I can implement it for you.</p>
-<p><strong>This is pretty flippin&#39; amazing stuff</strong> (OK, I&#39;ll stop now).</p>
+<h2 id="More_transitions-3f-">More transitions?</h2>
+<p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
+<p><strong>This is pretty flippin’ amazing stuff</strong> (OK, I’ll stop now).</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
@@ -270,12 +270,12 @@ nativetransitions.flip(duration, direction);
     <id>http://ilee.co.uk/looping-audio-with-phonegap/</id>
     <published>2013-12-06T10:05:49.000Z</published>
     <updated>2013-12-06T10:47:47.000Z</updated>
-    <content type="html"><![CDATA[<h2>Playing media on repeat</h2>
-<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I‘m using it in the game I’m writing.</p>
-<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
-<h3>iOS</h3>
-<p>There&#39;s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
-<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
+    <content type="html"><![CDATA[<h2 id="Playing_media_on_repeat">Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I’m using it in the game I’m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don’t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3 id="iOS">iOS</h3>
+<p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
 
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -283,9 +283,9 @@ nativetransitions.flip(duration, direction);
 myMedia.play({ numberOfLoops: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
-<p>It‘s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
-<h3>Android</h3>
-<p>Here‘s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
+<h3 id="Android">Android</h3>
+<p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -308,7 +308,7 @@ myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my
 myMedia.play();
 </pre></td></tr></table></figure>
 
-<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
+<p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
@@ -322,38 +322,44 @@ myMedia.play();
     <id>http://ilee.co.uk/pause-between-grunt-tasks/</id>
     <published>2013-12-03T08:44:40.000Z</published>
     <updated>2013-12-03T09:11:28.000Z</updated>
-    <content type="html"><![CDATA[<h2>Pause for debugging</h2>
+    <content type="html"><![CDATA[<h2 id="Pause_for_debugging">Pause for debugging</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
 <p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
-<h2>grunt-pause</h2>
-<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
-<h2>Grunt core</h2>
+<h2 id="grunt-pause">grunt-pause</h2>
+<p>I’ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, “<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>“. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2 id="Grunt_core">Grunt core</h2>
 <p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
-<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
-<h2>Usage</h2>
+<p>If this package gets used, I’ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2 id="Usage">Usage</h2>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install grunt-pause <span class="comment">## --save-dev</span>
+2
+</pre></td><td class="code"><pre>
+<span class="comment">npm</span> <span class="comment">install</span> <span class="comment">grunt</span><span class="literal">-</span><span class="comment">pause</span> <span class="comment">##</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span><span class="literal">-</span><span class="comment">dev</span>
 </pre></td></tr></table></figure>
 
 
 <p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
+2
+</pre></td><td class="code"><pre>
+<span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
 </pre></td></tr></table></figure>
 
 
 <p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+3
+</pre></td><td class="code"><pre>
+module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     pause.init(grunt);
 </pre></td></tr></table></figure>
 
 
-<h2>Sample output</h2>
+<h2 id="Sample_output">Sample output</h2>
 <p>Sample screenshot of the console output:</p>
 <p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
-<h2>Improvements?</h2>
+<h2 id="Improvements-3f-">Improvements?</h2>
 <p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
 <p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
 ]]></content>
@@ -365,9 +371,9 @@ myMedia.play();
     <id>http://ilee.co.uk/plugreg-v07-is-now-live/</id>
     <published>2013-12-02T11:24:44.000Z</published>
     <updated>2013-12-02T11:46:16.000Z</updated>
-    <content type="html"><![CDATA[<h2>What&#39;s new</h2>
-<p>It&#39;s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank">@plugreg on twitter</a>.</p>
-<h3>Features</h3>
+    <content type="html"><![CDATA[<h2 id="What-2019-s_new">What’s new</h2>
+<p>It’s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank">@plugreg on twitter</a>.</p>
+<h3 id="Features">Features</h3>
 <p>Here are some of the new features that have been implemented for v0.7:</p>
 <ul>
 <li><strong>Plugin details</strong>. New design and more info has been added:<ul>
@@ -392,14 +398,14 @@ myMedia.play();
 <li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
 <li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
 </ul>
-<h3>Refresh</h3>
+<h3 id="Refresh">Refresh</h3>
 <p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
-<h3>API</h3>
-<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you&#39;d like to use it.</p>
-<h3>Bugs</h3>
+<h3 id="API">API</h3>
+<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you’d like to use it.</p>
+<h3 id="Bugs">Bugs</h3>
 <p>There are also many, many bug fixes.</p>
-<h2>Future updates</h2>
-<p>Further updates are on the way shortly. If you&#39;d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank">@plugreg</a></p>
+<h2 id="Future_updates">Future updates</h2>
+<p>Further updates are on the way shortly. If you’d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank">@plugreg</a></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
@@ -412,16 +418,16 @@ myMedia.play();
     <id>http://ilee.co.uk/npm-cardiac-arrest/</id>
     <published>2013-11-28T09:57:53.000Z</published>
     <updated>2013-11-28T10:30:56.000Z</updated>
-    <content type="html"><![CDATA[<h2>It&#39;s happening again</h2>
-<h3>Beep, beep, beeeeeeep</h3>
-<p>The node package manager &quot;<a href="https://npmjs.org/" target="_blank">npm</a>&quot; is once again grinding to a halt. A <a href="http://blog.nodejs.org/2013/11/26/npm-post-mortem/" target="_blank">post-mortem</a> was published on the official nodejs blog after the recent downtime (November 4th / November 15th 2013), but it&#39;s problems are far from resolved (as demonstrated today).</p>
+    <content type="html"><![CDATA[<h2 id="It-2019-s_happening_again">It’s happening again</h2>
+<h3 id="Beep-2c-_beep-2c-_beeeeeeep">Beep, beep, beeeeeeep</h3>
+<p>The node package manager “<a href="https://npmjs.org/" target="_blank">npm</a>“ is once again grinding to a halt. A <a href="http://blog.nodejs.org/2013/11/26/npm-post-mortem/" target="_blank">post-mortem</a> was published on the official nodejs blog after the recent downtime (November 4th / November 15th 2013), but it’s problems are far from resolved (as demonstrated today).</p>
 <p><img src="/img/npm-beat.png" alt="npm Cardiac Arrest"></p>
-<h2>Keep it beating, keep it awesome</h2>
+<h2 id="Keep_it_beating-2c-_keep_it_awesome">Keep it beating, keep it awesome</h2>
 <p>With no other alternative, npm is fundamental to node. More infrastructure is needed to continue to operate the npm registry (multi-master approach and <strong>throw hardware and people at it</strong>).</p>
 <p>In my personal opinion (and I know others echo this sentiment) there also needs to be a change to the way npm handles its dependencies. When currently installing a package, half of the registry is downloaded with it. There are ideas, such as materialising a vector of [package, version] -&gt; hash, but this is exceptionally tricky.</p>
 <p>The npm registry has served over 150 million requests and 33 million package downloads in the last week. This is 10 times as many requests and downloads as this time last year, with all signs pointing to further exponential growth.</p>
-<h2>Donate</h2>
-<p><strong>I&#39;ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you‘re a developer that’s ever used npm, <a href="https://scalenpm.org/" target="_blank">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
+<h2 id="Donate">Donate</h2>
+<p><strong>I’ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you’re a developer that’s ever used npm, <a href="https://scalenpm.org/" target="_blank">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
 <p><img src="/img/npm-thanks.png" alt="Thanks"></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
@@ -432,19 +438,19 @@ myMedia.play();
     <id>http://ilee.co.uk/nesting-ugly-anonymous-functions/</id>
     <published>2013-11-27T12:57:36.000Z</published>
     <updated>2013-11-27T13:49:36.000Z</updated>
-    <content type="html"><![CDATA[<h2>We all do it</h2>
-<p>If you‘re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you&#39;ll have written code like this many times:</p>
+    <content type="html"><![CDATA[<h2 id="We_all_do_it">We all do it</h2>
+<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="keyword">function</span>() {
+</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="comment">// handler code ...</span>
     alert(<span class="string">"document clicked and fired ugly nested function"</span>);
 });
 </pre></td></tr></table></figure>
 
-<p>You might be thinking <strong>what&#39;s wrong with that</strong>, but I hope you&#39;re thinking <strong>I‘m better than that, I’d do something like this</strong>:</p>
+<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -459,10 +465,10 @@ myMedia.play();
 document.addEventListener(<span class="string">"click"</span>, doStuff);
 </pre></td></tr></table></figure>
 
-<p><strong>Great</strong>. What do you do if the alert text is dynamic? I&#39;ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn&#39;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
-<h2>The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke, it&#39;s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#39;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
+<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
+<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
+<h2 id="The_right_frame_of_-3c-em-3e-bind-3c-2f-em-3e-">The right frame of <em>bind</em></h2>
+<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -478,8 +484,8 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
 </pre></td></tr></table></figure>
 
 <p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
-<h2>A good <em>curry</em></h2>
-<p>You can&#39;t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
+<h2 id="A_good_-3c-em-3e-curry-3c-2f-em-3e-">A good <em>curry</em></h2>
+<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -489,10 +495,10 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
     <id>http://ilee.co.uk/grouping-consolelog()-output/</id>
     <published>2013-11-21T09:21:52.000Z</published>
     <updated>2013-11-21T11:44:32.000Z</updated>
-    <content type="html"><![CDATA[<h2>console.log()</h2>
-<p>If you‘ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
-<h2>The problem</h2>
-<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#39;re looking for, to help identify it! e.g.</p>
+    <content type="html"><![CDATA[<h2 id="console-log-28-29-">console.log()</h2>
+<p>If you’ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<h2 id="The_problem">The problem</h2>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you’re looking for, to help identify it! e.g.</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -503,8 +509,8 @@ console.log(info2);
 console.log(<span class="string">"MY GROUP END"</span>);
 </pre></td></tr></table></figure>
 
-<h2>The solution</h2>
-<h3>console.group()</h3>
+<h2 id="The_solution">The solution</h2>
+<h3 id="console-group-28-29-">console.group()</h3>
 <p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -514,7 +520,7 @@ console.log(info1);
 console.log(info2);
 </pre></td></tr></table></figure>
 
-<h3>console.groupEnd()</h3>
+<h3 id="console-groupEnd-28-29-">console.groupEnd()</h3>
 <p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -526,7 +532,7 @@ console.log(info2);
 console.groupEnd();
 </pre></td></tr></table></figure>
 
-<h3>console.groupCollapsed()</h3>
+<h3 id="console-groupCollapsed-28-29-">console.groupCollapsed()</h3>
 <p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -538,9 +544,9 @@ console.log(info2);
 console.groupEnd();
 </pre></td></tr></table></figure>
 
-<h2>Objects and arrays</h2>
-<h3>console.table()</h3>
-<p>If you‘re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
+<h2 id="Objects_and_arrays">Objects and arrays</h2>
+<h3 id="console-table-28-29-">console.table()</h3>
+<p>If you’re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -567,10 +573,10 @@ console.groupEnd();
     <id>http://ilee.co.uk/multiple-element-swipe-gesture/</id>
     <published>2013-11-17T20:39:35.000Z</published>
     <updated>2013-11-17T21:15:06.000Z</updated>
-    <content type="html"><![CDATA[<h2>The swipe gesture</h2>
-<p>It‘s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
-<h2>The solution</h2>
-<p>After testing <em>many solutions</em>, here‘s what I came up with (and I think it’s the optimum solution). I&#39;m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it‘s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
+    <content type="html"><![CDATA[<h2 id="The_swipe_gesture">The swipe gesture</h2>
+<p>It’s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
+<h2 id="The_solution">The solution</h2>
+<p>After testing <em>many solutions</em>, here’s what I came up with (and I think it’s the optimum solution). I’m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it’s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -587,7 +593,7 @@ console.groupEnd();
 $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);
 </pre></td></tr></table></figure>
 
-<p>Essentially, I&#39;m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it&#39;s written for you. </p>
+<p>Essentially, I’m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it’s written for you. </p>
 <p>This code is about 10 times smaller than my first attempt and works 10 times faster. <code>document.elementFromPoint</code> is a very effective way to return the topmost element which lies under a given point.</p>
 <p>Hammer got it wrong, you <strong>can</strong> touch this.</p>
 ]]></content>
@@ -602,30 +608,30 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
     <id>http://ilee.co.uk/using-game-center-with-phonegap/</id>
     <published>2013-11-15T07:36:07.000Z</published>
     <updated>2013-11-15T09:16:05.000Z</updated>
-    <content type="html"><![CDATA[<h2>Leaderboards</h2>
-<p>I&#39;ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
-<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they&#39;ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
+    <content type="html"><![CDATA[<h2 id="Leaderboards">Leaderboards</h2>
+<p>I’ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
+<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they’ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
 <p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank">these basics</a>.</p>
 <p><img src="/img/phonegap-game-center.png" alt="PhoneGap iOS Game Center"></p>
-<h2>My Game Center plugin</h2>
-<p>A game center plugin didn&#39;t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
-<h3>Install via the CLI</h3>
+<h2 id="My_Game_Center_plugin">My Game Center plugin</h2>
+<p>A game center plugin didn’t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
+<h3 id="Install_via_the_CLI">Install via the CLI</h3>
 <p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git
 </pre></td></tr></table></figure>
 
-<h2>Basic usage</h2>
-<h3>Auth</h3>
-<p>It‘s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won&#39;t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
+<h2 id="Basic_usage">Basic usage</h2>
+<h3 id="Auth">Auth</h3>
+<p>It’s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won’t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
 </pre></td></tr></table></figure>
 
-<p>If there&#39;s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
+<p>If there’s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
 <p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
-<h3>Leaderboard</h3>
-<h4>Submitting a score</h4>
+<h3 id="Leaderboard">Leaderboard</h3>
+<h4 id="Submitting_a_score">Submitting a score</h4>
 <p>Ensure the user has been (successfully) authenticated and the leaderboard(s) have been configured in iTunes connect (use the leaderboard identifier assigned there as the leaderboardId).</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -639,8 +645,8 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 gamecenter.submitScore(onSuccess, onError, scoreData);
 </pre></td></tr></table></figure>
 
-<h4>Showing the native leaderboard</h4>
-<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there&#39;s no need to do any additional coding or user interface development to display a leaderboard.</p>
+<h4 id="Showing_the_native_leaderboard">Showing the native leaderboard</h4>
+<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there’s no need to do any additional coding or user interface development to display a leaderboard.</p>
 <p>The period options are “today”, “week” or “all”.</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -654,10 +660,10 @@ gamecenter.submitScore(onSuccess, onError, scoreData);
 gamecenter.showLeaderboard(onSuccess, onError, criteria);
 </pre></td></tr></table></figure>
 
-<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there&#39;s an issue and handle it.</p>
-<h3>iOS version support</h3>
-<p>I&#39;ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
-<h2>Source code</h2>
+<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there’s an issue and handle it.</p>
+<h3 id="iOS_version_support">iOS version support</h3>
+<p>I’ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
+<h2 id="Source_code">Source code</h2>
 <p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">on github</a>. Please log issues (ideally with pull requests ☺) on there.</p>
 <p>The plugin has had a huge uptake already with 11 repo stars within 8 hours of pushing the code!</p>
 ]]></content>
@@ -671,25 +677,25 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
     <id>http://ilee.co.uk/phonegap-plays-sound-on-mute/</id>
     <published>2013-11-14T07:56:56.000Z</published>
     <updated>2013-11-14T08:50:42.000Z</updated>
-    <content type="html"><![CDATA[<h2>The Cordova / PhoneGap media plugin</h2>
-<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
-<h2>Working in 60 seconds, but…</h2>
+    <content type="html"><![CDATA[<h2 id="The_Cordova_-2f-_PhoneGap_media_plugin">The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there’s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
+<h2 id="Working_in_60_seconds-2c-_but-2026-">Working in 60 seconds, but…</h2>
 <p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
 <p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
 <p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
-<h2><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
-<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
-<h2>The solution</h2>
-<p>My initial instinct was to query the state of the mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
-<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
-<h2>Full example</h2>
-<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
-<h3>Install the media plugin</h3>
+<h2 id="-3c-a_href-3d-22-http-3a-2f-2f-youtu-be-2f-9Hp44eaK8Lc-3f-t-3d-44s-22-3e-Why_Why_Why-3c-2f-a-3e-"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn’t open (screen is locked).</p>
+<h2 id="The_solution">The solution</h2>
+<p>My initial instinct was to query the state of the mute switch, but I really didn’t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that’s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2 id="Full_example">Full example</h2>
+<p>Here’s the code you need to play audio that obeys the mute switch:</p>
+<h3 id="Install_the_media_plugin">Install the media plugin</h3>
 <figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
 </pre></td></tr></table></figure>
 
-<h3>In your JavaScript</h3>
+<h3 id="In_your_JavaScript">In your JavaScript</h3>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -713,11 +719,11 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
     <id>http://ilee.co.uk/get-adjacent-squares-on-a-grid/</id>
     <published>2013-11-12T09:25:32.000Z</published>
     <updated>2013-11-12T10:32:24.000Z</updated>
-    <content type="html"><![CDATA[<h2>I&#39;m writing a game!</h2>
-<p>That‘s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I‘ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
-<h2>A list of adjacent squares</h2>
-<h3>The grid</h3>
-<p>Let‘s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
+    <content type="html"><![CDATA[<h2 id="I-2019-m_writing_a_game-21-">I’m writing a game!</h2>
+<p>That’s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I’ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
+<h2 id="A_list_of_adjacent_squares">A list of adjacent squares</h2>
+<h3 id="The_grid">The grid</h3>
+<p>Let’s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -732,9 +738,9 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 ..    ..    ..    ..    ..    ..
 </pre></td></tr></table></figure>
 
-<p>This is actually a two dimensional array, which in reality is just an array of arrays. It‘s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
-<h3>Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#39;s pretty simple with this system:</p>
+<p>This is actually a two dimensional array, which in reality is just an array of arrays. It’s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it’ll just overcomplicate things.</p>
+<h3 id="Get_adjacent_squares">Get adjacent squares</h3>
+<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it’s pretty simple with this system:</p>
 <ul>
 <li>Take one from the x co-ordinate [x-1,y]</li>
 <li>Add one to the x co-ordinate [x+1,y]</li>
@@ -746,7 +752,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 </pre></td></tr></table></figure>
 
 <p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
-<h3>Off the grid!</h3>
+<h3 id="Off_the_grid-21-">Off the grid!</h3>
 <p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
 <ul>
 <li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
@@ -756,7 +762,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 </pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
 </pre></td></tr></table></figure>
 
-<h2>The solution</h2>
+<h2 id="The_solution">The solution</h2>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -791,14 +797,14 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 }
 </pre></td></tr></table></figure>
 
-<p>I&#39;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
+<p>I’ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
 getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
 </pre></td></tr></table></figure>
 
-<p>Hopefully you‘re also now interested in what on earth I’m writing :)</p>
+<p>Hopefully you’re also now interested in what on earth I’m writing :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -808,31 +814,31 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
     <id>http://ilee.co.uk/pogoscript-plugin-for-grunt/</id>
     <published>2013-11-07T11:45:23.000Z</published>
     <updated>2013-11-07T12:35:54.000Z</updated>
-    <content type="html"><![CDATA[<h2>PogoScript</h2>
+    <content type="html"><![CDATA[<h2 id="PogoScript">PogoScript</h2>
 <blockquote>
 <p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
 </blockquote>
-<p>It&#39;s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
-<h2>A… transpiler… you?</h2>
-<p>Those who know me will know <strong>I&#39;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#39;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
-<h2>Automation</h2>
-<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don&#39;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
-<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#39;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
-<h2>Using grunt-pogo</h2>
+<p>It’s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
+<h2 id="A-2026-_transpiler-2026-_you-3f-">A… transpiler… you?</h2>
+<p>Those who know me will know <strong>I’m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I’d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
+<h2 id="Automation">Automation</h2>
+<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don’t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it’s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn’t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
+<h2 id="Using_grunt-pogo">Using grunt-pogo</h2>
 <p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
-<h3>Install as a dev dependency</h3>
+<h3 id="Install_as_a_dev_dependency">Install as a dev dependency</h3>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
 </pre></td></tr></table></figure>
 
-<h3>Load “grunt-pogo” in your Gruntfile.js</h3>
+<h3 id="Load_-201c-grunt-pogo-201d-_in_your_Gruntfile-js">Load “grunt-pogo” in your Gruntfile.js</h3>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
 </pre></td></tr></table></figure>
 
-<h2>The pogo task</h2>
+<h2 id="The_pogo_task">The pogo task</h2>
 <p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
-<h3>Example configuration</h3>
+<h3 id="Example_configuration">Example configuration</h3>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -850,8 +856,8 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </pre></td></tr></table></figure>
 
 <p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
-<h2>The code</h2>
-<h3>functional.js</h3>
+<h2 id="The_code">The code</h2>
+<h3 id="functional-js">functional.js</h3>
 <p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -881,12 +887,12 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 });
 </pre></td></tr></table></figure>
 
-<h3>Testing</h3>
-<p>It&#39;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
-<h3>Source code</h3>
+<h3 id="Testing">Testing</h3>
+<p>It’s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
+<h3 id="Source_code">Source code</h3>
 <p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
-<h2>Future enhancements</h2>
-<p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
+<h2 id="Future_enhancements">Future enhancements</h2>
+<p>I’d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
 <p><strong>Compilation automation for the nation</strong></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
@@ -897,20 +903,20 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
     <id>http://ilee.co.uk/update-to-my-grunt-timer/</id>
     <published>2013-11-06T16:25:14.000Z</published>
     <updated>2013-11-06T16:41:58.000Z</updated>
-    <content type="html"><![CDATA[<h2>New version of “grunt-timer”</h2>
+    <content type="html"><![CDATA[<h2 id="New_version_of_-201c-grunt-timer-201d-">New version of “grunt-timer”</h2>
 <p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
-<h2>Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<p>I’ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2 id="Open_source">Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I’ve now made several improvements and fixes:</p>
 <ol>
-<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<li><p>Tasks (that aren’t really tasks) taking no time are no longer logged.</p>
 <ul>
-<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+<li>Let’s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
 </ul>
 </li>
 <li><p>A total elapsed time of all logged tasks is now also logged.</p>
 <ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn’t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
 </ul>
 </li>
 <li><p>The initialisation period no longer contributes to logged times.</p>
@@ -919,8 +925,8 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </ul>
 </li>
 </ol>
-<h2>Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
+<h2 id="Source_code">Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I’m open to pull requests and suggestions as always.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -930,10 +936,10 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
     <id>http://ilee.co.uk/froute-simple-nodejs-routing/</id>
     <published>2013-11-05T08:42:47.000Z</published>
     <updated>2013-11-06T16:04:40.000Z</updated>
-    <content type="html"><![CDATA[<h2>froute</h2>
-<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that&#39;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+    <content type="html"><![CDATA[<h2 id="froute">froute</h2>
+<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that’s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
 <p><img src="/img/froute.png" alt="froute"></p>
-<h2>Getting started</h2>
+<h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
 <figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">npm</span> install froute
@@ -944,9 +950,9 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </pre></td><td class="code"><pre><span class="keyword">var</span> froute = require(<span class="string">"froute"</span>);
 </pre></td></tr></table></figure>
 
-<h2>Using froute</h2>
+<h2 id="Using_froute">Using froute</h2>
 <p>There are essentially 2 or 3 functions you need to use.</p>
-<h3>Register routes</h3>
+<h3 id="Register_routes">Register routes</h3>
 <p>You register a route using the <strong>bind</strong> function:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -965,21 +971,21 @@ froute.bind(template, handler); <span class="comment">// true</span>
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
-<h3>Unregister routes</h3>
+<h3 id="Unregister_routes">Unregister routes</h3>
 <p>You unregister a route using the <strong>unbind</strong> function:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
 </pre></td></tr></table></figure>
 
 <p>Unbound templates are returned by the unbind function.</p>
-<h3>Dispatch</h3>
+<h3 id="Dispatch">Dispatch</h3>
 <p>When a url comes in, you call dispatch:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
 </pre></td></tr></table></figure>
 
 <p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
-<h3>Full example</h3>
+<h3 id="Full_example">Full example</h3>
 <p>A full example illustrating how the handler function works with params:</p>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -998,7 +1004,7 @@ froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
     resultParams;
 
-<span class="keyword">var</span> bindResult = froute.bind(template, <span class="keyword">function</span>(params) {
+<span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> {</span>
     resultParams = params;
 });
 
@@ -1011,10 +1017,10 @@ expect(froute.list().length).toEqual(<span class="number">1</span>);
 expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
 </pre></td></tr></table></figure>
 
-<h2>Behind the scenes</h2>
-<h3>froute-picker</h3>
+<h2 id="Behind_the_scenes">Behind the scenes</h2>
+<h3 id="froute-picker">froute-picker</h3>
 <p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
-<h4>Picking parameters from a url template and matching a url to the template</h4>
+<h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
 <figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -1033,11 +1039,11 @@ expect(result.type).toEqual(<span class="string">"gala"</span>);
 expect(result.size).toEqual(<span class="string">"large"</span>);
 </pre></td></tr></table></figure>
 
-<h3>functional.js</h3>
+<h3 id="functional-js">functional.js</h3>
 <p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
-<h2>Issues and contributions</h2>
-<p>I&#39;m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
-<h2>An apple a day</h2>
+<h2 id="Issues_and_contributions">Issues and contributions</h2>
+<p>I’m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<h2 id="An_apple_a_day">An apple a day</h2>
 <p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
@@ -1049,17 +1055,17 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
     <id>http://ilee.co.uk/say-goodbye-to-mobile-click-delays/</id>
     <published>2013-10-31T16:25:21.000Z</published>
     <updated>2013-10-31T16:55:50.000Z</updated>
-    <content type="html"><![CDATA[<h2>Sluggish and unresponsive</h2>
-<p>If you‘ve done any kind of mobile development that’s HTML based, you&#39;ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
-<h2>Why the delay?</h2>
+    <content type="html"><![CDATA[<h2 id="Sluggish_and_unresponsive">Sluggish and unresponsive</h2>
+<p>If you’ve done any kind of mobile development that’s HTML based, you’ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
+<h2 id="Why_the_delay-3f-">Why the delay?</h2>
 <p>Mobiles and tablets automatically add a 300ms delay between the instant an element is clicked before firing the click event, the reason for this is the browser is waiting to see if you are actually performing a double click.</p>
-<h2>The solution</h2>
-<p>I&#39;ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank">FT Labs</a> that seems to have hit the nail on the head.</p>
-<h3><a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a></h3>
-<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you&#39;re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank">here on your mobile</a> for a working example.</p>
-<p>There&#39;s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
-<h2>Re-instantiating</h2>
-<p>There&#39;s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
+<h2 id="The_solution">The solution</h2>
+<p>I’ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank">FT Labs</a> that seems to have hit the nail on the head.</p>
+<h3 id="-3c-a_href-3d-22-https-3a-2f-2f-github-com-2f-ftlabs-2f-fastclick-22-3e-FastClick-3c-2f-a-3e-"><a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a></h3>
+<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you’re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank">here on your mobile</a> for a working example.</p>
+<p>There’s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
+<h2 id="Re-instantiating">Re-instantiating</h2>
+<p>There’s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
 <p>Happy FastClick-ing.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
@@ -1072,28 +1078,28 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
     <id>http://ilee.co.uk/yet-another-hackathon-victory/</id>
     <published>2013-10-29T11:35:50.000Z</published>
     <updated>2013-10-29T16:08:11.000Z</updated>
-    <content type="html"><![CDATA[<h2>Hack Manchester</h2>
+    <content type="html"><![CDATA[<h2 id="Hack_Manchester">Hack Manchester</h2>
 <p><a href="http://www.hackmanchester.com/" target="_blank">Hack Manchester</a> is the premier 24-hour coding competition based in Manchester, run by <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a> (with help from others). This year (as before) it was held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> on the 26th and 27th of October 2013 as part of <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>.</p>
-<h2>We won again!</h2>
-<p>I blogged a few weeks ago (<a href="/road-to-hack-manchester">the road to Hack Manchester</a>) about winning back in 2012 and what it takes to win based on the lessons we learnt. Looks like it was good advice because <strong>WE&#39;VE GONE AND DONE IT AGAIN!</strong> Amazing job from my team mates <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a>. This gives me a crazy record of 3 hack events and 3 wins.</p>
-<h2>The challenge</h2>
+<h2 id="We_won_again-21-">We won again!</h2>
+<p>I blogged a few weeks ago (<a href="/road-to-hack-manchester">the road to Hack Manchester</a>) about winning back in 2012 and what it takes to win based on the lessons we learnt. Looks like it was good advice because <strong>WE’VE GONE AND DONE IT AGAIN!</strong> Amazing job from my team mates <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a>. This gives me a crazy record of 3 hack events and 3 wins.</p>
+<h2 id="The_challenge">The challenge</h2>
 <p>The challenge (sponsored by <a href="https://twitter.com/WebAppUK" target="_blank">Web Applications UK</a>) was to write a game. More specifically, to write a browser-based game with a travel theme.</p>
-<p>For anyone who doesn‘t know what a browser is (there seem to be quite a few), it’s a computer program with a graphical user interface for displaying HTML files. So, we came up with a travel themed game (written in HTML / CSS / JavaScript for both the <a href="https://github.com/leecrossley/appsassin/tree/master/client/www" target="_blank">mobile clients</a> and server). Nothing to dispute there.</p>
+<p>For anyone who doesn’t know what a browser is (there seem to be quite a few), it’s a computer program with a graphical user interface for displaying HTML files. So, we came up with a travel themed game (written in HTML / CSS / JavaScript for both the <a href="https://github.com/leecrossley/appsassin/tree/master/client/www" target="_blank">mobile clients</a> and server). Nothing to dispute there.</p>
 <p>Anyway, here is the more detailed brief we were given:</p>
-<blockquote><p>We&#39;re looking for the most entertaining and damn right addictive game you can muster. Have fun with it and create something great. The most original idea, with the best use of the travel theme and some impressive features thrown in will bag the prize…</p>
+<blockquote><p>We’re looking for the most entertaining and damn right addictive game you can muster. Have fun with it and create something great. The most original idea, with the best use of the travel theme and some impressive features thrown in will bag the prize…</p>
 <footer><strong>- Web Applications UK</strong></footer></blockquote>
 
 
-<h2>“Appsassin”</h2>
+<h2 id="-201c-Appsassin-201d-">“Appsassin”</h2>
 <p>Our concept was to assassinate other players with your mobile phone (we supported Android and iOS, but it also probably works on Windows Phone and BlackBerry, with it being browser based), hence the comical name “appsassin” and url “appsass.in” :)</p>
-<h3>The game</h3>
-<h4>Signup</h4>
+<h3 id="The_game">The game</h3>
+<h4 id="Signup">Signup</h4>
 <ul>
 <li>You signup by entering your mobile number and taking / uploading a picture of your face</li>
 <li>A game is set up on the game server by a moderator</li>
 <li>Registered players can enter a game if they are in the local vicinity</li>
 </ul>
-<h4>Playing</h4>
+<h4 id="Playing">Playing</h4>
 <ul>
 <li>You are assigned a target (another player in the game)</li>
 <li>You can track your targets location (in realtime) via a map</li>
@@ -1103,7 +1109,7 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 <li>If you kill a target, you get their target</li>
 <li>The winner is the last one standing</li>
 </ul>
-<h3>The tech</h3>
+<h3 id="The_tech">The tech</h3>
 <ul>
 <li>Node.js</li>
 <li>MongoDB</li>
@@ -1113,10 +1119,10 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 <li>OpenLayers / OpenStreetMap</li>
 <li>Clockwork SMS</li>
 </ul>
-<p>All the source code for the hack day code is available on <a href="https://github.com/leecrossley/appsassin" target="_blank">github</a>, let me know if you&#39;d like me to go into detail on any of the aspects.</p>
-<h2>What next?</h2>
-<p>We&#39;re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a>, including the music).</p>
-<h2>Thanks</h2>
+<p>All the source code for the hack day code is available on <a href="https://github.com/leecrossley/appsassin" target="_blank">github</a>, let me know if you’d like me to go into detail on any of the aspects.</p>
+<h2 id="What_next-3f-">What next?</h2>
+<p>We’re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a>, including the music).</p>
+<h2 id="Thanks">Thanks</h2>
 <p>A special thanks again to all the sponsors of the event and everyone involved in the organising and running. A huge success, again.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>

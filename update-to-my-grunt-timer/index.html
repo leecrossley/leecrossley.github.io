@@ -5,7 +5,7 @@
   
   <title>Update to My grunt-timer | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="The improvements I've made in automatically timing the duration of grunt tasks with grunt-timer.">
+  <meta name="description" content="The improvements I&#39;ve made in automatically timing the duration of grunt tasks with grunt-timer.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:title" content="Update to My grunt-timer"/>
   <meta property="og:site_name" content="iLee"/>
@@ -33,10 +33,22 @@
     <header class="logo alignleft">
       <h1>
         <a href="/">iLee</a>
-        <span>I write code that sounds awesome and music that's bug free</span>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
       </h1>
     </header>
     <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -52,20 +64,20 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2>New version of “grunt-timer”</h2>
+        <h2 id="New_version_of_-201c-grunt-timer-201d-">New version of “grunt-timer”</h2>
 <p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
-<h2>Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<p>I’ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2 id="Open_source">Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I’ve now made several improvements and fixes:</p>
 <ol>
-<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<li><p>Tasks (that aren’t really tasks) taking no time are no longer logged.</p>
 <ul>
-<li>Let&#39;s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+<li>Let’s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
 </ul>
 </li>
 <li><p>A total elapsed time of all logged tasks is now also logged.</p>
 <ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn’t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
 </ul>
 </li>
 <li><p>The initialisation period no longer contributes to logged times.</p>
@@ -74,8 +86,8 @@
 </ul>
 </li>
 </ol>
-<h2>Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
+<h2 id="Source_code">Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I’m open to pull requests and suggestions as always.</p>
 
       
     </div>
