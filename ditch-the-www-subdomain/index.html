@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Use the Right HTTP Status Codes | iLee</title>
+  <title>Ditch the www Subdomain | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Here&#39;s a simple guide to using the correct HTML status codes.">
+  <meta name="description" content="It&#39;s 2014, people know what the world wide web is.">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Use the Right HTTP Status Codes"/>
+  <meta property="og:title" content="Ditch the www Subdomain"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/128/Kitchen-Teapot-icon.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/express.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,37 +54,56 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-10-15T14:39:29.000Z" itemprop="datePublished">15th Oct 2013</time>
+        <time datetime="2014-01-08T09:15:23.000Z" itemprop="datePublished">8th Jan 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Use the Right HTTP Status Codes</h1>
+    <h1 class="title" itemprop="name headline">Ditch the www Subdomain</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="HTTP_status_codes">HTTP status codes</h2>
-<p>Every response from a server carries an HTTP status code, this provides clients with the ability to formally identify the status of the response and has other uses, such as identifying a type of error.</p>
-<p>I’m currently working with a “<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">RESTful</a>“ (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
-<p>An API especially should use the correct status codes so that responses to basic requests can be defined by status codes, without the need for any additional data.</p>
-<h2 id="The_basics">The basics</h2>
+        <h2 id="It-2019-s_time">It’s time</h2>
+<p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
+<h2 id="Keep_it_simple">Keep it simple</h2>
+<p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
+<h3 id="Use_a_permanent_-28-301-29-_redirect">Use a permanent (301) redirect</h3>
+<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code> for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
+<h3 id="Configure_webmaster_tools">Configure webmaster tools</h3>
+<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
 <ul>
-<li><strong>1xx</strong> - Hang on</li>
-<li><strong>2xx</strong> - <a href="http://www.youtube.com/watch?v=erETKfL9LbU" target="_blank">Sha-ting</a></li>
-<li><strong>3xx</strong> - Move away</li>
-<li><strong>4xx</strong> - That’s your bad</li>
-<li><strong>5xx</strong> - That’s my bad</li>
+<li>Don’t set a preferred domain</li>
+<li>Display URLs as www.ilee.co.uk</li>
+<li>Display URLs as ilee.co.uk</li>
 </ul>
-<p>OK, so I’m not being totally serious with these. I’m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">Wikipedia</a> for the list.</p>
-<h2 id="Test_your_status_codes">Test your status codes</h2>
-<p>There are some online tools to check your status codes, <a href="http://httpstatus.io/" target="_blank">httpstatus.io</a> looks good (and ends with .io, so it <em>must</em> be cool).</p>
-<h2 id="I-2019-m_a_tea_pot">I’m a tea pot</h2>
-<p>The Hyper Text Coffee Pot Control Protocol is a nonessential and humorous communications protocol for controlling, monitoring, and diagnosing coffee pots and has the following status code (yes this is real):</p>
-<ul>
-<li><strong>418</strong> I’m a teapot (may be short and/or stout)</li>
-</ul>
-<p>Time for a coffee.</p>
+<h2 id="Expressjs">Expressjs</h2>
+<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
+    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,
+        wwwUrl = req.protocol + <span class="string">"://www."</span>;
+    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {
+        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);
+    } <span class="keyword">else</span> {
+        next();
+    }
+};
+
+app.all(<span class="string">"*"</span>, redirect);
+</pre></td></tr></table></figure>
+
+<p>Here’s to a www-less 2014.</p>
 
       
     </div>
@@ -92,17 +111,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/use-the-right-http-status-codes"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Use%20the%20Right%20HTTP%20Status%20Codes&amp;url=http://ilee.co.uk/use-the-right-http-status-codes&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/use-the-right-http-status-codes"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/use-the-right-http-status-codes&amp;title=Use%20the%20Right%20HTTP%20Status%20Codes"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/ditch-the-www-subdomain"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Ditch%20the%20www%20Subdomain&amp;url=http://ilee.co.uk/ditch-the-www-subdomain&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/ditch-the-www-subdomain"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/ditch-the-www-subdomain&amp;title=Ditch%20the%20www%20Subdomain"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/html/" itemprop="keywords">html</a>
+    <a href="/tags/app/" itemprop="keywords">app</a>, <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

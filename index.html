@@ -55,6 +55,89 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-01-08T09:15:23.000Z" itemprop="datePublished">8th Jan 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/ditch-the-www-subdomain/" itemprop="url">Ditch the www Subdomain</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="It-2019-s_time">It’s time</h2>
+<p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
+<h2 id="Keep_it_simple">Keep it simple</h2>
+<p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
+<h3 id="Use_a_permanent_-28-301-29-_redirect">Use a permanent (301) redirect</h3>
+<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code> for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
+<h3 id="Configure_webmaster_tools">Configure webmaster tools</h3>
+<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
+<ul>
+<li>Don’t set a preferred domain</li>
+<li>Display URLs as www.ilee.co.uk</li>
+<li>Display URLs as ilee.co.uk</li>
+</ul>
+<h2 id="Expressjs">Expressjs</h2>
+<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
+    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,
+        wwwUrl = req.protocol + <span class="string">"://www."</span>;
+    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {
+        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);
+    } <span class="keyword">else</span> {
+        next();
+    }
+};
+
+app.all(<span class="string">"*"</span>, redirect);
+</pre></td></tr></table></figure>
+
+<p>Here’s to a www-less 2014.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-01-03T08:25:40.000Z" itemprop="datePublished">3rd Jan 2014</time>
       
       
@@ -753,97 +836,6 @@ module.exports = <span class="function"><span class="keyword">function</span> <s
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-27T12:57:36.000Z" itemprop="datePublished">27th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/nesting-ugly-anonymous-functions/" itemprop="url">Nesting Ugly Anonymous Functions</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="We_all_do_it">We all do it</h2>
-<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="comment">// handler code ...</span>
-    alert(<span class="string">"document clicked and fired ugly nested function"</span>);
-});
-</pre></td></tr></table></figure>
-
-<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="comment">// handler code ...</span>
-    alert(<span class="string">"document clicked and fired alert function"</span>);
-};
-
-document.addEventListener(<span class="string">"click"</span>, doStuff);
-</pre></td></tr></table></figure>
-
-<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
-<h2 id="The_right_frame_of_-3c-em-3e-bind-3c-2f-em-3e-">The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">(message)</span> {</span>
-    <span class="comment">// handler code ...</span>
-    alert(message);
-};
-
-document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<span class="literal">null</span>, <span class="string">"document clicked"</span>));
-</pre></td></tr></table></figure>
-
-<p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
-<h2 id="A_good_-3c-em-3e-curry-3c-2f-em-3e-">A good <em>curry</em></h2>
-<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -897,6 +889,10 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
   <ul class="entry">
     
       <li>
+        <a href="/ditch-the-www-subdomain/">Ditch the www Subdomain</a>
+      </li>
+    
+      <li>
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
@@ -932,10 +928,6 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
         <a href="/npm-cardiac-arrest/">npm Cardiac Arrest</a>
       </li>
     
-      <li>
-        <a href="/nesting-ugly-anonymous-functions/">Nesting Ugly Anonymous Functions</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -949,7 +941,7 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
   
     <li><a href="/tags/android/">android</a><small>7</small></li>
   
-    <li><a href="/tags/app/">app</a><small>8</small></li>
+    <li><a href="/tags/app/">app</a><small>9</small></li>
   
     <li><a href="/tags/design/">design</a><small>1</small></li>
   
@@ -961,11 +953,11 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>37</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>38</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
   
-    <li><a href="/tags/web/">web</a><small>22</small></li>
+    <li><a href="/tags/web/">web</a><small>23</small></li>
   
   </ul>
 </div>
