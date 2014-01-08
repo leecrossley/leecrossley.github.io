@@ -68,16 +68,9 @@
 <p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
 <h2 id="Keep_it_simple">Keep it simple</h2>
 <p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
-<h3 id="Use_a_permanent_-28-301-29-_redirect">Use a permanent (301) redirect</h3>
+<h2 id="Use_a_permanent_-28-301-29-_redirect">Use a permanent (301) redirect</h2>
 <p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code> for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
-<h3 id="Configure_webmaster_tools">Configure webmaster tools</h3>
-<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
-<ul>
-<li>Don’t set a preferred domain</li>
-<li>Display URLs as www.ilee.co.uk</li>
-<li>Display URLs as ilee.co.uk</li>
-</ul>
-<h2 id="Expressjs">Expressjs</h2>
+<h3 id="Expressjs">Expressjs</h3>
 <p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
@@ -90,17 +83,33 @@
 9
 10
 11
-</pre></td><td class="code"><pre><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,
-        wwwUrl = req.protocol + <span class="string">"://www."</span>;
-    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {
-        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);
-    } <span class="keyword">else</span> {
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre>var redirect = function (req, res, next) {
+    var baseUrl = req.protocol + "://" + req.host,
+        wwwUrl = req.protocol + "://www.";
+    if (baseUrl.substring(0, wwwUrl.length) === wwwUrl) {
+        res.redirect(301, baseUrl.replace("://www.", "://") + req.url);
+    } else {
         next();
     }
 };
 
-app.all(<span class="string">"*"</span>, redirect);
+## Configure webmaster tools
+
+Under "site settings" of [Google Webmaster Tools](https://www.google.com/webmasters/tools/), you also have the option to set your *preferred domain*:
+
+- Don't set a preferred domain
+- Display URLs as www.ilee.co.uk
+- Display URLs as ilee.co.uk
+
+app.all("*", redirect);
 </pre></td></tr></table></figure>
 
 <p>Here’s to a www-less 2014.</p>
