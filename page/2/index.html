@@ -55,6 +55,60 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-28T09:57:53.000Z" itemprop="datePublished">28th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/npm-cardiac-arrest/" itemprop="url">npm Cardiac Arrest</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="It-2019-s_happening_again">It’s happening again</h2>
+<h3 id="Beep-2c-_beep-2c-_beeeeeeep">Beep, beep, beeeeeeep</h3>
+<p>The node package manager “<a href="https://npmjs.org/" target="_blank">npm</a>“ is once again grinding to a halt. A <a href="http://blog.nodejs.org/2013/11/26/npm-post-mortem/" target="_blank">post-mortem</a> was published on the official nodejs blog after the recent downtime (November 4th / November 15th 2013), but it’s problems are far from resolved (as demonstrated today).</p>
+<p><img src="/img/npm-beat.png" alt="npm Cardiac Arrest"></p>
+<h2 id="Keep_it_beating-2c-_keep_it_awesome">Keep it beating, keep it awesome</h2>
+<p>With no other alternative, npm is fundamental to node. More infrastructure is needed to continue to operate the npm registry (multi-master approach and <strong>throw hardware and people at it</strong>).</p>
+<p>In my personal opinion (and I know others echo this sentiment) there also needs to be a change to the way npm handles its dependencies. When currently installing a package, half of the registry is downloaded with it. There are ideas, such as materialising a vector of [package, version] -&gt; hash, but this is exceptionally tricky.</p>
+<p>The npm registry has served over 150 million requests and 33 million package downloads in the last week. This is 10 times as many requests and downloads as this time last year, with all signs pointing to further exponential growth.</p>
+<h2 id="Donate">Donate</h2>
+<p><strong>I’ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you’re a developer that’s ever used npm, <a href="https://scalenpm.org/" target="_blank">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
+<p><img src="/img/npm-thanks.png" alt="Thanks"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-27T12:57:36.000Z" itemprop="datePublished">27th Nov 2013</time>
       
       
@@ -951,61 +1005,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-31T16:25:21.000Z" itemprop="datePublished">31st Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/say-goodbye-to-mobile-click-delays/" itemprop="url">Say Goodbye to Mobile Click Delays</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Sluggish_and_unresponsive">Sluggish and unresponsive</h2>
-<p>If you’ve done any kind of mobile development that’s HTML based, you’ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
-<h2 id="Why_the_delay-3f-">Why the delay?</h2>
-<p>Mobiles and tablets automatically add a 300ms delay between the instant an element is clicked before firing the click event, the reason for this is the browser is waiting to see if you are actually performing a double click.</p>
-<h2 id="The_solution">The solution</h2>
-<p>I’ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank">FT Labs</a> that seems to have hit the nail on the head.</p>
-<h3 id="-3c-a_href-3d-22-https-3a-2f-2f-github-com-2f-ftlabs-2f-fastclick-22-3e-FastClick-3c-2f-a-3e-"><a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a></h3>
-<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you’re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank">here on your mobile</a> for a working example.</p>
-<p>There’s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
-<h2 id="Re-instantiating">Re-instantiating</h2>
-<p>There’s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
-<p>Happy FastClick-ing.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -1061,6 +1060,10 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   <ul class="entry">
     
       <li>
+        <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
+      </li>
+    
+      <li>
         <a href="/ditch-the-www-subdomain/">Ditch the www Subdomain</a>
       </li>
     
@@ -1096,10 +1099,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
         <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
       </li>
     
-      <li>
-        <a href="/npm-cardiac-arrest/">npm Cardiac Arrest</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1125,7 +1124,7 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>38</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
   

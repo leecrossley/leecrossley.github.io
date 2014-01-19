@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Changing Url Without Page Refresh | iLee</title>
+  <title>New Features in grunt-timer v0.3 | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Not many web developers know but it&#39;s possible to completely change the relative url of a page without refreshing the page.">
+  <meta name="description" content="The open source community has improved grunt-timer">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Changing Url Without Page Refresh"/>
+  <meta property="og:title" content="New Features in grunt-timer v0.3"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ilee.co.uk/img/google-chrome.png" />
+  <meta property="og:image" content="https://1.gravatar.com/avatar/801a04ad77406f5ba958a607f2b27880?s=120" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,57 +54,66 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-21T07:42:46.000Z" itemprop="datePublished">21st Aug 2013</time>
+        <time datetime="2014-01-19T10:59:01.000Z" itemprop="datePublished">19th Jan 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Changing Url Without Page Refresh</h1>
+    <h1 class="title" itemprop="name headline">New Features in grunt-timer v0.3</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Using_JavaScript_to_change_the_page_url_without_reloading">Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it’s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won’t even try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
-<p>I’m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I’m also not talking about iFrames either - this solution isn’t a hack, it’s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
-<p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
-<h2 id="How_it-2019-s_done">How it’s done</h2>
-<p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
-<h3 id="The_history-pushState-28-29-_function">The history.pushState() function</h3>
-<p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
-<ul>
-<li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
-</li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven’t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
-</li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
-</li>
-</ul>
-<figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
+        <h2 id="New_features_of_-201c-grunt-timer-201d-">New features of “grunt-timer”</h2>
+<p>I’m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it’s entirely down to the efforts of the open source community.</p>
+<h2 id="What-2019-s_new">What’s new</h2>
+<p>There are 3 new features, implemented as interchangeable options:</p>
+<h3 id="friendlyTime">friendlyTime</h3>
+<p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>
-<span class="keyword">var</span> state = {
-  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
-};
-history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
-expect(history.state).toEqual(state);
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
+<h3 id="deferLogs">deferLogs</h3>
+<p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { deferLogs: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
 
-<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
-<h3 id="The_history-replaceState-28-29-_function">The history.replaceState() function</h3>
-<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I’ve never bothered to use this one.</p>
-<h3 id="The_onpopstate_event">The onpopstate event</h3>
-<p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
-<h2 id="Back_to_the_future">Back to the future</h2>
-<p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
-<h2 id="Usages">Usages</h2>
-<p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
-<p>Have fun relocating.</p>
+<p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<h3 id="totalOnly">totalOnly</h3>
+<p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { totalOnly: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<h2 id="Credits">Credits</h2>
+<h3 id="Contributors">Contributors</h3>
+<ul>
+<li>Thanks to <a href="https://github.com/geekdave" target="_blank">Dave Cadwallader</a> for the implementation of the <em>friendlyTime</em> and <em>deferLogs</em> options.</li>
+<li>Thanks to <a href="https://github.com/carlherbst" target="_blank">Carl Herbst</a> for the implementation of the <em>totalOnly</em> option.</li>
+</ul>
+<h2 id="Pull_requests">Pull requests</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a> and you can create pull requests <a href="https://github.com/leecrossley/grunt-timer/pulls" target="_blank">here</a>.</p>
 
       
     </div>
@@ -112,17 +121,17 @@ expect(history.state).toEqual(state);
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/changing-url-without-page-refresh"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Changing%20Url%20Without%20Page%20Refresh&amp;url=http://ilee.co.uk/changing-url-without-page-refresh&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/changing-url-without-page-refresh"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/changing-url-without-page-refresh&amp;title=Changing%20Url%20Without%20Page%20Refresh"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/new-features-in-grunt-timer-v03"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=New%20Features%20in%20grunt-timer%20v0.3&amp;url=http://ilee.co.uk/new-features-in-grunt-timer-v03&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/new-features-in-grunt-timer-v03"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/new-features-in-grunt-timer-v03&amp;title=New%20Features%20in%20grunt-timer%20v0.3"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
