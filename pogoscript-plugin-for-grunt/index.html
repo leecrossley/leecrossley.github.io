@@ -64,32 +64,32 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="PogoScript">PogoScript</h2>
+        <h2 id="pogoscript">PogoScript</h2>
 <blockquote>
 <p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
 </blockquote>
-<p>It’s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
-<h2 id="A-2026-_transpiler-2026-_you-3f-">A… transpiler… you?</h2>
-<p>Those who know me will know <strong>I’m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I’d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
-<h2 id="Automation">Automation</h2>
-<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don’t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it’s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
-<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn’t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
-<h2 id="Using_grunt-pogo">Using grunt-pogo</h2>
+<p>It&#39;s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
+<h2 id="a-transpiler-you-">A... transpiler... you?</h2>
+<p>Those who know me will know <strong>I&#39;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#39;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
+<h2 id="automation">Automation</h2>
+<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don&#39;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#39;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
+<h2 id="using-grunt-pogo">Using grunt-pogo</h2>
 <p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
-<h3 id="Install_as_a_dev_dependency">Install as a dev dependency</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<h3 id="install-as-a-dev-dependency">Install as a dev dependency</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
 </pre></td></tr></table></figure>
 
-<h3 id="Load_-201c-grunt-pogo-201d-_in_your_Gruntfile-js">Load “grunt-pogo” in your Gruntfile.js</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<h3 id="load-grunt-pogo-in-your-gruntfile-js">Load &quot;grunt-pogo&quot; in your Gruntfile.js</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
 </pre></td></tr></table></figure>
 
-<h2 id="The_pogo_task">The pogo task</h2>
+<h2 id="the-pogo-task">The pogo task</h2>
 <p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
-<h3 id="Example_configuration">Example configuration</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<h3 id="example-configuration">Example configuration</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -106,10 +106,10 @@
 </pre></td></tr></table></figure>
 
 <p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
-<h2 id="The_code">The code</h2>
+<h2 id="the-code">The code</h2>
 <h3 id="functional-js">functional.js</h3>
 <p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -137,12 +137,12 @@
 });
 </pre></td></tr></table></figure>
 
-<h3 id="Testing">Testing</h3>
-<p>It’s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
-<h3 id="Source_code">Source code</h3>
+<h3 id="testing">Testing</h3>
+<p>It&#39;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
+<h3 id="source-code">Source code</h3>
 <p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
-<h2 id="Future_enhancements">Future enhancements</h2>
-<p>I’d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
+<h2 id="future-enhancements">Future enhancements</h2>
+<p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
 <p><strong>Compilation automation for the nation</strong></p>
 
       
@@ -221,6 +221,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -256,10 +260,6 @@
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -285,11 +285,13 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

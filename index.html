@@ -55,6 +55,66 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-01-31T18:00:30.000Z" itemprop="datePublished">31st Jan 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/debugging-wp8-in-phonegap/" itemprop="url">Debugging WP8 in PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="windows-phone-8">Windows Phone 8</h2>
+<p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank">reported an issue</a> that prevents the WP8 platform from even being using with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
+<p>One of the main issues for the platform being difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you&#39;re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
+<h2 id="show-me-the-errors">Show me the errors</h2>
+<p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
+    window.external.Notify(<span class="string">"Error in Application: "</span> +
+        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
+}
+</pre></td></tr></table></figure>
+
+<p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
+<p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank">here</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-01-19T10:59:01.000Z" itemprop="datePublished">19th Jan 2014</time>
       
       
@@ -65,55 +125,55 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="New_features_of_-201c-grunt-timer-201d-">New features of “grunt-timer”</h2>
-<p>I’m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it’s entirely down to the efforts of the open source community.</p>
-<h2 id="What-2019-s_new">What’s new</h2>
+        <h2 id="new-features-of-grunt-timer-">New features of &quot;grunt-timer&quot;</h2>
+<p>I&#39;m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it&#39;s entirely down to the efforts of the open source community.</p>
+<h2 id="what-s-new">What&#39;s new</h2>
 <p>There are 3 new features, implemented as interchangeable options:</p>
-<h3 id="friendlyTime">friendlyTime</h3>
+<h3 id="friendlytime">friendlyTime</h3>
 <p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h3 id="deferLogs">deferLogs</h3>
+<h3 id="deferlogs">deferLogs</h3>
 <p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { deferLogs: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
 <p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h3 id="totalOnly">totalOnly</h3>
+<h3 id="totalonly">totalOnly</h3>
 <p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { totalOnly: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
 <p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h2 id="Credits">Credits</h2>
-<h3 id="Contributors">Contributors</h3>
+<h2 id="credits">Credits</h2>
+<h3 id="contributors">Contributors</h3>
 <ul>
 <li>Thanks to <a href="https://github.com/geekdave" target="_blank">Dave Cadwallader</a> for the implementation of the <em>friendlyTime</em> and <em>deferLogs</em> options.</li>
 <li>Thanks to <a href="https://github.com/carlherbst" target="_blank">Carl Herbst</a> for the implementation of the <em>totalOnly</em> option.</li>
 </ul>
-<h2 id="Pull_requests">Pull requests</h2>
+<h2 id="pull-requests">Pull requests</h2>
 <p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a> and you can create pull requests <a href="https://github.com/leecrossley/grunt-timer/pulls" target="_blank">here</a>.</p>
 
       
@@ -158,15 +218,15 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="It-2019-s_time">It’s time</h2>
-<p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
-<h2 id="Keep_it_simple">Keep it simple</h2>
-<p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
-<h2 id="Use_a_permanent_-28-301-29-_redirect">Use a permanent (301) redirect</h2>
-<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
-<h3 id="Expressjs">Expressjs</h3>
-<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+        <h2 id="it-s-time">It&#39;s time</h2>
+<p>We&#39;re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
+<h2 id="keep-it-simple">Keep it simple</h2>
+<p>I don&#39;t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It&#39;s prettier, simpler and still obviously a url.</p>
+<h2 id="use-a-permanent-301-redirect">Use a permanent (301) redirect</h2>
+<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it&#39;s GitHub&#39;s preferred format (you&#39;ll never see <code>www.github.com</code>, it&#39;s always <code>github.com</code>).</p>
+<h3 id="expressjs">Expressjs</h3>
+<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn&#39;t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -190,14 +250,14 @@
 app.all(<span class="string">"*"</span>, redirect);
 </pre></td></tr></table></figure>
 
-<h2 id="Configure_webmaster_tools">Configure webmaster tools</h2>
-<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
+<h2 id="configure-webmaster-tools">Configure webmaster tools</h2>
+<p>Under &quot;site settings&quot; of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
 <ul>
-<li>Don’t set a preferred domain</li>
+<li>Don&#39;t set a preferred domain</li>
 <li>Display URLs as www.ilee.co.uk</li>
 <li>Display URLs as ilee.co.uk</li>
 </ul>
-<p><strong>Here’s to a www-less 2014</strong>.</p>
+<p><strong>Here&#39;s to a www-less 2014</strong>.</p>
 
       
     </div>
@@ -241,26 +301,26 @@ app.all(<span class="string">"*"</span>, redirect);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Optimise_for_mobile">Optimise for mobile</h2>
+        <h2 id="optimise-for-mobile">Optimise for mobile</h2>
 <p>With huge numbers of internet users using mobiles and tablet devices to browse the web, it’s more important than ever to optimise your website for these devices.</p>
-<h3 id="Creating_a_mobile_website_is_not_enough">Creating a mobile website is not enough</h3>
-<p>If you truly want to engage users on mobile devices, you’ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
-<h2 id="What_exactly_is_-3c-em-3e-UX-3c-2f-em-3e-3f-">What exactly is <em>UX</em>?</h2>
+<h3 id="creating-a-mobile-website-is-not-enough">Creating a mobile website is not enough</h3>
+<p>If you truly want to engage users on mobile devices, you&#39;ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
+<h2 id="what-exactly-is-ux-">What exactly is <em>UX</em>?</h2>
 <p>UX stands for <strong>U</strong>ser e<strong>X</strong>perience, which is the comprehensive experience of a user interacting with a product (in this case a website and more specifically, a website on mobile devices). It encompasses factors such as ease-of-use and user gratification.</p>
-<h3 id="UX_is_hard">UX is hard</h3>
-<p>There’s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
-<h2 id="Why_UX-3f-">Why UX?</h2>
-<p>It’s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
-<h2 id="PageSpeed_insights">PageSpeed insights</h2>
+<h3 id="ux-is-hard">UX is hard</h3>
+<p>There&#39;s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
+<h2 id="why-ux-">Why UX?</h2>
+<p>It&#39;s all about the users and they are ultimately going to result in conversions (if that&#39;s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
+<h2 id="pagespeed-insights">PageSpeed insights</h2>
 <p>The <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">PageSpeed Insights</a> tool is now reporting mobile user experience, in addition to page speed. This is a great place to start to give you instant feedback on some tangible metrics. The tool currently analyses:</p>
 <ul>
 <li>Use of plugins</li>
 <li>Viewport metatag and content size within the viewport</li>
-<li>Size of touch/tap “clickable” interactions</li>
+<li>Size of touch/tap &quot;clickable&quot; interactions</li>
 <li>Font sizes</li>
 </ul>
 <p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
-<figure class="highlight lang-css"><table><tr><td class="gutter"><pre>1
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -278,8 +338,8 @@ app.all(<span class="string">"*"</span>, redirect);
 }
 </pre></td></tr></table></figure>
 
-<h2 id="That-2019-s_not_the_end">That’s not the end</h2>
-<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it’s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
+<h2 id="that-s-not-the-end">That&#39;s not the end</h2>
+<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it&#39;s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
 <p>If you have the luxury of a starting your mobile website from scratch or a rewrite, consider user experience right from the outset and get users involved in the process as early as possible.</p>
 
       
@@ -324,15 +384,15 @@ app.all(<span class="string">"*"</span>, redirect);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="The_year_of_the_node">The year of the node</h2>
-<p>If you haven’t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I’ve put together a super quick start guide to kick you off.</p>
+        <h2 id="the-year-of-the-node">The year of the node</h2>
+<p>If you haven&#39;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I&#39;ve put together a super quick start guide to kick you off.</p>
 <p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
-<h2 id="Super_quick_start">Super quick start</h2>
-<h3 id="Install">Install</h3>
+<h2 id="super-quick-start">Super quick start</h2>
+<h3 id="install">Install</h3>
 <p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
-<h3 id="Create">Create</h3>
+<h3 id="create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre>$ mkdir nodeapp
@@ -340,15 +400,15 @@ $ <span class="built_in">cd</span> nodeapp
 $ touch app.js
 </pre></td></tr></table></figure>
 
-<h3 id="Code">Code</h3>
+<h3 id="code">Code</h3>
 <p>In your newly created JavaScript file, add the following code:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
-</pre></td><td class="code"><pre><span class="keyword">var</span> http = require(<span class="string">"http"</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
 
 http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
     res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
@@ -356,15 +416,15 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 }).listen(<span class="number">4000</span>);
 </pre></td></tr></table></figure>
 
-<h3 id="Run">Run</h3>
-<p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<h3 id="run">Run</h3>
+<p>Ensure you&#39;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ node app
 </pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
-<h2 id="Packages">Packages</h2>
-<p>You’ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
+<h2 id="packages">Packages</h2>
+<p>You&#39;ll notice in the example above that we&#39;re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
 <p>Happy new year!</p>
 
       
@@ -409,36 +469,36 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Protip">Protip</h2>
+        <h2 id="protip">Protip</h2>
 <p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
 <p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
 </pre></td></tr></table></figure>
 
-<h2 id="How_much_faster-3f-">How much faster?</h2>
-<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
-<h3 id="Quick_test">Quick test</h3>
-<p>Let’s pick a package with a few dependencies, <code>grunt</code>.</p>
-<p>First, let’s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
-<h3 id="Timing">Timing</h3>
-<p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
-<p>Let’s give it a go:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<h2 id="how-much-faster-">How much faster?</h2>
+<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it&#39;s faster.</p>
+<h3 id="quick-test">Quick test</h3>
+<p>Let&#39;s pick a package with a few dependencies, <code>grunt</code>.</p>
+<p>First, let&#39;s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
+<h3 id="timing">Timing</h3>
+<p>How do we actually go about timing an <code>npm install</code>? Well, there&#39;s a basic command called <code>time</code> that&#39;s built into most shells and allows us to easily see the execution time of a command (both &quot;real time&quot; used and system time). This is accurate enough for what we need.</p>
+<p>Let&#39;s give it a go:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt
 <span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
 </pre></td></tr></table></figure>
 
-<p>Now let’s clear the cache again and try the European mirror:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<p>Now let&#39;s clear the cache again and try the European mirror:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>$ time npm install grunt --registry http://registry.npmjs.eu
 <span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
 </pre></td></tr></table></figure>
 
-<p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
-<p>Damn, now I don’t have long enough to make a coffee.</p>
+<p>21.573s vs 11.799s means it&#39;s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
+<p>Damn, now I don&#39;t have long enough to make a coffee.</p>
 
       
     </div>
@@ -482,32 +542,32 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="npm_list">npm list</h2>
-<p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies…). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
-<h3 id="Added_depth">Added depth</h3>
-<p>Turns out there’s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank">documentation for npm ls</a>.</p>
+        <h2 id="npm-list">npm list</h2>
+<p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies...). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
+<h3 id="added-depth">Added depth</h3>
+<p>Turns out there&#39;s an easy way to combat this, although it&#39;s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank">documentation for npm ls</a>.</p>
 <p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span>
 </pre></td></tr></table></figure>
 
-<h3 id="Go_global">Go global</h3>
+<h3 id="go-global">Go global</h3>
 <p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
-<h2 id="I-2019-m_getting_errors-21-">I’m getting errors!</h2>
-<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. “npm ERR! max depth reached” among others), although there was nothing really wrong.</p>
+<h2 id="i-m-getting-errors-">I&#39;m getting errors!</h2>
+<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. &quot;npm ERR! max depth reached&quot; among others), although there was nothing really wrong.</p>
 <p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
-<h2 id="The_complete_command">The complete command</h2>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<h2 id="the-complete-command">The complete command</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null
 </pre></td></tr></table></figure>
 
-<p>If you don’t want to type this out all the time (I certainly don’t), you can alias it up:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<p>If you don&#39;t want to type this out all the time (I certainly don&#39;t), you can alias it up:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span>
 </pre></td></tr></table></figure>
 
 <p>Then usage is as simple as:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ npmls
 </pre></td></tr></table></figure>
 
@@ -554,28 +614,28 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
-<h2 id="Stop_the_press-21-">Stop the press!</h2>
+        <p>I was too busy to write any blog posts last week, but this more than makes up for it...</p>
+<h2 id="stop-the-press-">Stop the press!</h2>
 <p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
 <p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
-<p><strong>I’ve turned page transitions around</strong> (poor pun, I know).</p>
+<p><strong>I&#39;ve turned page transitions around</strong> (poor pun, I know).</p>
 <p><img src="/img/transition.png" alt="Page transition"></p>
-<h2 id="Video_demo">Video demo</h2>
+<h2 id="video-demo">Video demo</h2>
 <p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
-<h2 id="Down_to_business">Down to business</h2>
-<p>If you’re a Cordova / PhoneGap developer, I’m sure you’re already desperate to get started, so I’ll cut to the chase.</p>
-<h3 id="Install">Install</h3>
+<h2 id="down-to-business">Down to business</h2>
+<p>If you&#39;re a Cordova / PhoneGap developer, I&#39;m sure you&#39;re already desperate to get started, so I&#39;ll cut to the chase.</p>
+<h3 id="install">Install</h3>
 <p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">Github</a>.</p>
-<p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<p>Assuming you&#39;re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
 </pre></td></tr></table></figure>
 
 <p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
-<h2 id="Transitions">Transitions</h2>
-<h3 id="Flip">Flip</h3>
+<h2 id="transitions">Transitions</h2>
+<h3 id="flip">Flip</h3>
 <p>Flip page transition, with support for flipping left or right:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
@@ -583,9 +643,9 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 nativetransitions.flip(duration, direction, onComplete);
 </pre></td></tr></table></figure>
 
-<h3 id="Curl">Curl</h3>
+<h3 id="curl">Curl</h3>
 <p>Curl page transition, with support for flipping curling up or down:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
@@ -593,17 +653,17 @@ nativetransitions.flip(duration, direction, onComplete);
 nativetransitions.curl(duration, direction, onComplete);
 </pre></td></tr></table></figure>
 
-<h3 id="Fade">Fade</h3>
+<h3 id="fade">Fade</h3>
 <p>A simple fade page transition:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span>
 nativetransitions.fade(duration, onComplete);
 </pre></td></tr></table></figure>
 
-<h2 id="Example">Example</h2>
-<p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<h2 id="example">Example</h2>
+<p>Here&#39;s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -613,9 +673,9 @@ nativetransitions.fade(duration, onComplete);
 nativetransitions.flip(duration, direction);
 </pre></td></tr></table></figure>
 
-<h2 id="More_transitions-3f-">More transitions?</h2>
-<p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
-<p><strong>This is pretty flippin’ amazing stuff</strong> (OK, I’ll stop now).</p>
+<h2 id="more-transitions-">More transitions?</h2>
+<p>If you&#39;d like to add more transitions (possibly custom transitions of your own) please pull request. If you&#39;d like something in particular, let me know and I&#39;ll see if I can implement it for you.</p>
+<p><strong>This is pretty flippin&#39; amazing stuff</strong> (OK, I&#39;ll stop now).</p>
 
       
     </div>
@@ -659,23 +719,23 @@ nativetransitions.flip(duration, direction);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Playing_media_on_repeat">Playing media on repeat</h2>
-<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I’m using it in the game I’m writing.</p>
-<p>The issue is, I wanted to be able to play a background music loop on repeat (don’t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
-<h3 id="iOS">iOS</h3>
-<p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
-<blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
+        <h2 id="playing-media-on-repeat">Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I&#39;m using it in the game I&#39;m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3 id="ios">iOS</h3>
+<p>There&#39;s an &quot;iOS Quirk&quot; that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
 
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
 myMedia.play({ numberOfLoops: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
-<p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
-<h3 id="Android">Android</h3>
-<p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<p>It&#39;s a bit frustrating that you can&#39;t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
+<h3 id="android">Android</h3>
+<p>Here&#39;s my work around (that I also for iOS too to keep the JavaScript consistent). It&#39;s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -697,7 +757,7 @@ myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my
 myMedia.play();
 </pre></td></tr></table></figure>
 
-<p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
+<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>
 
       
@@ -742,124 +802,40 @@ myMedia.play();
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Pause_for_debugging">Pause for debugging</h2>
+        <h2 id="pause-for-debugging">Pause for debugging</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
 <p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
 <h2 id="grunt-pause">grunt-pause</h2>
-<p>I’ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, “<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>“. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
-<h2 id="Grunt_core">Grunt core</h2>
-<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
-<p>If this package gets used, I’ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
-<h2 id="Usage">Usage</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="comment">npm</span> <span class="comment">install</span> <span class="comment">grunt</span><span class="literal">-</span><span class="comment">pause</span> <span class="comment">##</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span><span class="literal">-</span><span class="comment">dev</span>
+<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2 id="grunt-core">Grunt core</h2>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a &quot;--pause&quot; argument on the command line.</p>
+<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2 id="usage">Usage</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-pause <span class="comment">## --save-dev</span>
 </pre></td></tr></table></figure>
 
 
 <p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="keyword">var</span> pause = require(<span class="string">"grunt-pause"</span>);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> pause = <span class="built_in">require</span>(<span class="string">"grunt-pause"</span>);
 </pre></td></tr></table></figure>
 
 
 <p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre>
-module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     pause.init(grunt);
 </pre></td></tr></table></figure>
 
 
-<h2 id="Sample_output">Sample output</h2>
+<h2 id="sample-output">Sample output</h2>
 <p>Sample screenshot of the console output:</p>
 <p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
-<h2 id="Improvements-3f-">Improvements?</h2>
+<h2 id="improvements-">Improvements?</h2>
 <p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
 <p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-02T11:24:44.000Z" itemprop="datePublished">2nd Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/plugreg-v07-is-now-live/" itemprop="url">PlugReg v0.7 Is Now Live</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="What-2019-s_new">What’s new</h2>
-<p>It’s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank">@plugreg on twitter</a>.</p>
-<h3 id="Features">Features</h3>
-<p>Here are some of the new features that have been implemented for v0.7:</p>
-<ul>
-<li><strong>Plugin details</strong>. New design and more info has been added:<ul>
-<li>Version number</li>
-<li>Last modified</li>
-<li>Stars</li>
-<li>Issues</li>
-</ul>
-</li>
-<li><strong>Avatars</strong>. Now hotlinks to gravatar or github identicons</li>
-<li><strong>Homepage</strong>. A new homepage design, giving various stats, such as:<ul>
-<li>Total number of plugins</li>
-<li>Total number of authors</li>
-<li>Recently Added Plugins (and when they were added)</li>
-<li>Recently Updated Plugins (and when they were updated)</li>
-<li>Authors with the Most Plugins (and how many plugins each)</li>
-<li>Authors with the Most Stars (combined from all their plugins)</li>
-<li>Plugins with the Most Stars (and how many stars)</li>
-<li>Plugins with the Most Issues (and how many issues)</li>
-</ul>
-</li>
-<li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
-<li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
-</ul>
-<h3 id="Refresh">Refresh</h3>
-<p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
-<h3 id="API">API</h3>
-<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you’d like to use it.</p>
-<h3 id="Bugs">Bugs</h3>
-<p>There are also many, many bug fixes.</p>
-<h2 id="Future_updates">Future updates</h2>
-<p>Further updates are on the way shortly. If you’d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank">@plugreg</a></p>
 
       
     </div>
@@ -928,6 +904,10 @@ module.exports = <span class="function"><span class="keyword">function</span> <s
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -963,10 +943,6 @@ module.exports = <span class="function"><span class="keyword">function</span> <s
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -992,11 +968,13 @@ module.exports = <span class="function"><span class="keyword">function</span> <s
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

@@ -64,15 +64,15 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="It-2019-s_time">It’s time</h2>
-<p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
-<h2 id="Keep_it_simple">Keep it simple</h2>
-<p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
-<h2 id="Use_a_permanent_-28-301-29-_redirect">Use a permanent (301) redirect</h2>
-<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
-<h3 id="Expressjs">Expressjs</h3>
-<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+        <h2 id="it-s-time">It&#39;s time</h2>
+<p>We&#39;re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
+<h2 id="keep-it-simple">Keep it simple</h2>
+<p>I don&#39;t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It&#39;s prettier, simpler and still obviously a url.</p>
+<h2 id="use-a-permanent-301-redirect">Use a permanent (301) redirect</h2>
+<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it&#39;s GitHub&#39;s preferred format (you&#39;ll never see <code>www.github.com</code>, it&#39;s always <code>github.com</code>).</p>
+<h3 id="expressjs">Expressjs</h3>
+<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn&#39;t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -96,14 +96,14 @@
 app.all(<span class="string">"*"</span>, redirect);
 </pre></td></tr></table></figure>
 
-<h2 id="Configure_webmaster_tools">Configure webmaster tools</h2>
-<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
+<h2 id="configure-webmaster-tools">Configure webmaster tools</h2>
+<p>Under &quot;site settings&quot; of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
 <ul>
-<li>Don’t set a preferred domain</li>
+<li>Don&#39;t set a preferred domain</li>
 <li>Display URLs as www.ilee.co.uk</li>
 <li>Display URLs as ilee.co.uk</li>
 </ul>
-<p><strong>Here’s to a www-less 2014</strong>.</p>
+<p><strong>Here&#39;s to a www-less 2014</strong>.</p>
 
       
     </div>
@@ -181,6 +181,10 @@ app.all(<span class="string">"*"</span>, redirect);
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -216,10 +220,6 @@ app.all(<span class="string">"*"</span>, redirect);
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -245,11 +245,13 @@ app.all(<span class="string">"*"</span>, redirect);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

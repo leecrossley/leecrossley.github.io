@@ -64,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="console-log-28-29-">console.log()</h2>
-<p>If you’ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
-<h2 id="The_problem">The problem</h2>
-<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you’re looking for, to help identify it! e.g.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+        <h2 id="console-log-">console.log()</h2>
+<p>If you&#39;ve ever touched JavaScript in your life, you&#39;ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<h2 id="the-problem">The problem</h2>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#39;re looking for, to help identify it! e.g.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -78,10 +78,10 @@ console.log(info2);
 console.log(<span class="string">"MY GROUP END"</span>);
 </pre></td></tr></table></figure>
 
-<h2 id="The_solution">The solution</h2>
-<h3 id="console-group-28-29-">console.group()</h3>
+<h2 id="the-solution">The solution</h2>
+<h3 id="console-group-">console.group()</h3>
 <p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
@@ -89,9 +89,9 @@ console.log(info1);
 console.log(info2);
 </pre></td></tr></table></figure>
 
-<h3 id="console-groupEnd-28-29-">console.groupEnd()</h3>
+<h3 id="console-groupend-">console.groupEnd()</h3>
 <p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -101,9 +101,9 @@ console.log(info2);
 console.groupEnd();
 </pre></td></tr></table></figure>
 
-<h3 id="console-groupCollapsed-28-29-">console.groupCollapsed()</h3>
+<h3 id="console-groupcollapsed-">console.groupCollapsed()</h3>
 <p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -113,10 +113,10 @@ console.log(info2);
 console.groupEnd();
 </pre></td></tr></table></figure>
 
-<h2 id="Objects_and_arrays">Objects and arrays</h2>
-<h3 id="console-table-28-29-">console.table()</h3>
-<p>If you’re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<h2 id="objects-and-arrays">Objects and arrays</h2>
+<h3 id="console-table-">console.table()</h3>
+<p>If you&#39;re logging objects and/or arrays in your groups, there&#39;s another winner for you in the form of <code>console.table()</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -210,6 +210,10 @@ console.groupEnd();
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -245,10 +249,6 @@ console.groupEnd();
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -274,11 +274,13 @@ console.groupEnd();
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

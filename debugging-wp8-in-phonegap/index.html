@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>npm Cardiac Arrest | iLee</title>
+  <title>Debugging WP8 in PhoneGap | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="The node package manager is struggling, help give it a new lease of life!">
+  <meta name="description" content="How to easily view errors thrown in Windows Phone 8 Cordova / PhoneGap apps">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="npm Cardiac Arrest"/>
+  <meta property="og:title" content="Debugging WP8 in PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ilee.co.uk/img/npm-beat.png" />
+  <meta property="og:image" content="http://www.creativefreedom.co.uk/icon-designers-blog/wp-content/uploads/2013/04/00-windows-phone-8.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,27 +54,33 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-11-28T09:57:53.000Z" itemprop="datePublished">28th Nov 2013</time>
+        <time datetime="2014-01-31T18:00:30.000Z" itemprop="datePublished">31st Jan 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">npm Cardiac Arrest</h1>
+    <h1 class="title" itemprop="name headline">Debugging WP8 in PhoneGap</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="it-s-happening-again">It&#39;s happening again</h2>
-<h3 id="beep-beep-beeeeeeep">Beep, beep, beeeeeeep</h3>
-<p>The node package manager &quot;<a href="https://npmjs.org/" target="_blank">npm</a>&quot; is once again grinding to a halt. A <a href="http://blog.nodejs.org/2013/11/26/npm-post-mortem/" target="_blank">post-mortem</a> was published on the official nodejs blog after the recent downtime (November 4th / November 15th 2013), but it&#39;s problems are far from resolved (as demonstrated today).</p>
-<p><img src="/img/npm-beat.png" alt="npm Cardiac Arrest"></p>
-<h2 id="keep-it-beating-keep-it-awesome">Keep it beating, keep it awesome</h2>
-<p>With no other alternative, npm is fundamental to node. More infrastructure is needed to continue to operate the npm registry (multi-master approach and <strong>throw hardware and people at it</strong>).</p>
-<p>In my personal opinion (and I know others echo this sentiment) there also needs to be a change to the way npm handles its dependencies. When currently installing a package, half of the registry is downloaded with it. There are ideas, such as materialising a vector of [package, version] -&gt; hash, but this is exceptionally tricky.</p>
-<p>The npm registry has served over 150 million requests and 33 million package downloads in the last week. This is 10 times as many requests and downloads as this time last year, with all signs pointing to further exponential growth.</p>
-<h2 id="donate">Donate</h2>
-<p><strong>I&#39;ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you&#39;re a developer that&#39;s ever used npm, <a href="https://scalenpm.org/" target="_blank">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
-<p><img src="/img/npm-thanks.png" alt="Thanks"></p>
+        <h2 id="windows-phone-8">Windows Phone 8</h2>
+<p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank">reported an issue</a> that prevents the WP8 platform from even being using with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
+<p>One of the main issues for the platform being difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you&#39;re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
+<h2 id="show-me-the-errors">Show me the errors</h2>
+<p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
+    window.external.Notify(<span class="string">"Error in Application: "</span> +
+        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
+}
+</pre></td></tr></table></figure>
+
+<p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
+<p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank">here</a>.</p>
 
       
     </div>
@@ -82,17 +88,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/npm-cardiac-arrest"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=npm%20Cardiac%20Arrest&amp;url=http://ilee.co.uk/npm-cardiac-arrest&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/npm-cardiac-arrest"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/npm-cardiac-arrest&amp;title=npm%20Cardiac%20Arrest"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/debugging-wp8-in-phonegap"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Debugging%20WP8%20in%20PhoneGap&amp;url=http://ilee.co.uk/debugging-wp8-in-phonegap&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/debugging-wp8-in-phonegap"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/debugging-wp8-in-phonegap&amp;title=Debugging%20WP8%20in%20PhoneGap"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/wp8/" itemprop="keywords">wp8</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

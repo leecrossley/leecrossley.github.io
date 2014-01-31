@@ -64,9 +64,9 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="We_all_do_it">We all do it</h2>
-<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+        <h2 id="we-all-do-it">We all do it</h2>
+<p>If you&#39;re a JavaScript developer (or even more likely if you&#39;re a developer that dabbles with JavaScript) you&#39;ll have written code like this many times:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -76,8 +76,8 @@
 });
 </pre></td></tr></table></figure>
 
-<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<p>You might be thinking <strong>what&#39;s wrong with that</strong>, but I hope you&#39;re thinking <strong>I&#39;m better than that, I&#39;d do something like this</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -91,11 +91,11 @@
 document.addEventListener(<span class="string">"click"</span>, doStuff);
 </pre></td></tr></table></figure>
 
-<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
-<h2 id="The_right_frame_of_-3c-em-3e-bind-3c-2f-em-3e-">The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<p><strong>Great</strong>. What do you do if the alert text is dynamic? I&#39;ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
+<p>This problem isn&#39;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
+<h2 id="the-right-frame-of-bind-">The right frame of <em>bind</em></h2>
+<p>Yes, I really did just make that joke, it&#39;s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#39;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -110,8 +110,8 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
 </pre></td></tr></table></figure>
 
 <p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
-<h2 id="A_good_-3c-em-3e-curry-3c-2f-em-3e-">A good <em>curry</em></h2>
-<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
+<h2 id="a-good-curry-">A good <em>curry</em></h2>
+<p>You can&#39;t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
 
       
     </div>
@@ -189,6 +189,10 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -224,10 +228,6 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -253,11 +253,13 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

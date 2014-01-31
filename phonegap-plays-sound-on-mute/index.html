@@ -64,26 +64,26 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="The_Cordova_-2f-_PhoneGap_media_plugin">The Cordova / PhoneGap media plugin</h2>
-<p>As part of my recent game development, there’s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
-<h2 id="Working_in_60_seconds-2c-_but-2026-">Working in 60 seconds, but…</h2>
+        <h2 id="the-cordova-phonegap-media-plugin">The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
+<h2 id="working-in-60-seconds-but-">Working in 60 seconds, but...</h2>
 <p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
 <p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
 <p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
-<h2 id="-3c-a_href-3d-22-http-3a-2f-2f-youtu-be-2f-9Hp44eaK8Lc-3f-t-3d-44s-22-3e-Why_Why_Why-3c-2f-a-3e-"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
-<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn’t open (screen is locked).</p>
-<h2 id="The_solution">The solution</h2>
-<p>My initial instinct was to query the state of the mute switch, but I really didn’t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
-<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that’s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
-<h2 id="Full_example">Full example</h2>
-<p>Here’s the code you need to play audio that obeys the mute switch:</p>
-<h3 id="Install_the_media_plugin">Install the media plugin</h3>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
+<h2 id="-why-why-why-http-youtu-be-9hp44eak8lc-t-44s-"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
+<h2 id="the-solution">The solution</h2>
+<p>My initial instinct was to query the state of the mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2 id="full-example">Full example</h2>
+<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
+<h3 id="install-the-media-plugin">Install the media plugin</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
 </pre></td></tr></table></figure>
 
-<h3 id="In_your_JavaScript">In your JavaScript</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<h3 id="in-your-javascript">In your JavaScript</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -171,6 +171,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -206,10 +210,6 @@
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -235,11 +235,13 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

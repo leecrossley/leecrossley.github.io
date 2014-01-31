@@ -64,55 +64,55 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="New_features_of_-201c-grunt-timer-201d-">New features of “grunt-timer”</h2>
-<p>I’m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it’s entirely down to the efforts of the open source community.</p>
-<h2 id="What-2019-s_new">What’s new</h2>
+        <h2 id="new-features-of-grunt-timer-">New features of &quot;grunt-timer&quot;</h2>
+<p>I&#39;m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it&#39;s entirely down to the efforts of the open source community.</p>
+<h2 id="what-s-new">What&#39;s new</h2>
 <p>There are 3 new features, implemented as interchangeable options:</p>
-<h3 id="friendlyTime">friendlyTime</h3>
+<h3 id="friendlytime">friendlyTime</h3>
 <p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h3 id="deferLogs">deferLogs</h3>
+<h3 id="deferlogs">deferLogs</h3>
 <p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { deferLogs: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
 <p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h3 id="totalOnly">totalOnly</h3>
+<h3 id="totalonly">totalOnly</h3>
 <p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { totalOnly: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
 <p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h2 id="Credits">Credits</h2>
-<h3 id="Contributors">Contributors</h3>
+<h2 id="credits">Credits</h2>
+<h3 id="contributors">Contributors</h3>
 <ul>
 <li>Thanks to <a href="https://github.com/geekdave" target="_blank">Dave Cadwallader</a> for the implementation of the <em>friendlyTime</em> and <em>deferLogs</em> options.</li>
 <li>Thanks to <a href="https://github.com/carlherbst" target="_blank">Carl Herbst</a> for the implementation of the <em>totalOnly</em> option.</li>
 </ul>
-<h2 id="Pull_requests">Pull requests</h2>
+<h2 id="pull-requests">Pull requests</h2>
 <p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a> and you can create pull requests <a href="https://github.com/leecrossley/grunt-timer/pulls" target="_blank">here</a>.</p>
 
       
@@ -191,6 +191,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -226,10 +230,6 @@
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -255,11 +255,13 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

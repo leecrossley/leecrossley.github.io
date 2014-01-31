@@ -64,20 +64,20 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="New_version_of_-201c-grunt-timer-201d-">New version of “grunt-timer”</h2>
+        <h2 id="new-version-of-grunt-timer-">New version of &quot;grunt-timer&quot;</h2>
 <p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I’ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
-<h2 id="Open_source">Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I’ve now made several improvements and fixes:</p>
+<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2 id="open-source">Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
 <ol>
-<li><p>Tasks (that aren’t really tasks) taking no time are no longer logged.</p>
+<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
 <ul>
-<li>Let’s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+<li>Let&#39;s say you have a task &quot;mytask&quot; that has a &quot;mytask:dist&quot; configuration. &quot;mytask:dist&quot; is actually what should be timed (according to the &quot;nameArgs&quot; property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
 </ul>
 </li>
 <li><p>A total elapsed time of all logged tasks is now also logged.</p>
 <ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn’t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the &quot;Done, without errors&quot; unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
 </ul>
 </li>
 <li><p>The initialisation period no longer contributes to logged times.</p>
@@ -86,8 +86,8 @@
 </ul>
 </li>
 </ol>
-<h2 id="Source_code">Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I’m open to pull requests and suggestions as always.</p>
+<h2 id="source-code">Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
 
       
     </div>
@@ -165,6 +165,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -200,10 +204,6 @@
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -229,11 +229,13 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

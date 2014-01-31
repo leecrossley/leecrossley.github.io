@@ -65,24 +65,24 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="froute">froute</h2>
-<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that’s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that&#39;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
 <p><img src="/img/froute.png" alt="froute"></p>
-<h2 id="Getting_started">Getting started</h2>
+<h2 id="getting-started">Getting started</h2>
 <p>Install via npm:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">npm</span> install froute
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm <span class="keyword">install</span> froute
 </pre></td></tr></table></figure>
 
 <p>Require the module in the usual way:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> froute = require(<span class="string">"froute"</span>);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);
 </pre></td></tr></table></figure>
 
-<h2 id="Using_froute">Using froute</h2>
+<h2 id="using-froute">Using froute</h2>
 <p>There are essentially 2 or 3 functions you need to use.</p>
-<h3 id="Register_routes">Register routes</h3>
+<h3 id="register-routes">Register routes</h3>
 <p>You register a route using the <strong>bind</strong> function:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -93,29 +93,29 @@ froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
-<h3 id="Unregister_routes">Unregister routes</h3>
+<h3 id="unregister-routes">Unregister routes</h3>
 <p>You unregister a route using the <strong>unbind</strong> function:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
 </pre></td></tr></table></figure>
 
 <p>Unbound templates are returned by the unbind function.</p>
-<h3 id="Dispatch">Dispatch</h3>
+<h3 id="dispatch">Dispatch</h3>
 <p>When a url comes in, you call dispatch:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
 </pre></td></tr></table></figure>
 
 <p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
-<h3 id="Full_example">Full example</h3>
+<h3 id="full-example">Full example</h3>
 <p>A full example illustrating how the handler function works with params:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -145,11 +145,11 @@ expect(froute.list().length).toEqual(<span class="number">1</span>);
 expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
 </pre></td></tr></table></figure>
 
-<h2 id="Behind_the_scenes">Behind the scenes</h2>
+<h2 id="behind-the-scenes">Behind the scenes</h2>
 <h3 id="froute-picker">froute-picker</h3>
-<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
-<h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<p>froute uses the &quot;froute-picker&quot; module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
+<h4 id="picking-parameters-from-a-url-template-and-matching-a-url-to-the-template">Picking parameters from a url template and matching a url to the template</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -169,10 +169,10 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 
 <h3 id="functional-js">functional.js</h3>
 <p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
-<h2 id="Issues_and_contributions">Issues and contributions</h2>
-<p>I’m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
-<h2 id="An_apple_a_day">An apple a day</h2>
-<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
+<h2 id="issues-and-contributions">Issues and contributions</h2>
+<p>I&#39;m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<h2 id="an-apple-a-day">An apple a day</h2>
+<p>... might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
 
       
     </div>
@@ -250,6 +250,10 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -285,10 +289,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -314,11 +314,13 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

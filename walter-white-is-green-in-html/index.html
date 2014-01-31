@@ -64,35 +64,33 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="What_has_-201c-Walter_White-201d-_got_to_do_with_actual_colours_and_HTML-3f-">What has “Walter White” got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I’m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn’t a valid colour</strong>. Let me explain before you think I’ve gone mad.</p>
-<h3 id="Example">Example</h3>
-<figure class="highlight lang-html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+        <h2 id="what-has-walter-white-got-to-do-with-actual-colours-and-html-">What has &quot;Walter White&quot; got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I&#39;m a fan myself) but you&#39;re probably thinking <strong>where on earth is he going with this, &quot;Walter White&quot; isn&#39;t a valid colour</strong>. Let me explain before you think I&#39;ve gone mad.</p>
+<h3 id="example">Example</h3>
+<figure class="highlight html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 
-<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
-<p>Don’t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
-<h2 id="What_is_going_on_here-3f-21-">What is going on here?!</h2>
+<p>The above code snippet will actually colour the text &quot;Walter White&quot;, in a Breaking Bad green, automatically.</p>
+<p>Don&#39;t believe me? Here&#39;s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
+<h2 id="what-is-going-on-here-">What is going on here?!</h2>
 <p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
-<h3 id="The_cooking_process">The cooking process</h3>
+<h3 id="the-cooking-process">The cooking process</h3>
 <ol>
-<li>Replace all invalid hexadecimal characters with “0”</li>
+<li>Replace all invalid hexadecimal characters with &quot;0&quot;</li>
 <li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
 <li>Take the first 2 hexadecimal characters from each group</li>
 </ol>
 <p><strong>Et voilà!</strong></p>
-<p>No? Let’s step through the example.</p>
+<p>No? Let&#39;s step through the example.</p>
 <ol>
-<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
-<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
-<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
+<li>&quot;Walter White&quot; becomes &quot;0a00e000000e&quot; when replacing invalid hexadecimal characters with &quot;0&quot;</li>
+<li>&quot;0a00e000000e&quot; is 12 characters long, so dividing into 3 groups gives &quot;0a00 e000 000e&quot;</li>
+<li>Taking the first 2 hexadecimal characters from each group in &quot;0a00 e000 000e&quot; produces &quot;0a e0 00&quot;</li>
 </ol>
-<p><strong>“Walter White” = “#0ae000”</strong></p>
-<p>I would have expected it to be blue, but I’m guessing the process isn’t 100% pure :)</p>
+<p><strong>&quot;Walter White&quot; = &quot;#0ae000&quot;</strong></p>
+<p>I would have expected it to be blue, but I&#39;m guessing the process isn&#39;t 100% pure :)</p>
 
       
     </div>
@@ -170,6 +168,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -205,10 +207,6 @@
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -234,11 +232,13 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

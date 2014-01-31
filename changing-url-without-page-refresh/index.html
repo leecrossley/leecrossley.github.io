@@ -64,30 +64,28 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Using_JavaScript_to_change_the_page_url_without_reloading">Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it’s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won’t even try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
-<p>I’m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I’m also not talking about iFrames either - this solution isn’t a hack, it’s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+        <h2 id="using-javascript-to-change-the-page-url-without-reloading">Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#39;t even try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+<p>I&#39;m not talking about just changing &quot;the bit after the hash (#)&quot; I&#39;m referring to the entire relative url. I&#39;m also not talking about iFrames either - this solution isn&#39;t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
 <p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
-<h2 id="How_it-2019-s_done">How it’s done</h2>
+<h2 id="how-it-s-done">How it&#39;s done</h2>
 <p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
-<h3 id="The_history-pushState-28-29-_function">The history.pushState() function</h3>
+<h3 id="the-history-pushstate-function">The history.pushState() function</h3>
 <p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
 <ul>
 <li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
 </li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven’t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &quot;your title&quot;).</p>
 </li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &quot;loaded&quot; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#39;t try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
 </li>
 </ul>
-<figure class="highlight lang-javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
-6
-</pre></td><td class="code"><pre>
-<span class="keyword">var</span> state = {
+</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
   <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
 };
 history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
@@ -95,14 +93,14 @@ expect(history.state).toEqual(state);
 </pre></td></tr></table></figure>
 
 
-<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
-<h3 id="The_history-replaceState-28-29-_function">The history.replaceState() function</h3>
-<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I’ve never bothered to use this one.</p>
-<h3 id="The_onpopstate_event">The onpopstate event</h3>
+<p>The above example will update the url in the address bar to be &quot;/new-page&quot; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<h3 id="the-history-replacestate-function">The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
+<h3 id="the-onpopstate-event">The onpopstate event</h3>
 <p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
-<h2 id="Back_to_the_future">Back to the future</h2>
+<h2 id="back-to-the-future">Back to the future</h2>
 <p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
-<h2 id="Usages">Usages</h2>
+<h2 id="usages">Usages</h2>
 <p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
 <p>Have fun relocating.</p>
 
@@ -182,6 +180,10 @@ expect(history.state).toEqual(state);
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -217,10 +219,6 @@ expect(history.state).toEqual(state);
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -246,11 +244,13 @@ expect(history.state).toEqual(state);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

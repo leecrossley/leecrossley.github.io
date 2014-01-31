@@ -64,58 +64,50 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Timing_is_everything">Timing is everything</h2>
+        <h2 id="timing-is-everything">Timing is everything</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
 <p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don’t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
+<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
 <h2 id="grunt-timer">grunt-timer</h2>
 <p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2 id="Shouldn-2019-t_this_be_part_of_Grunt-3f-">Shouldn’t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
+<h2 id="shouldn-t-this-be-part-of-grunt-">Shouldn&#39;t this be part of Grunt?</h2>
+<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it&#39;s a little hacky the way I&#39;ve done it using hooks and the time isn&#39;t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2 id="How_do_I_use_it-3f-">How do I use it?</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="comment">npm</span> <span class="comment">install</span> <span class="comment">grunt</span><span class="literal">-</span><span class="comment">timer</span> <span class="comment">##</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span>
+<h2 id="how-do-i-use-it-">How do I use it?</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-timer <span class="comment">## --save</span>
 </pre></td></tr></table></figure>
 
 
 <p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="keyword">var</span> timer = require(<span class="string">"grunt-timer"</span>);
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);
 </pre></td></tr></table></figure>
 
 
 <p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight lang-javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre>
-module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
     timer.init(grunt);
 </pre></td></tr></table></figure>
 
 
-<h2 id="Example_output">Example output</h2>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+<h2 id="example-output">Example output</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 2
 3
-4
-</pre></td><td class="code"><pre>
-Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span>
+</pre></td><td class="code"><pre>Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span>
 <span class="number">500</span>ms <span class="keyword">task</span> ran
 Task <span class="string">'run:500'</span> took <span class="number">502</span>ms
 </pre></td></tr></table></figure>
 
 
-<h2 id="Issues">Issues</h2>
-<p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
+<h2 id="issues">Issues</h2>
+<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
 <ul>
-<li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn’t be, or if they are, should be a summary of all the multitasks).</li>
+<li>The last task duration is output after the &quot;Done, without errors&quot;.</li>
+<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
 </ul>
 <p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
 
@@ -195,6 +187,10 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -230,10 +226,6 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -259,11 +251,13 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

@@ -64,36 +64,32 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="The_different_ways_to_declare_a_function_in_JavaScript">The different ways to declare a function in JavaScript</h2>
-<h3 id="To_var-2c-_or_not_to_var">To var, or not to var</h3>
+        <h2 id="the-different-ways-to-declare-a-function-in-javascript">The different ways to declare a function in JavaScript</h2>
+<h3 id="to-var-or-not-to-var">To var, or not to var</h3>
 <p>You can declare a function as you would any other JavaScript variable:</p>
-<figure class="highlight lang-javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre>
-<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
 };
 </pre></td></tr></table></figure>
 
 
 <p>Or you can declare it without a var in your statement:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre>
-<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
 }
 </pre></td></tr></table></figure>
 
 
-<h2 id="The_difference">The difference</h2>
+<h2 id="the-difference">The difference</h2>
 <p>I recently read an accepted answer on Stack Overflow that stated:</p>
-<blockquote><p>“<em>If you’re in the global scope then there’s no difference.</em>“</p>
+<blockquote><p>&quot;<em>If you&#39;re in the global scope then there&#39;s no difference.</em>&quot;</p>
 <footer><strong>- Stack Overflow</strong></footer></blockquote>
 
 
-<p>I’m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
+<p>I&#39;m sorry but I don&#39;t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
+<figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -112,9 +108,7 @@
 17
 18
 19
-20
-</pre></td><td class="code"><pre>
-<span class="keyword">try</span> {
+</pre></td><td class="code"><pre><span class="keyword">try</span> {
   func1();
 } <span class="keyword">catch</span> (ex) {
   alert(ex);
@@ -136,30 +130,26 @@
 </pre></td></tr></table></figure>
 
 
-<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it’s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
+<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
 <ul>
 <li>func1 (var format) is defined <strong>at</strong> runtime</li>
-<li>func2 is defined <strong>before</strong> runtime, they’re “<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>“</li>
+<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>&quot;</li>
 </ul>
-<h2 id="Function_expressions">Function expressions</h2>
-<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn’t. To give the function itself a name, you could do:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
+<h2 id="function-expressions">Function expressions</h2>
+<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
+<figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-3
-</pre></td><td class="code"><pre>
-<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
 };
 </pre></td></tr></table></figure>
 
 
-<h2 id="Best_practice">Best practice</h2>
-<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you’re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
-<h2 id="CoffeeScript_fans">CoffeeScript fans</h2>
-<p>If you’re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there’s only one way you can define a function in coffeescript:</p>
-<figure class="highlight lang-coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="function"><span class="title">func</span> = -&gt;</span>
+<h2 id="best-practice">Best practice</h2>
+<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you&#39;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
+<h2 id="coffeescript-fans">CoffeeScript fans</h2>
+<p>If you&#39;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#39;s only one way you can define a function in coffeescript:</p>
+<figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="function"><span class="title">func</span> = -&gt;</span>
 </pre></td></tr></table></figure>
 
 
@@ -242,6 +232,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -277,10 +271,6 @@
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -306,11 +296,13 @@
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>

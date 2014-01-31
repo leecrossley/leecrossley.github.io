@@ -64,48 +64,42 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Grunt_-_the_task_runner_for_JavaScript">Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn’t take sick days, pays attention and watches what you’re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It’s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
-<p>I’m just going to cover the basics here for now.</p>
-<h2 id="Getting_the_ball_rolling">Getting the ball rolling</h2>
-<p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
-<h3 id="The_Grunt_CLI">The Grunt CLI</h3>
-<p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="comment">npm</span> <span class="comment">install</span> <span class="literal">-</span><span class="comment">g</span> <span class="comment">grunt</span><span class="literal">-</span><span class="comment">cli</span>
+        <h2 id="grunt-the-task-runner-for-javascript">Grunt - the task runner for JavaScript</h2>
+<p>Let grunt handle all your JavaScript tasks. It doesn&#39;t take sick days, pays attention and watches what you&#39;re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It&#39;s easy to configure and once it&#39;s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I&#39;m just going to cover the basics here for now.</p>
+<h2 id="getting-the-ball-rolling">Getting the ball rolling</h2>
+<p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<h3 id="the-grunt-cli">The Grunt CLI</h3>
+<p>Assuming you&#39;re a serious developer, you&#39;ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm install <span class="attribute">-g</span> grunt<span class="attribute">-cli</span>
 </pre></td></tr></table></figure>
 
 
-<p>You can now run “grunt” from anywhere. Happy times.</p>
-<h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
-<p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>You can now run &quot;grunt&quot; from anywhere. Happy times.</p>
+<h3 id="the-gruntfile-js">The Gruntfile.js</h3>
+<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
-5
-</pre></td><td class="code"><pre>
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
 grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
 grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
 grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+<p>You can then define some tasks in your Gruntfile.js, here&#39;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
-7
-</pre></td><td class="code"><pre>
-jasmine: {
+</pre></td><td class="code"><pre>jasmine: {
     src: <span class="string">"functional.min.js"</span>,
     options: {
         specs: <span class="string">"spec.js"</span>
@@ -116,35 +110,29 @@ jasmine: {
 
 <p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank">spec.js</a>.</p>
 <p>You can run it by doing:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="title">grunt</span> jasmine
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt jasmine
 </pre></td></tr></table></figure>
 
 
-<h3 id="Combining_tasks">Combining tasks</h3>
-<p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
+<h3 id="combining-tasks">Combining tasks</h3>
+<p>In the above example, it&#39;s unlikely that you&#39;ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
 </pre></td></tr></table></figure>
 
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
-<h3 id="Watching_for_changes">Watching for changes</h3>
-<p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
-<figure class="highlight lang-javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+<h3 id="watching-for-changes">Watching for changes</h3>
+<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing &quot;grunt test&quot; and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
 7
-8
-</pre></td><td class="code"><pre>
-watch: {
+</pre></td><td class="code"><pre>watch: {
     files: [
         <span class="string">"*.js"</span>,
         <span class="string">"!functional.min.js"</span>
@@ -155,10 +143,8 @@ watch: {
 
 
 <p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="title">grunt</span> watch
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>grunt watch
 </pre></td></tr></table></figure>
 
 
@@ -240,6 +226,10 @@ watch: {
   <ul class="entry">
     
       <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
@@ -275,10 +265,6 @@ watch: {
         <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
       </li>
     
-      <li>
-        <a href="/plugreg-v07-is-now-live/">PlugReg v0.7 Is Now Live</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -304,11 +290,13 @@ watch: {
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>39</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>13</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
     <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
   </ul>
 </div>
