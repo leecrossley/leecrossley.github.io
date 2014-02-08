@@ -55,6 +55,73 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/update-to-my-grunt-timer/" itemprop="url">Update to My grunt-timer</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="new-version-of-grunt-timer-">New version of &quot;grunt-timer&quot;</h2>
+<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
+<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<h2 id="open-source">Open source</h2>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
+<ol>
+<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
+<ul>
+<li>Let&#39;s say you have a task &quot;mytask&quot; that has a &quot;mytask:dist&quot; configuration. &quot;mytask:dist&quot; is actually what should be timed (according to the &quot;nameArgs&quot; property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+</ul>
+</li>
+<li><p>A total elapsed time of all logged tasks is now also logged.</p>
+<ul>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the &quot;Done, without errors&quot; unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+</ul>
+</li>
+<li><p>The initialisation period no longer contributes to logged times.</p>
+<ul>
+<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
+</ul>
+</li>
+</ol>
+<h2 id="source-code">Source code</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-05T08:42:47.000Z" itemprop="datePublished">5th Nov 2013</time>
       
       
@@ -785,80 +852,6 @@ plugins.sort(byCase);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-26T16:16:00.000Z" itemprop="datePublished">26th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/determine-if-a-javascript-object-is-numeric/" itemprop="url">The JavaScript IsNumeric Function</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="isnumeric">isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it&#39;s really not a lot of code, but took a little while to get just right. It&#39;s tested with every type of numeric I could think up (and also non-numerics).</p>
-<h3 id="using-npm">Using npm</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> isnumeric
-</pre></td></tr></table></figure>
-
-<p>To then include isnumeric in your node app:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="built_in">require</span>(<span class="string">"isnumeric"</span>);
-</pre></td></tr></table></figure>
-
-<h3 id="direct-dependency">Direct dependency</h3>
-<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
-<h2 id="the-code">The code</h2>
-<p>Essentially, this is it:</p>
-<figure class="highlight javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
-    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
-    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(obj)) &amp;&amp; <span class="built_in">isFinite</span>(obj) &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
-};
-</pre></td></tr></table></figure>
-
-
-<p>The first line of the function could be omitted if you weren&#39;t concerned with supporting comma decimals (e.g. &quot;1,1&quot;) like in some countries.</p>
-<h2 id="the-tests">The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it&#39;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
-<p>Any disagreements or improvements please pull request.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -914,6 +907,10 @@ plugins.sort(byCase);
   <ul class="entry">
     
       <li>
+        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
+      </li>
+    
+      <li>
         <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
       </li>
     
@@ -949,10 +946,6 @@ plugins.sort(byCase);
         <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -982,7 +975,7 @@ plugins.sort(byCase);
   
     <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
-    <li><a href="/tags/web/">web</a><small>23</small></li>
+    <li><a href="/tags/web/">web</a><small>24</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   

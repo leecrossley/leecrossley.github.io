@@ -4,12 +4,57 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-01-31T18:27:43.330Z</updated>
+  <updated>2014-02-08T08:44:31.384Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Are You a Dot Guru?]]></title>
+    <link href="http://ilee.co.uk/are-you-a-dot-guru/"/>
+    <id>http://ilee.co.uk/are-you-a-dot-guru/</id>
+    <published>2014-02-06T19:20:06.000Z</published>
+    <updated>2014-02-08T08:44:22.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="the-guru-top-level-domain">The .guru top level domain</h2>
+<p>The &quot;.guru&quot; top level domain (TLD) became available for public registration this week. More than 20,000 .guru domain names have already been snapped up, proving it to be the most popular of the new public TLDs.</p>
+<p><img src="/img/guru.png" alt="dot guru"></p>
+<h3 id="going-going-">Going, going...</h3>
+<p>Are you considered an expert in a particular field, product or category? If you are a guru, there might still be time to register your .guru domain name.</p>
+<blockquote><p><strong>Take a quick search on <a href="http://www.shareasale.com/r.cfm?B=210738&amp;U=912360&amp;M=25581&amp;urllink=https://iwantmyname.com/domains/dot-guru" target="_blank">iwantmyname</a> to see what&#39;s available.</strong></p>
+</blockquote>
+
+
+<h2 id="i-m-a-dot-guru">I&#39;m a dot guru</h2>
+<p>I quickly registered a couple of .guru domain names. I plan to utilise them as opposed to selling them, although someone has listed 3dprinting.guru for $7500 and mine are better than that.. so we&#39;ll see.</p>
+<p>There are also others listed for silly prices (and unlikely to sell?), I&#39;ve seen one on ebay for $20K (or best offer, admittedly).</p>
+<h2 id="trademarks">Trademarks</h2>
+<p>As you&#39;d expect, most companies have registered their trademarks as domains (e.g. Apple have registered iphone.guru and pretty much all their products). There are however some registrations that do not belong to the trademark holders :) ... <em>opens popcorn</em></p>
+<h2 id="other-tlds">Other TLDs</h2>
+<p>Other popular TLDs now available include:</p>
+<ul>
+<li>.bike</li>
+<li>.clothing</li>
+<li>.singles</li>
+<li>.ventures</li>
+<li>.plumbing</li>
+<li>.holdings</li>
+<li>.equipment</li>
+<li>.lighting</li>
+<li>.estate</li>
+<li>.graphics</li>
+<li>.camera</li>
+<li>.gallery</li>
+</ul>
+<p>Note that .guru is more popular than all of the above put together.</p>
+<h2 id="is-this-the-end-of-com-">Is this the end of .com?</h2>
+<p><a href="http://www.youtube.com/watch?v=kxRX6LXDpWs" target="_blank">No</a>. To put things into perspective, there have been more than <strong>five times as many</strong> .com registrations than .guru registrations since Wednesday.</p>
+<p>Even skype and twitter (at the time of writing this) aren&#39;t picking up that domain.guru is a URL, even with a protocol prefix!</p>
+<p>The .com TLD isn&#39;t going anywhere. Past new TLDs such as .co didn&#39;t replace the .com and neither will any of the proposed future new TLDs. </p>
+<p>The new TLDs do have their place and are needed in the overcrowded .com world.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Debugging WP8 in PhoneGap]]></title>
     <link href="http://ilee.co.uk/debugging-wp8-in-phonegap/"/>
@@ -1026,39 +1071,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 <h2 id="future-enhancements">Future enhancements</h2>
 <p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
 <p><strong>Compilation automation for the nation</strong></p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Update to My grunt-timer]]></title>
-    <link href="http://ilee.co.uk/update-to-my-grunt-timer/"/>
-    <id>http://ilee.co.uk/update-to-my-grunt-timer/</id>
-    <published>2013-11-06T16:25:14.000Z</published>
-    <updated>2013-11-06T16:41:58.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="new-version-of-grunt-timer-">New version of &quot;grunt-timer&quot;</h2>
-<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I&#39;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
-<h2 id="open-source">Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#39;ve now made several improvements and fixes:</p>
-<ol>
-<li><p>Tasks (that aren&#39;t really tasks) taking no time are no longer logged.</p>
-<ul>
-<li>Let&#39;s say you have a task &quot;mytask&quot; that has a &quot;mytask:dist&quot; configuration. &quot;mytask:dist&quot; is actually what should be timed (according to the &quot;nameArgs&quot; property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
-</ul>
-</li>
-<li><p>A total elapsed time of all logged tasks is now also logged.</p>
-<ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#39;t itself a summary. It still has to appear after the &quot;Done, without errors&quot; unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
-</ul>
-</li>
-<li><p>The initialisation period no longer contributes to logged times.</p>
-<ul>
-<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
-</ul>
-</li>
-</ol>
-<h2 id="source-code">Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I&#39;m open to pull requests and suggestions as always.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>

@@ -55,6 +55,85 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-02-06T19:20:06.000Z" itemprop="datePublished">6th Feb 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/are-you-a-dot-guru/" itemprop="url">Are You a Dot Guru?</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="the-guru-top-level-domain">The .guru top level domain</h2>
+<p>The &quot;.guru&quot; top level domain (TLD) became available for public registration this week. More than 20,000 .guru domain names have already been snapped up, proving it to be the most popular of the new public TLDs.</p>
+<p><img src="/img/guru.png" alt="dot guru"></p>
+<h3 id="going-going-">Going, going...</h3>
+<p>Are you considered an expert in a particular field, product or category? If you are a guru, there might still be time to register your .guru domain name.</p>
+<blockquote><p><strong>Take a quick search on <a href="http://www.shareasale.com/r.cfm?B=210738&amp;U=912360&amp;M=25581&amp;urllink=https://iwantmyname.com/domains/dot-guru" target="_blank">iwantmyname</a> to see what&#39;s available.</strong></p>
+</blockquote>
+
+
+<h2 id="i-m-a-dot-guru">I&#39;m a dot guru</h2>
+<p>I quickly registered a couple of .guru domain names. I plan to utilise them as opposed to selling them, although someone has listed 3dprinting.guru for $7500 and mine are better than that.. so we&#39;ll see.</p>
+<p>There are also others listed for silly prices (and unlikely to sell?), I&#39;ve seen one on ebay for $20K (or best offer, admittedly).</p>
+<h2 id="trademarks">Trademarks</h2>
+<p>As you&#39;d expect, most companies have registered their trademarks as domains (e.g. Apple have registered iphone.guru and pretty much all their products). There are however some registrations that do not belong to the trademark holders :) ... <em>opens popcorn</em></p>
+<h2 id="other-tlds">Other TLDs</h2>
+<p>Other popular TLDs now available include:</p>
+<ul>
+<li>.bike</li>
+<li>.clothing</li>
+<li>.singles</li>
+<li>.ventures</li>
+<li>.plumbing</li>
+<li>.holdings</li>
+<li>.equipment</li>
+<li>.lighting</li>
+<li>.estate</li>
+<li>.graphics</li>
+<li>.camera</li>
+<li>.gallery</li>
+</ul>
+<p>Note that .guru is more popular than all of the above put together.</p>
+<h2 id="is-this-the-end-of-com-">Is this the end of .com?</h2>
+<p><a href="http://www.youtube.com/watch?v=kxRX6LXDpWs" target="_blank">No</a>. To put things into perspective, there have been more than <strong>five times as many</strong> .com registrations than .guru registrations since Wednesday.</p>
+<p>Even skype and twitter (at the time of writing this) aren&#39;t picking up that domain.guru is a URL, even with a protocol prefix!</p>
+<p>The .com TLD isn&#39;t going anywhere. Past new TLDs such as .co didn&#39;t replace the .com and neither will any of the proposed future new TLDs. </p>
+<p>The new TLDs do have their place and are needed in the overcrowded .com world.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-01-31T18:00:30.000Z" itemprop="datePublished">31st Jan 2014</time>
       
       
@@ -774,83 +853,6 @@ myMedia.play();
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-03T08:44:40.000Z" itemprop="datePublished">3rd Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/pause-between-grunt-tasks/" itemprop="url">Pause between Grunt Tasks</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="pause-for-debugging">Pause for debugging</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
-<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
-<h2 id="grunt-pause">grunt-pause</h2>
-<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
-<h2 id="grunt-core">Grunt core</h2>
-<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a &quot;--pause&quot; argument on the command line.</p>
-<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
-<h2 id="usage">Usage</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-pause <span class="comment">## --save-dev</span>
-</pre></td></tr></table></figure>
-
-
-<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> pause = <span class="built_in">require</span>(<span class="string">"grunt-pause"</span>);
-</pre></td></tr></table></figure>
-
-
-<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    pause.init(grunt);
-</pre></td></tr></table></figure>
-
-
-<h2 id="sample-output">Sample output</h2>
-<p>Sample screenshot of the console output:</p>
-<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
-<h2 id="improvements-">Improvements?</h2>
-<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
-<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -904,6 +906,10 @@ myMedia.play();
   <ul class="entry">
     
       <li>
+        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
+      </li>
+    
+      <li>
         <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
       </li>
     
@@ -939,10 +945,6 @@ myMedia.play();
         <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/pause-between-grunt-tasks/">Pause between Grunt Tasks</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -972,7 +974,7 @@ myMedia.play();
   
     <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
   
-    <li><a href="/tags/web/">web</a><small>23</small></li>
+    <li><a href="/tags/web/">web</a><small>24</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
   
