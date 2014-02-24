@@ -4,12 +4,42 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-02-08T08:44:31.384Z</updated>
+  <updated>2014-02-24T18:31:09.839Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Sat Nav Map Directions for PhoneGap]]></title>
+    <link href="http://ilee.co.uk/sat-nav-map-directions-for-phonegap/"/>
+    <id>http://ilee.co.uk/sat-nav-map-directions-for-phonegap/</id>
+    <published>2014-02-24T18:25:21.000Z</published>
+    <updated>2014-02-24T12:50:09.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="maps-with-directions">Maps with directions</h2>
+<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank">Cordova &quot;Directions&quot; Plugin</a> to utilise native maps apps for &quot;sat nav&quot; style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">here</a>.</p>
+<h2 id="install-the-plugin">Install the plugin</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
+</pre></td></tr></table></figure>
+
+<p>That&#39;s all the installation steps thanks to Cordova&#39;s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will automatically add a directions object to your root automatically.</p>
+<h2 id="get-directions">Get directions</h2>
+<p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
+</pre></td></tr></table></figure>
+
+<p>That&#39;s it! Really, it&#39;s that simple. The Google maps app will open on Android and give directions from the device&#39;s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
+<h2 id="platforms">Platforms</h2>
+<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">GitHub</a>.</p>
+<p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/wp8/" term="wp8"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Are You a Dot Guru?]]></title>
     <link href="http://ilee.co.uk/are-you-a-dot-guru/"/>
@@ -982,95 +1012,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </pre></td></tr></table></figure>
 
 <p>Hopefully you&#39;re also now interested in what on earth I&#39;m writing :)</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[PogoScript Plugin for Grunt]]></title>
-    <link href="http://ilee.co.uk/pogoscript-plugin-for-grunt/"/>
-    <id>http://ilee.co.uk/pogoscript-plugin-for-grunt/</id>
-    <published>2013-11-07T11:45:23.000Z</published>
-    <updated>2013-11-07T12:35:54.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="pogoscript">PogoScript</h2>
-<blockquote>
-<p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
-</blockquote>
-<p>It&#39;s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
-<h2 id="a-transpiler-you-">A... transpiler... you?</h2>
-<p>Those who know me will know <strong>I&#39;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#39;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
-<h2 id="automation">Automation</h2>
-<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don&#39;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
-<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#39;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
-<h2 id="using-grunt-pogo">Using grunt-pogo</h2>
-<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
-<h3 id="install-as-a-dev-dependency">Install as a dev dependency</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
-</pre></td></tr></table></figure>
-
-<h3 id="load-grunt-pogo-in-your-gruntfile-js">Load &quot;grunt-pogo&quot; in your Gruntfile.js</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
-</pre></td></tr></table></figure>
-
-<h2 id="the-pogo-task">The pogo task</h2>
-<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
-<h3 id="example-configuration">Example configuration</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>pogo: {
-    compile: {
-        files: {
-            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]
-        }
-    }
-}
-</pre></td></tr></table></figure>
-
-<p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
-<h2 id="the-code">The code</h2>
-<h3 id="functional-js">functional.js</h3>
-<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
-    <span class="keyword">var</span> compiled = compile(exists(files.src)),
-        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));
-    grunt.file.write(files.dest, combined);
-});
-
-<span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
-    <span class="keyword">return</span> grunt.file.exists(file);
-});
-
-<span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
-    <span class="keyword">return</span> compilePogo(grunt.file.read(src));
-});
-</pre></td></tr></table></figure>
-
-<h3 id="testing">Testing</h3>
-<p>It&#39;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
-<h3 id="source-code">Source code</h3>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
-<h2 id="future-enhancements">Future enhancements</h2>
-<p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
-<p><strong>Compilation automation for the nation</strong></p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>

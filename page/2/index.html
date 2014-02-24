@@ -55,6 +55,89 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-12-06T10:05:49.000Z" itemprop="datePublished">6th Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/looping-audio-with-phonegap/" itemprop="url">Looping Audio with PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="playing-media-on-repeat">Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I&#39;m using it in the game I&#39;m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3 id="ios">iOS</h3>
+<p>There&#39;s an &quot;iOS Quirk&quot; that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
+myMedia.play({ numberOfLoops: <span class="number">2</span> });
+</pre></td></tr></table></figure>
+
+<p>It&#39;s a bit frustrating that you can&#39;t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
+<h3 id="android">Android</h3>
+<p>Here&#39;s my work around (that I also for iOS too to keep the JavaScript consistent). It&#39;s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
+
+<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
+    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
+        myMedia.play();
+    }
+};
+
+myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
+myMedia.play();
+</pre></td></tr></table></figure>
+
+<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
+<p>Can we have a <code>repeat: true</code> please?</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-12-03T08:44:40.000Z" itemprop="datePublished">3rd Dec 2013</time>
       
       
@@ -818,129 +901,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-07T11:45:23.000Z" itemprop="datePublished">7th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/pogoscript-plugin-for-grunt/" itemprop="url">PogoScript Plugin for Grunt</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="pogoscript">PogoScript</h2>
-<blockquote>
-<p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
-</blockquote>
-<p>It&#39;s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
-<h2 id="a-transpiler-you-">A... transpiler... you?</h2>
-<p>Those who know me will know <strong>I&#39;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#39;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
-<h2 id="automation">Automation</h2>
-<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don&#39;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
-<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#39;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
-<h2 id="using-grunt-pogo">Using grunt-pogo</h2>
-<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
-<h3 id="install-as-a-dev-dependency">Install as a dev dependency</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
-</pre></td></tr></table></figure>
-
-<h3 id="load-grunt-pogo-in-your-gruntfile-js">Load &quot;grunt-pogo&quot; in your Gruntfile.js</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
-</pre></td></tr></table></figure>
-
-<h2 id="the-pogo-task">The pogo task</h2>
-<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
-<h3 id="example-configuration">Example configuration</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>pogo: {
-    compile: {
-        files: {
-            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]
-        }
-    }
-}
-</pre></td></tr></table></figure>
-
-<p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
-<h2 id="the-code">The code</h2>
-<h3 id="functional-js">functional.js</h3>
-<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
-    <span class="keyword">var</span> compiled = compile(exists(files.src)),
-        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));
-    grunt.file.write(files.dest, combined);
-});
-
-<span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
-    <span class="keyword">return</span> grunt.file.exists(file);
-});
-
-<span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
-    <span class="keyword">return</span> compilePogo(grunt.file.read(src));
-});
-</pre></td></tr></table></figure>
-
-<h3 id="testing">Testing</h3>
-<p>It&#39;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
-<h3 id="source-code">Source code</h3>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
-<h2 id="future-enhancements">Future enhancements</h2>
-<p>I&#39;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
-<p><strong>Compilation automation for the nation</strong></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -996,6 +956,10 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   <ul class="entry">
     
       <li>
+        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
       </li>
     
@@ -1031,10 +995,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
         <a href="/native-page-transitions-with-phonegap/">Native Page Transitions with PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1046,7 +1006,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>7</small></li>
+    <li><a href="/tags/android/">android</a><small>8</small></li>
   
     <li><a href="/tags/app/">app</a><small>9</small></li>
   
@@ -1060,13 +1020,13 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>41</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
   
     <li><a href="/tags/web/">web</a><small>24</small></li>
   
-    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
+    <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   
   </ul>
 </div>

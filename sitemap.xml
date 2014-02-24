@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/sat-nav-map-directions-for-phonegap/</loc>
+    <lastmod>2014-02-24T12:50:09.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/are-you-a-dot-guru/</loc>
     <lastmod>2014-02-08T08:44:22.000Z</lastmod>
   </url>
@@ -254,6 +258,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2014-02-08T08:44:31.428Z</lastmod>
+    <lastmod>2014-02-24T18:31:09.889Z</lastmod>
   </url>
 </urlset>

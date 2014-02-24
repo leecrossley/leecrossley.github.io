@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Using npm in Europe | iLee</title>
+  <title>Sat Nav Map Directions for PhoneGap | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="The European mirror is significantly faster for developers based in Europe.">
+  <meta name="description" content="Get native &quot;sat nav&quot; style map directions with Cordova / PhoneGap">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Using npm in Europe"/>
+  <meta property="og:title" content="Sat Nav Map Directions for PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://dailyjs.com/images/posts/npm-logo.png" />
+  <meta property="og:image" content="https://2.gravatar.com/avatar/467b6e8a473f45a15ac9514a30c15c3d?s=150" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,46 +54,34 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-12-20T07:37:13.000Z" itemprop="datePublished">20th Dec 2013</time>
+        <time datetime="2014-02-24T18:25:21.000Z" itemprop="datePublished">24th Feb 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Using npm in Europe</h1>
+    <h1 class="title" itemprop="name headline">Sat Nav Map Directions for PhoneGap</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="protip">Protip</h2>
-<p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
-<p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
+        <h2 id="maps-with-directions">Maps with directions</h2>
+<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank">Cordova &quot;Directions&quot; Plugin</a> to utilise native maps apps for &quot;sat nav&quot; style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">here</a>.</p>
+<h2 id="install-the-plugin">Install the plugin</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
 </pre></td></tr></table></figure>
 
-<h2 id="how-much-faster-">How much faster?</h2>
-<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it&#39;s faster.</p>
-<h3 id="quick-test">Quick test</h3>
-<p>Let&#39;s pick a package with a few dependencies, <code>grunt</code>.</p>
-<p>First, let&#39;s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
-<h3 id="timing">Timing</h3>
-<p>How do we actually go about timing an <code>npm install</code>? Well, there&#39;s a basic command called <code>time</code> that&#39;s built into most shells and allows us to easily see the execution time of a command (both &quot;real time&quot; used and system time). This is accurate enough for what we need.</p>
-<p>Let&#39;s give it a go:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt
-<span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
+<p>That&#39;s all the installation steps thanks to Cordova&#39;s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will automatically add a directions object to your root automatically.</p>
+<h2 id="get-directions">Get directions</h2>
+<p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
 </pre></td></tr></table></figure>
 
-<p>Now let&#39;s clear the cache again and try the European mirror:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt --registry http://registry.npmjs.eu
-<span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
-</pre></td></tr></table></figure>
-
-<p>21.573s vs 11.799s means it&#39;s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
-<p>Damn, now I don&#39;t have long enough to make a coffee.</p>
+<p>That&#39;s it! Really, it&#39;s that simple. The Google maps app will open on Android and give directions from the device&#39;s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
+<h2 id="platforms">Platforms</h2>
+<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">GitHub</a>.</p>
+<p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
 
       
     </div>
@@ -101,17 +89,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/using-npm-in-europe"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Using%20npm%20in%20Europe&amp;url=http://ilee.co.uk/using-npm-in-europe&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/using-npm-in-europe"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/using-npm-in-europe&amp;title=Using%20npm%20in%20Europe"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/sat-nav-map-directions-for-phonegap"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Sat%20Nav%20Map%20Directions%20for%20PhoneGap&amp;url=http://ilee.co.uk/sat-nav-map-directions-for-phonegap&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/sat-nav-map-directions-for-phonegap"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/sat-nav-map-directions-for-phonegap&amp;title=Sat%20Nav%20Map%20Directions%20for%20PhoneGap"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/wp8/" itemprop="keywords">wp8</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       

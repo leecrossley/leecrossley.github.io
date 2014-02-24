@@ -55,6 +55,67 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-02-24T18:25:21.000Z" itemprop="datePublished">24th Feb 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/sat-nav-map-directions-for-phonegap/" itemprop="url">Sat Nav Map Directions for PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="maps-with-directions">Maps with directions</h2>
+<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank">Cordova &quot;Directions&quot; Plugin</a> to utilise native maps apps for &quot;sat nav&quot; style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">here</a>.</p>
+<h2 id="install-the-plugin">Install the plugin</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
+</pre></td></tr></table></figure>
+
+<p>That&#39;s all the installation steps thanks to Cordova&#39;s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will automatically add a directions object to your root automatically.</p>
+<h2 id="get-directions">Get directions</h2>
+<p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
+</pre></td></tr></table></figure>
+
+<p>That&#39;s it! Really, it&#39;s that simple. The Google maps app will open on Android and give directions from the device&#39;s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
+<h2 id="platforms">Platforms</h2>
+<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">GitHub</a>.</p>
+<p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-02-06T19:20:06.000Z" itemprop="datePublished">6th Feb 2014</time>
       
       
@@ -770,89 +831,6 @@ nativetransitions.flip(duration, direction);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-06T10:05:49.000Z" itemprop="datePublished">6th Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/looping-audio-with-phonegap/" itemprop="url">Looping Audio with PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="playing-media-on-repeat">Playing media on repeat</h2>
-<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I&#39;m using it in the game I&#39;m writing.</p>
-<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
-<h3 id="ios">iOS</h3>
-<p>There&#39;s an &quot;iOS Quirk&quot; that makes this really easy for iOS devices. From the documentation:</p>
-<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
-myMedia.play({ numberOfLoops: <span class="number">2</span> });
-</pre></td></tr></table></figure>
-
-<p>It&#39;s a bit frustrating that you can&#39;t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
-<h3 id="android">Android</h3>
-<p>Here&#39;s my work around (that I also for iOS too to keep the JavaScript consistent). It&#39;s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
-
-<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
-    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
-        myMedia.play();
-    }
-};
-
-myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
-myMedia.play();
-</pre></td></tr></table></figure>
-
-<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
-<p>Can we have a <code>repeat: true</code> please?</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -906,6 +884,10 @@ myMedia.play();
   <ul class="entry">
     
       <li>
+        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
       </li>
     
@@ -941,10 +923,6 @@ myMedia.play();
         <a href="/native-page-transitions-with-phonegap/">Native Page Transitions with PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/looping-audio-with-phonegap/">Looping Audio with PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -956,7 +934,7 @@ myMedia.play();
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>7</small></li>
+    <li><a href="/tags/android/">android</a><small>8</small></li>
   
     <li><a href="/tags/app/">app</a><small>9</small></li>
   
@@ -970,13 +948,13 @@ myMedia.play();
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>40</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>41</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>14</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
   
     <li><a href="/tags/web/">web</a><small>24</small></li>
   
-    <li><a href="/tags/wp8/">wp8</a><small>1</small></li>
+    <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   
   </ul>
 </div>
