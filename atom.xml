@@ -4,12 +4,65 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-02-24T19:39:44.103Z</updated>
+  <updated>2014-03-06T18:14:19.268Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[JSON5 Is Pointless and Unimaginative]]></title>
+    <link href="http://ilee.co.uk/json5-is-pointless-and-unimaginative/"/>
+    <id>http://ilee.co.uk/json5-is-pointless-and-unimaginative/</id>
+    <published>2014-03-06T17:42:00.000Z</published>
+    <updated>2014-03-06T18:13:44.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="json5">JSON5</h2>
+<p>I get excited by new tech, especially when it&#39;s JavaScript related. It usually makes me do a little dance.</p>
+<p>The proposed extension to JSON, &quot;<strong>JSON5</strong>&quot; unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
+<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank">official site</a> but I&#39;m going to have a whinge about why it&#39;s <strong>completely pointless and unimaginative poppycock</strong>.</p>
+<h2 id="the-reason-behind-json5">The reason behind JSON5</h2>
+<p>To quote the proposal:</p>
+<blockquote><p>&quot;JSON isn&#39;t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can&#39;t have trailing commas; comments aren&#39;t supported.&quot;</p>
+<footer><strong>- aseemk</strong></footer></blockquote>
+
+
+<p>From that you can deduce the following main proposed features:</p>
+<ul>
+<li>Inline comments</li>
+<li>Trailing commas in arrays</li>
+<li>Trailing commas for object properties</li>
+</ul>
+<h2 id="the-benefits">The benefits</h2>
+<p><strong>There isn&#39;t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>{
+    why: [
+        <span class="string">"is"</span>,
+        <span class="string">"this"</span>,
+        <span class="string">"better"</span>,
+    ],
+    <span class="comment">// (it isn't)</span>
+}
+</pre></td></tr></table></figure>
+
+<h3 id="inline-comments">Inline comments</h3>
+<p>Property names should be descriptive enough to be obvious without comments, otherwise what you&#39;re doing is probably wrong.</p>
+<p>Don&#39;t say &quot;we need to comment our config files&quot;. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
+<h3 id="commas">Commas</h3>
+<p>This isn&#39;t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>If it isn&#39;t broken, don&#39;t try to fix it. The approach of the proposal appears to be &quot;what <em>could</em> we add&quot; and seems to mainly be to suit less technical people who modify config files.</p>
+<p>Of course, I&#39;d love for you to challenge my views...</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Sat Nav Map Directions for PhoneGap]]></title>
     <link href="http://ilee.co.uk/sat-nav-map-directions-for-phonegap/"/>
@@ -918,101 +971,6 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Get Adjacent Squares on a Grid]]></title>
-    <link href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/"/>
-    <id>http://ilee.co.uk/get-adjacent-squares-on-a-grid/</id>
-    <published>2013-11-12T09:25:32.000Z</published>
-    <updated>2013-11-12T10:32:24.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="i-m-writing-a-game-">I&#39;m writing a game!</h2>
-<p>That&#39;s right, I&#39;m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I&#39;ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I&#39;d share the first one.</p>
-<h2 id="a-list-of-adjacent-squares">A list of adjacent squares</h2>
-<h3 id="the-grid">The grid</h3>
-<p>Let&#39;s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that&#39;s how my brain works these days - thank HTML).</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="attr_selector">[1,1]</span> <span class="attr_selector">[2,1]</span> <span class="attr_selector">[3,1]</span> <span class="attr_selector">[4,1]</span> <span class="attr_selector">[5,1]</span> ..
-<span class="attr_selector">[1,2]</span> <span class="attr_selector">[2,2]</span> <span class="attr_selector">[3,2]</span> <span class="attr_selector">[4,2]</span> <span class="attr_selector">[5,2]</span> ..
-<span class="attr_selector">[1,3]</span> <span class="attr_selector">[2,3]</span> <span class="attr_selector">[3,3]</span> <span class="attr_selector">[4,3]</span> <span class="attr_selector">[5,3]</span> ..
-<span class="attr_selector">[1,4]</span> <span class="attr_selector">[2,4]</span> <span class="attr_selector">[3,4]</span> <span class="attr_selector">[4,4]</span> <span class="attr_selector">[5,4]</span> ..
-<span class="attr_selector">[1,5]</span> <span class="attr_selector">[2,5]</span> <span class="attr_selector">[3,5]</span> <span class="attr_selector">[4,5]</span> <span class="attr_selector">[5,5]</span> ..
-..    ..    ..    ..    ..    ..
-</pre></td></tr></table></figure>
-
-<p>This is actually a two dimensional array, which in reality is just an array of arrays. It&#39;s crucial to represent the grid like this, it allows for simpler calculations. Don&#39;t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
-<h3 id="get-adjacent-squares">Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#39;s pretty simple with this system:</p>
-<ul>
-<li>Take one from the x co-ordinate [x-1,y]</li>
-<li>Add one to the x co-ordinate [x+1,y]</li>
-<li>Add one to the y co-ordinate [x,y+1]</li>
-<li>Take one from the y co-ordinate [x,y-1]</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
-</pre></td></tr></table></figure>
-
-<p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
-<h3 id="off-the-grid-">Off the grid!</h3>
-<p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
-<ul>
-<li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
-<li>Check the y co-ordinate is greater than or equal to 1, but is also less than or equal to the height of the grid</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
-</pre></td></tr></table></figure>
-
-<h2 id="the-solution">The solution</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="keyword">var</span> width = <span class="number">5</span>,
-    height = <span class="number">5</span>;
-
-<span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> {</span>
-    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
-        y = square[<span class="number">1</span>];
-    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> {</span>
-    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
-        y = square[<span class="number">1</span>],
-        adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
-
-    <span class="keyword">return</span> adjacents.filter(isSquareOnGrid);
-}
-</pre></td></tr></table></figure>
-
-<p>I&#39;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
-getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
-</pre></td></tr></table></figure>
-
-<p>Hopefully you&#39;re also now interested in what on earth I&#39;m writing :)</p>
-]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

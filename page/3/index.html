@@ -55,6 +55,135 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-12T09:25:32.000Z" itemprop="datePublished">12th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/get-adjacent-squares-on-a-grid/" itemprop="url">Get Adjacent Squares on a Grid</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="i-m-writing-a-game-">I&#39;m writing a game!</h2>
+<p>That&#39;s right, I&#39;m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I&#39;ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I&#39;d share the first one.</p>
+<h2 id="a-list-of-adjacent-squares">A list of adjacent squares</h2>
+<h3 id="the-grid">The grid</h3>
+<p>Let&#39;s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that&#39;s how my brain works these days - thank HTML).</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="attr_selector">[1,1]</span> <span class="attr_selector">[2,1]</span> <span class="attr_selector">[3,1]</span> <span class="attr_selector">[4,1]</span> <span class="attr_selector">[5,1]</span> ..
+<span class="attr_selector">[1,2]</span> <span class="attr_selector">[2,2]</span> <span class="attr_selector">[3,2]</span> <span class="attr_selector">[4,2]</span> <span class="attr_selector">[5,2]</span> ..
+<span class="attr_selector">[1,3]</span> <span class="attr_selector">[2,3]</span> <span class="attr_selector">[3,3]</span> <span class="attr_selector">[4,3]</span> <span class="attr_selector">[5,3]</span> ..
+<span class="attr_selector">[1,4]</span> <span class="attr_selector">[2,4]</span> <span class="attr_selector">[3,4]</span> <span class="attr_selector">[4,4]</span> <span class="attr_selector">[5,4]</span> ..
+<span class="attr_selector">[1,5]</span> <span class="attr_selector">[2,5]</span> <span class="attr_selector">[3,5]</span> <span class="attr_selector">[4,5]</span> <span class="attr_selector">[5,5]</span> ..
+..    ..    ..    ..    ..    ..
+</pre></td></tr></table></figure>
+
+<p>This is actually a two dimensional array, which in reality is just an array of arrays. It&#39;s crucial to represent the grid like this, it allows for simpler calculations. Don&#39;t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
+<h3 id="get-adjacent-squares">Get adjacent squares</h3>
+<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#39;s pretty simple with this system:</p>
+<ul>
+<li>Take one from the x co-ordinate [x-1,y]</li>
+<li>Add one to the x co-ordinate [x+1,y]</li>
+<li>Add one to the y co-ordinate [x,y+1]</li>
+<li>Take one from the y co-ordinate [x,y-1]</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
+</pre></td></tr></table></figure>
+
+<p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
+<h3 id="off-the-grid-">Off the grid!</h3>
+<p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
+<ul>
+<li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
+<li>Check the y co-ordinate is greater than or equal to 1, but is also less than or equal to the height of the grid</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
+</pre></td></tr></table></figure>
+
+<h2 id="the-solution">The solution</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="keyword">var</span> width = <span class="number">5</span>,
+    height = <span class="number">5</span>;
+
+<span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> {</span>
+    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
+        y = square[<span class="number">1</span>];
+    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> {</span>
+    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
+        y = square[<span class="number">1</span>],
+        adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
+
+    <span class="keyword">return</span> adjacents.filter(isSquareOnGrid);
+}
+</pre></td></tr></table></figure>
+
+<p>I&#39;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
+getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
+</pre></td></tr></table></figure>
+
+<p>Hopefully you&#39;re also now interested in what on earth I&#39;m writing :)</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-07T11:45:23.000Z" itemprop="datePublished">7th Nov 2013</time>
       
       
@@ -840,71 +969,6 @@ plugins.sort(byCase);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-03T16:10:34.000Z" itemprop="datePublished">3rd Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/which-mobile-app-platform-first/" itemprop="url">Which Mobile App Platform First?</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="developing-apps-for-ios-first">Developing apps for iOS first</h2>
-<p>A <a href="https://twitter.com/VickiHigham" target="_blank">friend</a> today asked me a very interesting question:</p>
-<blockquote><p>&quot;Can you see a reason people would launch on iOS first?&quot; ... &quot;they don&#39;t have the biggest market share&quot;</p>
-<footer><strong>- @VickiHigham</strong></footer></blockquote>
-
-
-<p><img src="/img/app-platforms.png" alt="Mobile App Platforms"></p>
-<p>This got me thinking. Yes, it&#39;s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
-<p>I&#39;ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
-<h3 id="the-curveball">The curveball</h3>
-<p>In reality, it doesn&#39;t actually doesn&#39;t make sense to develop for iOS first if you&#39;re going to be targeting multiple platforms (especially if you&#39;re using something like Cordova / PhoneGap)... let me convince you why.</p>
-<h2 id="developing-apps-for-android-first">Developing apps for Android first</h2>
-<h3 id="it-s-all-about-the-review-process">It&#39;s all about the review process</h3>
-<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can&#39;t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
-<p>If you were to develop apps for Android first, because of the fast release process there would be a raft of benefits:</p>
-<ul>
-<li>The app could potentially be released quicker</li>
-<li>Bugs can be fixed and released quicker</li>
-<li>A more robust version could then be released to iOS</li>
-</ul>
-<h2 id="other-considerations">Other considerations</h2>
-<p>Of course, there are other considerations, such as target location, device capabilities etc but we should be at least questioning the &quot;iOS First&quot; approach that seems to have become the default.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -960,6 +1024,10 @@ plugins.sort(byCase);
   <ul class="entry">
     
       <li>
+        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
+      </li>
+    
+      <li>
         <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
       </li>
     
@@ -995,10 +1063,6 @@ plugins.sort(byCase);
         <a href="/list-node-packages-wo-dependencies/">List Node Packages w/o Dependencies</a>
       </li>
     
-      <li>
-        <a href="/native-page-transitions-with-phonegap/">Native Page Transitions with PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1024,7 +1088,7 @@ plugins.sort(byCase);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>41</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>42</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
   

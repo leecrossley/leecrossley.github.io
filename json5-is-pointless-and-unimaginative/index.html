@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Asynchronous JavaScript Files | iLee</title>
+  <title>JSON5 Is Pointless and Unimaginative | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="How to reliably execute JavaScript files asynchronously with HTML5 and before HTML5.">
+  <meta name="description" content="In my opinion, JSON5 is a utterly pointless proposed extension to JSON">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Asynchronous JavaScript Files"/>
+  <meta property="og:title" content="JSON5 Is Pointless and Unimaginative"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+  <meta property="og:image" content="http://features.encoding.com/wp-content/uploads/2013/11/json_logo-555px.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,31 +54,35 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-09-18T14:52:52.000Z" itemprop="datePublished">18th Sep 2013</time>
+        <time datetime="2014-03-06T17:42:00.000Z" itemprop="datePublished">6th Mar 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Asynchronous JavaScript Files</h1>
+    <h1 class="title" itemprop="name headline">JSON5 Is Pointless and Unimaginative</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="it-s-easy-peasy-lemon-squeezy-with-html5">It&#39;s easy-peasy-lemon-squeezy with HTML5</h2>
-<p>The <em>async</em> attribute added to HTML5 makes the job all too simple:</p>
-<figure class="highlight html"><figcaption><span>async attribute </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</pre></td></tr></table></figure>
+        <h2 id="json5">JSON5</h2>
+<p>I get excited by new tech, especially when it&#39;s JavaScript related. It usually makes me do a little dance.</p>
+<p>The proposed extension to JSON, &quot;<strong>JSON5</strong>&quot; unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
+<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank">official site</a> but I&#39;m going to have a whinge about why it&#39;s <strong>completely pointless and unimaginative poppycock</strong>.</p>
+<h2 id="the-reason-behind-json5">The reason behind JSON5</h2>
+<p>To quote the proposal:</p>
+<blockquote><p>&quot;JSON isn&#39;t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can&#39;t have trailing commas; comments aren&#39;t supported.&quot;</p>
+<footer><strong>- aseemk</strong></footer></blockquote>
 
 
-<p>This tells the browser to execute the script at the first opportunity after it has finished downloading, while the page continues parsing and before the window load event.</p>
-<h2 id="pre-html5">Pre-HTML5</h2>
-<p>I&#39;m writing an embeddable widget at the moment and unfortunately, can&#39;t rely on browser support for the async attribute. This makes me sad, as I really can&#39;t block the page rendering.</p>
-<h3 id="solution-defer">Solution? Defer</h3>
-<p>There is a <em>defer</em> attribute, with <a href="http://caniuse.com/script-defer" target="_blank">pretty good support</a> that will execute when the page has finished parsing. Not as good as executing while the page continues parsing though, like with the async attribute.</p>
-<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It&#39;s not perfect, the download doesn&#39;t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
-<p>Here&#39;s the general gist (untested):</p>
-<figure class="highlight javascript"><figcaption><span>general gist </span></figcaption><table><tr><td class="gutter"><pre>1
+<p>From that you can deduce the following main proposed features:</p>
+<ul>
+<li>Inline comments</li>
+<li>Trailing commas in arrays</li>
+<li>Trailing commas for object properties</li>
+</ul>
+<h2 id="the-benefits">The benefits</h2>
+<p><strong>There isn&#39;t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -86,32 +90,24 @@
 6
 7
 8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-<span class="pi">    "use strict"</span>;
-    <span class="function"><span class="keyword">function</span> <span class="title">loadJSAsync</span><span class="params">()</span> {</span>
-        <span class="keyword">var</span> js = document.createElement(<span class="string">"script"</span>);
-        js.type = <span class="string">"text/javascript"</span>;
-        js.src = <span class="string">"script.js"</span>;
-        js.async = <span class="literal">true</span>;
-        <span class="comment">// insert the "js" script tag to the DOM here ...</span>
-    } 
-    <span class="keyword">if</span> (window.attachEvent) {
-        window.attachEvent(<span class="string">"onload"</span>, loadJSAsync);
-    } <span class="keyword">else</span> {
-        window.addEventListener(<span class="string">"load"</span>, loadJSAsync, <span class="literal">false</span>);
-    }
-})();
+</pre></td><td class="code"><pre>{
+    why: [
+        <span class="string">"is"</span>,
+        <span class="string">"this"</span>,
+        <span class="string">"better"</span>,
+    ],
+    <span class="comment">// (it isn't)</span>
+}
 </pre></td></tr></table></figure>
 
-
-<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can&#39;t wait for all these old browsers to disappear.</p>
+<h3 id="inline-comments">Inline comments</h3>
+<p>Property names should be descriptive enough to be obvious without comments, otherwise what you&#39;re doing is probably wrong.</p>
+<p>Don&#39;t say &quot;we need to comment our config files&quot;. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
+<h3 id="commas">Commas</h3>
+<p>This isn&#39;t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>If it isn&#39;t broken, don&#39;t try to fix it. The approach of the proposal appears to be &quot;what <em>could</em> we add&quot; and seems to mainly be to suit less technical people who modify config files.</p>
+<p>Of course, I&#39;d love for you to challenge my views...</p>
 
       
     </div>
@@ -119,17 +115,17 @@
       
         
 <div class="share">
-  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/executing-javascript-files-asynchronously"></a>
-  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Asynchronous%20JavaScript%20Files&amp;url=http://ilee.co.uk/executing-javascript-files-asynchronously&amp;via=lee_crossley"></a>
-  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/executing-javascript-files-asynchronously"></a>
-  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/executing-javascript-files-asynchronously&amp;title=Asynchronous%20JavaScript%20Files"></a>
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/json5-is-pointless-and-unimaginative"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=JSON5%20Is%20Pointless%20and%20Unimaginative&amp;url=http://ilee.co.uk/json5-is-pointless-and-unimaginative&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/json5-is-pointless-and-unimaginative"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/json5-is-pointless-and-unimaginative&amp;title=JSON5%20Is%20Pointless%20and%20Unimaginative"></a>
 </div>
 
         
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>, <a href="/tags/html/" itemprop="keywords">html</a>
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
