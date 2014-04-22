@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-04-22T08:24:43.926Z</updated>
+  <updated>2014-04-22T08:25:35.953Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,11 +15,11 @@
     <link href="http://ilee.co.uk/dotject-quick-js-object-composition/"/>
     <id>http://ilee.co.uk/dotject-quick-js-object-composition/</id>
     <published>2014-04-22T07:59:29.000Z</published>
-    <updated>2014-04-22T08:23:11.000Z</updated>
+    <updated>2014-04-22T08:25:32.000Z</updated>
     <content type="html"><![CDATA[<h2 id="dotject">dotject</h2>
 <p><a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a> provides a quick and simple way to compose JavaScript objects using familiar <a href="http://www.ling.helsinki.fi/kit/2009s/clt230/RUR-PLE/html/en/inter/30-dot.htm" target="_blank">dot notation</a>.</p>
 <p>The code supports object creation at n levels (nesting) along with same level objects. There&#39;s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it&#39;s designed to make life easier, the examples below will showcase this.</p>
-<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it&#39;s λ.reduce function to achieve the &quot;dot notation to object&quot; implementation is very few lines of code.</p>
+<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it&#39;s λ.reduce function to achieve the &quot;dot notation to object&quot; implementation in very few lines of code.</p>
 <h2 id="getting-started">Getting started</h2>
 <p>Install via npm:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
