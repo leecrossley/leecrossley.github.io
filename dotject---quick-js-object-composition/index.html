@@ -1,0 +1,467 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>dotject - Quick JS Object Composition | iLee</title>
+  <meta name="author" content="Lee Crossley">
+  <meta name="description" content="Simple JavaScript object composition using familiar dot notation">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:title" content="dotject - Quick JS Object Composition"/>
+  <meta property="og:site_name" content="iLee"/>
+  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+  <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
+  <link rel="shortcut icon" href="/img/ilee.ico">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42989646-1', 'ilee.co.uk');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2014-04-22T07:59:29.000Z" itemprop="datePublished">22nd Apr 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">dotject - Quick JS Object Composition</h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="dotject">dotject</h2>
+<p><a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a> provides a quick and simple way to compose JavaScript objects using familiar <a href="http://www.ling.helsinki.fi/kit/2009s/clt230/RUR-PLE/html/en/inter/30-dot.htm" target="_blank">dot notation</a>.</p>
+<p>The code supports object creation at n levels (nesting) along with same level objects. There&#39;s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it&#39;s designed to make life easier, the examples below will showcase this.</p>
+<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it&#39;s λ.reduce function to achieve the &quot;dot notation to object&quot; implementation is very few lines of code.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Install via npm:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm <span class="keyword">install</span> dotject <span class="comment"># --save</span>
+</pre></td></tr></table></figure>
+
+<p>Require the module in the usual way:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);
+</pre></td></tr></table></figure>
+
+<h2 id="using-dotject">Using dotject</h2>
+<p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank">specs</a>, for the project, but I&#39;ll run through examples here:</p>
+<h3 id="simple-object-composition">Simple object composition</h3>
+<p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>dotject(<span class="string">"a.b.c"</span>);
+
+{
+  <span class="string">"a"</span>: {
+    <span class="string">"b"</span>: {
+      <span class="string">"c"</span>: {}
+    }
+  }
+}
+</pre></td></tr></table></figure>
+
+<p>Separating property names with a comma (similar to JavaScript objects) will create properties at the same level:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>);
+
+{
+  <span class="string">"a"</span>: {},
+  <span class="string">"b"</span>: {}
+}
+</pre></td></tr></table></figure>
+
+<p>This notation can be combined with the dot style notation:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c"</span>);
+
+{
+  <span class="string">"a"</span>: {},
+  <span class="string">"b"</span>: {
+    <span class="string">"c"</span>: {}
+  }
+}
+</pre></td></tr></table></figure>
+
+<h3 id="extend-an-existing-object">Extend an existing object</h3>
+<p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});
+
+{
+  <span class="string">"a"</span>: {},
+  <span class="string">"b"</span>: {
+    <span class="string">"c"</span>: {}
+  }
+}
+</pre></td></tr></table></figure>
+
+<p>Existing object values are retained:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});
+
+{
+  <span class="string">"a"</span>: <span class="literal">true</span>,
+  <span class="string">"b"</span>: {
+    <span class="string">"c"</span>: {}
+  }
+}
+</pre></td></tr></table></figure>
+
+<p>Existing nested object properties are retained:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});
+
+{
+  <span class="string">"a"</span>: {
+    <span class="string">"b"</span>: {},
+    <span class="string">"c"</span>: {}
+  }
+}
+</pre></td></tr></table></figure>
+
+<h3 id="assign-a-value">Assign a value</h3>
+<p>You can assign a value to the last nested property:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);
+
+{
+  <span class="string">"a"</span>: {
+    <span class="string">"b"</span>: <span class="number">10</span>
+  }
+}
+</pre></td></tr></table></figure>
+
+<h3 id="assign-multiple-values">Assign multiple values</h3>
+<p>You can assign a values to the last nested properties:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);
+
+{
+  <span class="string">"a"</span>: <span class="literal">true</span>,
+  <span class="string">"b"</span>: {
+    <span class="string">"c"</span>: <span class="number">10</span>
+  },
+  <span class="string">"d"</span>: <span class="string">"test"</span>
+}
+</pre></td></tr></table></figure>
+
+<h3 id="assign-multiple-values-and-override-existing">Assign multiple values and override existing</h3>
+<p>You can assign a values to the last nested properties:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)
+
+{
+  <span class="string">"a"</span>: <span class="literal">true</span>,
+  <span class="string">"b"</span>: <span class="string">"test"</span>
+}
+</pre></td></tr></table></figure>
+
+<h2 id="-real-world-example">&quot;Real world&quot; example</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};
+camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);
+
+{
+  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,
+  <span class="string">"settings"</span>: {
+    <span class="string">"encoding"</span>: {
+      <span class="string">"format"</span>: <span class="string">"JPEG"</span>
+    }
+  },
+  <span class="string">"output"</span>: {
+    <span class="string">"data"</span>: {
+      <span class="string">"base64"</span>: <span class="literal">true</span>
+    }
+  }
+}
+</pre></td></tr></table></figure>
+
+<h2 id="other-thoughts">Other thoughts</h2>
+<p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank">λ.assign</a> (λ.extend) function. I&#39;d be interested to hear your feedback on this, as personally I&#39;m almost always passing a new object, which seems silly.</p>
+<h2 id="issues-and-pull-requests">Issues and pull requests</h2>
+<p>Please raise any issues / pull requests directly on <a href="https://github.com/leecrossley/dotject/issues" target="_blank">github</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="share">
+  <a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://ilee.co.uk/dotject---quick-js-object-composition"></a>
+  <a class="icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?text=dotject%20-%20Quick%20JS%20Object%20Composition&amp;url=http://ilee.co.uk/dotject---quick-js-object-composition&amp;via=lee_crossley"></a>
+  <a class="icon-google-plus" target="_blank" href="https://plus.google.com/share?url=http://ilee.co.uk/dotject---quick-js-object-composition"></a>
+  <a class="icon-linkedin" target="_blank" href="http://www.linkedin.com/shareArticle?url=http://ilee.co.uk/dotject---quick-js-object-composition&amp;title=dotject%20-%20Quick%20JS%20Object%20Composition"></a>
+</div>
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
+  <li class="facebook">
+    <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
+  </li>
+  <li class="twitter">
+    <a href="https://twitter.com/lee_crossley" target="_blank" class="icon"><i class="icon-twitter"></i></a>
+  </li>
+  <li class="github">
+    <a href="https://github.com/leecrossley" target="_blank" class="icon"><i class="icon-github"></i></a>
+  </li>
+  <li class="google-plus">
+    <a href="https://plus.google.com/+LeeCrossley?rel=author" target="_blank" class="icon"><i class="icon-google-plus"></i></a>
+  </li>
+  <li class="linkedin">
+    <a href="http://uk.linkedin.com/in/leecrossley/" target="_blank" class="icon"><i class="icon-linkedin"></i></a>
+  </li>
+</ul>
+
+
+  <div class="hire-button">
+  <a href="/contact-me"><span>Hire Me</span></a>
+</div>
+
+  <div class="widget tag">
+<ul class="entry">
+  
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/about-me">About Me</a></li>
+  
+    <li><a href="/contact-me">Contact Me</a></li>
+  
+    <li><a href="/archives">Archives</a></li>
+  
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/dotject---quick-js-object-composition/">dotject - Quick JS Object Composition</a>
+      </li>
+    
+      <li>
+        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
+      </li>
+    
+      <li>
+        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
+      </li>
+    
+      <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
+      </li>
+    
+      <li>
+        <a href="/ditch-the-www-subdomain/">Ditch the www Subdomain</a>
+      </li>
+    
+      <li>
+        <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
+      </li>
+    
+      <li>
+        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
+      </li>
+    
+      <li>
+        <a href="/using-npm-in-europe/">Using npm in Europe</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/android/">android</a><small>8</small></li>
+  
+    <li><a href="/tags/app/">app</a><small>9</small></li>
+  
+    <li><a href="/tags/design/">design</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>8</small></li>
+  
+    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>43</small></li>
+  
+    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>25</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Lee Crossley
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script type="text/javascript">
+(function(){
+  var dsq = document.createElement("script");
+  dsq.type = "text/javascript";
+  dsq.async = true;
+  dsq.src = "//ilee.disqus.com/embed.js";
+  (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+}());
+</script>
+
+
+</body>
+</html>

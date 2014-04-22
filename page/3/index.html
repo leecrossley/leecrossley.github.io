@@ -55,6 +55,79 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-14T07:56:56.000Z" itemprop="datePublished">14th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/phonegap-plays-sound-on-mute/" itemprop="url">PhoneGap Plays Sounds on Mute</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="the-cordova-phonegap-media-plugin">The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there&#39;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
+<h2 id="working-in-60-seconds-but-">Working in 60 seconds, but...</h2>
+<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
+<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
+<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
+<h2 id="-why-why-why-http-youtu-be-9hp44eak8lc-t-44s-"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#39;t open (screen is locked).</p>
+<h2 id="the-solution">The solution</h2>
+<p>My initial instinct was to query the state of the mute switch, but I really didn&#39;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#39;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2 id="full-example">Full example</h2>
+<p>Here&#39;s the code you need to play audio that obeys the mute switch:</p>
+<h3 id="install-the-media-plugin">Install the media plugin</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
+</pre></td></tr></table></figure>
+
+<h3 id="in-your-javascript">In your JavaScript</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);
+    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });
+};
+</pre></td></tr></table></figure>
+
+<p>An incontinent mute, goes without saying.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-12T09:25:32.000Z" itemprop="datePublished">12th Nov 2013</time>
       
       
@@ -904,71 +977,6 @@ plugins.sort(byCase);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-10T08:51:33.000Z" itemprop="datePublished">10th Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/git-commit-message-format/" itemprop="url">Git Commit Message Format</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="format-frustration">Format frustration</h2>
-<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank">see here</a>). It turns out it&#39;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
-<p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
-<h2 id="the-right-way">The right way</h2>
-<p>Follow these simple guideline(s):</p>
-<ul>
-<li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
-<li>Capitalise the first letter</li>
-<li>Write in the imperative (e.g. &quot;Fix bug&quot; or &quot;Add file&quot; not &quot;Fixed bug&quot; or &quot;Added file&quot;)</li>
-<li>Don&#39;t end with a full stop</li>
-<li>Reference issue numbers with a #</li>
-</ul>
-<p>Optional:</p>
-<ul>
-<li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
-<li>Prefix with &quot;area: &quot; where the area is an identifier for the area of the code the commit relates to (personally I don&#39;t do this but it can be useful in some circumstances)</li>
-</ul>
-<h2 id="why-">Why?</h2>
-<p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
-<p>If you take a look at auto generated git messages, you&#39;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
-<h2 id="automated-user-git-messages">Automated user git messages</h2>
-<p>Bad bad bad. You&#39;re not adding any value by doing this. You can always alias if you don&#39;t want to type git commit -m.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
 <nav id="pagination">
@@ -1024,6 +1032,10 @@ plugins.sort(byCase);
   <ul class="entry">
     
       <li>
+        <a href="/dotject---quick-js-object-composition/">dotject - Quick JS Object Composition</a>
+      </li>
+    
+      <li>
         <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
       </li>
     
@@ -1059,10 +1071,6 @@ plugins.sort(byCase);
         <a href="/using-npm-in-europe/">Using npm in Europe</a>
       </li>
     
-      <li>
-        <a href="/list-node-packages-wo-dependencies/">List Node Packages w/o Dependencies</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1088,11 +1096,11 @@ plugins.sort(byCase);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>42</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>43</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
   
-    <li><a href="/tags/web/">web</a><small>24</small></li>
+    <li><a href="/tags/web/">web</a><small>25</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   
