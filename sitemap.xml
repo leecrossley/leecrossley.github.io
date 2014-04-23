@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/dotject-atom-text-editor-plugin/</loc>
+    <lastmod>2014-04-23T08:01:01.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/dotject-quick-js-object-composition/</loc>
     <lastmod>2014-04-22T08:25:32.000Z</lastmod>
   </url>
@@ -266,6 +270,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2014-04-22T08:50:43.183Z</lastmod>
+    <lastmod>2014-04-23T08:01:19.004Z</lastmod>
   </url>
 </urlset>

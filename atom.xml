@@ -4,12 +4,51 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-04-22T08:50:43.137Z</updated>
+  <updated>2014-04-23T08:01:18.949Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[dotject Atom Text Editor Plugin]]></title>
+    <link href="http://ilee.co.uk/dotject-atom-text-editor-plugin/"/>
+    <id>http://ilee.co.uk/dotject-atom-text-editor-plugin/</id>
+    <published>2014-04-23T07:08:24.000Z</published>
+    <updated>2014-04-23T08:01:01.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="dotject">dotject</h2>
+<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/">yesterday&#39;s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it&#39;s now available as an <a href="https://atom.io/packages/dotject" target="_blank">Atom plugin</a>.</p>
+<h2 id="atom">Atom</h2>
+<p>Titled as &quot;a hackable text editor for the 21st Century&quot;, GitHub&#39;s <a href="https://atom.io/" target="_blank">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn&#39;t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
+<h2 id="the-plugin">The Plugin</h2>
+<p>I found it easy to create an Atom plugin for dotject, mainly due to it&#39;s familiarity with <a href="https://www.npmjs.org/" target="_blank">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there&#39;s no duplication of the dotject code whatsoever.</p>
+<h3 id="installation">Installation</h3>
+<p>Use the Atom package manager, which can be found in the Settings view or run <code>apm install dotject</code> from the command line.</p>
+<h3 id="usage">Usage</h3>
+<p>The default keymapping is <code>shift-cmd-J</code> (although this can be configured). You simply highlight your dotject string and press <code>shift-cmd-J</code> to perform the conversion.</p>
+<h3 id="example">Example</h3>
+<p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}
+</pre></td></tr></table></figure>
+
+<h3 id="the-code">The code</h3>
+<p>It&#39;s essentially 2 lines of code, with a little glue and keymapping:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">// convert the current text selection</span>
+<span class="keyword">var</span> converted = dotject(editor.getSelection().getText());
+<span class="comment">// insert the stringified json in place of the selection</span>
+editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));
+</pre></td></tr></table></figure>
+
+<p>This would all be perfect, if it was not for CoffeeScript (I&#39;ve written in JavaScript above).</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[dotject - Quick JS Object Composition]]></title>
     <link href="http://ilee.co.uk/dotject-quick-js-object-composition/"/>
@@ -1096,75 +1135,6 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Using Game Center with PhoneGap]]></title>
-    <link href="http://ilee.co.uk/using-game-center-with-phonegap/"/>
-    <id>http://ilee.co.uk/using-game-center-with-phonegap/</id>
-    <published>2013-11-15T07:36:07.000Z</published>
-    <updated>2013-11-15T09:16:05.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="leaderboards">Leaderboards</h2>
-<p>I&#39;ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
-<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they&#39;ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
-<p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank">these basics</a>.</p>
-<p><img src="/img/phonegap-game-center.png" alt="PhoneGap iOS Game Center"></p>
-<h2 id="my-game-center-plugin">My Game Center plugin</h2>
-<p>A game center plugin didn&#39;t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
-<h3 id="install-via-the-cli">Install via the CLI</h3>
-<p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git
-</pre></td></tr></table></figure>
-
-<h2 id="basic-usage">Basic usage</h2>
-<h3 id="auth">Auth</h3>
-<p>It&#39;s recommended that authentication takes place as soon as the deviceready event has been fired (don&#39;t ever attempt to use any plugin code before this, it won&#39;t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
-</pre></td></tr></table></figure>
-
-<p>If there&#39;s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
-<p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
-<h3 id="leaderboard">Leaderboard</h3>
-<h4 id="submitting-a-score">Submitting a score</h4>
-<p>Ensure the user has been (successfully) authenticated and the leaderboard(s) have been configured in iTunes connect (use the leaderboard identifier assigned there as the leaderboardId).</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> scoreData = { 
-    score: <span class="number">100</span>, 
-    leaderboardId: <span class="string">"YOUR_ID"</span>
-};
-gamecenter.submitScore(onSuccess, onError, scoreData);
-</pre></td></tr></table></figure>
-
-<h4 id="showing-the-native-leaderboard">Showing the native leaderboard</h4>
-<p>This is a &quot;quick win&quot; and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there&#39;s no need to do any additional coding or user interface development to display a leaderboard.</p>
-<p>The period options are &quot;today&quot;, &quot;week&quot; or &quot;all&quot;.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> criteria = { 
-    period: <span class="string">"today"</span>,
-    leaderboardId: <span class="string">"YOUR_ID"</span>
-};
-gamecenter.showLeaderboard(onSuccess, onError, criteria);
-</pre></td></tr></table></figure>
-
-<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there&#39;s an issue and handle it.</p>
-<h3 id="ios-version-support">iOS version support</h3>
-<p>I&#39;ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
-<h2 id="source-code">Source code</h2>
-<p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">on github</a>. Please log issues (ideally with pull requests ☺) on there.</p>
-<p>The plugin has had a huge uptake already with 11 repo stars within 8 hours of pushing the code!</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

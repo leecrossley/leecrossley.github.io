@@ -55,6 +55,89 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-08-21T07:42:46.000Z" itemprop="datePublished">21st Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/changing-url-without-page-refresh/" itemprop="url">Changing Url Without Page Refresh</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="using-javascript-to-change-the-page-url-without-reloading">Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#39;t even try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+<p>I&#39;m not talking about just changing &quot;the bit after the hash (#)&quot; I&#39;m referring to the entire relative url. I&#39;m also not talking about iFrames either - this solution isn&#39;t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
+<h2 id="how-it-s-done">How it&#39;s done</h2>
+<p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
+<h3 id="the-history-pushstate-function">The history.pushState() function</h3>
+<p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
+<ul>
+<li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
+</li>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &quot;your title&quot;).</p>
+</li>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &quot;loaded&quot; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#39;t try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
+  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
+};
+history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
+expect(history.state).toEqual(state);
+</pre></td></tr></table></figure>
+
+
+<p>The above example will update the url in the address bar to be &quot;/new-page&quot; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<h3 id="the-history-replacestate-function">The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
+<h3 id="the-onpopstate-event">The onpopstate event</h3>
+<p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
+<h2 id="back-to-the-future">Back to the future</h2>
+<p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
+<h2 id="usages">Usages</h2>
+<p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
+<p>Have fun relocating.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-08-20T12:37:41.000Z" itemprop="datePublished">20th Aug 2013</time>
       
       
@@ -815,190 +898,6 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-10T14:38:54.000Z" itemprop="datePublished">10th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/functional-javascript-library/" itemprop="url">A Functional Javascript Library</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="functional-js-">functional.js (λ)</h2>
-<p>functional.js is (go on, guess) a functional JavaScript library I&#39;m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank">jasmine</a> tests are below).</p>
-<p>I&#39;m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank">functional-level programming</a> but it&#39;s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank">Contributions</a> are more than welcome if you fancy some brain pain.</p>
-<h3 id="basic-curry-example">Basic λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> {</span>
-    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;
-});
-
-<span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);
-<span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);
-
-expect(result).toEqual(<span class="string">"Hello World"</span>);
-</pre></td></tr></table></figure>
-
-<h3 id="another-curry-example">Another λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> {</span>
-    <span class="keyword">return</span> arg1 + arg2 + arg3;
-}); 
-
-<span class="keyword">var</span> add3 = add(<span class="number">3</span>),
-    add5 = add3(<span class="number">2</span>);
-
-expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure>
-
-<h3 id="curried-each-example">Curried λ.each example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> result = [],
-    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];
-
-<span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> result.push(item);
-};
-
-<span class="keyword">var</span> addToResult = λ.each(addTo);
-expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);
-
-addToResult(items);
-expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);
-</pre></td></tr></table></figure>
-
-<h3 id="curried-map-example">Curried λ.map example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
-
-<span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
-    <span class="keyword">return</span> number * <span class="number">2</span>;
-};
-
-<span class="keyword">var</span> doubleMap = λ.map(doubleUp);
-expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = doubleMap(items);
-expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);
-</pre></td></tr></table></figure>
-
-<h3 id="curried-reduce-example">Curried λ.reduce example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
-
-<span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> {</span>
-    <span class="keyword">return</span> arg1 * arg2;
-};
-
-<span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);
-expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = multiplyReduceFrom1(items);
-expect(result).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure>
-
-<h2 id="why-">Why?</h2>
-<p>I like <del>torture</del> to push myself as a developer.</p>
-<h2 id="great-but-erm-why-">Great, but, erm, why?</h2>
-<p>By extending functions into chains of functions with fewer arguments (currying), you can fix earlier known values and return a function that only accepts future values. This avoids repetition, a good programming practice, and will assist my high-level function refinement.</p>
-<p>Libraries like <a href="http://underscorejs.org/" target="_blank">underscore</a> can&#39;t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There&#39;s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it&#39;s been developed further. It also has no dependencies.</p>
-<h2 id="where-can-i-get-it-">Where can I get it?</h2>
-<ul>
-<li>$ git clone git@github.com:leecrossley/functional-js.git</li>
-<li>$ npm install functional.js</li>
-<li><a href="http://bit.ly/funcmin" target="_blank">functional.min.js</a></li>
-</ul>
-<h2 id="i-have-issues">I have issues</h2>
-<p>As long as they&#39;re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues" target="_blank">github</a>.</p>
-<h2 id="where-s-the-key-">Where&#39;s the λ key?</h2>
-<p>You&#39;re probably reading the wrong blog post :)</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1054,6 +953,10 @@ expect(result).toEqual(<span class="number">6</span>);
   <ul class="entry">
     
       <li>
+        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
+      </li>
+    
+      <li>
         <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
       </li>
     
@@ -1089,10 +992,6 @@ expect(result).toEqual(<span class="number">6</span>);
         <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
       </li>
     
-      <li>
-        <a href="/using-npm-in-europe/">Using npm in Europe</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1118,11 +1017,11 @@ expect(result).toEqual(<span class="number">6</span>);
   
     <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>43</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
     <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
   
-    <li><a href="/tags/web/">web</a><small>25</small></li>
+    <li><a href="/tags/web/">web</a><small>26</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   
