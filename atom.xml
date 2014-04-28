@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-04-28T07:55:37.374Z</updated>
+  <updated>2014-04-28T07:58:08.725Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/css-translate3d-performance-hack/"/>
     <id>http://ilee.co.uk/css-translate3d-performance-hack/</id>
     <published>2014-04-28T07:10:13.000Z</published>
-    <updated>2014-04-28T07:55:26.000Z</updated>
+    <updated>2014-04-28T07:58:04.000Z</updated>
     <content type="html"><![CDATA[<h2 id="CSS_transition_performance">CSS transition performance</h2>
 <p>When I started out developing apps with Cordova / PhoneGap, there were several performance hacks I used to help CSS animations become smoother, i.e. force GPU acceleration.</p>
 <h3 id="The_CSS_transform_hacks">The CSS transform hacks</h3>
