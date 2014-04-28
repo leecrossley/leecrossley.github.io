@@ -64,12 +64,12 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="mongoose-js">Mongoose JS</h2>
-<p>If you&#39;re a JavaScript / Node.js developer that uses MongoDB, you&#39;ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It&#39;s &quot;<em>elegant mongodb object modelling for node.js</em>&quot; and saves you writing endless mappings, castings and validation. If you&#39;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
-<h2 id="mongoose-documents-objects">Mongoose documents / objects</h2>
-<p>The reason for this post isn&#39;t just to tell you to go and play with Mongoose, I&#39;m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3 id="the-problem">The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#39;s a simplified version to help me explain:</p>
+        <h2 id="Mongoose_JS">Mongoose JS</h2>
+<p>If you’re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It’s “<em>elegant mongodb object modelling for node.js</em>“ and saves you writing endless mappings, castings and validation. If you’ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
+<h2 id="Mongoose_documents_/_objects">Mongoose documents / objects</h2>
+<p>The reason for this post isn’t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
+<h3 id="The_problem">The problem</h3>
+<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here’s a simplified version to help me explain:</p>
 <figure class="highlight javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -89,10 +89,10 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
 </pre></td></tr></table></figure>
 
 
-<p>After adding the property &quot;newProperty&quot; to each of the items, I could then use the property without any issues - as you&#39;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3 id="the-reason">The reason</h3>
-<p>The &quot;items&quot; collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it&#39;s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it&#39;s structure since the last save or retrieval.</p>
-<h3 id="the-solution">The solution</h3>
+<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you’d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
+<h3 id="The_reason">The reason</h3>
+<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it’s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
+<h3 id="The_solution">The solution</h3>
 <p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
 <figure class="highlight javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -105,7 +105,7 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
 </pre></td></tr></table></figure>
 
 
-<p>By specifying the &quot;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>&quot; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don&#39;t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It&#39;s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
+<p>By specifying the “<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>“ option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don’t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
 <p>Mystery solved.</p>
 
       
@@ -187,6 +187,10 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -222,10 +226,6 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -245,17 +245,17 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

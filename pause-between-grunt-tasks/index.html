@@ -64,15 +64,15 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="pause-for-debugging">Pause for debugging</h2>
+        <h2 id="Pause_for_debugging">Pause for debugging</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
 <p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
 <h2 id="grunt-pause">grunt-pause</h2>
-<p>I&#39;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &quot;<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>&quot;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
-<h2 id="grunt-core">Grunt core</h2>
-<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a &quot;--pause&quot; argument on the command line.</p>
-<p>If this package gets used, I&#39;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
-<h2 id="usage">Usage</h2>
+<p>I’ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, “<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>“. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2 id="Grunt_core">Grunt core</h2>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
+<p>If this package gets used, I’ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2 id="Usage">Usage</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-pause <span class="comment">## --save-dev</span>
 </pre></td></tr></table></figure>
@@ -92,10 +92,10 @@
 </pre></td></tr></table></figure>
 
 
-<h2 id="sample-output">Sample output</h2>
+<h2 id="Sample_output">Sample output</h2>
 <p>Sample screenshot of the console output:</p>
 <p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
-<h2 id="improvements-">Improvements?</h2>
+<h2 id="Improvements?">Improvements?</h2>
 <p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
 <p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
 
@@ -178,6 +178,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -213,10 +217,6 @@
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -236,17 +236,17 @@
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

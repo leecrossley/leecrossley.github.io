@@ -64,18 +64,18 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="manc-js">Manc JS</h2>
-<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the &quot;Rock Paper Scissors Bots&quot; night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
-<h2 id="the-game">The game</h2>
-<p>Each bot played 50 &quot;hands&quot; against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
+        <h2 id="Manc_JS">Manc JS</h2>
+<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
+<h2 id="The_game">The game</h2>
+<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
 <ul>
-<li>&quot;dynamite&quot;, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
-<li>&quot;water (balloon)&quot;, which beats dynamite only and <em>can be used any number of times</em></li>
+<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
+<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
 </ul>
-<p>Bots were comprised of at least 3 functions, &quot;init&quot;, &quot;play&quot; and &quot;result&quot;, which were called by the server running the bots against each other.</p>
-<h2 id="my-approach">My approach</h2>
-<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the &quot;dynamite&quot; hand mitigated this slightly. Nevertheless, I didn&#39;t want to write any random code, it&#39;s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
-<h3 id="sub-bots">Sub-bots</h3>
+<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
+<h2 id="My_approach">My approach</h2>
+<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn’t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
+<h3 id="Sub-bots">Sub-bots</h3>
 <p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -111,11 +111,11 @@ bot.paperBot = (<span class="function"><span class="keyword">function</span> <sp
 
 <p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
 <p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
-<h3 id="we-re-gonna-light-it-up-like-it-s-dynamite">We&#39;re gonna light it up, like it&#39;s dynamite</h3>
-<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn&#39;t a good strategy, as water is a weak hand.</p>
+<h3 id="We’re_gonna_light_it_up,_like_it’s_dynamite">We’re gonna light it up, like it’s dynamite</h3>
+<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn’t a good strategy, as water is a weak hand.</p>
 <p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
 <p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
-<h2 id="tests">Tests</h2>
+<h2 id="Tests">Tests</h2>
 <p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -151,7 +151,7 @@ it(<span class="string">"should win the first hand against rock and increment wi
 });
 </pre></td></tr></table></figure>
 
-<h2 id="result">Result</h2>
+<h2 id="Result">Result</h2>
 <p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
 <p>I wish we had more time to play. Maybe this could become an ongoing challenge..?</p>
 
@@ -234,6 +234,10 @@ it(<span class="string">"should win the first hand against rock and increment wi
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -269,10 +273,6 @@ it(<span class="string">"should win the first hand against rock and increment wi
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -292,17 +292,17 @@ it(<span class="string">"should win the first hand against rock and increment wi
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

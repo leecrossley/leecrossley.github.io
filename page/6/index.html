@@ -55,6 +55,77 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-08-22T08:35:34.000Z" itemprop="datePublished">22nd Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/walter-white-is-green-in-html/" itemprop="url">Walter White Is Green in HTML</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="What_has_“Walter_White”_got_to_do_with_actual_colours_and_HTML?">What has “Walter White” got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I’m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn’t a valid colour</strong>. Let me explain before you think I’ve gone mad.</p>
+<h3 id="Example">Example</h3>
+<figure class="highlight html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
+<p>Don’t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
+<h2 id="What_is_going_on_here?!">What is going on here?!</h2>
+<p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
+<h3 id="The_cooking_process">The cooking process</h3>
+<ol>
+<li>Replace all invalid hexadecimal characters with “0”</li>
+<li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
+<li>Take the first 2 hexadecimal characters from each group</li>
+</ol>
+<p><strong>Et voilà!</strong></p>
+<p>No? Let’s step through the example.</p>
+<ol>
+<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
+<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
+<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
+</ol>
+<p><strong>“Walter White” = “#0ae000”</strong></p>
+<p>I would have expected it to be blue, but I’m guessing the process isn’t 100% pure :)</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-08-21T07:42:46.000Z" itemprop="datePublished">21st Aug 2013</time>
       
       
@@ -65,20 +136,20 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="using-javascript-to-change-the-page-url-without-reloading">Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it&#39;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#39;t even try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
-<p>I&#39;m not talking about just changing &quot;the bit after the hash (#)&quot; I&#39;m referring to the entire relative url. I&#39;m also not talking about iFrames either - this solution isn&#39;t a hack, it&#39;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+        <h2 id="Using_JavaScript_to_change_the_page_url_without_reloading">Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it’s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won’t even try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
+<p>I’m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I’m also not talking about iFrames either - this solution isn’t a hack, it’s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
 <p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
-<h2 id="how-it-s-done">How it&#39;s done</h2>
+<h2 id="How_it’s_done">How it’s done</h2>
 <p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
-<h3 id="the-history-pushstate-function">The history.pushState() function</h3>
+<h3 id="The_history-pushState()_function">The history.pushState() function</h3>
 <p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
 <ul>
 <li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
 </li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#39;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &quot;your title&quot;).</p>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven’t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
 </li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &quot;loaded&quot; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#39;t try to get the new url and it doesn&#39;t matter if it doesn&#39;t exist on the server.</p>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
 </li>
 </ul>
 <figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -94,14 +165,14 @@ expect(history.state).toEqual(state);
 </pre></td></tr></table></figure>
 
 
-<p>The above example will update the url in the address bar to be &quot;/new-page&quot; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
-<h3 id="the-history-replacestate-function">The history.replaceState() function</h3>
-<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#39;ve never bothered to use this one.</p>
-<h3 id="the-onpopstate-event">The onpopstate event</h3>
+<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<h3 id="The_history-replaceState()_function">The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I’ve never bothered to use this one.</p>
+<h3 id="The_onpopstate_event">The onpopstate event</h3>
 <p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
-<h2 id="back-to-the-future">Back to the future</h2>
+<h2 id="Back_to_the_future">Back to the future</h2>
 <p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
-<h2 id="usages">Usages</h2>
+<h2 id="Usages">Usages</h2>
 <p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
 <p>Have fun relocating.</p>
 
@@ -148,16 +219,16 @@ expect(history.state).toEqual(state);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="timing-is-everything">Timing is everything</h2>
+        <h2 id="Timing_is_everything">Timing is everything</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
 <p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#39;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
+<p>Obviously you don’t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
 <h2 id="grunt-timer">grunt-timer</h2>
 <p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2 id="shouldn-t-this-be-part-of-grunt-">Shouldn&#39;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it&#39;s a little hacky the way I&#39;ve done it using hooks and the time isn&#39;t 100% accurate.</p>
+<h2 id="Shouldn’t_this_be_part_of_Grunt?">Shouldn’t this be part of Grunt?</h2>
+<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2 id="how-do-i-use-it-">How do I use it?</h2>
+<h2 id="How_do_I_use_it?">How do I use it?</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-timer <span class="comment">## --save</span>
 </pre></td></tr></table></figure>
@@ -177,7 +248,7 @@ expect(history.state).toEqual(state);
 </pre></td></tr></table></figure>
 
 
-<h2 id="example-output">Example output</h2>
+<h2 id="Example_output">Example output</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -187,11 +258,11 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
 </pre></td></tr></table></figure>
 
 
-<h2 id="issues">Issues</h2>
-<p>I haven&#39;t spent too much time on this so far, and there are a couple of issues that exist:</p>
+<h2 id="Issues">Issues</h2>
+<p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
 <ul>
-<li>The last task duration is output after the &quot;Done, without errors&quot;.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#39;t be, or if they are, should be a summary of all the multitasks).</li>
+<li>The last task duration is output after the “Done, without errors”.</li>
+<li>Tasks that wrap multi-tasks are currently output (shouldn’t be, or if they are, should be a summary of all the multitasks).</li>
 </ul>
 <p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank">git repo</a>.</p>
 
@@ -238,14 +309,14 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="detecting-shake-events-in-your-phonegap-http-phonegap-com-cordova-apps">Detecting shake events in your <a href="http://phonegap.com/" target="_blank">PhoneGap</a> / Cordova apps</h2>
+        <h2 id="Detecting_shake_events_in_your_PhoneGap_/_Cordova_apps">Detecting shake events in your <a href="http://phonegap.com/" target="_blank">PhoneGap</a> / Cordova apps</h2>
 <p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
-<p>I was a bit worried at first, as there weren&#39;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
-<h2 id="the-gist">The gist</h2>
+<p>I was a bit worried at first, as there weren’t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
+<h2 id="The_gist">The gist</h2>
 <p>I wrote a <a href="https://gist.github.com/leecrossley/4078996" target="_blank">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
-<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#39;t generally monitor my gists :)</p>
-<h2 id="using-shake-js">Using shake.js</h2>
-<p>If you&#39;re interested in using shake.js, it&#39;s pretty simple. It&#39;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
+<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank">a published tech author</a> in his latest book. All of this past me by until recently, as I don’t generally monitor my gists :)</p>
+<h2 id="Using_shake-js">Using shake.js</h2>
+<p>If you’re interested in using shake.js, it’s pretty simple. It’s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
 <figure class="highlight javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -267,9 +338,9 @@ shake.stopWatch();
 </pre></td></tr></table></figure>
 
 
-<h2 id="platforms">Platforms</h2>
-<p>Even though I&#39;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
-<p>Don&#39;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
+<h2 id="Platforms">Platforms</h2>
+<p>Even though I’ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
+<p>Don’t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
 
       
     </div>
@@ -314,22 +385,22 @@ shake.stopWatch();
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="grunt-the-task-runner-for-javascript">Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn&#39;t take sick days, pays attention and watches what you&#39;re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It&#39;s easy to configure and once it&#39;s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
-<p>I&#39;m just going to cover the basics here for now.</p>
-<h2 id="getting-the-ball-rolling">Getting the ball rolling</h2>
-<p>Grunt is easy to set up. I&#39;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
-<h3 id="the-grunt-cli">The Grunt CLI</h3>
-<p>Assuming you&#39;re a serious developer, you&#39;ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#39;re ready, run:</p>
+        <h2 id="Grunt_-_the_task_runner_for_JavaScript">Grunt - the task runner for JavaScript</h2>
+<p>Let grunt handle all your JavaScript tasks. It doesn’t take sick days, pays attention and watches what you’re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It’s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I’m just going to cover the basics here for now.</p>
+<h2 id="Getting_the_ball_rolling">Getting the ball rolling</h2>
+<p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<h3 id="The_Grunt_CLI">The Grunt CLI</h3>
+<p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm install <span class="attribute">-g</span> grunt<span class="attribute">-cli</span>
 </pre></td></tr></table></figure>
 
 
-<p>You can now run &quot;grunt&quot; from anywhere. Happy times.</p>
-<h3 id="the-gruntfile-js">The Gruntfile.js</h3>
-<p>Here&#39;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>You can now run “grunt” from anywhere. Happy times.</p>
+<h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
+<p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -342,7 +413,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<p>You can then define some tasks in your Gruntfile.js, here&#39;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -365,16 +436,16 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<h3 id="combining-tasks">Combining tasks</h3>
-<p>In the above example, it&#39;s unlikely that you&#39;ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#39;s easy to combine your tasks:</p>
+<h3 id="Combining_tasks">Combining tasks</h3>
+<p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
 </pre></td></tr></table></figure>
 
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
-<h3 id="watching-for-changes">Watching for changes</h3>
-<p><strong>I&#39;m addicted to automation, give me more!</strong> You won&#39;t want to keep typing &quot;grunt test&quot; and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<h3 id="Watching_for_changes">Watching for changes</h3>
+<p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -443,8 +514,8 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="the-different-ways-to-declare-a-function-in-javascript">The different ways to declare a function in JavaScript</h2>
-<h3 id="to-var-or-not-to-var">To var, or not to var</h3>
+        <h2 id="The_different_ways_to_declare_a_function_in_JavaScript">The different ways to declare a function in JavaScript</h2>
+<h3 id="To_var,_or_not_to_var">To var, or not to var</h3>
 <p>You can declare a function as you would any other JavaScript variable:</p>
 <figure class="highlight javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -461,13 +532,13 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<h2 id="the-difference">The difference</h2>
+<h2 id="The_difference">The difference</h2>
 <p>I recently read an accepted answer on Stack Overflow that stated:</p>
-<blockquote><p>&quot;<em>If you&#39;re in the global scope then there&#39;s no difference.</em>&quot;</p>
+<blockquote><p>“<em>If you’re in the global scope then there’s no difference.</em>“</p>
 <footer><strong>- Stack Overflow</strong></footer></blockquote>
 
 
-<p>I&#39;m sorry but I don&#39;t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
+<p>I’m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank">for this</a>:</p>
 <figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -509,13 +580,13 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#39;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
+<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it’s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
 <ul>
 <li>func1 (var format) is defined <strong>at</strong> runtime</li>
-<li>func2 is defined <strong>before</strong> runtime, they&#39;re &quot;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>&quot;</li>
+<li>func2 is defined <strong>before</strong> runtime, they’re “<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank">hoisted</a>“</li>
 </ul>
-<h2 id="function-expressions">Function expressions</h2>
-<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#39;t. To give the function itself a name, you could do:</p>
+<h2 id="Function_expressions">Function expressions</h2>
+<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn’t. To give the function itself a name, you could do:</p>
 <figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
@@ -523,10 +594,10 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
 
-<h2 id="best-practice">Best practice</h2>
-<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you&#39;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
-<h2 id="coffeescript-fans">CoffeeScript fans</h2>
-<p>If you&#39;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#39;s only one way you can define a function in coffeescript:</p>
+<h2 id="Best_practice">Best practice</h2>
+<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/">Multiple Function Composition</a> you’re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
+<h2 id="CoffeeScript_fans">CoffeeScript fans</h2>
+<p>If you’re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there’s only one way you can define a function in coffeescript:</p>
 <figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="function"><span class="title">func</span> = -&gt;</span>
 </pre></td></tr></table></figure>
@@ -578,27 +649,27 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="the-cross-platform-mobile-app-developer-burden">The (cross-platform) mobile app developer burden</h2>
+        <h2 id="The_(cross-platform)_mobile_app_developer_burden">The (cross-platform) mobile app developer burden</h2>
 <p>Serious mobile app developers and testers need access to every mobile and tablet device they want to target. Using the various emulators and simulators will only get you 90% of the way there.</p>
 <p><img src="/img/socks.png" alt="Socks"></p>
-<h2 id="why-should-i-use-real-mobiles-and-tablets-">Why should I use real mobiles and tablets?</h2>
-<h3 id="connection-types-and-failure">Connection types and failure</h3>
-<p>If you&#39;re transferring data you need to ensure it works with any type of connection (whether it&#39;s via 2G, 3G, 4G or WIFI etc) and if that connection fails, it&#39;s handled elegantly. You should also test for switching connection types. Different devices also have different connection possibilities.</p>
-<h3 id="3rd-party-alerts-and-notifications">3rd party alerts and notifications</h3>
-<p>To ensure your app responds appropriately when there&#39;s an unexpected condition, such as an incoming phone call, message, email, push notification or other type of intrusive alert.</p>
-<h3 id="performance">Performance</h3>
-<p>If you&#39;re using a simulator running on a top spec laptop, expect the performance on a mobile or tablet device to be different. The hardware and software features of a real device are never entirely replicated using an emulator. Different devices also have different performance.</p>
-<h3 id="you-got-the-touch">You got the touch</h3>
+<h2 id="Why_should_I_use_real_mobiles_and_tablets?">Why should I use real mobiles and tablets?</h2>
+<h3 id="Connection_types_and_failure">Connection types and failure</h3>
+<p>If you’re transferring data you need to ensure it works with any type of connection (whether it’s via 2G, 3G, 4G or WIFI etc) and if that connection fails, it’s handled elegantly. You should also test for switching connection types. Different devices also have different connection possibilities.</p>
+<h3 id="3rd_party_alerts_and_notifications">3rd party alerts and notifications</h3>
+<p>To ensure your app responds appropriately when there’s an unexpected condition, such as an incoming phone call, message, email, push notification or other type of intrusive alert.</p>
+<h3 id="Performance">Performance</h3>
+<p>If you’re using a simulator running on a top spec laptop, expect the performance on a mobile or tablet device to be different. The hardware and software features of a real device are never entirely replicated using an emulator. Different devices also have different performance.</p>
+<h3 id="You_got_the_touch">You got the touch</h3>
 <p>Touch screen interfaces with multi-gesture support are impossible to accurately replicate on emulators and simulators. Different devices often have different touch screen interfaces.</p>
-<h2 id="they-re-expensive-">They&#39;re expensive!</h2>
-<p>Physical devices are costly to acquire, once you have 20 (and that&#39;s really not a lot) you could have easily spent £10K! These devices grow old quickly and their resale value drops drastically, not that you can sell them anyway, you need them for legacy testing.</p>
-<h2 id="old-devices">Old devices</h2>
-<p>It&#39;s not just the new, cutting edge devices you need to buy (although they are usually the most expensive), it&#39;s the old legacy devices that often use older operating system versions you need too. I&#39;ve trawled ebay many times looking for devices that have a specific issue.</p>
-<h2 id="come-on-keep-up">Come on, keep up</h2>
+<h2 id="They’re_expensive!">They’re expensive!</h2>
+<p>Physical devices are costly to acquire, once you have 20 (and that’s really not a lot) you could have easily spent £10K! These devices grow old quickly and their resale value drops drastically, not that you can sell them anyway, you need them for legacy testing.</p>
+<h2 id="Old_devices">Old devices</h2>
+<p>It’s not just the new, cutting edge devices you need to buy (although they are usually the most expensive), it’s the old legacy devices that often use older operating system versions you need too. I’ve trawled ebay many times looking for devices that have a specific issue.</p>
+<h2 id="Come_on,_keep_up">Come on, keep up</h2>
 <p>With the mobile and tablet market developing at an incredibly fast rate, new devices are launched regularly, so you might as well keep your bank card out of your wallet.</p>
-<h2 id="competitions">Competitions</h2>
+<h2 id="Competitions">Competitions</h2>
 <p>This is a great way to get your hands on new devices. I recently won a first prize in a <a href="http://www.phonegapwpchallenge.com/" target="_blank">Windows Phone Challenge</a> that landed me a shiny new Nokia Lumia 820 (that sits nicely next to my Nokia Lumia 920).</p>
-<h2 id="where-does-this-leave-us-">Where does this leave us?</h2>
+<h2 id="Where_does_this_leave_us?">Where does this leave us?</h2>
 <p>With draws full of mobile and tablets and not enough money to buy socks. Oh, but with killer apps :)</p>
 
       
@@ -644,20 +715,20 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="get-more-twitter-retweets-and-favourites">Get more twitter retweets and favourites</h2>
+        <h2 id="Get_more_twitter_retweets_and_favourites">Get more twitter retweets and favourites</h2>
 <p><a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> allows you to calculate the optimal day and time for you to tweet, based on retweets and favourites your tweets have had in the past.</p>
-<h2 id="how-does-it-work-">How does it work?</h2>
-<p>Visit <a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> and authorise the website to access your twitter account. <strong>That&#39;s it!</strong> You&#39;ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
-<h2 id="why-should-i-bother-">Why should I bother?</h2>
-<p>Whether you&#39;re an individual or a company, you tweet because you want people to read it and engage with it. If you have an important tweet, you want to get the maximum possible exposure.</p>
+<h2 id="How_does_it_work?">How does it work?</h2>
+<p>Visit <a href="http://www.tweetthen.com/" target="_blank">TweetThen</a> and authorise the website to access your twitter account. <strong>That’s it!</strong> You’ll automatically be displayed a punch card style chart showing you the days and times when your past tweets were favourited or retweeted (note that it uses the time of your original tweet).</p>
+<h2 id="Why_should_I_bother?">Why should I bother?</h2>
+<p>Whether you’re an individual or a company, you tweet because you want people to read it and engage with it. If you have an important tweet, you want to get the maximum possible exposure.</p>
 <p>Twitter is global and users/followers are from various timezones, so your optimal post time may not be what you think. Also, everyones followers are different, TweetThen tailors your date and times directly to your twitter account.</p>
-<h2 id="is-this-a-unique-idea-">Is this a unique idea?</h2>
-<p>I&#39;ve found a couple of others doing similar things. One service is free but doesn&#39;t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
-<h2 id="who-wrote-it-">Who wrote it?</h2>
-<p>If you&#39;ve not guessed by now, it&#39;s a little pet project I started yesterday. It&#39;s built using <a href="http://nodejs.org/" target="_blank">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
-<h2 id="alpha-">Alpha?</h2>
-<p>It&#39;s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I&#39;m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
-<p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when&#39;s best to do it :)</p>
+<h2 id="Is_this_a_unique_idea?">Is this a unique idea?</h2>
+<p>I’ve found a couple of others doing similar things. One service is free but doesn’t work - at all, and the other costs $4.99 per request! <strong>TweetThen is currently 100% free.</strong></p>
+<h2 id="Who_wrote_it?">Who wrote it?</h2>
+<p>If you’ve not guessed by now, it’s a little pet project I started yesterday. It’s built using <a href="http://nodejs.org/" target="_blank">node.js</a> and uses my <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js library</a>. I wanted to explore some real world usages of functional.js and also get to grips with the twitter v1.1 API.</p>
+<h2 id="Alpha?">Alpha?</h2>
+<p>It’s is a first iteration prototype and therefore may not perform as intended and issues are possible. I hope to have a beta release soon with an improved assessment algorithm. I’m a strong believer in always developing a Minimum Viable Product (MVP) initially, for fast and quantitative market testing. </p>
+<p>If you have any suggestions or improvements, just drop me a tweet but make sure you use TweetThen first, so you know when’s best to do it :)</p>
 
       
     </div>
@@ -702,27 +773,27 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="what-is-hack-manchester-">What is Hack Manchester?</h2>
-<p>It&#39;s a 24 hour coding competition located in Manchester that started in 2012. This year (as it was last year) it&#39;s held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> and is on the 26th and 27th of October 2013 to kick off 2013&#39;s <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>. Props to <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a> for their hard work in organising such a great coding event.</p>
-<h2 id="hackathons">Hackathons</h2>
-<p>Getting top developers working and collaborating together on innovative web and/or mobile apps is always going to produce great results, make it into a competition and the results are even better :). I used to contract at NICE in Manchester where they&#39;d have hack days for the dev team within the organisation to drive forward creativity and new ideas. It&#39;s a fantastic way to work and there should be more of them.</p>
-<h2 id="winning-in-2012">Winning in 2012</h2>
-<p>If you know me, I&#39;ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive &quot;What&#39;s On&quot; app for the Museum of Science and Industry. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal &quot;day planner&quot;. There&#39;s a <a href="http://vimeo.com/52477912" target="_blank">video here</a> if you&#39;re interested.</p>
-<h2 id="the-team-is-back">The team is back</h2>
-<p>I&#39;m not <a href="http://en.wikipedia.org/wiki/Bring_Back...#Bring_Back...The_A-Team" target="_blank">Justin Lee Collins</a> but I&#39;ve brought the team back together. <a href="https://twitter.com/lee_crossley" target="_blank">Myself</a>, <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> have thrown some preliminary ideas in the pot and we&#39;re waiting for all the sponsor APIs to be announced.</p>
-<h2 id="lessons-learnt">Lessons learnt</h2>
-<p>We learnt some things from last year that I&#39;m happy to share with you:</p>
+        <h2 id="What_is_Hack_Manchester?">What is Hack Manchester?</h2>
+<p>It’s a 24 hour coding competition located in Manchester that started in 2012. This year (as it was last year) it’s held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> and is on the 26th and 27th of October 2013 to kick off 2013’s <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>. Props to <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a> for their hard work in organising such a great coding event.</p>
+<h2 id="Hackathons">Hackathons</h2>
+<p>Getting top developers working and collaborating together on innovative web and/or mobile apps is always going to produce great results, make it into a competition and the results are even better :). I used to contract at NICE in Manchester where they’d have hack days for the dev team within the organisation to drive forward creativity and new ideas. It’s a fantastic way to work and there should be more of them.</p>
+<h2 id="Winning_in_2012">Winning in 2012</h2>
+<p>If you know me, I’ve probably mentioned once or twice (more?) about winning the 2012 Thoughtworks Hack Manchester challenge. My team developed an interactive “What’s On” app for the Museum of Science and Industry. The app had interactive map animations, the ability to find your current location within any of the museums buildings and showcased Google Calendar powered events. Users of the app were able to find events occurring at locations around the museum and create a personal “day planner”. There’s a <a href="http://vimeo.com/52477912" target="_blank">video here</a> if you’re interested.</p>
+<h2 id="The_team_is_back">The team is back</h2>
+<p>I’m not <a href="http://en.wikipedia.org/wiki/Bring_Back...#Bring_Back...The_A-Team" target="_blank">Justin Lee Collins</a> but I’ve brought the team back together. <a href="https://twitter.com/lee_crossley" target="_blank">Myself</a>, <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> have thrown some preliminary ideas in the pot and we’re waiting for all the sponsor APIs to be announced.</p>
+<h2 id="Lessons_learnt">Lessons learnt</h2>
+<p>We learnt some things from last year that I’m happy to share with you:</p>
 <ul>
-<li><strong>Idea planning.</strong> Don&#39;t do any <em>coding</em> before the day (it&#39;s against the rules) but having some ideas of what you&#39;re going to code and reading any documentation before hand will save you time (and fighting) on the day.</li>
+<li><strong>Idea planning.</strong> Don’t do any <em>coding</em> before the day (it’s against the rules) but having some ideas of what you’re going to code and reading any documentation before hand will save you time (and fighting) on the day.</li>
 <li><strong>Have your tool chain / dev environment ready.</strong> Last year <em>one of our team members</em> tried to download xcode right at the start of the coding session.</li>
-<li><strong>Be realistic about what you&#39;re building.</strong> Time flies, it&#39;ll be 4am before you know it and you don&#39;t want to add extra stress to the caffeine + no sleep equation. Make sure you&#39;re realistic about what you can achieve, review this constantly and have contingency plans.</li>
-<li><strong>Know the sponsors.</strong> If you&#39;re using a sponsors API, it&#39;s crucial that you have a relationship with them if you&#39;re going to need help. It&#39;ll save you time and they&#39;ll be excited to see what you&#39;re doing.</li>
-<li><strong>Have breaks and enjoy it.</strong> We found that coming back to things after a short break made us more productive. Fortunately the nice guys at Hack Manchester organise food and snacks etc for you. It&#39;s your free time, take the time to meet other people and find out what they&#39;re up to. I always meet great people at hack events.</li>
+<li><strong>Be realistic about what you’re building.</strong> Time flies, it’ll be 4am before you know it and you don’t want to add extra stress to the caffeine + no sleep equation. Make sure you’re realistic about what you can achieve, review this constantly and have contingency plans.</li>
+<li><strong>Know the sponsors.</strong> If you’re using a sponsors API, it’s crucial that you have a relationship with them if you’re going to need help. It’ll save you time and they’ll be excited to see what you’re doing.</li>
+<li><strong>Have breaks and enjoy it.</strong> We found that coming back to things after a short break made us more productive. Fortunately the nice guys at Hack Manchester organise food and snacks etc for you. It’s your free time, take the time to meet other people and find out what they’re up to. I always meet great people at hack events.</li>
 </ul>
-<h2 id="tickets">Tickets</h2>
+<h2 id="Tickets">Tickets</h2>
 <p>Tickets for Hack Manchester 2013 went <a href="http://hackmanchester.eventbrite.com/" target="_blank">on sale yesterday</a> and were selling pretty fast. I scooped up 3 tickets for my team, if you missed your chance to get yours there will be other opportunities, so I suggest following <a href="https://twitter.com/HackManchester" target="_blank">@HackManchester</a> on twitter to find out when the next wave will be released.</p>
-<h2 id="shhhh">Shhhh</h2>
-<p>I&#39;ll probably not be discussing any preliminary hack ideas here, but I like Guinness and if you&#39;re around Manchester...</p>
+<h2 id="Shhhh">Shhhh</h2>
+<p>I’ll probably not be discussing any preliminary hack ideas here, but I like Guinness and if you’re around Manchester…</p>
 
       
     </div>
@@ -767,121 +838,19 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="the-new-iphone-fingerprint-recognition-api">The new iPhone fingerprint recognition API</h2>
-<p>As a mobile app developer, I follow new mobile technologies very closely. You&#39;ve probably noticed yourself an abundance of rumours on various sites about the upcoming &quot;Fingerprint Recognition&quot; seen in the new beta version of iOS7. This suggests the hardware capabilities will be available on the next version of the iPhone (iPhone 5S?).</p>
-<p>The &quot;BiometricKitUI&quot; directory can be found in the &quot;Accessibility Bundles&quot; and judging by the small amount of documentation, implies that the fingerprint sensor will be part of the home button.</p>
+        <h2 id="The_new_iPhone_fingerprint_recognition_API">The new iPhone fingerprint recognition API</h2>
+<p>As a mobile app developer, I follow new mobile technologies very closely. You’ve probably noticed yourself an abundance of rumours on various sites about the upcoming “Fingerprint Recognition” seen in the new beta version of iOS7. This suggests the hardware capabilities will be available on the next version of the iPhone (iPhone 5S?).</p>
+<p>The “BiometricKitUI” directory can be found in the “Accessibility Bundles” and judging by the small amount of documentation, implies that the fingerprint sensor will be part of the home button.</p>
 <p><img src="/img/fingerprint-iphone.png" alt="Fingerprint scanning on iPhone"></p>
-<h2 id="will-it-be-available-to-app-developers-">Will it be available to app developers?</h2>
+<h2 id="Will_it_be_available_to_app_developers?">Will it be available to app developers?</h2>
 <p>This is what I want to know :) I can see several usages for the core system, such as a login alternative to swipe and pin, verification for app store purchases, parental control, restricted apps and maybe even user profiles, although apple have always seemed to push for everyone having their own device for some reason ;).</p>
-<h2 id="when-will-we-know-">When will we know?</h2>
-<p>I&#39;m sure app developers at the top banks know, with this being a possible security option for them. I&#39;m going to ask some of my tweeps today and will post an update when I find out.</p>
-<p>It&#39;s strongly believed that the new iPhone will be available on the 10th of September 2013, I also imagine the iOS7 release to be scheduled for around this time, as in past years.</p>
-<h2 id="will-it-be-any-good-">Will it be any good?</h2>
-<p>I&#39;ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I&#39;ve found it to be unreliable and a nuisance. Will Apple&#39;s implementation and hardware be better? Having just acquired &quot;AuthenTec&quot; for $356 million in July 2012 you&#39;d like to hope so. If not, I&#39;m sure they&#39;ll tell us we&#39;re &quot;holding it wrong&quot; :)</p>
-<h2 id="-i-lee-is-this-blog-going-to-be-apple-y-">&quot;i&quot;Lee, is this blog going to be Apple-y?</h2>
-<p>No. Not at all (actually being serious here). Although MacBook Pros are the best. Please don&#39;t give them fingerprint recognition.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-11T10:31:55.000Z" itemprop="datePublished">11th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/multiple-function-composition/" itemprop="url">Multiple Function Composition</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="-function-composition-sounds-complicated-what-is-it-">&quot;Function Composition&quot; sounds complicated, what is it?</h2>
-<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
-<h3 id="basic-example-using-functional-js-https-github-com-leecrossley-functional-js-to-combine-two-functions">Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(f, g);
-
-expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
-</pre></td></tr></table></figure>
-
-<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned &quot;hello 2&quot; as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
-<h3 id="example-using-functional-js-https-github-com-leecrossley-functional-js-to-combine-three-functions">Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a * <span class="number">100</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(e, f, g);
-
-expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
-</pre></td></tr></table></figure>
-
-<p>This example illustrates the combining of multiple functions, passing the output from function &quot;g&quot; as a parameter to function &quot;f&quot;, then passing the output from function &quot;f&quot; as a parameter to function &quot;e&quot;. This leaves you with a single returned result, in this case &quot;hello 201&quot;.</p>
-<h2 id="ah-ha-this-is-just-inheritance-for-javascript">Ah ha! This is just inheritance for JavaScript</h2>
-<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
-<h2 id="what-s-the-benefit-">What&#39;s the benefit?</h2>
-<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It&#39;s the future, things move on... you&#39;re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
-<h2 id="functional-js-">functional.js (λ)</h2>
-<p>It&#39;s coming on, and expect more function-level programming support soon. Don&#39;t be shy to contribute and note that I&#39;m currently using 4 soft spaces for tabs, don&#39;t make me go all Crockford on you.</p>
+<h2 id="When_will_we_know?">When will we know?</h2>
+<p>I’m sure app developers at the top banks know, with this being a possible security option for them. I’m going to ask some of my tweeps today and will post an update when I find out.</p>
+<p>It’s strongly believed that the new iPhone will be available on the 10th of September 2013, I also imagine the iOS7 release to be scheduled for around this time, as in past years.</p>
+<h2 id="Will_it_be_any_good?">Will it be any good?</h2>
+<p>I’ve had laptops (a while ago) with fingerprint recognition, which was quickly disabled. I’ve found it to be unreliable and a nuisance. Will Apple’s implementation and hardware be better? Having just acquired “AuthenTec” for $356 million in July 2012 you’d like to hope so. If not, I’m sure they’ll tell us we’re “holding it wrong” :)</p>
+<h2 id="“i”Lee,_is_this_blog_going_to_be_Apple-y?">“i”Lee, is this blog going to be Apple-y?</h2>
+<p>No. Not at all (actually being serious here). Although MacBook Pros are the best. Please don’t give them fingerprint recognition.</p>
 
       
     </div>
@@ -953,6 +922,10 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -988,10 +961,6 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1011,17 +980,17 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

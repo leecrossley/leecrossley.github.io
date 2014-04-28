@@ -64,16 +64,16 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="json-hijacking">JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn&#39;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#39;s a nice little hack to prevent the hijack.</p>
+        <h2 id="JSON_hijacking">JSON hijacking</h2>
+<p>I recently needed to ensure a JSON service response couldn’t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there’s a nice little hack to prevent the hijack.</p>
 <p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
-<h2 id="the-hack">The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#39;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<h2 id="The_hack">The hack</h2>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<p>Because you aren&#39;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
 </pre></td></tr></table></figure>
@@ -84,13 +84,13 @@
 </pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
 </pre></td></tr></table></figure>
 
-<p>Personally, I&#39;d like to lead the JSON response with the throwing of an error message :)</p>
+<p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
 </pre></td></tr></table></figure>
 
-<h2 id="limitations">Limitations</h2>
-<p>Using this quick and easy hack means you don&#39;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It&#39;s not however a solution for cross-site request forgery itself. Maybe I&#39;ll cover that on another, less sunny day.</p>
+<h2 id="Limitations">Limitations</h2>
+<p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
 
       
     </div>
@@ -171,6 +171,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -206,10 +210,6 @@
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -229,17 +229,17 @@
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

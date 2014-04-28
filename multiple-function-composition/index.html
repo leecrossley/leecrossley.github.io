@@ -64,9 +64,9 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="-function-composition-sounds-complicated-what-is-it-">&quot;Function Composition&quot; sounds complicated, what is it?</h2>
-<p>It&#39;s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It&#39;s probably easier explained using an example.</p>
-<h3 id="basic-example-using-functional-js-https-github-com-leecrossley-functional-js-to-combine-two-functions">Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
+        <h2 id="“Function_Composition”_sounds_complicated,_what_is_it?">“Function Composition” sounds complicated, what is it?</h2>
+<p>It’s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank">high-order function</a> by combining simpler functions. It’s probably easier explained using an example.</p>
+<h3 id="Basic_example_using_functional-js_to_combine_two_functions">Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine two functions</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -87,8 +87,8 @@
 expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
 </pre></td></tr></table></figure>
 
-<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you&#39;re then returned &quot;hello 2&quot; as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
-<h3 id="example-using-functional-js-https-github-com-leecrossley-functional-js-to-combine-three-functions">Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
+<p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you’re then returned “hello 2” as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a> for this one.</p>
+<h3 id="Example_using_functional-js_to_combine_three_functions">Example using <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> to combine three functions</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -115,13 +115,13 @@ expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"he
 expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
 </pre></td></tr></table></figure>
 
-<p>This example illustrates the combining of multiple functions, passing the output from function &quot;g&quot; as a parameter to function &quot;f&quot;, then passing the output from function &quot;f&quot; as a parameter to function &quot;e&quot;. This leaves you with a single returned result, in this case &quot;hello 201&quot;.</p>
-<h2 id="ah-ha-this-is-just-inheritance-for-javascript">Ah ha! This is just inheritance for JavaScript</h2>
-<p>Haha, no :) it&#39;s not a function <em>inheriting</em> properties from another function, it&#39;s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it&#39;s ok to link to Crockford.</p>
-<h2 id="what-s-the-benefit-">What&#39;s the benefit?</h2>
-<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It&#39;s the future, things move on... you&#39;re not still using VB6 are you (can safely assume that if you&#39;re reading this).</p>
-<h2 id="functional-js-">functional.js (λ)</h2>
-<p>It&#39;s coming on, and expect more function-level programming support soon. Don&#39;t be shy to contribute and note that I&#39;m currently using 4 soft spaces for tabs, don&#39;t make me go all Crockford on you.</p>
+<p>This example illustrates the combining of multiple functions, passing the output from function “g” as a parameter to function “f”, then passing the output from function “f” as a parameter to function “e”. This leaves you with a single returned result, in this case “hello 201”.</p>
+<h2 id="Ah_ha!_This_is_just_inheritance_for_JavaScript">Ah ha! This is just inheritance for JavaScript</h2>
+<p>Haha, no :) it’s not a function <em>inheriting</em> properties from another function, it’s a function <em>composed</em> of other functions. I suggest you look up <a href="http://javascript.crockford.com/prototypal.html" target="_blank">prototypal inheritance</a>. Sometimes it’s ok to link to Crockford.</p>
+<h2 id="What’s_the_benefit?">What’s the benefit?</h2>
+<p>Other than making you look clever, composing functions improves code maintainability and function reuse. I believe that by using high-order functions and point-free programming, it makes your JavaScript much easier to read too. It’s the future, things move on… you’re not still using VB6 are you (can safely assume that if you’re reading this).</p>
+<h2 id="functional-js_(λ)">functional.js (λ)</h2>
+<p>It’s coming on, and expect more function-level programming support soon. Don’t be shy to contribute and note that I’m currently using 4 soft spaces for tabs, don’t make me go all Crockford on you.</p>
 
       
     </div>
@@ -202,6 +202,10 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -237,10 +241,6 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -260,17 +260,17 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

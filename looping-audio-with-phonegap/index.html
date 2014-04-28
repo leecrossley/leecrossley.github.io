@@ -64,12 +64,13 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="playing-media-on-repeat">Playing media on repeat</h2>
-<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I&#39;m using it in the game I&#39;m writing.</p>
-<p>The issue is, I wanted to be able to play a background music loop on repeat (don&#39;t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
-<h3 id="ios">iOS</h3>
-<p>There&#39;s an &quot;iOS Quirk&quot; that makes this really easy for iOS devices. From the documentation:</p>
-<blockquote>&quot;<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play&quot;</blockquote>
+        <h2 id="Playing_media_on_repeat">Playing media on repeat</h2>
+<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">media plugin</a>. I’m using it in the game I’m writing.</p>
+<p>The issue is, I wanted to be able to play a background music loop on repeat (don’t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
+<h3 id="iOS">iOS</h3>
+<p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
+<blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
+
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
@@ -77,9 +78,9 @@
 myMedia.play({ numberOfLoops: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
-<p>It&#39;s a bit frustrating that you can&#39;t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can&#39;t do this on Android.</p>
-<h3 id="android">Android</h3>
-<p>Here&#39;s my work around (that I also for iOS too to keep the JavaScript consistent). It&#39;s really frustrating because this could easily be built into the plugin&#39;s native component.</p>
+<p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
+<h3 id="Android">Android</h3>
+<p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -102,7 +103,7 @@ myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my
 myMedia.play();
 </pre></td></tr></table></figure>
 
-<p>I&#39;m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it&#39;s finished) and to play the media again.</p>
+<p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>
 
       
@@ -184,6 +185,10 @@ myMedia.play();
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -219,10 +224,6 @@ myMedia.play();
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -242,17 +243,17 @@ myMedia.play();
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

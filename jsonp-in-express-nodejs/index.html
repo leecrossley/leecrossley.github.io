@@ -64,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="express-js">Express JS</h2>
+        <h2 id="Express_JS">Express JS</h2>
 <p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="http://nodejs.org/" target="_blank">node</a> apps.</p>
-<p>I&#39;m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There&#39;s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
-<h2 id="getting-server-data-with-cordova">Getting server data with Cordova</h2>
-<p>It&#39;s actually easy to get data from a server from within your cordova application, you don&#39;t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<p>I’m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<h2 id="Getting_server_data_with_Cordova">Getting server data with Cordova</h2>
+<p>It’s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
 <figure class="highlight xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -93,17 +93,17 @@
 
 
 <p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome...</p>
-<h2 id="jsonp-to-the-rescue">JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can&#39;t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn&#39;t very well documented).</p>
-<h3 id="setting-up-express">Setting up express</h3>
+<p>The issue is, I do my initial app development in Chrome…</p>
+<h2 id="JSONP_to_the_rescue">JSONP to the rescue</h2>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can’t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<h3 id="Setting_up_express">Setting up express</h3>
 <p>When configuring express, you need to set an additional property:</p>
 <figure class="highlight javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
 </pre></td></tr></table></figure>
 
 
-<h3 id="in-your-route-code">In your route code</h3>
+<h3 id="In_your_route_code">In your route code</h3>
 <p>Things get simplier:</p>
 <figure class="highlight javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -114,8 +114,8 @@
 </pre></td></tr></table></figure>
 
 
-<p>That&#39;s it, you&#39;re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn&#39;t hard was it? Shame they don&#39;t make it this obvious in the documentation.</p>
+<p>That’s it, you’re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn’t hard was it? Shame they don’t make it this obvious in the documentation.</p>
 <p>Go and make yourself a coffee, you deserve it.</p>
 
       
@@ -197,6 +197,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -232,10 +236,6 @@
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -255,17 +255,17 @@
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

@@ -55,6 +55,91 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-04-28T07:10:13.000Z" itemprop="datePublished">28th Apr 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/css-translate3d-performance-hack/" itemprop="url">CSS translate3d Performance Hack</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="CSS_transition_performance">CSS transition performance</h2>
+<p>When I started out developing apps with Cordova / PhoneGap, there were several performance hacks I used to help CSS animations become smoother, i.e. force GPU acceleration.</p>
+<h3 id="The_CSS_transform_hacks">The CSS transform hacks</h3>
+<p>Depending on the scenario, I’d usually adopt one of the following (and I’d be careful about which elements they were applied to):</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;
+    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;
+
+    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;
+    <span class="comment">/* or */</span>
+    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ(<span class="number">0</span>)</span></span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ(<span class="number">360</span>deg)</span></span></span>;
+    <span class="comment">/* yep, this worked for me in the past! */</span>
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<h3 id="Memory_allocation">Memory allocation</h3>
+<p>These hacks were never a hard and fast rule, and as developers don’t have control over browser memory, it was easy to create memory issues.</p>
+<h2 id="Beware">Beware</h2>
+<p>After applying varies permutations of these hacks to a game I’m developing with Cordova / PhoneGap, it appears that even using the hacks sparingly and with caution, the performance of the transitions are degraded.</p>
+<p>Transitions are jerkier than without the hacks and it hits the performance of the native code when used in parallel (e.g. <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">native transitions</a>). It also forces font rendering to GPU control instead of the operating system rendering scheme, making text appear slightly pixellated on occasion.</p>
+<h3 id="Conclusion">Conclusion</h3>
+<p>In my opinion, with well developed apps and the latest browsers / hardware, these hacks are now redundant (and are likely to make things worse). The chances are, you probably don’t need to use them anymore.</p>
+<p>To combat performance issues, you should look at other contributing factors, like the number of elements and use of intensive styles, such as box shadow.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-04-23T07:08:24.000Z" itemprop="datePublished">23rd Apr 2014</time>
       
       
@@ -66,23 +151,23 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="dotject">dotject</h2>
-<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/">yesterday&#39;s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it&#39;s now available as an <a href="https://atom.io/packages/dotject" target="_blank">Atom plugin</a>.</p>
-<h2 id="atom">Atom</h2>
-<p>Titled as &quot;a hackable text editor for the 21st Century&quot;, GitHub&#39;s <a href="https://atom.io/" target="_blank">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn&#39;t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
-<h2 id="the-plugin">The Plugin</h2>
-<p>I found it easy to create an Atom plugin for dotject, mainly due to it&#39;s familiarity with <a href="https://www.npmjs.org/" target="_blank">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there&#39;s no duplication of the dotject code whatsoever.</p>
-<h3 id="installation">Installation</h3>
+<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/">yesterday’s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it’s now available as an <a href="https://atom.io/packages/dotject" target="_blank">Atom plugin</a>.</p>
+<h2 id="Atom">Atom</h2>
+<p>Titled as “a hackable text editor for the 21st Century”, GitHub’s <a href="https://atom.io/" target="_blank">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn’t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
+<h2 id="The_Plugin">The Plugin</h2>
+<p>I found it easy to create an Atom plugin for dotject, mainly due to it’s familiarity with <a href="https://www.npmjs.org/" target="_blank">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there’s no duplication of the dotject code whatsoever.</p>
+<h3 id="Installation">Installation</h3>
 <p>Use the Atom package manager, which can be found in the Settings view or run <code>apm install dotject</code> from the command line.</p>
-<h3 id="usage">Usage</h3>
+<h3 id="Usage">Usage</h3>
 <p>The default keymapping is <code>shift-cmd-J</code> (although this can be configured). You simply highlight your dotject string and press <code>shift-cmd-J</code> to perform the conversion.</p>
-<h3 id="example">Example</h3>
+<h3 id="Example">Example</h3>
 <p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}
 </pre></td></tr></table></figure>
 
-<h3 id="the-code">The code</h3>
-<p>It&#39;s essentially 2 lines of code, with a little glue and keymapping:</p>
+<h3 id="The_code">The code</h3>
+<p>It’s essentially 2 lines of code, with a little glue and keymapping:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -93,7 +178,7 @@
 editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));
 </pre></td></tr></table></figure>
 
-<p>This would all be perfect, if it was not for CoffeeScript (I&#39;ve written in JavaScript above).</p>
+<p>This would all be perfect, if it was not for CoffeeScript (I’ve written in JavaScript above).</p>
 
       
     </div>
@@ -140,9 +225,9 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
       
         <h2 id="dotject">dotject</h2>
 <p><a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a> provides a quick and simple way to compose JavaScript objects using familiar <a href="http://www.ling.helsinki.fi/kit/2009s/clt230/RUR-PLE/html/en/inter/30-dot.htm" target="_blank">dot notation</a>.</p>
-<p>The code supports object creation at n levels (nesting) along with same level objects. There&#39;s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it&#39;s designed to make life easier, the examples below will showcase this.</p>
-<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it&#39;s λ.reduce function to achieve the &quot;dot notation to object&quot; implementation in very few lines of code.</p>
-<h2 id="getting-started">Getting started</h2>
+<p>The code supports object creation at n levels (nesting) along with same level objects. There’s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it’s designed to make life easier, the examples below will showcase this.</p>
+<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it’s λ.reduce function to achieve the “dot notation to object” implementation in very few lines of code.</p>
+<h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> dotject <span class="comment"># --save</span>
@@ -153,9 +238,9 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 </pre></td><td class="code"><pre><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);
 </pre></td></tr></table></figure>
 
-<h2 id="using-dotject">Using dotject</h2>
-<p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank">specs</a>, for the project, but I&#39;ll run through examples here:</p>
-<h3 id="simple-object-composition">Simple object composition</h3>
+<h2 id="Using_dotject">Using dotject</h2>
+<p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank">specs</a>, for the project, but I’ll run through examples here:</p>
+<h3 id="Simple_object_composition">Simple object composition</h3>
 <p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -211,7 +296,7 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 }
 </pre></td></tr></table></figure>
 
-<h3 id="extend-an-existing-object">Extend an existing object</h3>
+<h3 id="Extend_an_existing_object">Extend an existing object</h3>
 <p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -269,7 +354,7 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 }
 </pre></td></tr></table></figure>
 
-<h3 id="assign-a-value">Assign a value</h3>
+<h3 id="Assign_a_value">Assign a value</h3>
 <p>You can assign a value to the last nested property:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -287,7 +372,7 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 }
 </pre></td></tr></table></figure>
 
-<h3 id="assign-multiple-values">Assign multiple values</h3>
+<h3 id="Assign_multiple_values">Assign multiple values</h3>
 <p>You can assign a values to the last nested properties:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -309,7 +394,7 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 }
 </pre></td></tr></table></figure>
 
-<h3 id="assign-multiple-values-and-override-existing">Assign multiple values and override existing</h3>
+<h3 id="Assign_multiple_values_and_override_existing">Assign multiple values and override existing</h3>
 <p>You can assign a values to the last nested properties:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -325,7 +410,7 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 }
 </pre></td></tr></table></figure>
 
-<h2 id="-real-world-example">&quot;Real world&quot; example</h2>
+<h2 id="“Real_world”_example">“Real world” example</h2>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -360,9 +445,9 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 }
 </pre></td></tr></table></figure>
 
-<h2 id="other-thoughts">Other thoughts</h2>
-<p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank">λ.assign</a> (λ.extend) function. I&#39;d be interested to hear your feedback on this, as personally I&#39;m almost always passing a new object, which seems silly.</p>
-<h2 id="issues-and-pull-requests">Issues and pull requests</h2>
+<h2 id="Other_thoughts">Other thoughts</h2>
+<p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank">λ.assign</a> (λ.extend) function. I’d be interested to hear your feedback on this, as personally I’m almost always passing a new object, which seems silly.</p>
+<h2 id="Issues_and_pull_requests">Issues and pull requests</h2>
 <p>Please raise any issues / pull requests directly on <a href="https://github.com/leecrossley/dotject/issues" target="_blank">github</a>.</p>
 
       
@@ -408,13 +493,13 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="json5">JSON5</h2>
-<p>I get excited by new tech, especially when it&#39;s JavaScript related. It usually makes me do a little dance.</p>
-<p>The proposed extension to JSON, &quot;<strong>JSON5</strong>&quot; unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
-<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank">official site</a> but I&#39;m going to have a whinge about why it&#39;s <strong>completely pointless and unimaginative poppycock</strong>.</p>
-<h2 id="the-reason-behind-json5">The reason behind JSON5</h2>
+        <h2 id="JSON5">JSON5</h2>
+<p>I get excited by new tech, especially when it’s JavaScript related. It usually makes me do a little dance.</p>
+<p>The proposed extension to JSON, “<strong>JSON5</strong>“ unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
+<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank">official site</a> but I’m going to have a whinge about why it’s <strong>completely pointless and unimaginative poppycock</strong>.</p>
+<h2 id="The_reason_behind_JSON5">The reason behind JSON5</h2>
 <p>To quote the proposal:</p>
-<blockquote><p>&quot;JSON isn&#39;t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can&#39;t have trailing commas; comments aren&#39;t supported.&quot;</p>
+<blockquote><p>“JSON isn’t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can’t have trailing commas; comments aren’t supported.”</p>
 <footer><strong>- aseemk</strong></footer></blockquote>
 
 
@@ -424,8 +509,8 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 <li>Trailing commas in arrays</li>
 <li>Trailing commas for object properties</li>
 </ul>
-<h2 id="the-benefits">The benefits</h2>
-<p><strong>There isn&#39;t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
+<h2 id="The_benefits">The benefits</h2>
+<p><strong>There isn’t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -444,14 +529,14 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 }
 </pre></td></tr></table></figure>
 
-<h3 id="inline-comments">Inline comments</h3>
-<p>Property names should be descriptive enough to be obvious without comments, otherwise what you&#39;re doing is probably wrong.</p>
-<p>Don&#39;t say &quot;we need to comment our config files&quot;. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
-<h3 id="commas">Commas</h3>
-<p>This isn&#39;t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>If it isn&#39;t broken, don&#39;t try to fix it. The approach of the proposal appears to be &quot;what <em>could</em> we add&quot; and seems mainly be suited to less technical people who modify config files.</p>
-<p>Of course, I&#39;d love for you to challenge my views...</p>
+<h3 id="Inline_comments">Inline comments</h3>
+<p>Property names should be descriptive enough to be obvious without comments, otherwise what you’re doing is probably wrong.</p>
+<p>Don’t say “we need to comment our config files”. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
+<h3 id="Commas">Commas</h3>
+<p>This isn’t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
+<h2 id="Conclusion">Conclusion</h2>
+<p>If it isn’t broken, don’t try to fix it. The approach of the proposal appears to be “what <em>could</em> we add” and seems mainly be suited to less technical people who modify config files.</p>
+<p>Of course, I’d love for you to challenge my views…</p>
 
       
     </div>
@@ -496,22 +581,22 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="maps-with-directions">Maps with directions</h2>
-<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank">Cordova &quot;Directions&quot; Plugin</a> to utilise native maps apps for &quot;sat nav&quot; style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">here</a>.</p>
-<h2 id="install-the-plugin">Install the plugin</h2>
+        <h2 id="Maps_with_directions">Maps with directions</h2>
+<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank">Cordova “Directions” Plugin</a> to utilise native maps apps for “sat nav” style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">here</a>.</p>
+<h2 id="Install_the_plugin">Install the plugin</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
 </pre></td></tr></table></figure>
 
-<p>That&#39;s all the installation steps thanks to Cordova&#39;s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
-<h2 id="get-directions">Get directions</h2>
+<p>That’s all the installation steps thanks to Cordova’s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
+<h2 id="Get_directions">Get directions</h2>
 <p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
 </pre></td></tr></table></figure>
 
-<p>That&#39;s it! Really, it&#39;s that simple. The Google maps app will open on Android and give directions from the device&#39;s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
-<h2 id="platforms">Platforms</h2>
+<p>That’s it! Really, it’s that simple. The Google maps app will open on Android and give directions from the device’s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
+<h2 id="Platforms">Platforms</h2>
 <p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">GitHub</a>.</p>
 <p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
 
@@ -558,21 +643,21 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="the-guru-top-level-domain">The .guru top level domain</h2>
-<p>The &quot;.guru&quot; top level domain (TLD) became available for public registration this week. More than 20,000 .guru domain names have already been snapped up, proving it to be the most popular of the new public TLDs.</p>
+        <h2 id="The_-guru_top_level_domain">The .guru top level domain</h2>
+<p>The “.guru” top level domain (TLD) became available for public registration this week. More than 20,000 .guru domain names have already been snapped up, proving it to be the most popular of the new public TLDs.</p>
 <p><img src="/img/guru.png" alt="dot guru"></p>
-<h3 id="going-going-">Going, going...</h3>
+<h3 id="Going,_going…">Going, going…</h3>
 <p>Are you considered an expert in a particular field, product or category? If you are a guru, there might still be time to register your .guru domain name.</p>
-<blockquote><p><strong>Take a quick search on <a href="http://www.shareasale.com/r.cfm?B=210738&amp;U=912360&amp;M=25581&amp;urllink=https://iwantmyname.com/domains/dot-guru" target="_blank">iwantmyname</a> to see what&#39;s available.</strong></p>
+<blockquote><p><strong>Take a quick search on <a href="http://www.shareasale.com/r.cfm?B=210738&amp;U=912360&amp;M=25581&amp;urllink=https://iwantmyname.com/domains/dot-guru" target="_blank">iwantmyname</a> to see what’s available.</strong></p>
 </blockquote>
 
 
-<h2 id="i-m-a-dot-guru">I&#39;m a dot guru</h2>
-<p>I quickly registered a couple of .guru domain names. I plan to utilise them as opposed to selling them, although someone has listed 3dprinting.guru for $7500 and mine are better than that.. so we&#39;ll see.</p>
-<p>There are also others listed for silly prices (and unlikely to sell?), I&#39;ve seen one on ebay for $20K (or best offer, admittedly).</p>
-<h2 id="trademarks">Trademarks</h2>
-<p>As you&#39;d expect, most companies have registered their trademarks as domains (e.g. Apple have registered iphone.guru and pretty much all their products). There are however some registrations that do not belong to the trademark holders :) ... <em>opens popcorn</em></p>
-<h2 id="other-tlds">Other TLDs</h2>
+<h2 id="I’m_a_dot_guru">I’m a dot guru</h2>
+<p>I quickly registered a couple of .guru domain names. I plan to utilise them as opposed to selling them, although someone has listed 3dprinting.guru for $7500 and mine are better than that.. so we’ll see.</p>
+<p>There are also others listed for silly prices (and unlikely to sell?), I’ve seen one on ebay for $20K (or best offer, admittedly).</p>
+<h2 id="Trademarks">Trademarks</h2>
+<p>As you’d expect, most companies have registered their trademarks as domains (e.g. Apple have registered iphone.guru and pretty much all their products). There are however some registrations that do not belong to the trademark holders :) … <em>opens popcorn</em></p>
+<h2 id="Other_TLDs">Other TLDs</h2>
 <p>Other popular TLDs now available include:</p>
 <ul>
 <li>.bike</li>
@@ -589,10 +674,10 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 <li>.gallery</li>
 </ul>
 <p>Note that .guru is more popular than all of the above put together.</p>
-<h2 id="is-this-the-end-of-com-">Is this the end of .com?</h2>
+<h2 id="Is_this_the_end_of_-com?">Is this the end of .com?</h2>
 <p><a href="http://www.youtube.com/watch?v=kxRX6LXDpWs" target="_blank">No</a>. To put things into perspective, there have been more than <strong>five times as many</strong> .com registrations than .guru registrations since Wednesday.</p>
-<p>Even skype and twitter (at the time of writing this) aren&#39;t picking up that domain.guru is a URL, even with a protocol prefix!</p>
-<p>The .com TLD isn&#39;t going anywhere. Past new TLDs such as .co didn&#39;t replace the .com and neither will any of the proposed future new TLDs. </p>
+<p>Even skype and twitter (at the time of writing this) aren’t picking up that domain.guru is a URL, even with a protocol prefix!</p>
+<p>The .com TLD isn’t going anywhere. Past new TLDs such as .co didn’t replace the .com and neither will any of the proposed future new TLDs. </p>
 <p>The new TLDs do have their place and are needed in the overcrowded .com world.</p>
 
       
@@ -638,10 +723,10 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="windows-phone-8">Windows Phone 8</h2>
+        <h2 id="Windows_Phone_8">Windows Phone 8</h2>
 <p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank">reported an issue</a> that prevents the WP8 platform from even being used with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
-<p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you&#39;re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
-<h2 id="show-me-the-errors">Show me the errors</h2>
+<p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you’re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
+<h2 id="Show_me_the_errors">Show me the errors</h2>
 <p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
@@ -699,11 +784,11 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="new-features-of-grunt-timer-">New features of &quot;grunt-timer&quot;</h2>
-<p>I&#39;m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it&#39;s entirely down to the efforts of the open source community.</p>
-<h2 id="what-s-new">What&#39;s new</h2>
+        <h2 id="New_features_of_“grunt-timer”">New features of “grunt-timer”</h2>
+<p>I’m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>! The best part about this release is that it’s entirely down to the efforts of the open source community.</p>
+<h2 id="What’s_new">What’s new</h2>
 <p>There are 3 new features, implemented as interchangeable options:</p>
-<h3 id="friendlytime">friendlyTime</h3>
+<h3 id="friendlyTime">friendlyTime</h3>
 <p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
@@ -711,7 +796,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h3 id="deferlogs">deferLogs</h3>
+<h3 id="deferLogs">deferLogs</h3>
 <p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
@@ -726,7 +811,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h3 id="totalonly">totalOnly</h3>
+<h3 id="totalOnly">totalOnly</h3>
 <p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
@@ -741,13 +826,13 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
 </pre></td></tr></table></figure>
 
-<h2 id="credits">Credits</h2>
-<h3 id="contributors">Contributors</h3>
+<h2 id="Credits">Credits</h2>
+<h3 id="Contributors">Contributors</h3>
 <ul>
 <li>Thanks to <a href="https://github.com/geekdave" target="_blank">Dave Cadwallader</a> for the implementation of the <em>friendlyTime</em> and <em>deferLogs</em> options.</li>
 <li>Thanks to <a href="https://github.com/carlherbst" target="_blank">Carl Herbst</a> for the implementation of the <em>totalOnly</em> option.</li>
 </ul>
-<h2 id="pull-requests">Pull requests</h2>
+<h2 id="Pull_requests">Pull requests</h2>
 <p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a> and you can create pull requests <a href="https://github.com/leecrossley/grunt-timer/pulls" target="_blank">here</a>.</p>
 
       
@@ -793,14 +878,14 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="it-s-time">It&#39;s time</h2>
-<p>We&#39;re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
-<h2 id="keep-it-simple">Keep it simple</h2>
-<p>I don&#39;t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It&#39;s prettier, simpler and still obviously a url.</p>
-<h2 id="use-a-permanent-301-redirect">Use a permanent (301) redirect</h2>
-<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it&#39;s GitHub&#39;s preferred format (you&#39;ll never see <code>www.github.com</code>, it&#39;s always <code>github.com</code>).</p>
-<h3 id="expressjs">Expressjs</h3>
-<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn&#39;t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
+        <h2 id="It’s_time">It’s time</h2>
+<p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
+<h2 id="Keep_it_simple">Keep it simple</h2>
+<p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
+<h2 id="Use_a_permanent_(301)_redirect">Use a permanent (301) redirect</h2>
+<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
+<h3 id="Expressjs">Expressjs</h3>
+<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -825,14 +910,14 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 app.all(<span class="string">"*"</span>, redirect);
 </pre></td></tr></table></figure>
 
-<h2 id="configure-webmaster-tools">Configure webmaster tools</h2>
-<p>Under &quot;site settings&quot; of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
+<h2 id="Configure_webmaster_tools">Configure webmaster tools</h2>
+<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
 <ul>
-<li>Don&#39;t set a preferred domain</li>
+<li>Don’t set a preferred domain</li>
 <li>Display URLs as www.ilee.co.uk</li>
 <li>Display URLs as ilee.co.uk</li>
 </ul>
-<p><strong>Here&#39;s to a www-less 2014</strong>.</p>
+<p><strong>Here’s to a www-less 2014</strong>.</p>
 
       
     </div>
@@ -877,22 +962,22 @@ app.all(<span class="string">"*"</span>, redirect);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="optimise-for-mobile">Optimise for mobile</h2>
+        <h2 id="Optimise_for_mobile">Optimise for mobile</h2>
 <p>With huge numbers of internet users using mobiles and tablet devices to browse the web, it’s more important than ever to optimise your website for these devices.</p>
-<h3 id="creating-a-mobile-website-is-not-enough">Creating a mobile website is not enough</h3>
-<p>If you truly want to engage users on mobile devices, you&#39;ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
-<h2 id="what-exactly-is-ux-">What exactly is <em>UX</em>?</h2>
+<h3 id="Creating_a_mobile_website_is_not_enough">Creating a mobile website is not enough</h3>
+<p>If you truly want to engage users on mobile devices, you’ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
+<h2 id="What_exactly_is_UX?">What exactly is <em>UX</em>?</h2>
 <p>UX stands for <strong>U</strong>ser e<strong>X</strong>perience, which is the comprehensive experience of a user interacting with a product (in this case a website and more specifically, a website on mobile devices). It encompasses factors such as ease-of-use and user gratification.</p>
-<h3 id="ux-is-hard">UX is hard</h3>
-<p>There&#39;s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
-<h2 id="why-ux-">Why UX?</h2>
-<p>It&#39;s all about the users and they are ultimately going to result in conversions (if that&#39;s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
-<h2 id="pagespeed-insights">PageSpeed insights</h2>
+<h3 id="UX_is_hard">UX is hard</h3>
+<p>There’s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
+<h2 id="Why_UX?">Why UX?</h2>
+<p>It’s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
+<h2 id="PageSpeed_insights">PageSpeed insights</h2>
 <p>The <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">PageSpeed Insights</a> tool is now reporting mobile user experience, in addition to page speed. This is a great place to start to give you instant feedback on some tangible metrics. The tool currently analyses:</p>
 <ul>
 <li>Use of plugins</li>
 <li>Viewport metatag and content size within the viewport</li>
-<li>Size of touch/tap &quot;clickable&quot; interactions</li>
+<li>Size of touch/tap “clickable” interactions</li>
 <li>Font sizes</li>
 </ul>
 <p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
@@ -914,95 +999,9 @@ app.all(<span class="string">"*"</span>, redirect);
 }
 </pre></td></tr></table></figure>
 
-<h2 id="that-s-not-the-end">That&#39;s not the end</h2>
-<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it&#39;s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
+<h2 id="That’s_not_the_end">That’s not the end</h2>
+<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it’s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
 <p>If you have the luxury of a starting your mobile website from scratch or a rewrite, consider user experience right from the outset and get users involved in the process as early as possible.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-01-02T09:41:26.000Z" itemprop="datePublished">2nd Jan 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/learn-nodejs-in-2014/" itemprop="url">Learn nodejs in 2014</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="the-year-of-the-node">The year of the node</h2>
-<p>If you haven&#39;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I&#39;ve put together a super quick start guide to kick you off.</p>
-<p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
-<h2 id="super-quick-start">Super quick start</h2>
-<h3 id="install">Install</h3>
-<p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
-<h3 id="create">Create</h3>
-<p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>$ mkdir nodeapp
-$ <span class="built_in">cd</span> nodeapp
-$ touch app.js
-</pre></td></tr></table></figure>
-
-<h3 id="code">Code</h3>
-<p>In your newly created JavaScript file, add the following code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
-
-http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
-    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
-    res.end(<span class="string">"I know node.js!"</span>);
-}).listen(<span class="number">4000</span>);
-</pre></td></tr></table></figure>
-
-<h3 id="run">Run</h3>
-<p>Ensure you&#39;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ node app
-</pre></td></tr></table></figure>
-
-<p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
-<h2 id="packages">Packages</h2>
-<p>You&#39;ll notice in the example above that we&#39;re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
-<p>Happy new year!</p>
 
       
     </div>
@@ -1072,6 +1071,10 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -1107,10 +1110,6 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1130,17 +1129,17 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

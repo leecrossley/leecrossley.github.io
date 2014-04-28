@@ -64,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="i-m-writing-a-game-">I&#39;m writing a game!</h2>
-<p>That&#39;s right, I&#39;m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I&#39;ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I&#39;d share the first one.</p>
-<h2 id="a-list-of-adjacent-squares">A list of adjacent squares</h2>
-<h3 id="the-grid">The grid</h3>
-<p>Let&#39;s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that&#39;s how my brain works these days - thank HTML).</p>
+        <h2 id="I’m_writing_a_game!">I’m writing a game!</h2>
+<p>That’s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I’ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
+<h2 id="A_list_of_adjacent_squares">A list of adjacent squares</h2>
+<h3 id="The_grid">The grid</h3>
+<p>Let’s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -83,9 +83,9 @@
 ..    ..    ..    ..    ..    ..
 </pre></td></tr></table></figure>
 
-<p>This is actually a two dimensional array, which in reality is just an array of arrays. It&#39;s crucial to represent the grid like this, it allows for simpler calculations. Don&#39;t attempt to use a one dimensional array of size x * y, as it&#39;ll just overcomplicate things.</p>
-<h3 id="get-adjacent-squares">Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#39;s pretty simple with this system:</p>
+<p>This is actually a two dimensional array, which in reality is just an array of arrays. It’s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it’ll just overcomplicate things.</p>
+<h3 id="Get_adjacent_squares">Get adjacent squares</h3>
+<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it’s pretty simple with this system:</p>
 <ul>
 <li>Take one from the x co-ordinate [x-1,y]</li>
 <li>Add one to the x co-ordinate [x+1,y]</li>
@@ -97,7 +97,7 @@
 </pre></td></tr></table></figure>
 
 <p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
-<h3 id="off-the-grid-">Off the grid!</h3>
+<h3 id="Off_the_grid!">Off the grid!</h3>
 <p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
 <ul>
 <li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
@@ -107,7 +107,7 @@
 </pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
 </pre></td></tr></table></figure>
 
-<h2 id="the-solution">The solution</h2>
+<h2 id="The_solution">The solution</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -142,14 +142,14 @@
 }
 </pre></td></tr></table></figure>
 
-<p>I&#39;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
+<p>I’ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
 getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
 </pre></td></tr></table></figure>
 
-<p>Hopefully you&#39;re also now interested in what on earth I&#39;m writing :)</p>
+<p>Hopefully you’re also now interested in what on earth I’m writing :)</p>
 
       
     </div>
@@ -230,6 +230,10 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -265,10 +269,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -288,17 +288,17 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

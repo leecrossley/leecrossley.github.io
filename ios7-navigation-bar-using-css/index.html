@@ -64,14 +64,14 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="ios7-elements-with-html-and-css">iOS7 elements with HTML and CSS</h2>
-<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#39;t seem to have implemented the <em>useful</em> elements.</p>
-<h2 id="the-uinavigationbar">The UINavigationBar</h2>
+        <h2 id="iOS7_elements_with_HTML_and_CSS">iOS7 elements with HTML and CSS</h2>
+<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don’t seem to have implemented the <em>useful</em> elements.</p>
+<h2 id="The_UINavigationBar">The UINavigationBar</h2>
 <p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
-<h2 id="my-implementation">My implementation</h2>
-<p>The tricky part is obviously the transparency / blur / &quot;frosting&quot; effects, so here&#39;s how I set about it.</p>
-<h3 id="the-transparency">The transparency</h3>
-<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#39;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
+<h2 id="My_implementation">My implementation</h2>
+<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here’s how I set about it.</p>
+<h3 id="The_transparency">The transparency</h3>
+<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn’t find a way to add any sort of blur effect to this element without distorting the header content.</p>
 <figure class="highlight css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -103,7 +103,7 @@
 </pre></td></tr></table></figure>
 
 
-<h3 id="the-blur-frosting">The blur / frosting</h3>
+<h3 id="The_blur_/_frosting">The blur / frosting</h3>
 <p>I solved this by absolute positioning another element directly underneath the usual header element, with a lower z-index of the header but a higher z-index than the content underneath.</p>
 <figure class="highlight css"><figcaption><span>header-blur styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -139,15 +139,15 @@
 
 
 <p>After a bit of fiddling I managed to get the values right and get it working pretty well.</p>
-<h3 id="iscroll">iScroll</h3>
+<h3 id="iScroll">iScroll</h3>
 <p>I added <a href="https://github.com/cubiq/iscroll" target="_blank">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
-<h2 id="demo">Demo</h2>
-<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I&#39;m also open to feedback as usual.</p>
+<h2 id="Demo">Demo</h2>
+<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">here</a>, feel free to fork and make your own changes or improvements. I’m also open to feedback as usual.</p>
 <h2 id="update"><strong>UPDATE</strong></h2>
 
-<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn&#39;t actually applying the blur to elements underneath the header because they aren&#39;t nested.</p>
+<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn’t actually applying the blur to elements underneath the header because they aren’t nested.</p>
 <p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
-<p>Sounds hacky, but it&#39;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place...</em>). Not sure it&#39;s worth it, but I&#39;ll do some performance testing.</p>
+<p>Sounds hacky, but it’s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it’s worth it, but I’ll do some performance testing.</p>
 <p>The <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank">example code</a> has been updated, feel free to fork.</p>
 
       
@@ -229,6 +229,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -264,10 +268,6 @@
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -287,17 +287,17 @@
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   

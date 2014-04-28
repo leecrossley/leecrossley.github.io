@@ -66,9 +66,9 @@
       
         <h2 id="dotject">dotject</h2>
 <p><a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a> provides a quick and simple way to compose JavaScript objects using familiar <a href="http://www.ling.helsinki.fi/kit/2009s/clt230/RUR-PLE/html/en/inter/30-dot.htm" target="_blank">dot notation</a>.</p>
-<p>The code supports object creation at n levels (nesting) along with same level objects. There&#39;s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it&#39;s designed to make life easier, the examples below will showcase this.</p>
-<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it&#39;s λ.reduce function to achieve the &quot;dot notation to object&quot; implementation in very few lines of code.</p>
-<h2 id="getting-started">Getting started</h2>
+<p>The code supports object creation at n levels (nesting) along with same level objects. There’s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it’s designed to make life easier, the examples below will showcase this.</p>
+<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> and it’s λ.reduce function to achieve the “dot notation to object” implementation in very few lines of code.</p>
+<h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> dotject <span class="comment"># --save</span>
@@ -79,9 +79,9 @@
 </pre></td><td class="code"><pre><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);
 </pre></td></tr></table></figure>
 
-<h2 id="using-dotject">Using dotject</h2>
-<p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank">specs</a>, for the project, but I&#39;ll run through examples here:</p>
-<h3 id="simple-object-composition">Simple object composition</h3>
+<h2 id="Using_dotject">Using dotject</h2>
+<p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank">specs</a>, for the project, but I’ll run through examples here:</p>
+<h3 id="Simple_object_composition">Simple object composition</h3>
 <p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -137,7 +137,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="extend-an-existing-object">Extend an existing object</h3>
+<h3 id="Extend_an_existing_object">Extend an existing object</h3>
 <p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -195,7 +195,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="assign-a-value">Assign a value</h3>
+<h3 id="Assign_a_value">Assign a value</h3>
 <p>You can assign a value to the last nested property:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -213,7 +213,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="assign-multiple-values">Assign multiple values</h3>
+<h3 id="Assign_multiple_values">Assign multiple values</h3>
 <p>You can assign a values to the last nested properties:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -235,7 +235,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="assign-multiple-values-and-override-existing">Assign multiple values and override existing</h3>
+<h3 id="Assign_multiple_values_and_override_existing">Assign multiple values and override existing</h3>
 <p>You can assign a values to the last nested properties:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -251,7 +251,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h2 id="-real-world-example">&quot;Real world&quot; example</h2>
+<h2 id="“Real_world”_example">“Real world” example</h2>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -286,9 +286,9 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 }
 </pre></td></tr></table></figure>
 
-<h2 id="other-thoughts">Other thoughts</h2>
-<p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank">λ.assign</a> (λ.extend) function. I&#39;d be interested to hear your feedback on this, as personally I&#39;m almost always passing a new object, which seems silly.</p>
-<h2 id="issues-and-pull-requests">Issues and pull requests</h2>
+<h2 id="Other_thoughts">Other thoughts</h2>
+<p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank">λ.assign</a> (λ.extend) function. I’d be interested to hear your feedback on this, as personally I’m almost always passing a new object, which seems silly.</p>
+<h2 id="Issues_and_pull_requests">Issues and pull requests</h2>
 <p>Please raise any issues / pull requests directly on <a href="https://github.com/leecrossley/dotject/issues" target="_blank">github</a>.</p>
 
       
@@ -370,6 +370,10 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   <ul class="entry">
     
       <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
@@ -405,10 +409,6 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
         <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
       </li>
     
-      <li>
-        <a href="/learn-nodejs-in-2014/">Learn nodejs in 2014</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -428,17 +428,17 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
-    <li><a href="/tags/hack/">hack</a><small>3</small></li>
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
     <li><a href="/tags/html/">html</a><small>8</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>17</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
   
     <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>15</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
   
-    <li><a href="/tags/web/">web</a><small>26</small></li>
+    <li><a href="/tags/web/">web</a><small>27</small></li>
   
     <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
   
