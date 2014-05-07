@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-05-07T16:47:51.745Z</updated>
+  <updated>2014-05-07T16:56:22.913Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,8 +15,8 @@
     <link href="http://ilee.co.uk/adds-addition-puzzle-game/"/>
     <id>http://ilee.co.uk/adds-addition-puzzle-game/</id>
     <published>2014-05-07T13:34:22.000Z</published>
-    <updated>2014-05-07T16:47:47.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://playadds.com" target="_blank">Adds</a> is a simple mobile and tablet game, created my myself with Cordova / PhoneGap. It’s been several months in development and I have been sharing most of my experiences as I’ve been going along, but I think it’s time to <em>sum up</em>.</p>
+    <updated>2014-05-07T16:56:19.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://playadds.com" target="_blank">Adds</a> is a simple mobile and tablet game, created by myself with Cordova / PhoneGap. It’s been several months in development and I have been sharing most of my experiences as I’ve been going along, but I think it’s time to <em>sum up</em>.</p>
 <p>Yesterday, I finally released version 1. The app landing (promo) page can be found <a href="[Adds](http://playadds.com">here</a>.</p>
 <p><img src="http://playadds.com/images/iphone.png" alt="iPhone teaser"></p>
 <h2 id="The_concept">The concept</h2>
