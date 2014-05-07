@@ -55,6 +55,105 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-05-07T13:34:22.000Z" itemprop="datePublished">7th May 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/adds-addition-puzzle-game/" itemprop="url">Adds - Addition Puzzle Game</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <p><a href="http://playadds.com" target="_blank">Adds</a> is a simple mobile and tablet game, created my myself with Cordova / PhoneGap. It’s been several months in development and I have been sharing most of my experiences as I’ve been going along, but I think it’s time to <em>sum up</em>.</p>
+<p>Yesterday, I finally released version 1. The app landing (promo) page can be found <a href="[Adds](http://playadds.com">here</a>.</p>
+<p><img src="http://playadds.com/images/iphone.png" alt="iPhone teaser"></p>
+<h2 id="The_concept">The concept</h2>
+<p>To play, you swipe over numbers in a grid to add up to a total at the top. It’s very easy to play, but difficult to master.</p>
+<p>You can swipe in any combination of directions (up, down, left or right) but you can’t go back on yourself (use the same number twice) or move diagonally.</p>
+<p>It was tricky to implement the main game grid in JavaScript (especially with the touch interactions) but now, it’s exceptionally stable, testable and portable. I wrote about some of the early logic <a href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/">here</a> last November.</p>
+<h2 id="The_game">The game</h2>
+<p>The game is broken up into 3 main sections:</p>
+<h3 id="1-_Endless_play">1. Endless play</h3>
+<p>This is where players battle it out to reach the highest score and the sky is the limit! The core concept is that you start off with 10 seconds on the clock and for each number in your answer, you gain a point and an extra second.</p>
+<p>There are 3 different difficulty modes available for selection, Easy, Medium and Hard. You must score 50 or more in Easy mode to unlock Medium and 50 or more in Medium to unlock Hard. There are no in app purchases to shortcut this. The difference between these difficulties is the grid size. Easy is a 3x3 grid, Medium 4x4 and Hard 5x5.</p>
+<p>What people might not realise about the endless mode is that all the difficulties do get progressively harder (every 50 points you score to be exact). What I mean by harder this time is both the numbers in the grid and the totals get bigger.</p>
+<p>The trick is to store up as much time right at the start and pass if it’s not immediately obvious.</p>
+<h3 id="2-_Levels">2. Levels</h3>
+<p>There are currently 15 unique levels. 5 branded “Cadet”, 5 branded “Lieutenant” and 5 branded “Captain”. All Cadet levels are on a 3x3 grid, Lieutenant 4x4 and Captain 5x5.</p>
+<p>Each level has it’s own “theme”, such as only odd numbers on the grid or even negative numbers… but I don’t want to spoil too much for you :)</p>
+<p>The levels start off easy and get progressively harder. 3-5 (the fifth Captain level) is exceptionally hard and I have only completed it once myself! Although you will be satisfied with the gratification of beating level 3-5, you are also rewarded by having the time trial mode unlocked for free.</p>
+<h3 id="3-_Time_trial_mode">3. Time trial mode</h3>
+<p>Accessible after completion of all 15 levels, or via in app purchase, time trial mode does exactly what it says on the tin. Choose your grid size (3x3, 4x4, 5x5) and your duration (90s or 180s) and you’re off.</p>
+<h2 id="Hints_and_tips">Hints and tips</h2>
+<ul>
+<li><p><strong>Remember to pass</strong>. Don’t waste time if a solution isn’t immediately obvious. You do lose a point for passing, but it’s worth it in time gained. There’s also a “Gold Pass” in app purchase that allows you to pass without ever losing a point.</p>
+</li>
+<li><p><strong>Use the smallest numbers</strong>. You get a point for every number in your answer, so it makes sense to use the longest answer (most numbers).</p>
+</li>
+<li><p><strong>Don’t guess</strong>. Five wrong guesses in a row will lose you 5 points. Epic fail.</p>
+</li>
+</ul>
+<h2 id="Leaderboards">Leaderboards</h2>
+<p>There’s a leaderboard for everything. I didn’t want simply passing a level to be enough, I wanted players to complete to see how fast they could complete a level. Thanks to my <a href="http://ilee.co.uk/using-game-center-with-phonegap/">game center plugin</a> friends and family can compare scores and times. They can also battle against everyone else in the world.</p>
+<h2 id="Platforms">Platforms</h2>
+<p>The game is currently optimised for iOS 7 devices (iPhone, iPod touch and iPad). Thanks to Cordova / PhoneGap and the way I have developed it, it’s considerably easier to port to other platforms, such as Android and WP8. This is currently a work in progress dependant on demand.</p>
+<h3 id="Device_sizes">Device sizes</h3>
+<p>There were several different screen sizes to consider while developing the interface, such as the shorter iPhone 4 screen (320×480 or 640×960 retina), the taller iPhone 5 resolution (640×1136) and of course the various iPads. I wanted to ensure I used exactly the same code for each.</p>
+<p>By utilising clever media queries and base font sizes, I was able to adjust sizes relatively easily keeping the same game play. Still had to create the million splash screens and icons though :). Essentially, the numbers grid is</p>
+<h2 id="Plugins">Plugins</h2>
+<p>Naturally, I’ve had to use/write some Cordova plugins to achieve the games required functionality, here’s a list (excluding any core plugins):</p>
+<ul>
+<li><a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">Game Center</a></li>
+<li><a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank">Native Transitions</a></li>
+<li><a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank">Social Message</a></li>
+<li>In App Purchase</li>
+<li>Google Analytics</li>
+<li>Status Bar</li>
+</ul>
+<h2 id="Frameworks">Frameworks</h2>
+<p>None. No CSS/UI frameworks. No JavaScript frameworks.</p>
+<p>I refuse to use frameworks, it’s the best way to create a fluid, light weight, performant app.</p>
+<h2 id="Number_puzzle_games">Number puzzle games</h2>
+<p>There has been a increase in number based puzzle games recently, such as “Threes” and “2048”.</p>
+<p>I actually started the development for <a href="https://itunes.apple.com/gb/app/adds/id742044838" target="_blank">Adds</a> back in October 2013 and I’m hoping to follow in similar footsteps to other number games released during my development. I do believe that my app is unique in its approach and not just another “numbers on a grid” game.</p>
+<h2 id="Final_notes">Final notes</h2>
+<p>I hope you enjoy my little game. If you’re a developer and want a free promo code because you don’t want to pay the 69p, I have a couple left - DM me on twitter.</p>
+<p>Please send your feedback to me, it’s the only way I can improve, even if I bite your head off and go defensive :)</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-04-28T07:10:13.000Z" itemprop="datePublished">28th Apr 2014</time>
       
       
@@ -934,90 +1033,6 @@ app.all(<span class="string">"*"</span>, redirect);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-01-03T08:25:40.000Z" itemprop="datePublished">3rd Jan 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/mobile-ux-to-impact-seo/" itemprop="url">Mobile UX to Impact SEO</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Optimise_for_mobile">Optimise for mobile</h2>
-<p>With huge numbers of internet users using mobiles and tablet devices to browse the web, it’s more important than ever to optimise your website for these devices.</p>
-<h3 id="Creating_a_mobile_website_is_not_enough">Creating a mobile website is not enough</h3>
-<p>If you truly want to engage users on mobile devices, you’ve got to consider <em>their experience</em>, not just how the website looks. Touch interfaces, varying resolutions / density and gestures are among just a few of the challenges technology advancements have brought.</p>
-<h2 id="What_exactly_is_UX?">What exactly is <em>UX</em>?</h2>
-<p>UX stands for <strong>U</strong>ser e<strong>X</strong>perience, which is the comprehensive experience of a user interacting with a product (in this case a website and more specifically, a website on mobile devices). It encompasses factors such as ease-of-use and user gratification.</p>
-<h3 id="UX_is_hard">UX is hard</h3>
-<p>There’s no completely right answer but there are <em>better answers</em>. Google are starting to analyse the mobile user experience of websites using some set tangible metrics, so this is a good quantifiable place to start.</p>
-<h2 id="Why_UX?">Why UX?</h2>
-<p>It’s all about the users and they are ultimately going to result in conversions (if that’s your aim) usually through improved productivity or satisfaction though a good user experience. Although Google looks to start weighting search results based on their perceived automated user experience, the focus should still be primarily on real users. After all, web traffic on its own means nothing.</p>
-<h2 id="PageSpeed_insights">PageSpeed insights</h2>
-<p>The <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">PageSpeed Insights</a> tool is now reporting mobile user experience, in addition to page speed. This is a great place to start to give you instant feedback on some tangible metrics. The tool currently analyses:</p>
-<ul>
-<li>Use of plugins</li>
-<li>Viewport metatag and content size within the viewport</li>
-<li>Size of touch/tap “clickable” interactions</li>
-<li>Font sizes</li>
-</ul>
-<p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600</span>px) </span>{
-  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span></span></span>;
-    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px</span></span>;
-  <span class="rule">}</span></span>
-}
-</pre></td></tr></table></figure>
-
-<h2 id="That’s_not_the_end">That’s not the end</h2>
-<p>The PageSpeed Insights are a great place to start for existing mobile websites, but it’s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">split A/B testing</a> and responding to user feedback too.</p>
-<p>If you have the luxury of a starting your mobile website from scratch or a rewrite, consider user experience right from the outset and get users involved in the process as early as possible.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1071,6 +1086,10 @@ app.all(<span class="string">"*"</span>, redirect);
   <ul class="entry">
     
       <li>
+        <a href="/adds-addition-puzzle-game/">Adds - Addition Puzzle Game</a>
+      </li>
+    
+      <li>
         <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
       </li>
     
@@ -1106,10 +1125,6 @@ app.all(<span class="string">"*"</span>, redirect);
         <a href="/ditch-the-www-subdomain/">Ditch the www Subdomain</a>
       </li>
     
-      <li>
-        <a href="/mobile-ux-to-impact-seo/">Mobile UX to Impact SEO</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1123,21 +1138,21 @@ app.all(<span class="string">"*"</span>, redirect);
   
     <li><a href="/tags/android/">android</a><small>8</small></li>
   
-    <li><a href="/tags/app/">app</a><small>9</small></li>
+    <li><a href="/tags/app/">app</a><small>10</small></li>
   
-    <li><a href="/tags/design/">design</a><small>1</small></li>
+    <li><a href="/tags/design/">design</a><small>2</small></li>
   
     <li><a href="/tags/git/">git</a><small>1</small></li>
   
     <li><a href="/tags/hack/">hack</a><small>4</small></li>
   
-    <li><a href="/tags/html/">html</a><small>8</small></li>
+    <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>18</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>19</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>44</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>45</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>16</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>17</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   
