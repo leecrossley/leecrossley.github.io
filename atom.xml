@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-05-07T21:00:43.383Z</updated>
+  <updated>2014-05-07T21:01:58.377Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/adds-addition-puzzle-game/"/>
     <id>http://ilee.co.uk/adds-addition-puzzle-game/</id>
     <published>2014-05-07T13:34:22.000Z</published>
-    <updated>2014-05-07T21:00:39.000Z</updated>
+    <updated>2014-05-07T21:01:44.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://playadds.com" target="_blank">Adds</a> is a simple mobile and tablet game, created by myself with Cordova / PhoneGap. It’s been several months in development and I have been sharing most of my experiences as I’ve been going along, but I think it’s time to <em>sum up</em>.</p>
 <p>Yesterday, I finally released version 1. The app landing (promo) page can be found <a href="[Adds](http://playadds.com">here</a>.</p>
 <p><img src="http://playadds.com/images/iphone.png" alt="iPhone teaser"></p>
@@ -51,7 +51,7 @@
 <p>The game is currently optimised for iOS 7 devices (iPhone, iPod touch and iPad). Thanks to Cordova / PhoneGap and the way I have developed it, it’s considerably easier to port to other platforms, such as Android and WP8. This is currently a work in progress dependant on demand.</p>
 <h3 id="Device_sizes">Device sizes</h3>
 <p>There were several different screen sizes to consider while developing the interface, such as the shorter iPhone 4 screen (320×480 or 640×960 retina), the taller iPhone 5 resolution (640×1136) and of course the various iPads. I wanted to ensure I used exactly the same code for each.</p>
-<p>By utilising clever media queries and base font sizes, I was able to adjust sizes relatively easily keeping the same game play. I still had to create the million splash screens and icons though :). Essentially, the numbers grid itself is 1.5x bigger on tablets and things become a little more spaced out. The flip transitions are omitted from tablets, as they just didn’t feel right on the larger screen.</p>
+<p>By utilising clever media queries and base font sizes, I was able to adjust sizes relatively easily keeping the same game play. I still had to create the million splash screens and icons though :). Essentially, the numbers grid itself is 1.5x bigger on tablets and things become a little more spaced out. The flip <a href="http://ilee.co.uk/native-page-transitions-with-phonegap/">transitions</a> are omitted from tablets (replaced with a quick quick fade), as they just didn’t feel right on the larger screen.</p>
 <h2 id="Plugins">Plugins</h2>
 <p>Naturally, I’ve had to use/write some Cordova plugins to achieve the games required functionality, here’s a list (excluding any core plugins):</p>
 <ul>
