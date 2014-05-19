@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/leecrossley
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://ilee.co.uk
+  * I am leecrossley (https://keybase.io/leecrossley) on keybase.
+  * I have a public key with fingerprint 7C89 6B15 145B 8192 27D9  5539 42E7 FD6B DCDC 4365
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "7c896b15145b819227d9553942e7fd6bdcdc4365",
+            "host": "keybase.io",
+            "key_id": "42e7fd6bdcdc4365",
+            "uid": "c11cebdd03a44800b57d85fe97762000",
+            "username": "leecrossley"
+        },
+        "service": {
+            "hostname": "ilee.co.uk",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1400500200,
+    "expire_in": 157680000,
+    "prev": "43e3218837c81bdb13718a5f67624de88679299851b9bbd15f3698cc53d81374",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.15
+Comment: https://keybase.io/crypto
+
+yMMEAnicbZF9UBRlHMfvTYTT5BKDckRkHRqmgWv39vbtBDubGKZp5kA0yUCv293n
+uBW4vXYP4kQMCjQIr2lKjqO6UMiBUZkyJUjO3jAZIQYyEePFqZFqQsDhRSRH8znG
+/uuvnf3+Pt/v8/09T/djaoVW+dpUsm9oNnqLsvfb2SLFDs/MX6UIK/IexFSK5IPl
+j11w5gHJJQlON2JCKI5mSBYjMCPB0hhjMFA8QxA4YzQAys6TLM/xnBEnCSQJcYhy
+yAFjWJsM9IIINfhjFXio/g9ftDzgMIwDLM+juM1opFGUJSieJuyAoSjSgKJoCJSB
+5LQVAkgXAMBJoiwXwK5lSQgcFAscHJQun/4IEiCl50R9UT40uyTRLXJiAdQdbrfL
+FLK5Pa4Q9wZgrY8SrKzg5OHi0FAMJFkQnYgJgyTnFkKRmBFFCRSFfZIQUOISJGAV
+QgRBkbBySHVJoDi0Jg5wA0bTOLw3jOVZDKcw2kbYSbiMkQc0TVKMgWFoAmMZluUx
+wo6TDM1xBM7TkDXC82XwulNETDisacuDkbKQ57S5iySAlH3/Xa5GodQqwlaoQk+n
+0Ebo/nvQ+47I+2vr7xEljS7L00d7d0eNLD0Ru8mb7hvtuRVYH1BfHcoebfzp44qJ
+F7vS9t5ueyryYGuMbfMzNebDIwO7My8/nluzzzoxl/H3xMHsYVfzPxm/Gxezrkfu
+uKw6d/HD4vZtypashTf/0LVgNxM/0R+dPHQDPYM8UM2RCVeCW5qW2jiVP96S9r4N
+C0trHOw6khlmautKv9jh6f5N418RM7Y6bla36qPilb8c/oyLGDhS5S/88Z75ecW+
+B1Hdvf659y4kNqT8+cLURN0Hi0KVd8wnx5fOl3+hOVBbm978Vvi1k+GvTl1dX3ur
+r6pt8vaepvOpd6KqDjRtHdyzqd7/iln1Tbujgp3RvnTMvsE7Wq3T9V4ZHkvtn1E3
+OtZGdnZ+ujOrdXyeDAKNs8a3uVXleefnUfXwCfO7/bG4u3ADcve6fqSISvR0HKvO
+3pqwjqtcaLaY1eRCglze5YhYrF3XGbjpHQ9Mn352fH5lX6zcP77mrPvLwa+ee3n/
+D9uqnZeyNXd68je2n8xqkWS5vzP97lmyemhCFRN3zjCZcyoM277UAVJL7ZX7Z8JP
+nP43Onn1BdWNDm+Gbd5SvssT3PW5v7og9VLPqdQzDX0p0xVqczBl6fjOhrp4X/T4
+QEqwjs3cqyvLmVauyq38esyS/Ha5dnvLmrKS/nqk93hgtMCVtybnfNxGMS547clf
+Dz0Er9iWYg==
+=PH7/
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/leecrossley
+
+==================================================================
