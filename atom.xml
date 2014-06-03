@@ -4,12 +4,62 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-05-19T11:52:39.718Z</updated>
+  <updated>2014-06-03T13:21:03.139Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Touch ID with Cordova / PhoneGap]]></title>
+    <link href="http://ilee.co.uk/touch-id-with-cordova-phonegap/"/>
+    <id>http://ilee.co.uk/touch-id-with-cordova-phonegap/</id>
+    <published>2014-06-03T12:35:46.000Z</published>
+    <updated>2014-06-03T13:19:41.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="iPhone_fingerprint_recognition">iPhone fingerprint recognition</h2>
+<p>In August 2013 (before Touch ID or the iPhone 5s were released) I wrote a <a href="http://ilee.co.uk/iphone-fingerprint-recognition-for-developers/">blog post</a> guessing that the hardware and software capabilities of fingerprint recognition could be just around the corner and might become available to app developers.</p>
+<p>Apple, to much disappointment, kept the API private with iOS 7 but <strong>this has all changed with the (beta) release of iOS 8</strong>. Now, <a href="https://www.youtube.com/watch?v=Cf_qfX9cKsQ" target="_blank">you got the touch</a>…</p>
+<h2 id="The_local_authentication_framework">The local authentication framework</h2>
+<p>The moment Xcode 6 beta had finished downloading, the first thing I did was create a dummy project with the newly available “Local Authentication” framework. It took me <em>quite some time</em> to realise that adding the reference (either <code>#import &lt;LocalAuthentication/LocalAuthentication.h&gt;</code> or as a module <code>@import LocalAuthentication</code>) broke the build if you don’t target a real device (learn from me here and save yourself some time!).</p>
+<h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
+<p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
+<p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank">Github</a>.</p>
+<h2 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>cordova plugin <span class="keyword">add</span> https://github<span class="preprocessor">.com</span>/leecrossley/cordova-plugin-touchid<span class="preprocessor">.git</span>
+</pre></td></tr></table></figure>
+
+<h2 id="Using_the_plugin">Using the plugin</h2>
+<p>Ensure you use the plugin after your deviceready event has been fired and you are targeting a real device.</p>
+<h3 id="touchid-authenticate()">touchid.authenticate()</h3>
+<p>Pass the following arguments to the <code>authenticate()</code> function, to prompt the user to authenticate via TouchID:</p>
+<ol>
+<li>Success callback (called on successful authentication)</li>
+<li>Failure callback (called on error or if authentication fails)</li>
+<li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
+</pre></td></tr></table></figure>
+
+<h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>
+<p>Although the <code>authenticate()</code> function will return an error if the user is unable to authenticate via Touch ID, you may wish to check support without prompting the user to authenticate. This can be done by passing following arguments to the <code>checkSupport()</code> function:</p>
+<ol>
+<li>Success callback (called if authentication is possible)</li>
+<li>Not supported callback (called if policy can not be evaluated, with error message)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.touchid.checkSupport(successCallback, notSupportedCallback);
+</pre></td></tr></table></figure>
+
+<h3 id="Improvements?">Improvements?</h3>
+<p>Probably. Issues and pull request on the <a href="https://github.com/leecrossley/cordova-plugin-touchide" target="_blank">git repo</a> please. Remember this is still beta.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Adds - Addition Puzzle Game]]></title>
     <link href="http://ilee.co.uk/adds-addition-puzzle-game/"/>
@@ -1088,63 +1138,6 @@ myMedia.play();
 <h2 id="Donate">Donate</h2>
 <p><strong>I’ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you’re a developer that’s ever used npm, <a href="https://scalenpm.org/" target="_blank">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
 <p><img src="/img/npm-thanks.png" alt="Thanks"></p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Nesting Ugly Anonymous Functions]]></title>
-    <link href="http://ilee.co.uk/nesting-ugly-anonymous-functions/"/>
-    <id>http://ilee.co.uk/nesting-ugly-anonymous-functions/</id>
-    <published>2013-11-27T12:57:36.000Z</published>
-    <updated>2013-11-27T13:49:36.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="We_all_do_it">We all do it</h2>
-<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="comment">// handler code ...</span>
-    alert(<span class="string">"document clicked and fired ugly nested function"</span>);
-});
-</pre></td></tr></table></figure>
-
-<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="comment">// handler code ...</span>
-    alert(<span class="string">"document clicked and fired alert function"</span>);
-};
-
-document.addEventListener(<span class="string">"click"</span>, doStuff);
-</pre></td></tr></table></figure>
-
-<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
-<h2 id="The_right_frame_of_bind">The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">(message)</span> {</span>
-    <span class="comment">// handler code ...</span>
-    alert(message);
-};
-
-document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<span class="literal">null</span>, <span class="string">"document clicked"</span>));
-</pre></td></tr></table></figure>
-
-<p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
-<h2 id="A_good_curry">A good <em>curry</em></h2>
-<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>

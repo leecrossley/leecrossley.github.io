@@ -55,6 +55,98 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-27T12:57:36.000Z" itemprop="datePublished">27th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/nesting-ugly-anonymous-functions/" itemprop="url">Nesting Ugly Anonymous Functions</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="We_all_do_it">We all do it</h2>
+<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="comment">// handler code ...</span>
+    alert(<span class="string">"document clicked and fired ugly nested function"</span>);
+});
+</pre></td></tr></table></figure>
+
+<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="comment">// handler code ...</span>
+    alert(<span class="string">"document clicked and fired alert function"</span>);
+};
+
+document.addEventListener(<span class="string">"click"</span>, doStuff);
+</pre></td></tr></table></figure>
+
+<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
+<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
+<h2 id="The_right_frame_of_bind">The right frame of <em>bind</em></h2>
+<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">(message)</span> {</span>
+    <span class="comment">// handler code ...</span>
+    alert(message);
+};
+
+document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<span class="literal">null</span>, <span class="string">"document clicked"</span>));
+</pre></td></tr></table></figure>
+
+<p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
+<h2 id="A_good_curry">A good <em>curry</em></h2>
+<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-21T09:21:52.000Z" itemprop="datePublished">21st Nov 2013</time>
       
       
@@ -924,96 +1016,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-29T11:35:50.000Z" itemprop="datePublished">29th Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/yet-another-hackathon-victory/" itemprop="url">Yet Another Hackathon Victory</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Hack_Manchester">Hack Manchester</h2>
-<p><a href="http://www.hackmanchester.com/" target="_blank">Hack Manchester</a> is the premier 24-hour coding competition based in Manchester, run by <a href="https://twitter.com/ruby_gem" target="_blank">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank">@theallseeingpie</a> (with help from others). This year (as before) it was held at the <a href="http://www.mosi.org.uk/" target="_blank">Museum of Science and Industry</a> on the 26th and 27th of October 2013 as part of <a href="http://www.manchestersciencefestival.com/" target="_blank">Manchester Science Festival</a>.</p>
-<h2 id="We_won_again!">We won again!</h2>
-<p>I blogged a few weeks ago (<a href="/road-to-hack-manchester">the road to Hack Manchester</a>) about winning back in 2012 and what it takes to win based on the lessons we learnt. Looks like it was good advice because <strong>WE’VE GONE AND DONE IT AGAIN!</strong> Amazing job from my team mates <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank">@ryansroberts</a>. This gives me a crazy record of 3 hack events and 3 wins.</p>
-<h2 id="The_challenge">The challenge</h2>
-<p>The challenge (sponsored by <a href="https://twitter.com/WebAppUK" target="_blank">Web Applications UK</a>) was to write a game. More specifically, to write a browser-based game with a travel theme.</p>
-<p>For anyone who doesn’t know what a browser is (there seem to be quite a few), it’s a computer program with a graphical user interface for displaying HTML files. So, we came up with a travel themed game (written in HTML / CSS / JavaScript for both the <a href="https://github.com/leecrossley/appsassin/tree/master/client/www" target="_blank">mobile clients</a> and server). Nothing to dispute there.</p>
-<p>Anyway, here is the more detailed brief we were given:</p>
-<blockquote><p>We’re looking for the most entertaining and damn right addictive game you can muster. Have fun with it and create something great. The most original idea, with the best use of the travel theme and some impressive features thrown in will bag the prize…</p>
-<footer><strong>- Web Applications UK</strong></footer></blockquote>
-
-
-<h2 id="“Appsassin”">“Appsassin”</h2>
-<p>Our concept was to assassinate other players with your mobile phone (we supported Android and iOS, but it also probably works on Windows Phone and BlackBerry, with it being browser based), hence the comical name “appsassin” and url “appsass.in” :)</p>
-<h3 id="The_game">The game</h3>
-<h4 id="Signup">Signup</h4>
-<ul>
-<li>You signup by entering your mobile number and taking / uploading a picture of your face</li>
-<li>A game is set up on the game server by a moderator</li>
-<li>Registered players can enter a game if they are in the local vicinity</li>
-</ul>
-<h4 id="Playing">Playing</h4>
-<ul>
-<li>You are assigned a target (another player in the game)</li>
-<li>You can track your targets location (in realtime) via a map</li>
-<li>Text messages are sent when you are within 100 meters of your target</li>
-<li>Text messages are sent when the player after you is within 100 meters of you</li>
-<li>You “kill” your target by taking a picture of their face (and it passing facial recognition)</li>
-<li>If you kill a target, you get their target</li>
-<li>The winner is the last one standing</li>
-</ul>
-<h3 id="The_tech">The tech</h3>
-<ul>
-<li>Node.js</li>
-<li>MongoDB</li>
-<li>HTML / CSS / JavaScript</li>
-<li>Cordova</li>
-<li>Lambda Labs facial recognition</li>
-<li>OpenLayers / OpenStreetMap</li>
-<li>Clockwork SMS</li>
-</ul>
-<p>All the source code for the hack day code is available on <a href="https://github.com/leecrossley/appsassin" target="_blank">github</a>, let me know if you’d like me to go into detail on any of the aspects.</p>
-<h2 id="What_next?">What next?</h2>
-<p>We’re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank">@edhiley</a>, including the music).</p>
-<h2 id="Thanks">Thanks</h2>
-<p>A special thanks again to all the sponsors of the event and everyone involved in the organising and running. A huge success, again.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1069,6 +1071,10 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   <ul class="entry">
     
       <li>
+        <a href="/touch-id-with-cordova-phonegap/">Touch ID with Cordova / PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/adds-addition-puzzle-game/">Adds - Addition Puzzle Game</a>
       </li>
     
@@ -1104,10 +1110,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
-      <li>
-        <a href="/ditch-the-www-subdomain/">Ditch the www Subdomain</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1121,7 +1123,7 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   
     <li><a href="/tags/android/">android</a><small>8</small></li>
   
-    <li><a href="/tags/app/">app</a><small>10</small></li>
+    <li><a href="/tags/app/">app</a><small>11</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1131,11 +1133,11 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>19</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>20</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>45</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>46</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>17</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>18</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

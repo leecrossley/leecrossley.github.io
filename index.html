@@ -55,6 +55,88 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-06-03T12:35:46.000Z" itemprop="datePublished">3rd Jun 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/touch-id-with-cordova-phonegap/" itemprop="url">Touch ID with Cordova / PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="iPhone_fingerprint_recognition">iPhone fingerprint recognition</h2>
+<p>In August 2013 (before Touch ID or the iPhone 5s were released) I wrote a <a href="http://ilee.co.uk/iphone-fingerprint-recognition-for-developers/">blog post</a> guessing that the hardware and software capabilities of fingerprint recognition could be just around the corner and might become available to app developers.</p>
+<p>Apple, to much disappointment, kept the API private with iOS 7 but <strong>this has all changed with the (beta) release of iOS 8</strong>. Now, <a href="https://www.youtube.com/watch?v=Cf_qfX9cKsQ" target="_blank">you got the touch</a>…</p>
+<h2 id="The_local_authentication_framework">The local authentication framework</h2>
+<p>The moment Xcode 6 beta had finished downloading, the first thing I did was create a dummy project with the newly available “Local Authentication” framework. It took me <em>quite some time</em> to realise that adding the reference (either <code>#import &lt;LocalAuthentication/LocalAuthentication.h&gt;</code> or as a module <code>@import LocalAuthentication</code>) broke the build if you don’t target a real device (learn from me here and save yourself some time!).</p>
+<h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
+<p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
+<p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank">Github</a>.</p>
+<h2 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>cordova plugin <span class="keyword">add</span> https://github<span class="preprocessor">.com</span>/leecrossley/cordova-plugin-touchid<span class="preprocessor">.git</span>
+</pre></td></tr></table></figure>
+
+<h2 id="Using_the_plugin">Using the plugin</h2>
+<p>Ensure you use the plugin after your deviceready event has been fired and you are targeting a real device.</p>
+<h3 id="touchid-authenticate()">touchid.authenticate()</h3>
+<p>Pass the following arguments to the <code>authenticate()</code> function, to prompt the user to authenticate via TouchID:</p>
+<ol>
+<li>Success callback (called on successful authentication)</li>
+<li>Failure callback (called on error or if authentication fails)</li>
+<li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
+</pre></td></tr></table></figure>
+
+<h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>
+<p>Although the <code>authenticate()</code> function will return an error if the user is unable to authenticate via Touch ID, you may wish to check support without prompting the user to authenticate. This can be done by passing following arguments to the <code>checkSupport()</code> function:</p>
+<ol>
+<li>Success callback (called if authentication is possible)</li>
+<li>Not supported callback (called if policy can not be evaluated, with error message)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.touchid.checkSupport(successCallback, notSupportedCallback);
+</pre></td></tr></table></figure>
+
+<h3 id="Improvements?">Improvements?</h3>
+<p>Probably. Issues and pull request on the <a href="https://github.com/leecrossley/cordova-plugin-touchide" target="_blank">git repo</a> please. Remember this is still beta.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-05-07T13:34:22.000Z" itemprop="datePublished">7th May 2014</time>
       
       
@@ -950,90 +1032,6 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-01-08T09:15:23.000Z" itemprop="datePublished">8th Jan 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/ditch-the-www-subdomain/" itemprop="url">Ditch the www Subdomain</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="It’s_time">It’s time</h2>
-<p>We’re in the year 2014, people know what the world wide web is (and have known for quite some time), yet may organisations still insist on using a www subdomain for their primary website instead of a pretty <em>subdomain-less</em> url.</p>
-<h2 id="Keep_it_simple">Keep it simple</h2>
-<p>I don’t use, link to, or promote the url <code>www.ilee.co.uk</code> - I always use <code>ilee.co.uk</code>. It’s prettier, simpler and still obviously a url.</p>
-<h2 id="Use_a_permanent_(301)_redirect">Use a permanent (301) redirect</h2>
-<p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
-<h3 id="Expressjs">Expressjs</h3>
-<p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,
-        wwwUrl = req.protocol + <span class="string">"://www."</span>;
-    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {
-        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);
-    } <span class="keyword">else</span> {
-        next();
-    }
-};
-
-app.all(<span class="string">"*"</span>, redirect);
-</pre></td></tr></table></figure>
-
-<h2 id="Configure_webmaster_tools">Configure webmaster tools</h2>
-<p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
-<ul>
-<li>Don’t set a preferred domain</li>
-<li>Display URLs as www.ilee.co.uk</li>
-<li>Display URLs as ilee.co.uk</li>
-</ul>
-<p><strong>Here’s to a www-less 2014</strong>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1087,6 +1085,10 @@ app.all(<span class="string">"*"</span>, redirect);
   <ul class="entry">
     
       <li>
+        <a href="/touch-id-with-cordova-phonegap/">Touch ID with Cordova / PhoneGap</a>
+      </li>
+    
+      <li>
         <a href="/adds-addition-puzzle-game/">Adds - Addition Puzzle Game</a>
       </li>
     
@@ -1122,10 +1124,6 @@ app.all(<span class="string">"*"</span>, redirect);
         <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
       </li>
     
-      <li>
-        <a href="/ditch-the-www-subdomain/">Ditch the www Subdomain</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1139,7 +1137,7 @@ app.all(<span class="string">"*"</span>, redirect);
   
     <li><a href="/tags/android/">android</a><small>8</small></li>
   
-    <li><a href="/tags/app/">app</a><small>10</small></li>
+    <li><a href="/tags/app/">app</a><small>11</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1149,11 +1147,11 @@ app.all(<span class="string">"*"</span>, redirect);
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>19</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>20</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>45</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>46</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>17</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>18</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

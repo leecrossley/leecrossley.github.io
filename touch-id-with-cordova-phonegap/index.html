@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Plugin Registry for Cordova/PhoneGap | iLee</title>
+  <title>Touch ID with Cordova / PhoneGap | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="A searchable list of all Cordova / PhoneGap plugins, with simple representation of the platforms and engines supported.">
+  <meta name="description" content="My Cordova / PhoneGap plugin for in-app authentication (Touch ID fingerprint recognition).">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Plugin Registry for Cordova/PhoneGap"/>
+  <meta property="og:title" content="Touch ID with Cordova / PhoneGap"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="https://2.gravatar.com/avatar/467b6e8a473f45a15ac9514a30c15c3d?s=150" />
+  <meta property="og:image" content="http://ilee.co.uk/img/fingerprint-iphone.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,37 +54,54 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-08-30T17:39:42.000Z" itemprop="datePublished">30th Aug 2013</time>
+        <time datetime="2014-06-03T12:35:46.000Z" itemprop="datePublished">3rd Jun 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Plugin Registry for Cordova/PhoneGap</h1>
+    <h1 class="title" itemprop="name headline">Touch ID with Cordova / PhoneGap</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="The_PhoneGap-Gap">The PhoneGap-Gap</h2>
-<p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
-<p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
-<blockquote>“<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>“</blockquote>
+        <h2 id="iPhone_fingerprint_recognition">iPhone fingerprint recognition</h2>
+<p>In August 2013 (before Touch ID or the iPhone 5s were released) I wrote a <a href="http://ilee.co.uk/iphone-fingerprint-recognition-for-developers/">blog post</a> guessing that the hardware and software capabilities of fingerprint recognition could be just around the corner and might become available to app developers.</p>
+<p>Apple, to much disappointment, kept the API private with iOS 7 but <strong>this has all changed with the (beta) release of iOS 8</strong>. Now, <a href="https://www.youtube.com/watch?v=Cf_qfX9cKsQ" target="_blank">you got the touch</a>…</p>
+<h2 id="The_local_authentication_framework">The local authentication framework</h2>
+<p>The moment Xcode 6 beta had finished downloading, the first thing I did was create a dummy project with the newly available “Local Authentication” framework. It took me <em>quite some time</em> to realise that adding the reference (either <code>#import &lt;LocalAuthentication/LocalAuthentication.h&gt;</code> or as a module <code>@import LocalAuthentication</code>) broke the build if you don’t target a real device (learn from me here and save yourself some time!).</p>
+<h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
+<p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
+<p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank">Github</a>.</p>
+<h2 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>cordova plugin <span class="keyword">add</span> https://github<span class="preprocessor">.com</span>/leecrossley/cordova-plugin-touchid<span class="preprocessor">.git</span>
+</pre></td></tr></table></figure>
 
-<h2 id="Making_dreams_come_true">Making dreams come true</h2>
-<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That’s right, <em>I’ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
-<h3 id="PlugReg"><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
-<p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
-<ul>
-<li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
-<li><strong>Search</strong>. Search on plugin name and keywords</li>
-<li><strong>Authors List</strong>. List of all plugin authors, with how many plugins and a total count</li>
-<li><strong>Author Page</strong>. List of all plugins by an author (and avatar), and a link to their GitHub</li>
-<li><strong>Plugins List</strong>. List of all plugins and a total count</li>
-<li><strong>Plugin Details</strong>. Details such as plugin description, supported platforms, engines, keyword tags, link to GitHub and installation instructions</li>
-<li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
-</ul>
-<h2 id="Suggestions,_comments_and_feedback">Suggestions, comments and feedback</h2>
-<p>All welcome, one thing I’m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
-<p>Please add your own plugins or any plugins you have used.</p>
+<h2 id="Using_the_plugin">Using the plugin</h2>
+<p>Ensure you use the plugin after your deviceready event has been fired and you are targeting a real device.</p>
+<h3 id="touchid-authenticate()">touchid.authenticate()</h3>
+<p>Pass the following arguments to the <code>authenticate()</code> function, to prompt the user to authenticate via TouchID:</p>
+<ol>
+<li>Success callback (called on successful authentication)</li>
+<li>Failure callback (called on error or if authentication fails)</li>
+<li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
+</pre></td></tr></table></figure>
+
+<h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>
+<p>Although the <code>authenticate()</code> function will return an error if the user is unable to authenticate via Touch ID, you may wish to check support without prompting the user to authenticate. This can be done by passing following arguments to the <code>checkSupport()</code> function:</p>
+<ol>
+<li>Success callback (called if authentication is possible)</li>
+<li>Not supported callback (called if policy can not be evaluated, with error message)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>window.touchid.checkSupport(successCallback, notSupportedCallback);
+</pre></td></tr></table></figure>
+
+<h3 id="Improvements?">Improvements?</h3>
+<p>Probably. Issues and pull request on the <a href="https://github.com/leecrossley/cordova-plugin-touchide" target="_blank">git repo</a> please. Remember this is still beta.</p>
 
       
     </div>
@@ -104,7 +121,7 @@
         
   
   <div class="tags">
-    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/app/" itemprop="keywords">app</a>, <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
