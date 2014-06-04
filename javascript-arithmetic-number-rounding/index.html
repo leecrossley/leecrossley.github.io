@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript Number Rounding | iLee</title>
+  <meta name="author" content="Lee Crossley">
+  <meta name="description" content="Sometimes numbers in JavaScript (and other languages) simply don&#39;t appear to add up. Here&#39;s why and how to fix it.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:title" content="JavaScript Number Rounding"/>
+  <meta property="og:site_name" content="iLee"/>
+  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+  <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
+  <link rel="shortcut icon" href="/img/ilee.ico">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42989646-1', 'ilee.co.uk');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-08-09T06:26:20.000Z" itemprop="datePublished">9th Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">JavaScript Number Rounding</h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Numbers_don’t_add_up!">Numbers don’t add up!</h2>
+<p><strong>0.1 + 0.2 = 0.30000000000000004</strong></p>
+<p>Sometimes numbers in JavaScript (and other languages) simply don’t appear to add up. <a href="http://codepen.io/leecrossley/pen/DBJcE" target="_blank">Don’t believe me?</a>.</p>
+<figure class="highlight javascript"><figcaption><span>0.1 + 0.2 = 0.30000000000000004 </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> x = <span class="number">0.1</span>,
+    y = <span class="number">0.2</span>;
+ 
+<span class="keyword">var</span> result = x + y;
+ 
+console.log(result);
+</pre></td></tr></table></figure>
+
+<p>I discovered this in the early days of programming when building a JavaScript calculator, which fortunately is now nowhere to be seen :)</p>
+<h2 id="Floating_point_numbers">Floating point numbers</h2>
+<p>JavaScript uses <a href="http://en.wikipedia.org/wiki/Floating_point" target="_blank">Floating Point Numbers</a>, which don’t cater for an accurate representations of a decimal. This means that as soon as the variable is interpreted at runtime, a rounding issue is introduced. Computers are faster and more efficient at dealing with computations on binary numbers, which produces the issue with the 17th decimal place.</p>
+<h2 id="How_to_fix_it">How to fix it</h2>
+<p><a href="http://codepen.io/leecrossley/pen/hKmEa" target="_blank">Here’s an example</a> of how I eliminate the rounding issues.</p>
+<figure class="highlight javascript"><figcaption><span>0.1 + 0.2 = 0.3 </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> x = <span class="number">0.1</span>,
+    y = <span class="number">0.2</span>;
+ 
+<span class="keyword">var</span> multiplier = <span class="function"><span class="keyword">function</span> <span class="params">(dec)</span> {</span>
+  <span class="keyword">var</span> str = dec.toString(),
+      match = <span class="regexp">/(?:\.(\d+))?(?:[eE]([+\-]?\d+))?$/</span>.exec(str);
+  <span class="keyword">return</span> <span class="built_in">Math</span>.max(<span class="number">0</span>, (match[<span class="number">1</span>] == <span class="string">'0'</span> ? <span class="number">0</span> : (match[<span class="number">1</span>] || <span class="string">''</span>).length) - (match[<span class="number">2</span>] || <span class="number">0</span>)) * <span class="number">10</span>;
+};
+ 
+<span class="keyword">var</span> highestMultiplier = <span class="built_in">Math</span>.max(multiplier(x), multiplier(y));
+ 
+<span class="keyword">var</span> result = ((x * highestMultiplier) + (y * highestMultiplier)) / highestMultiplier;
+ 
+console.log(result);
+</pre></td></tr></table></figure>
+
+<p>Essentially, I’m calculating the smallest number, which if multiplied by either number I’m adding together individually, would result in an integer. This is achieved by evaluating the number with the most numbers after the decimal point and what that value is. Once I have the multiplier, I use it on both the numbers I’m adding together, then do the addition, then divide by the multiplier to return the numbers back to their original decimal state.</p>
+<p>By performing the addition on integers, no rounding issues occur.</p>
+<h2 id="Libraries">Libraries</h2>
+<p>If you’re needing precision with lots of complex calculations, there are JavaScript libraries specifically for this (although some are horrible Java ports). <a href="https://github.com/MikeMcl/bignumber.js/" target="_blank">bignumber.js</a> looks OK and I remember using <a href="http://www.leemon.com/crypto/BigInt.js" target="_blank">bigint.js</a> with <a href="https://twitter.com/danielcassidy" target="_blank">@danielcassidy</a> and <a href="https://twitter.com/anttears" target="_blank">@anttears</a> back in the day.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="social addthis_toolbox addthis_default_style">
+<a class="addthis_button_facebook_share" fb:share:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+<a class="addthis_button_linkedin_counter"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5356280b0fcddffd"></script>
+
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
+  <li class="facebook">
+    <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
+  </li>
+  <li class="twitter">
+    <a href="https://twitter.com/lee_crossley" target="_blank" class="icon"><i class="icon-twitter"></i></a>
+  </li>
+  <li class="github">
+    <a href="https://github.com/leecrossley" target="_blank" class="icon"><i class="icon-github"></i></a>
+  </li>
+  <li class="google-plus">
+    <a href="https://plus.google.com/+LeeCrossley?rel=author" target="_blank" class="icon"><i class="icon-google-plus"></i></a>
+  </li>
+  <li class="linkedin">
+    <a href="http://uk.linkedin.com/in/leecrossley/" target="_blank" class="icon"><i class="icon-linkedin"></i></a>
+  </li>
+</ul>
+
+
+  <div class="hire-button">
+  <a href="/contact-me"><span>Hire Me</span></a>
+</div>
+
+  <div class="widget tag">
+<ul class="entry">
+  
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/about-me">About Me</a></li>
+  
+    <li><a href="/contact-me">Contact Me</a></li>
+  
+    <li><a href="/archives">Archives</a></li>
+  
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/touch-id-with-cordova-phonegap/">Touch ID with Cordova / PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/adds-addition-puzzle-game/">Adds - Addition Puzzle Game</a>
+      </li>
+    
+      <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
+        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
+      </li>
+    
+      <li>
+        <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
+      </li>
+    
+      <li>
+        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
+      </li>
+    
+      <li>
+        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
+      </li>
+    
+      <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/android/">android</a><small>8</small></li>
+  
+    <li><a href="/tags/app/">app</a><small>11</small></li>
+  
+    <li><a href="/tags/design/">design</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>9</small></li>
+  
+    <li><a href="/tags/iphone/">iphone</a><small>20</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>46</small></li>
+  
+    <li><a href="/tags/phonegap/">phonegap</a><small>18</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>27</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Lee Crossley
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script type="text/javascript">
+(function(){
+  var dsq = document.createElement("script");
+  dsq.type = "text/javascript";
+  dsq.async = true;
+  dsq.src = "//ilee.disqus.com/embed.js";
+  (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+}());
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>froute - Simple Node.js Routing | iLee</title>
+  <meta name="author" content="Lee Crossley">
+  <meta name="description" content="Simple, powerful and functional routing for node with expressive matching.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:title" content="froute - Simple Node.js Routing"/>
+  <meta property="og:site_name" content="iLee"/>
+  <meta property="og:image" content="http://ilee.co.uk/img/froute.png" />
+  <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
+  <link rel="shortcut icon" href="/img/ilee.ico">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42989646-1', 'ilee.co.uk');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <header class="logo alignleft">
+      <h1>
+        <a href="/">iLee</a>
+        <span>I write code that sounds awesome and music that&#39;s bug free</span>
+      </h1>
+    </header>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
+        <time datetime="2013-11-05T08:42:47.000Z" itemprop="datePublished">5th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline">froute - Simple Node.js Routing</h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="froute">froute</h2>
+<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that’s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+<p><img src="/img/froute.png" alt="froute"></p>
+<h2 id="Getting_started">Getting started</h2>
+<p>Install via npm:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm <span class="keyword">install</span> froute
+</pre></td></tr></table></figure>
+
+<p>Require the module in the usual way:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);
+</pre></td></tr></table></figure>
+
+<h2 id="Using_froute">Using froute</h2>
+<p>There are essentially 2 or 3 functions you need to use.</p>
+<h3 id="Register_routes">Register routes</h3>
+<p>You register a route using the <strong>bind</strong> function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apples"</span>;
+
+<span class="comment">// Bind the static route and it's handler</span>
+froute.bind(template, handler); <span class="comment">// true</span>
+</pre></td></tr></table></figure>
+
+<p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
+froute.bind(template, handler); <span class="comment">// true</span>
+</pre></td></tr></table></figure>
+
+<h3 id="Unregister_routes">Unregister routes</h3>
+<p>You unregister a route using the <strong>unbind</strong> function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
+</pre></td></tr></table></figure>
+
+<p>Unbound templates are returned by the unbind function.</p>
+<h3 id="Dispatch">Dispatch</h3>
+<p>When a url comes in, you call dispatch:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+</pre></td></tr></table></figure>
+
+<p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
+<h3 id="Full_example">Full example</h3>
+<p>A full example illustrating how the handler function works with params:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+    resultParams;
+
+<span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> {</span>
+    resultParams = params;
+});
+
+froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+
+<span class="comment">// assertions</span>
+expect(bindResult).toBeTruthy();
+expect(dispatchResult).toBeTruthy();
+expect(froute.list().length).toEqual(<span class="number">1</span>);
+expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
+</pre></td></tr></table></figure>
+
+<h2 id="Behind_the_scenes">Behind the scenes</h2>
+<h3 id="froute-picker">froute-picker</h3>
+<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
+<h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+    picked = picker.pick(template),
+    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
+    result = matchUrl(picked);
+
+<span class="comment">// assertions</span>
+expect(result.type).toEqual(<span class="string">"gala"</span>);
+expect(result.size).toEqual(<span class="string">"large"</span>);
+</pre></td></tr></table></figure>
+
+<h3 id="functional-js">functional.js</h3>
+<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
+<h2 id="Issues_and_contributions">Issues and contributions</h2>
+<p>I’m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<h2 id="An_apple_a_day">An apple a day</h2>
+<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
+
+      
+    </div>
+    <footer>
+      
+        
+<div class="social addthis_toolbox addthis_default_style">
+<a class="addthis_button_facebook_share" fb:share:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+<a class="addthis_button_linkedin_counter"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5356280b0fcddffd"></script>
+
+
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view or add comments</noscript>
+  </div>
+</section>
+
+</div></div>
+    <div id="sidebar" class="alignleft"><ul class="social">
+  <li class="facebook">
+    <a href="https://www.facebook.com/lee.crossley" target="_blank" class="icon"><i class="icon-facebook"></i></a>
+  </li>
+  <li class="twitter">
+    <a href="https://twitter.com/lee_crossley" target="_blank" class="icon"><i class="icon-twitter"></i></a>
+  </li>
+  <li class="github">
+    <a href="https://github.com/leecrossley" target="_blank" class="icon"><i class="icon-github"></i></a>
+  </li>
+  <li class="google-plus">
+    <a href="https://plus.google.com/+LeeCrossley?rel=author" target="_blank" class="icon"><i class="icon-google-plus"></i></a>
+  </li>
+  <li class="linkedin">
+    <a href="http://uk.linkedin.com/in/leecrossley/" target="_blank" class="icon"><i class="icon-linkedin"></i></a>
+  </li>
+</ul>
+
+
+  <div class="hire-button">
+  <a href="/contact-me"><span>Hire Me</span></a>
+</div>
+
+  <div class="widget tag">
+<ul class="entry">
+  
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/about-me">About Me</a></li>
+  
+    <li><a href="/contact-me">Contact Me</a></li>
+  
+    <li><a href="/archives">Archives</a></li>
+  
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/touch-id-with-cordova-phonegap/">Touch ID with Cordova / PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/adds-addition-puzzle-game/">Adds - Addition Puzzle Game</a>
+      </li>
+    
+      <li>
+        <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
+      </li>
+    
+      <li>
+        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
+      </li>
+    
+      <li>
+        <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
+      </li>
+    
+      <li>
+        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
+      </li>
+    
+      <li>
+        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
+      </li>
+    
+      <li>
+        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
+      </li>
+    
+      <li>
+        <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/android/">android</a><small>8</small></li>
+  
+    <li><a href="/tags/app/">app</a><small>11</small></li>
+  
+    <li><a href="/tags/design/">design</a><small>2</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/hack/">hack</a><small>4</small></li>
+  
+    <li><a href="/tags/html/">html</a><small>9</small></li>
+  
+    <li><a href="/tags/iphone/">iphone</a><small>20</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>46</small></li>
+  
+    <li><a href="/tags/phonegap/">phonegap</a><small>18</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>27</small></li>
+  
+    <li><a href="/tags/wp8/">wp8</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Lee Crossley
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script type="text/javascript">
+(function(){
+  var dsq = document.createElement("script");
+  dsq.type = "text/javascript";
+  dsq.async = true;
+  dsq.src = "//ilee.disqus.com/embed.js";
+  (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+}());
+</script>
+
+
+</body>
+</html>
