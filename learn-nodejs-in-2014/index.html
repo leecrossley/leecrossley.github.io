@@ -65,11 +65,11 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="The_year_of_the_node">The year of the node</h2>
-<p>If you haven’t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank">node.js</a>. So that you have absolutely no excuses, I’ve put together a super quick start guide to kick you off.</p>
+<p>If you haven&#x2019;t already (shame on you), it really is time to sit down and have a play with <a href="http://nodejs.org/" target="_blank" rel="external">node.js</a>. So that you have absolutely no excuses, I&#x2019;ve put together a super quick start guide to kick you off.</p>
 <p>Nodejs was first released back in May 2009 but has gathered huge momentum over the past year or so.</p>
 <h2 id="Super_quick_start">Super quick start</h2>
 <h3 id="Install">Install</h3>
-<p><a href="http://nodejs.org/download/" target="_blank">Download</a> the installer for your OS and install.</p>
+<p><a href="http://nodejs.org/download/" target="_blank" rel="external">Download</a> the installer for your OS and install.</p>
 <h3 id="Create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
@@ -88,23 +88,23 @@ $ touch app.js
 4
 5
 6
-</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);
 
 http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
-    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
-    res.end(<span class="string">"I know node.js!"</span>);
+    res.writeHead(<span class="number">200</span>, {<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;text/html&quot;</span>});
+    res.end(<span class="string">&quot;I know node.js!&quot;</span>);
 }).listen(<span class="number">4000</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="Run">Run</h3>
-<p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
+<p>Ensure you&#x2019;re in the directory of your <code>app.js</code> JavaScript file and run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ node app
 </pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
 <h2 id="Packages">Packages</h2>
-<p>You’ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
+<p>You&#x2019;ll notice in the example above that we&#x2019;re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank" rel="external">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
 <p>Happy new year!</p>
 
       

@@ -64,31 +64,31 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="The_“strict_mode”_pragma">The “strict mode” pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank">jslint</a> many moons ago with it’s “missing ‘use strict’ pragma” error message.</p>
+        <h2 id="The_&#x201C;strict_mode&#x201D;_pragma">The &#x201C;strict mode&#x201D; pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as &#x201C;strict mode&#x201D;. I first came across this when using <a href="http://www.jslint.com/" target="_blank" rel="external">jslint</a> many moons ago with it&#x2019;s &#x201C;missing &#x2018;use strict&#x2019; pragma&#x201D; error message.</p>
 <p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
 <h2 id="How_to_use_it">How to use it</h2>
-<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
+<p>You invoke strict mode by placing the string &#x201C;use strict&#x201D; at the top of your JavaScript file or function.</p>
 <figure class="highlight javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="pi">"use strict"</span>;
+</pre></td><td class="code"><pre><span class="pi">&quot;use strict&quot;</span>;
 </pre></td></tr></table></figure>
 
 <h2 id="Why_use_it">Why use it</h2>
 <p>All it does it enforce good practices, here are a few examples:</p>
 <h3 id="Duplicate_properties">Duplicate properties</h3>
 <p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3 id="The_“with”_statement">The “with” statement</h3>
-<p>Forget it (if you ever knew about it). It’s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
+<h3 id="The_&#x201C;with&#x201D;_statement">The &#x201C;with&#x201D; statement</h3>
+<p>Forget it (if you ever knew about it). It&#x2019;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
 <h3 id="Variable_declaration">Variable declaration</h3>
 <p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
 <h2 id="A_note_on_browsers">A note on browsers</h2>
-<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it’s best to test your JavaScript (as always) in all browsers.</p>
-<h2 id="Let’s_end_on_a_laugh">Let’s end on a laugh</h2>
-<p>The strict operating context won’t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank">this</a>:</p>
+<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#x2019;s best to test your JavaScript (as always) in all browsers.</p>
+<h2 id="Let&#x2019;s_end_on_a_laugh">Let&#x2019;s end on a laugh</h2>
+<p>The strict operating context won&#x2019;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank" rel="external">this</a>:</p>
 <figure class="highlight javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="pi">"use strict"</span>;
-alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
+</pre></td><td class="code"><pre><span class="pi">&quot;use strict&quot;</span>;
+alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<span class="string">&quot;Robin&quot;</span>-<span class="number">1</span>) + <span class="string">&quot;Batman&quot;</span>);
 </pre></td></tr></table></figure>
       
     </div>

@@ -65,11 +65,11 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="dotject">dotject</h2>
-<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/" target="_blank">yesterday’s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it’s now available as an <a href="https://atom.io/packages/dotject" target="_blank">Atom plugin</a>.</p>
+<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/" target="_blank" rel="external">yesterday&#x2019;s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank" rel="external">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it&#x2019;s now available as an <a href="https://atom.io/packages/dotject" target="_blank" rel="external">Atom plugin</a>.</p>
 <h2 id="Atom">Atom</h2>
-<p>Titled as “a hackable text editor for the 21st Century”, GitHub’s <a href="https://atom.io/" target="_blank">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn’t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
+<p>Titled as &#x201C;a hackable text editor for the 21st Century&#x201D;, GitHub&#x2019;s <a href="https://atom.io/" target="_blank" rel="external">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn&#x2019;t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
 <h2 id="The_Plugin">The Plugin</h2>
-<p>I found it easy to create an Atom plugin for dotject, mainly due to it’s familiarity with <a href="https://www.npmjs.org/" target="_blank">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there’s no duplication of the dotject code whatsoever.</p>
+<p>I found it easy to create an Atom plugin for dotject, mainly due to it&#x2019;s familiarity with <a href="https://www.npmjs.org/" target="_blank" rel="external">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there&#x2019;s no duplication of the dotject code whatsoever.</p>
 <h3 id="Installation">Installation</h3>
 <p>Use the Atom package manager, which can be found in the Settings view or run <code>apm install dotject</code> from the command line.</p>
 <h3 id="Usage">Usage</h3>
@@ -77,11 +77,11 @@
 <h3 id="Example">Example</h3>
 <p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}
+</pre></td><td class="code"><pre>{<span class="string">&quot;a&quot;</span>:{<span class="string">&quot;b&quot;</span>:{<span class="string">&quot;c&quot;</span>:{}}},<span class="string">&quot;d&quot;</span>:{<span class="string">&quot;e&quot;</span>:{}}}
 </pre></td></tr></table></figure>
 
 <h3 id="The_code">The code</h3>
-<p>It’s essentially 2 lines of code, with a little glue and keymapping:</p>
+<p>It&#x2019;s essentially 2 lines of code, with a little glue and keymapping:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -92,7 +92,7 @@
 editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));
 </pre></td></tr></table></figure>
 
-<p>This would all be perfect, if it was not for CoffeeScript (I’ve written in JavaScript above).</p>
+<p>This would all be perfect, if it was not for CoffeeScript (I&#x2019;ve written in JavaScript above).</p>
 
       
     </div>

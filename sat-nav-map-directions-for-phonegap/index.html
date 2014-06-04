@@ -65,22 +65,22 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Maps_with_directions">Maps with directions</h2>
-<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank">Cordova “Directions” Plugin</a> to utilise native maps apps for “sat nav” style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">here</a>.</p>
+<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank" rel="external">Cordova &#x201C;Directions&#x201D; Plugin</a> to utilise native maps apps for &#x201C;sat nav&#x201D; style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">here</a>.</p>
 <h2 id="Install_the_plugin">Install the plugin</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
 </pre></td></tr></table></figure>
 
-<p>That’s all the installation steps thanks to Cordova’s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
+<p>That&#x2019;s all the installation steps thanks to Cordova&#x2019;s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
 <h2 id="Get_directions">Get directions</h2>
 <p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
+</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">&quot;51.50722&quot;</span>, <span class="string">&quot;-0.12750&quot;</span>); <span class="comment">// latitude, longitude</span>
 </pre></td></tr></table></figure>
 
-<p>That’s it! Really, it’s that simple. The Google maps app will open on Android and give directions from the device’s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
+<p>That&#x2019;s it! Really, it&#x2019;s that simple. The Google maps app will open on Android and give directions from the device&#x2019;s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
 <h2 id="Platforms">Platforms</h2>
-<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank">GitHub</a>.</p>
+<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">GitHub</a>.</p>
 <p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
 
       

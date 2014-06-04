@@ -68,10 +68,10 @@
 <p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
 <p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
 <h2 id="grunt-pause">grunt-pause</h2>
-<p>I’ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, “<a href="https://npmjs.org/package/grunt-pause" target="_blank">grunt-pause.js</a>“. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<p>I&#x2019;ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, &#x201C;<a href="https://npmjs.org/package/grunt-pause" target="_blank" rel="external">grunt-pause.js</a>&#x201C;. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank" rel="external">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
 <h2 id="Grunt_core">Grunt core</h2>
-<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
-<p>If this package gets used, I’ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a &#x201C;&#x2014;pause&#x201D; argument on the command line.</p>
+<p>If this package gets used, I&#x2019;ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
 <h2 id="Usage">Usage</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-pause <span class="comment">## --save-dev</span>
@@ -79,7 +79,7 @@
 
 <p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> pause = <span class="built_in">require</span>(<span class="string">"grunt-pause"</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> pause = <span class="built_in">require</span>(<span class="string">&quot;grunt-pause&quot;</span>);
 </pre></td></tr></table></figure>
 
 <p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
@@ -94,7 +94,7 @@
 <p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
 <h2 id="Improvements?">Improvements?</h2>
 <p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
-<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank">git repo</a>.</p>
+<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank" rel="external">git repo</a>.</p>
 
       
     </div>

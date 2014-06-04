@@ -64,32 +64,32 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="What_has_“Walter_White”_got_to_do_with_actual_colours_and_HTML?">What has “Walter White” got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I’m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn’t a valid colour</strong>. Let me explain before you think I’ve gone mad.</p>
+        <h2 id="What_has_&#x201C;Walter_White&#x201D;_got_to_do_with_actual_colours_and_HTML?">What has &#x201C;Walter White&#x201D; got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I&#x2019;m a fan myself) but you&#x2019;re probably thinking <strong>where on earth is he going with this, &#x201C;Walter White&#x201D; isn&#x2019;t a valid colour</strong>. Let me explain before you think I&#x2019;ve gone mad.</p>
 <h3 id="Example">Example</h3>
 <figure class="highlight html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">&quot;Walter White&quot;</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
 </pre></td></tr></table></figure>
 
-<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
-<p>Don’t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank">live demo</a>. Apologies for the use of a font tag.</p>
+<p>The above code snippet will actually colour the text &#x201C;Walter White&#x201D;, in a Breaking Bad green, automatically.</p>
+<p>Don&#x2019;t believe me? Here&#x2019;s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank" rel="external">live demo</a>. Apologies for the use of a font tag.</p>
 <h2 id="What_is_going_on_here?!">What is going on here?!</h2>
 <p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
 <h3 id="The_cooking_process">The cooking process</h3>
 <ol>
-<li>Replace all invalid hexadecimal characters with “0”</li>
+<li>Replace all invalid hexadecimal characters with &#x201C;0&#x201D;</li>
 <li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
 <li>Take the first 2 hexadecimal characters from each group</li>
 </ol>
-<p><strong>Et voilà!</strong></p>
-<p>No? Let’s step through the example.</p>
+<p><strong>Et voil&#xE0;!</strong></p>
+<p>No? Let&#x2019;s step through the example.</p>
 <ol>
-<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
-<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
-<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
+<li>&#x201C;Walter White&#x201D; becomes &#x201C;0a00e000000e&#x201D; when replacing invalid hexadecimal characters with &#x201C;0&#x201D;</li>
+<li>&#x201C;0a00e000000e&#x201D; is 12 characters long, so dividing into 3 groups gives &#x201C;0a00 e000 000e&#x201D;</li>
+<li>Taking the first 2 hexadecimal characters from each group in &#x201C;0a00 e000 000e&#x201D; produces &#x201C;0a e0 00&#x201D;</li>
 </ol>
-<p><strong>“Walter White” = “#0ae000”</strong></p>
-<p>I would have expected it to be blue, but I’m guessing the process isn’t 100% pure :)</p>
+<p><strong>&#x201C;Walter White&#x201D; = &#x201C;#0ae000&#x201D;</strong></p>
+<p>I would have expected it to be blue, but I&#x2019;m guessing the process isn&#x2019;t 100% pure :)</p>
 
       
     </div>

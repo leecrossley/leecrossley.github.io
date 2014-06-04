@@ -65,7 +65,7 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="froute">froute</h2>
-<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that’s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+<p><a href="https://github.com/leecrossley/froute" target="_blank" rel="external">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that&#x2019;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
 <p><img src="/img/froute.png" alt="froute"></p>
 <h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
@@ -75,7 +75,7 @@
 
 <p>Require the module in the usual way:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">&quot;froute&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h2 id="Using_froute">Using froute</h2>
@@ -86,30 +86,30 @@
 2
 3
 4
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apples"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apples&quot;</span>;
 
-<span class="comment">// Bind the static route and it's handler</span>
+<span class="comment">// Bind the static route and it&apos;s handler</span>
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apple/{type}/size/{size}&quot;</span>;
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <h3 id="Unregister_routes">Unregister routes</h3>
 <p>You unregister a route using the <strong>unbind</strong> function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
+</pre></td><td class="code"><pre>froute.unbind(<span class="string">&quot;/apples&quot;</span>);
 </pre></td></tr></table></figure>
 
 <p>Unbound templates are returned by the unbind function.</p>
 <h3 id="Dispatch">Dispatch</h3>
 <p>When a url comes in, you call dispatch:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+</pre></td><td class="code"><pre>froute.dispatch(<span class="string">&quot;/apple/gala/size/large&quot;</span>);
 </pre></td></tr></table></figure>
 
 <p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
@@ -129,25 +129,25 @@ froute.bind(template, handler); <span class="comment">// true</span>
 12
 13
 14
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apple/{type}/size/{size}&quot;</span>,
     resultParams;
 
 <span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> {</span>
     resultParams = params;
 });
 
-froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+froute.dispatch(<span class="string">&quot;/apple/gala/size/large&quot;</span>);
 
 <span class="comment">// assertions</span>
 expect(bindResult).toBeTruthy();
 expect(dispatchResult).toBeTruthy();
 expect(froute.list().length).toEqual(<span class="number">1</span>);
-expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
+expect(resultParams).toEqual({type:<span class="string">&quot;gala&quot;</span>,size:<span class="string">&quot;large&quot;</span>});
 </pre></td></tr></table></figure>
 
 <h2 id="Behind_the_scenes">Behind the scenes</h2>
 <h3 id="froute-picker">froute-picker</h3>
-<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
+<p>froute uses the &#x201C;froute-picker&#x201D; module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank" rel="external">here</a>. It can also be used in isolation:</p>
 <h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -157,22 +157,22 @@ expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apple/{type}/size/{size}&quot;</span>,
     picked = picker.pick(template),
-    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
+    matchUrl = picker.match(<span class="string">&quot;/apple/gala/size/large&quot;</span>);
     result = matchUrl(picked);
 
 <span class="comment">// assertions</span>
-expect(result.type).toEqual(<span class="string">"gala"</span>);
-expect(result.size).toEqual(<span class="string">"large"</span>);
+expect(result.type).toEqual(<span class="string">&quot;gala&quot;</span>);
+expect(result.size).toEqual(<span class="string">&quot;large&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="functional-js">functional.js</h3>
-<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
+<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
 <h2 id="Issues_and_contributions">Issues and contributions</h2>
-<p>I’m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<p>I&#x2019;m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
 <h2 id="An_apple_a_day">An apple a day</h2>
-<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
+<p>&#x2026; might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
 
       
     </div>

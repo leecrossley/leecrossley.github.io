@@ -64,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="functional-js_(λ)">functional.js (λ)</h2>
-<p>functional.js is a functional JavaScript library I’m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>I’ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I’ve also started on some array functions. These array functions aren’t specifically unique, but they’re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
+        <h2 id="functional-js_(&#x3BB;)">functional.js (&#x3BB;)</h2>
+<p>functional.js is a functional JavaScript library I&#x2019;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank" rel="external">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank" rel="external">point-free / tacit</a> programming in JavaScript.</p>
+<p>I&#x2019;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I&#x2019;ve also started on some array functions. These array functions aren&#x2019;t specifically unique, but they&#x2019;re handy and we can&#x2019;t really do without them. As always, everything can be curried. (curryable?).</p>
 <h2 id="Examples">Examples</h2>
-<h3 id="You’re_the_λ-first">You’re the λ.first</h3>
+<h3 id="You&#x2019;re_the_&#x3BB;-first">You&#x2019;re the &#x3BB;.first</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -92,14 +92,14 @@
     <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> firstEven = λ.first(even);
-<span class="keyword">var</span> firstOdd = λ.first(odd);
+<span class="keyword">var</span> firstEven = &#x3BB;.first(even);
+<span class="keyword">var</span> firstOdd = &#x3BB;.first(odd);
 
 expect(firstEven(items)).toEqual(<span class="number">2</span>);
 expect(firstOdd(items)).toEqual(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<h3 id="My_λ-last">My λ.last</h3>
+<h3 id="My_&#x3BB;-last">My &#x3BB;.last</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -123,14 +123,14 @@ expect(firstOdd(items)).toEqual(<span class="number">1</span>);
     <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> lastEven = λ.last(even);
-<span class="keyword">var</span> lastOdd = λ.last(odd);
+<span class="keyword">var</span> lastEven = &#x3BB;.last(even);
+<span class="keyword">var</span> lastOdd = &#x3BB;.last(odd);
 
 expect(lastEven(items)).toEqual(<span class="number">2</span>);
 expect(lastOdd(items)).toEqual(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<h3 id="My_λ-every(thing)">My λ.every(thing)</h3>
+<h3 id="My_&#x3BB;-every(thing)">My &#x3BB;.every(thing)</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -154,15 +154,15 @@ expect(lastOdd(items)).toEqual(<span class="number">1</span>);
     <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> everyEven = λ.every(even);
-<span class="keyword">var</span> everyOdd = λ.every(odd);
+<span class="keyword">var</span> everyEven = &#x3BB;.every(even);
+<span class="keyword">var</span> everyOdd = &#x3BB;.every(odd);
 
 expect(everyEven(items)).toEqual(<span class="literal">true</span>);
 expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
 </pre></td></tr></table></figure>
 
 <p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
-<h3 id="λ-partition">λ.partition</h3>
+<h3 id="&#x3BB;-partition">&#x3BB;.partition</h3>
 <p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -181,7 +181,7 @@ expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
     <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> partitionEven = λ.partition(even);
+<span class="keyword">var</span> partitionEven = &#x3BB;.partition(even);
 
 <span class="keyword">var</span> result = partitionEven(items);
 
@@ -189,7 +189,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 </pre></td></tr></table></figure>
 
 <h2 id="Contribute,_Contribute,_Contribute">Contribute, Contribute, Contribute</h2>
-<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there’s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
+<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#x2019;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">GitHub</a>.</p>
 
       
     </div>

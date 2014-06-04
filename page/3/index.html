@@ -66,18 +66,18 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="We_all_do_it">We all do it</h2>
-<p>If you’re a JavaScript developer (or even more likely if you’re a developer that dabbles with JavaScript) you’ll have written code like this many times:</p>
+<p>If you&#x2019;re a JavaScript developer (or even more likely if you&#x2019;re a developer that dabbles with JavaScript) you&#x2019;ll have written code like this many times:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>document.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+</pre></td><td class="code"><pre>document.addEventListener(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="comment">// handler code ...</span>
-    alert(<span class="string">"document clicked and fired ugly nested function"</span>);
+    alert(<span class="string">&quot;document clicked and fired ugly nested function&quot;</span>);
 });
 </pre></td></tr></table></figure>
 
-<p>You might be thinking <strong>what’s wrong with that</strong>, but I hope you’re thinking <strong>I’m better than that, I’d do something like this</strong>:</p>
+<p>You might be thinking <strong>what&#x2019;s wrong with that</strong>, but I hope you&#x2019;re thinking <strong>I&#x2019;m better than that, I&#x2019;d do something like this</strong>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -86,16 +86,16 @@
 6
 </pre></td><td class="code"><pre><span class="keyword">var</span> doStuff = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="comment">// handler code ...</span>
-    alert(<span class="string">"document clicked and fired alert function"</span>);
+    alert(<span class="string">&quot;document clicked and fired alert function&quot;</span>);
 };
 
-document.addEventListener(<span class="string">"click"</span>, doStuff);
+document.addEventListener(<span class="string">&quot;click&quot;</span>, doStuff);
 </pre></td></tr></table></figure>
 
-<p><strong>Great</strong>. What do you do if the alert text is dynamic? I’ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
-<p>This problem isn’t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank">uglier</a>, less maintainable and bug prone code.</p>
+<p><strong>Great</strong>. What do you do if the alert text is dynamic? I&#x2019;ve seen all kinds of ugly messes that usually lead back to the first approach or result in timing and scoping issues.</p>
+<p>This problem isn&#x2019;t just limited to event handlers, ugly nested anonymous functions are frequently used in callbacks and iterators. This results in poorer performance and <a href="http://youtu.be/bqn7vXeVCLE?t=5s" target="_blank" rel="external">uglier</a>, less maintainable and bug prone code.</p>
 <h2 id="The_right_frame_of_bind">The right frame of <em>bind</em></h2>
-<p>Yes, I really did just make that joke, it’s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it’ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
+<p>Yes, I really did just make that joke, it&#x2019;s been a long week. In all seriousness <code>Function.prototype.bind</code> is your friend here, it&#x2019;ll help you clean up your messy code, like any good friend should. There are other ways to do this of course (JavaScript is wonderful for that):</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -107,12 +107,12 @@ document.addEventListener(<span class="string">"click"</span>, doStuff);
     alert(message);
 };
 
-document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<span class="literal">null</span>, <span class="string">"document clicked"</span>));
+document.addEventListener(<span class="string">&quot;click&quot;</span>, doStuff.bind(<span class="literal">null</span>, <span class="string">&quot;document clicked&quot;</span>));
 </pre></td></tr></table></figure>
 
 <p>Clean, reusable and easier to maintain. Better than inlining or manipulating variables at a higher scope.</p>
 <h2 id="A_good_curry">A good <em>curry</em></h2>
-<p>You can’t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
+<p>You can&#x2019;t beat a good curry, especially if you find yourself nesting iterator functions (ewww). I suggest you take a look at <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a>, or you can read earlier posts on my blog (<a href="/functional-javascript-library/">first post here</a>).</p>
 
       
     </div>
@@ -158,17 +158,17 @@ document.addEventListener(<span class="string">"click"</span>, doStuff.bind(<spa
     <div class="entry" itemprop="articleBody">
       
         <h2 id="console-log()">console.log()</h2>
-<p>If you’ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<p>If you&#x2019;ve ever touched JavaScript in your life, you&#x2019;ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
 <h2 id="The_problem">The problem</h2>
-<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you’re looking for, to help identify it! e.g.</p>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#x2019;re looking for, to help identify it! e.g.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
+</pre></td><td class="code"><pre>console.log(<span class="string">&quot;MY GROUP&quot;</span>);
 console.log(info1);
 console.log(info2);
-console.log(<span class="string">"MY GROUP END"</span>);
+console.log(<span class="string">&quot;MY GROUP END&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h2 id="The_solution">The solution</h2>
@@ -177,7 +177,7 @@ console.log(<span class="string">"MY GROUP END"</span>);
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+</pre></td><td class="code"><pre>console.group(<span class="string">&quot;My group&quot;</span>);
 console.log(info1);
 console.log(info2);
 </pre></td></tr></table></figure>
@@ -188,7 +188,7 @@ console.log(info2);
 2
 3
 4
-</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
+</pre></td><td class="code"><pre>console.group(<span class="string">&quot;My group&quot;</span>);
 console.log(info1);
 console.log(info2);
 console.groupEnd();
@@ -200,7 +200,7 @@ console.groupEnd();
 2
 3
 4
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">&quot;My group&quot;</span>);
 console.log(info1);
 console.log(info2);
 console.groupEnd();
@@ -208,23 +208,23 @@ console.groupEnd();
 
 <h2 id="Objects_and_arrays">Objects and arrays</h2>
 <h3 id="console-table()">console.table()</h3>
-<p>If you’re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
+<p>If you&#x2019;re logging objects and/or arrays in your groups, there&#x2019;s another winner for you in the form of <code>console.table()</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">&quot;My group&quot;</span>);
 console.table({
-    info1: { message: <span class="string">"message 1"</span> },
-    info2: { message: <span class="string">"message 2"</span> }
+    info1: { message: <span class="string">&quot;message 1&quot;</span> },
+    info2: { message: <span class="string">&quot;message 2&quot;</span> }
 });
 console.groupEnd();
 </pre></td></tr></table></figure>
 
 <p><img src="/img/console-output.png" alt="Console Output"></p>
-<p>See the <a href="http://jsfiddle.net/Yb7gT/" target="_blank">jsfiddle here</a> - ensure you open the console, then click run.</p>
+<p>See the <a href="http://jsfiddle.net/Yb7gT/" target="_blank" rel="external">jsfiddle here</a> - ensure you open the console, then click run.</p>
 <p><strong>Happy, <em>clean</em> debugging!</strong></p>
 
       
@@ -271,9 +271,9 @@ console.groupEnd();
     <div class="entry" itemprop="articleBody">
       
         <h2 id="The_swipe_gesture">The swipe gesture</h2>
-<p>It’s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
+<p>It&#x2019;s pretty standard to bind swipe events to elements. For the game I&#x2019;m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
 <h2 id="The_solution">The solution</h2>
-<p>After testing <em>many solutions</em>, here’s what I came up with (and I think it’s the optimum solution). I’m using <a href="http://zeptojs.com/" target="_blank">zeptojs</a> and it’s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
+<p>After testing <em>many solutions</em>, here&#x2019;s what I came up with (and I think it&#x2019;s the optimum solution). I&#x2019;m using <a href="http://zeptojs.com/" target="_blank" rel="external">zeptojs</a> and it&#x2019;s touch module, although this solution would work with jquery (if you insist), you&#x2019;d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -287,10 +287,10 @@ console.groupEnd();
     <span class="comment">// ...</span>
 };
 
-$(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);
+$(<span class="string">&quot;.parent&quot;</span>).bind(<span class="string">&quot;touchmove&quot;</span>, multiSwipe);
 </pre></td></tr></table></figure>
 
-<p>Essentially, I’m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it’s written for you. </p>
+<p>Essentially, I&#x2019;m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it&#x2019;s written for you. </p>
 <p>This code is about 10 times smaller than my first attempt and works 10 times faster. <code>document.elementFromPoint</code> is a very effective way to return the topmost element which lies under a given point.</p>
 <p>Hammer got it wrong, you <strong>can</strong> touch this.</p>
 
@@ -338,12 +338,12 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Leaderboards">Leaderboards</h2>
-<p>I’ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
-<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they’ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
-<p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank">these basics</a>.</p>
+<p>I&#x2019;ve been writing a game with every spare moment I have (using Cordova / PhoneGap) and really wanted to use the iOS Game Center leaderboard functionality.</p>
+<p>Game Center provides a familiar environment for users to compare scores and achievements and challenge friends. Given that most iOS users already have an account and in iOS7 and they&#x2019;ve improved it <em>quite a bit</em>, it seems silly implementing my own leaderboard server at this stage.</p>
+<p>Adding Game Center support requires more than just simple code changes. To create a Game Center aware game, you need to understand <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/GameKit_Guide/GameCenterOverview/GameCenterOverview.html" target="_blank" rel="external">these basics</a>.</p>
 <p><img src="/img/phonegap-game-center.png" alt="PhoneGap iOS Game Center"></p>
 <h2 id="My_Game_Center_plugin">My Game Center plugin</h2>
-<p>A game center plugin didn’t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
+<p>A game center plugin didn&#x2019;t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
 <h3 id="Install_via_the_CLI">Install via the CLI</h3>
 <p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
@@ -352,12 +352,12 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 
 <h2 id="Basic_usage">Basic usage</h2>
 <h3 id="Auth">Auth</h3>
-<p>It’s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won’t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
+<p>It&#x2019;s recommended that authentication takes place as soon as the deviceready event has been fired (don&#x2019;t ever attempt to use any plugin code before this, it won&#x2019;t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
 </pre></td></tr></table></figure>
 
-<p>If there’s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
+<p>If there&#x2019;s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
 <p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
 <h3 id="Leaderboard">Leaderboard</h3>
 <h4 id="Submitting_a_score">Submitting a score</h4>
@@ -369,31 +369,31 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 5
 </pre></td><td class="code"><pre><span class="keyword">var</span> scoreData = { 
     score: <span class="number">100</span>, 
-    leaderboardId: <span class="string">"YOUR_ID"</span>
+    leaderboardId: <span class="string">&quot;YOUR_ID&quot;</span>
 };
 gamecenter.submitScore(onSuccess, onError, scoreData);
 </pre></td></tr></table></figure>
 
 <h4 id="Showing_the_native_leaderboard">Showing the native leaderboard</h4>
-<p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there’s no need to do any additional coding or user interface development to display a leaderboard.</p>
-<p>The period options are “today”, “week” or “all”.</p>
+<p>This is a &#x201C;quick win&#x201D; and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there&#x2019;s no need to do any additional coding or user interface development to display a leaderboard.</p>
+<p>The period options are &#x201C;today&#x201D;, &#x201C;week&#x201D; or &#x201C;all&#x201D;.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 </pre></td><td class="code"><pre><span class="keyword">var</span> criteria = { 
-    period: <span class="string">"today"</span>,
-    leaderboardId: <span class="string">"YOUR_ID"</span>
+    period: <span class="string">&quot;today&quot;</span>,
+    leaderboardId: <span class="string">&quot;YOUR_ID&quot;</span>
 };
 gamecenter.showLeaderboard(onSuccess, onError, criteria);
 </pre></td></tr></table></figure>
 
-<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there’s an issue and handle it.</p>
+<p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there&#x2019;s an issue and handle it.</p>
 <h3 id="iOS_version_support">iOS version support</h3>
-<p>I’ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
+<p>I&#x2019;ve written the plugin to support both iOS 6 and iOS 7 (there are differences in the native implementation, yuck).</p>
 <h2 id="Source_code">Source code</h2>
-<p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank">on github</a>. Please log issues (ideally with pull requests ☺) on there.</p>
+<p>The plugin is open source (MIT Licence) and the full source code is available <a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank" rel="external">on github</a>. Please log issues (ideally with pull requests &#x263A;) on there.</p>
 <p>The plugin has had a huge uptake already with 11 repo stars within 8 hours of pushing the code!</p>
 
       
@@ -440,18 +440,18 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
     <div class="entry" itemprop="articleBody">
       
         <h2 id="The_Cordova_/_PhoneGap_media_plugin">The Cordova / PhoneGap media plugin</h2>
-<p>As part of my recent game development, there’s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank">Media Plugin</a>.</p>
-<h2 id="Working_in_60_seconds,_but…">Working in 60 seconds, but…</h2>
+<p>As part of my recent game development, there&#x2019;s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank" rel="external">Media Plugin</a>.</p>
+<h2 id="Working_in_60_seconds,_but&#x2026;">Working in 60 seconds, but&#x2026;</h2>
 <p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
 <p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
 <p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
-<h2 id="Why_Why_Why"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank">Why Why Why</a></h2>
-<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn’t open (screen is locked).</p>
+<h2 id="Why_Why_Why"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank" rel="external">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn&#x2019;t open (screen is locked).</p>
 <h2 id="The_solution">The solution</h2>
-<p>My initial instinct was to query the state of the mute switch, but I really didn’t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
-<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that’s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<p>My initial instinct was to query the state of the mute switch, but I really didn&#x2019;t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that&#x2019;s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
 <h2 id="Full_example">Full example</h2>
-<p>Here’s the code you need to play audio that obeys the mute switch:</p>
+<p>Here&#x2019;s the code you need to play audio that obeys the mute switch:</p>
 <h3 id="Install_the_media_plugin">Install the media plugin</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
@@ -513,11 +513,11 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="I’m_writing_a_game!">I’m writing a game!</h2>
-<p>That’s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I’ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
+        <h2 id="I&#x2019;m_writing_a_game!">I&#x2019;m writing a game!</h2>
+<p>That&#x2019;s right, I&#x2019;m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I&#x2019;ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I&#x2019;d share the first one.</p>
 <h2 id="A_list_of_adjacent_squares">A list of adjacent squares</h2>
 <h3 id="The_grid">The grid</h3>
-<p>Let’s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
+<p>Let&#x2019;s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that&#x2019;s how my brain works these days - thank HTML).</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -532,9 +532,9 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 ..    ..    ..    ..    ..    ..
 </pre></td></tr></table></figure>
 
-<p>This is actually a two dimensional array, which in reality is just an array of arrays. It’s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it’ll just overcomplicate things.</p>
+<p>This is actually a two dimensional array, which in reality is just an array of arrays. It&#x2019;s crucial to represent the grid like this, it allows for simpler calculations. Don&#x2019;t attempt to use a one dimensional array of size x * y, as it&#x2019;ll just overcomplicate things.</p>
 <h3 id="Get_adjacent_squares">Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it’s pretty simple with this system:</p>
+<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it&#x2019;s pretty simple with this system:</p>
 <ul>
 <li>Take one from the x co-ordinate [x-1,y]</li>
 <li>Add one to the x co-ordinate [x+1,y]</li>
@@ -553,7 +553,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 <li>Check the y co-ordinate is greater than or equal to 1, but is also less than or equal to the height of the grid</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
+</pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> &amp;&amp; x &lt;= width &amp;&amp; y &gt;= <span class="number">1</span> &amp;&amp; y &lt;= height
 </pre></td></tr></table></figure>
 
 <h2 id="The_solution">The solution</h2>
@@ -579,7 +579,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 <span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> {</span>
     <span class="keyword">var</span> x = square[<span class="number">0</span>], 
         y = square[<span class="number">1</span>];
-    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;
+    <span class="keyword">return</span> x &gt;= <span class="number">1</span> &amp;&amp; x &lt;= width &amp;&amp; y &gt;= <span class="number">1</span> &amp;&amp; y &lt;= height;
 }
 
 <span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> {</span>
@@ -591,14 +591,14 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 }
 </pre></td></tr></table></figure>
 
-<p>I’ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
+<p>I&#x2019;ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
 getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
 </pre></td></tr></table></figure>
 
-<p>Hopefully you’re also now interested in what on earth I’m writing :)</p>
+<p>Hopefully you&#x2019;re also now interested in what on earth I&#x2019;m writing :)</p>
 
       
     </div>
@@ -645,28 +645,28 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
       
         <h2 id="PogoScript">PogoScript</h2>
 <blockquote>
-<p><a href="https://github.com/featurist/pogoscript" target="_blank">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
+<p><a href="https://github.com/featurist/pogoscript" target="_blank" rel="external">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
 </blockquote>
-<p>It’s written and maintained by <a href="https://github.com/featurist" target="_blank">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank">here</a>.</p>
-<h2 id="A…_transpiler…_you?">A… transpiler… you?</h2>
-<p>Those who know me will know <strong>I’m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I’d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
+<p>It&#x2019;s written and maintained by <a href="https://github.com/featurist" target="_blank" rel="external">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank" rel="external">here</a>.</p>
+<h2 id="A&#x2026;_transpiler&#x2026;_you?">A&#x2026; transpiler&#x2026; you?</h2>
+<p>Those who know me will know <strong>I&#x2019;m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I&#x2019;d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
 <h2 id="Automation">Automation</h2>
-<p>I use <a href="http://gruntjs.com/" target="_blank">Grunt</a> for automating JavaScript tasks (if you don’t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it’s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
-<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn’t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
+<p>I use <a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a> for automating JavaScript tasks (if you don&#x2019;t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it&#x2019;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn&#x2019;t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
 <h2 id="Using_grunt-pogo">Using grunt-pogo</h2>
-<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
+<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank" rel="external">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
 <h3 id="Install_as_a_dev_dependency">Install as a dev dependency</h3>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
 </pre></td></tr></table></figure>
 
-<h3 id="Load_“grunt-pogo”_in_your_Gruntfile-js">Load “grunt-pogo” in your Gruntfile.js</h3>
+<h3 id="Load_&#x201C;grunt-pogo&#x201D;_in_your_Gruntfile-js">Load &#x201C;grunt-pogo&#x201D; in your Gruntfile.js</h3>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">&quot;grunt-pogo&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h2 id="The_pogo_task">The pogo task</h2>
-<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank">configuring tasks</a> for more info.</p>
+<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank" rel="external">configuring tasks</a> for more info.</p>
 <h3 id="Example_configuration">Example configuration</h3>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
@@ -678,7 +678,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </pre></td><td class="code"><pre>pogo: {
     compile: {
         files: {
-            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]
+            <span class="string">&quot;file.js&quot;</span>: [<span class="string">&quot;file.pogo&quot;</span>, <span class="string">&quot;file2.pogo&quot;</span>]
         }
     }
 }
@@ -687,7 +687,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 <p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
 <h2 id="The_code">The code</h2>
 <h3 id="functional-js">functional.js</h3>
-<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
+<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> library. &#x3BB;.each, &#x3BB;.select, &#x3BB;.map all with a lovely dollop of curry, spice and all things nice.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -701,27 +701,27 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 11
 12
 13
-</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
+</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = &#x3BB;.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
     <span class="keyword">var</span> compiled = compile(exists(files.src)),
         combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));
     grunt.file.write(files.dest, combined);
 });
 
-<span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
+<span class="keyword">var</span> exists = &#x3BB;.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
     <span class="keyword">return</span> grunt.file.exists(file);
 });
 
-<span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
+<span class="keyword">var</span> compile = &#x3BB;.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
     <span class="keyword">return</span> compilePogo(grunt.file.read(src));
 });
 </pre></td></tr></table></figure>
 
 <h3 id="Testing">Testing</h3>
-<p>It’s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank">Travis CI</a>.</p>
+<p>It&#x2019;s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank" rel="external">Travis CI</a>.</p>
 <h3 id="Source_code">Source code</h3>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank">on github</a>. You can log issues and pull request there too.</p>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank" rel="external">on github</a>. You can log issues and pull request there too.</p>
 <h2 id="Future_enhancements">Future enhancements</h2>
-<p>I’d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
+<p>I&#x2019;d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
 <p><strong>Compilation automation for the nation</strong></p>
 
       
@@ -767,20 +767,20 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="New_version_of_“grunt-timer”">New version of “grunt-timer”</h2>
+        <h2 id="New_version_of_&#x201C;grunt-timer&#x201D;">New version of &#x201C;grunt-timer&#x201D;</h2>
 <p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I’ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank">README</a> is up to date.</p>
+<p>I&#x2019;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank" rel="external">README</a> is up to date.</p>
 <h2 id="Open_source">Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I’ve now made several improvements and fixes:</p>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#x2019;ve now made several improvements and fixes:</p>
 <ol>
-<li><p>Tasks (that aren’t really tasks) taking no time are no longer logged.</p>
+<li><p>Tasks (that aren&#x2019;t really tasks) taking no time are no longer logged.</p>
 <ul>
-<li>Let’s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+<li>Let&#x2019;s say you have a task &#x201C;mytask&#x201D; that has a &#x201C;mytask:dist&#x201D; configuration. &#x201C;mytask:dist&#x201D; is actually what should be timed (according to the &#x201C;nameArgs&#x201D; property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
 </ul>
 </li>
 <li><p>A total elapsed time of all logged tasks is now also logged.</p>
 <ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn’t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#x2019;t itself a summary. It still has to appear after the &#x201C;Done, without errors&#x201D; unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
 </ul>
 </li>
 <li><p>The initialisation period no longer contributes to logged times.</p>
@@ -790,7 +790,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 </li>
 </ol>
 <h2 id="Source_code">Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank">here</a>. I’m open to pull requests and suggestions as always.</p>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">here</a>. I&#x2019;m open to pull requests and suggestions as always.</p>
 
       
     </div>
@@ -836,7 +836,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
     <div class="entry" itemprop="articleBody">
       
         <h2 id="froute">froute</h2>
-<p><a href="https://github.com/leecrossley/froute" target="_blank">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that’s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
+<p><a href="https://github.com/leecrossley/froute" target="_blank" rel="external">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that&#x2019;s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
 <p><img src="/img/froute.png" alt="froute"></p>
 <h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
@@ -846,7 +846,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
 <p>Require the module in the usual way:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">&quot;froute&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h2 id="Using_froute">Using froute</h2>
@@ -857,30 +857,30 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 2
 3
 4
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apples"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apples&quot;</span>;
 
-<span class="comment">// Bind the static route and it's handler</span>
+<span class="comment">// Bind the static route and it&apos;s handler</span>
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apple/{type}/size/{size}&quot;</span>;
 froute.bind(template, handler); <span class="comment">// true</span>
 </pre></td></tr></table></figure>
 
 <h3 id="Unregister_routes">Unregister routes</h3>
 <p>You unregister a route using the <strong>unbind</strong> function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
+</pre></td><td class="code"><pre>froute.unbind(<span class="string">&quot;/apples&quot;</span>);
 </pre></td></tr></table></figure>
 
 <p>Unbound templates are returned by the unbind function.</p>
 <h3 id="Dispatch">Dispatch</h3>
 <p>When a url comes in, you call dispatch:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+</pre></td><td class="code"><pre>froute.dispatch(<span class="string">&quot;/apple/gala/size/large&quot;</span>);
 </pre></td></tr></table></figure>
 
 <p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
@@ -900,25 +900,25 @@ froute.bind(template, handler); <span class="comment">// true</span>
 12
 13
 14
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apple/{type}/size/{size}&quot;</span>,
     resultParams;
 
 <span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> {</span>
     resultParams = params;
 });
 
-froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
+froute.dispatch(<span class="string">&quot;/apple/gala/size/large&quot;</span>);
 
 <span class="comment">// assertions</span>
 expect(bindResult).toBeTruthy();
 expect(dispatchResult).toBeTruthy();
 expect(froute.list().length).toEqual(<span class="number">1</span>);
-expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
+expect(resultParams).toEqual({type:<span class="string">&quot;gala&quot;</span>,size:<span class="string">&quot;large&quot;</span>});
 </pre></td></tr></table></figure>
 
 <h2 id="Behind_the_scenes">Behind the scenes</h2>
 <h3 id="froute-picker">froute-picker</h3>
-<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank">here</a>. It can also be used in isolation:</p>
+<p>froute uses the &#x201C;froute-picker&#x201D; module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank" rel="external">here</a>. It can also be used in isolation:</p>
 <h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -928,22 +928,22 @@ expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
+</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">&quot;/apple/{type}/size/{size}&quot;</span>,
     picked = picker.pick(template),
-    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
+    matchUrl = picker.match(<span class="string">&quot;/apple/gala/size/large&quot;</span>);
     result = matchUrl(picked);
 
 <span class="comment">// assertions</span>
-expect(result.type).toEqual(<span class="string">"gala"</span>);
-expect(result.size).toEqual(<span class="string">"large"</span>);
+expect(result.type).toEqual(<span class="string">&quot;gala&quot;</span>);
+expect(result.size).toEqual(<span class="string">&quot;large&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="functional-js">functional.js</h3>
-<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
+<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
 <h2 id="Issues_and_contributions">Issues and contributions</h2>
-<p>I’m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
+<p>I&#x2019;m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
 <h2 id="An_apple_a_day">An apple a day</h2>
-<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
+<p>&#x2026; might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
 
       
     </div>
@@ -989,16 +989,16 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Sluggish_and_unresponsive">Sluggish and unresponsive</h2>
-<p>If you’ve done any kind of mobile development that’s HTML based, you’ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
+<p>If you&#x2019;ve done any kind of mobile development that&#x2019;s HTML based, you&#x2019;ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
 <h2 id="Why_the_delay?">Why the delay?</h2>
 <p>Mobiles and tablets automatically add a 300ms delay between the instant an element is clicked before firing the click event, the reason for this is the browser is waiting to see if you are actually performing a double click.</p>
 <h2 id="The_solution">The solution</h2>
-<p>I’ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank">FT Labs</a> that seems to have hit the nail on the head.</p>
-<h3 id="FastClick"><a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a></h3>
-<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you’re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank">here on your mobile</a> for a working example.</p>
-<p>There’s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
+<p>I&#x2019;ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank" rel="external">FT Labs</a> that seems to have hit the nail on the head.</p>
+<h3 id="FastClick"><a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">FastClick</a></h3>
+<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you&#x2019;re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank" rel="external">here on your mobile</a> for a working example.</p>
+<p>There&#x2019;s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
 <h2 id="Re-instantiating">Re-instantiating</h2>
-<p>There’s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
+<p>There&#x2019;s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
 <p>Happy FastClick-ing.</p>
 
       

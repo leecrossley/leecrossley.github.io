@@ -65,7 +65,7 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="isNumeric">isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it’s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it&#x2019;s really not a lot of code, but took a little while to get just right. It&#x2019;s tested with every type of numeric I could think up (and also non-numerics).</p>
 <h3 id="Using_npm">Using npm</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> isnumeric
@@ -73,11 +73,11 @@
 
 <p>To then include isnumeric in your node app:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="built_in">require</span>(<span class="string">"isnumeric"</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="built_in">require</span>(<span class="string">&quot;isnumeric&quot;</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="Direct_dependency">Direct dependency</h3>
-<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank">here</a>, reference the js file and isNumeric will become a global variable.</p>
+<p>Download the minified version <a href="http://bit.ly/isnumeric" target="_blank" rel="external">here</a>, reference the js file and isNumeric will become a global variable.</p>
 <h2 id="The_code">The code</h2>
 <p>Essentially, this is it:</p>
 <figure class="highlight javascript"><figcaption><span>isNumeric </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -85,14 +85,14 @@
 3
 4
 </pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
-    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
-    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(obj)) &amp;&amp; <span class="built_in">isFinite</span>(obj) &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
+    obj = <span class="keyword">typeof</span>(obj) === <span class="string">&quot;string&quot;</span> ? obj.replace(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;.&quot;</span>) : obj;
+    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(obj)) &amp;&amp; <span class="built_in">isFinite</span>(obj) &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(obj).toLowerCase() !== <span class="string">&quot;[object array]&quot;</span>;
 };
 </pre></td></tr></table></figure>
 
-<p>The first line of the function could be omitted if you weren’t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
+<p>The first line of the function could be omitted if you weren&#x2019;t concerned with supporting comma decimals (e.g. &#x201C;1,1&#x201D;) like in some countries.</p>
 <h2 id="The_tests">The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank">64 tests</a>! so it’s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank" rel="external">64 tests</a>! so it&#x2019;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
 <p>Any disagreements or improvements please pull request.</p>
 
       

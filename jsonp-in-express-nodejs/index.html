@@ -65,53 +65,53 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Express_JS">Express JS</h2>
-<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="http://nodejs.org/" target="_blank">node</a> apps.</p>
-<p>I’m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<p><a href="http://expressjs.com/" target="_blank" rel="external">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="http://nodejs.org/" target="_blank" rel="external">node</a> apps.</p>
+<p>I&#x2019;m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There&#x2019;s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
 <h2 id="Getting_server_data_with_Cordova">Getting server data with Cordova</h2>
-<p>It’s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<p>It&#x2019;s actually easy to get data from a server from within your cordova application, you don&#x2019;t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
 <figure class="highlight xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">&quot;*&quot;</span> /&gt;</span>
 <span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 <p>Then in my express node app, I do something like this:</p>
-<figure class="highlight javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>Express route &quot;/test&quot; </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
-    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
-    res.write(<span class="built_in">JSON</span>.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
+</pre></td><td class="code"><pre>app.get(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
+    res.writeHead(<span class="number">200</span>, { <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span> });
+    res.write(<span class="built_in">JSON</span>.stringify({ <span class="string">&quot;my&quot;</span>: <span class="string">&quot;object&quot;</span> }));
     res.end();
 });
 </pre></td></tr></table></figure>
 
 <p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome…</p>
+<p>The issue is, I do my initial app development in Chrome&#x2026;</p>
 <h2 id="JSONP_to_the_rescue">JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can’t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank" rel="external">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can&#x2019;t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn&#x2019;t very well documented).</p>
 <h3 id="Setting_up_express">Setting up express</h3>
 <p>When configuring express, you need to set an additional property:</p>
 <figure class="highlight javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
+</pre></td><td class="code"><pre>app.set(<span class="string">&quot;jsonp callback&quot;</span>, <span class="literal">true</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="In_your_route_code">In your route code</h3>
 <p>Things get simplier:</p>
-<figure class="highlight javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>Express route &quot;/test&quot; </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
-    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
+</pre></td><td class="code"><pre>app.get(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
+    res.jsonp({ <span class="string">&quot;my&quot;</span>: <span class="string">&quot;object&quot;</span> });
 });
 </pre></td></tr></table></figure>
 
-<p>That’s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn’t hard was it? Shame they don’t make it this obvious in the documentation.</p>
+<p>That&#x2019;s it, you&#x2019;re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn&#x2019;t hard was it? Shame they don&#x2019;t make it this obvious in the documentation.</p>
 <p>Go and make yourself a coffee, you deserve it.</p>
 
       

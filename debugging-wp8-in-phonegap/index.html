@@ -65,8 +65,8 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Windows_Phone_8">Windows Phone 8</h2>
-<p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank">reported an issue</a> that prevents the WP8 platform from even being used with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
-<p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you’re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
+<p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank" rel="external">reported an issue</a> that prevents the WP8 platform from even being used with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
+<p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you&#x2019;re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
 <h2 id="Show_me_the_errors">Show me the errors</h2>
 <p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
@@ -74,13 +74,13 @@
 3
 4
 </pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
-    window.external.Notify(<span class="string">"Error in Application: "</span> +
-        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
+    window.external.Notify(<span class="string">&quot;Error in Application: &quot;</span> +
+        message + <span class="string">&quot;. Source File: &quot;</span> + file + <span class="string">&quot;, Line: &quot;</span> + line);
 }
 </pre></td></tr></table></figure>
 
 <p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
-<p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank">here</a>.</p>
+<p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank" rel="external">here</a>.</p>
 
       
     </div>

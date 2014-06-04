@@ -65,19 +65,19 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="It’s_easy-peasy-lemon-squeezy_with_HTML5">It’s easy-peasy-lemon-squeezy with HTML5</h2>
+        <h2 id="It&#x2019;s_easy-peasy-lemon-squeezy_with_HTML5">It&#x2019;s easy-peasy-lemon-squeezy with HTML5</h2>
 <p>The <em>async</em> attribute added to HTML5 makes the job all too simple:</p>
 <figure class="highlight html"><figcaption><span>async attribute </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">&quot;script.js&quot;</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 <p>This tells the browser to execute the script at the first opportunity after it has finished downloading, while the page continues parsing and before the window load event.</p>
 <h2 id="Pre-HTML5">Pre-HTML5</h2>
-<p>I’m writing an embeddable widget at the moment and unfortunately, can’t rely on browser support for the async attribute. This makes me sad, as I really can’t block the page rendering.</p>
+<p>I&#x2019;m writing an embeddable widget at the moment and unfortunately, can&#x2019;t rely on browser support for the async attribute. This makes me sad, as I really can&#x2019;t block the page rendering.</p>
 <h3 id="Solution?_Defer">Solution? Defer</h3>
-<p>There is a <em>defer</em> attribute, with <a href="http://caniuse.com/script-defer" target="_blank">pretty good support</a> that will execute when the page has finished parsing. Not as good as executing while the page continues parsing though, like with the async attribute.</p>
-<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It’s not perfect, the download doesn’t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
-<p>Here’s the general gist (untested):</p>
+<p>There is a <em>defer</em> attribute, with <a href="http://caniuse.com/script-defer" target="_blank" rel="external">pretty good support</a> that will execute when the page has finished parsing. Not as good as executing while the page continues parsing though, like with the async attribute.</p>
+<p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It&#x2019;s not perfect, the download doesn&#x2019;t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
+<p>Here&#x2019;s the general gist (untested):</p>
 <figure class="highlight javascript"><figcaption><span>general gist </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -94,23 +94,23 @@
 14
 15
 </pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-<span class="pi">    "use strict"</span>;
+<span class="pi">    &quot;use strict&quot;</span>;
     <span class="function"><span class="keyword">function</span> <span class="title">loadJSAsync</span><span class="params">()</span> {</span>
-        <span class="keyword">var</span> js = document.createElement(<span class="string">"script"</span>);
-        js.type = <span class="string">"text/javascript"</span>;
-        js.src = <span class="string">"script.js"</span>;
+        <span class="keyword">var</span> js = document.createElement(<span class="string">&quot;script&quot;</span>);
+        js.type = <span class="string">&quot;text/javascript&quot;</span>;
+        js.src = <span class="string">&quot;script.js&quot;</span>;
         js.async = <span class="literal">true</span>;
-        <span class="comment">// insert the "js" script tag to the DOM here ...</span>
+        <span class="comment">// insert the &quot;js&quot; script tag to the DOM here ...</span>
     } 
     <span class="keyword">if</span> (window.attachEvent) {
-        window.attachEvent(<span class="string">"onload"</span>, loadJSAsync);
+        window.attachEvent(<span class="string">&quot;onload&quot;</span>, loadJSAsync);
     } <span class="keyword">else</span> {
-        window.addEventListener(<span class="string">"load"</span>, loadJSAsync, <span class="literal">false</span>);
+        window.addEventListener(<span class="string">&quot;load&quot;</span>, loadJSAsync, <span class="literal">false</span>);
     }
 })();
 </pre></td></tr></table></figure>
 
-<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can’t wait for all these old browsers to disappear.</p>
+<p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can&#x2019;t wait for all these old browsers to disappear.</p>
 
       
     </div>
@@ -159,40 +159,40 @@
 <figure class="highlight javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">&quot;prop1&quot;</span>: <span class="number">1</span>, <span class="string">&quot;prop2&quot;</span>: <span class="number">2</span> };
 <span class="keyword">delete</span> thing.prop1;
-expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
+expect(thing).toEqual({ <span class="string">&quot;prop2&quot;</span>: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
 <p>Simple, done, use it. End of blog post :)</p>
-<p>If it’s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
+<p>If it&#x2019;s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
 <figure class="highlight javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
-<span class="keyword">delete</span> thing[<span class="string">"prop"</span> + i];
-expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = { <span class="string">&quot;prop1&quot;</span>: <span class="number">1</span>, <span class="string">&quot;prop2&quot;</span>: <span class="number">2</span> }, i = <span class="number">1</span>;
+<span class="keyword">delete</span> thing[<span class="string">&quot;prop&quot;</span> + i];
+expect(thing).toEqual({ <span class="string">&quot;prop2&quot;</span>: <span class="number">2</span> });
 </pre></td></tr></table></figure>
 
 <h2 id="What_about_deleting_variables_and_functions?">What about deleting variables and functions?</h2>
-<p>This is JavaScript, it’s <strong>not</strong> possible to delete variables e.g.</p>
+<p>This is JavaScript, it&#x2019;s <strong>not</strong> possible to delete variables e.g.</p>
 <figure class="highlight javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">&quot;something&quot;</span>;
 <span class="keyword">delete</span> thing; <span class="comment">// no no no</span>
 </pre></td></tr></table></figure>
 
-<p>It’s <strong>not</strong> possible to delete functions declared in this way either.</p>
+<p>It&#x2019;s <strong>not</strong> possible to delete functions declared in this way either.</p>
 <h2 id="The_DontDelete_attribute">The <em>DontDelete</em> attribute</h2>
 <p>There are also some attributes that can be set on properties to prevent their deletion misuse. <em>DontDelete</em> is an example of these, which is present in the length property:</p>
 <figure class="highlight javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">"something"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> thing = <span class="string">&quot;something&quot;</span>;
 <span class="keyword">delete</span> thing.length; <span class="comment">// no no no</span>
 </pre></td></tr></table></figure>
 
 <h2 id="Strict_mode">Strict mode</h2>
-<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you’re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
+<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you&#x2019;re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
 <p>Happy strict deleting.</p>
 
       
@@ -239,53 +239,53 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Express_JS">Express JS</h2>
-<p><a href="http://expressjs.com/" target="_blank">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="http://nodejs.org/" target="_blank">node</a> apps.</p>
-<p>I’m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There’s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
+<p><a href="http://expressjs.com/" target="_blank" rel="external">Express</a> is a web application framework that facilitates the rapid and scalable development of <a href="http://nodejs.org/" target="_blank" rel="external">node</a> apps.</p>
+<p>I&#x2019;m currently building a cross platform mobile application using cordova / phonegap for the app and express for the server. There&#x2019;s a web interface, but also data can be retrieved in json format from the server by the mobile app. </p>
 <h2 id="Getting_server_data_with_Cordova">Getting server data with Cordova</h2>
-<p>It’s actually easy to get data from a server from within your cordova application, you don’t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
+<p>It&#x2019;s actually easy to get data from a server from within your cordova application, you don&#x2019;t even need to worry about cross domain requests. Simply add this to your config.xml (which is now the default) to set up cordova correctly:</p>
 <figure class="highlight xml"><figcaption><span>config.xml </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">widget</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">"*"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">access</span> <span class="attribute">origin</span>=<span class="value">&quot;*&quot;</span> /&gt;</span>
 <span class="tag">&lt;/<span class="title">widget</span>&gt;</span>
 </pre></td></tr></table></figure>
 
 <p>Then in my express node app, I do something like this:</p>
-<figure class="highlight javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>Express route &quot;/test&quot; </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
-    res.writeHead(<span class="number">200</span>, { <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span> });
-    res.write(<span class="built_in">JSON</span>.stringify({ <span class="string">"my"</span>: <span class="string">"object"</span> }));
+</pre></td><td class="code"><pre>app.get(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
+    res.writeHead(<span class="number">200</span>, { <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span> });
+    res.write(<span class="built_in">JSON</span>.stringify({ <span class="string">&quot;my&quot;</span>: <span class="string">&quot;object&quot;</span> }));
     res.end();
 });
 </pre></td></tr></table></figure>
 
 <p>Although a little long winded in the controller route code (or action method, if you like, for you C# junkies) it works just fine when the mobile app loads the JSON data from the server using get http requests.</p>
-<p>The issue is, I do my initial app development in Chrome…</p>
+<p>The issue is, I do my initial app development in Chrome&#x2026;</p>
 <h2 id="JSONP_to_the_rescue">JSONP to the rescue</h2>
-<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can’t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn’t very well documented).</p>
+<p><a href="http://en.wikipedia.org/wiki/JSONP" target="_blank" rel="external">JSONP</a> is a <em>hack</em> around doing cross domain get requests but requires the cooperation of the server to succeed. Unfortunately, you can&#x2019;t request random websites data (client-side) using JSONP. We need to set some config in the express app and do things slightly differently (this isn&#x2019;t very well documented).</p>
 <h3 id="Setting_up_express">Setting up express</h3>
 <p>When configuring express, you need to set an additional property:</p>
 <figure class="highlight javascript"><figcaption><span>Configuring express </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>app.set(<span class="string">"jsonp callback"</span>, <span class="literal">true</span>);
+</pre></td><td class="code"><pre>app.set(<span class="string">&quot;jsonp callback&quot;</span>, <span class="literal">true</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="In_your_route_code">In your route code</h3>
 <p>Things get simplier:</p>
-<figure class="highlight javascript"><figcaption><span>Express route "/test" </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><figcaption><span>Express route &quot;/test&quot; </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>app.get(<span class="string">"/test"</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
-    res.jsonp({ <span class="string">"my"</span>: <span class="string">"object"</span> });
+</pre></td><td class="code"><pre>app.get(<span class="string">&quot;/test&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
+    res.jsonp({ <span class="string">&quot;my&quot;</span>: <span class="string">&quot;object&quot;</span> });
 });
 </pre></td></tr></table></figure>
 
-<p>That’s it, you’re done! You can happily make JSONP requests to your server.</p>
-<p>Wasn’t hard was it? Shame they don’t make it this obvious in the documentation.</p>
+<p>That&#x2019;s it, you&#x2019;re done! You can happily make JSONP requests to your server.</p>
+<p>Wasn&#x2019;t hard was it? Shame they don&#x2019;t make it this obvious in the documentation.</p>
 <p>Go and make yourself a coffee, you deserve it.</p>
 
       
@@ -332,11 +332,11 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Mongoose_JS">Mongoose JS</h2>
-<p>If you’re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank">Mongoose</a>. It’s “<em>elegant mongodb object modelling for node.js</em>“ and saves you writing endless mappings, castings and validation. If you’ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank">check it out</a>.</p>
+<p>If you&#x2019;re a JavaScript / Node.js developer that uses MongoDB, you&#x2019;ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank" rel="external">Mongoose</a>. It&#x2019;s &#x201C;<em>elegant mongodb object modelling for node.js</em>&#x201C; and saves you writing endless mappings, castings and validation. If you&#x2019;ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank" rel="external">check it out</a>.</p>
 <h2 id="Mongoose_documents_/_objects">Mongoose documents / objects</h2>
-<p>The reason for this post isn’t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
+<p>The reason for this post isn&#x2019;t just to tell you to go and play with Mongoose, I&#x2019;m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
 <h3 id="The_problem">The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here’s a simplified version to help me explain:</p>
+<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here&#x2019;s a simplified version to help me explain:</p>
 <figure class="highlight javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -345,8 +345,8 @@ expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = λ.each(<span class="function"><span class="keyword">function</span><span class="params">(item)</span> {</span>
-    item.newProperty = <span class="string">"anything"</span>;
+</pre></td><td class="code"><pre><span class="keyword">var</span> addProperty = &#x3BB;.each(<span class="function"><span class="keyword">function</span><span class="params">(item)</span> {</span>
+    item.newProperty = <span class="string">&quot;anything&quot;</span>;
 });
 
 Items.find(<span class="function"><span class="keyword">function</span><span class="params">(err, items)</span> {</span>
@@ -355,11 +355,11 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
 });
 </pre></td></tr></table></figure>
 
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you’d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
+<p>After adding the property &#x201C;newProperty&#x201D; to each of the items, I could then use the property without any issues - as you&#x2019;d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
 <h3 id="The_reason">The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it’s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
+<p>The &#x201C;items&#x201D; collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it&#x2019;s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it&#x2019;s structure since the last save or retrieval.</p>
 <h3 id="The_solution">The solution</h3>
-<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank">answer</a>.</p>
+<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank" rel="external">answer</a>.</p>
 <figure class="highlight javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -370,7 +370,7 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
 });
 </pre></td></tr></table></figure>
 
-<p>By specifying the “<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank">lean</a>“ option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don’t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
+<p>By specifying the &#x201C;<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank" rel="external">lean</a>&#x201C; option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don&#x2019;t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It&#x2019;s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
 <p>Mystery solved.</p>
 
       
@@ -417,16 +417,16 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Manc_JS">Manc JS</h2>
-<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank">@martinrue</a>.</p>
+<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank" rel="external">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the &#x201C;Rock Paper Scissors Bots&#x201D; night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank" rel="external">@martinrue</a>.</p>
 <h2 id="The_game">The game</h2>
-<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
+<p>Each bot played 50 &#x201C;hands&#x201D; against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
 <ul>
-<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
-<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
+<li>&#x201C;dynamite&#x201D;, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
+<li>&#x201C;water (balloon)&#x201D;, which beats dynamite only and <em>can be used any number of times</em></li>
 </ul>
-<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
+<p>Bots were comprised of at least 3 functions, &#x201C;init&#x201D;, &#x201C;play&#x201D; and &#x201C;result&#x201D;, which were called by the server running the bots against each other.</p>
 <h2 id="My_approach">My approach</h2>
-<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn’t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
+<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the &#x201C;dynamite&#x201D; hand mitigated this slightly. Nevertheless, I didn&#x2019;t want to write any random code, it&#x2019;s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
 <h3 id="Sub-bots">Sub-bots</h3>
 <p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
@@ -444,22 +444,22 @@ Items.find(<span class="function"><span class="keyword">function</span><span cla
 13
 14
 15
-</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays "paper"</span>
+</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays &quot;paper&quot;</span>
 bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">var</span> bot = {};
     
     bot.winners = <span class="number">0</span>;
-    bot.lastPlay = <span class="string">""</span>;
+    bot.lastPlay = <span class="string">&quot;&quot;</span>;
     
     bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> play = <span class="string">"paper"</span>;
+        <span class="keyword">var</span> play = <span class="string">&quot;paper&quot;</span>;
         bot.lastPlay = play;
         <span class="keyword">return</span> play;
     };
 
     <span class="keyword">return</span> bot;
 })();
-</pre></td></tr></table></figure><br>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.<br><br>Given more time and more sub-bots this approach would have become slightly more robust.<br><br>### We’re gonna light it up, like it’s dynamite<br><br>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn’t a good strategy, as water is a weak hand.<br><br>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)<br><br>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.<br><br>## Tests<br><br>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.<br><br>Given more time and more sub-bots this approach would have become slightly more robust.<br><br>### We&#x2019;re gonna light it up, like it&#x2019;s dynamite<br><br>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn&#x2019;t a good strategy, as water is a weak hand.<br><br>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)<br><br>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.<br><br>## Tests<br><br>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -476,19 +476,19 @@ bot.paperBot = (<span class="function"><span class="keyword">function</span> <sp
 15
 16
 </pre></td><td class="code"><pre><span class="comment">// Example of my noddy tests</span>
-it(<span class="string">"should init and set opponent"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    init(<span class="string">"test"</span>);
-    expect(bot.opponent).toEqual(<span class="string">"test"</span>);
+it(<span class="string">&quot;should init and set opponent&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    init(<span class="string">&quot;test&quot;</span>);
+    expect(bot.opponent).toEqual(<span class="string">&quot;test&quot;</span>);
 });
 
-it(<span class="string">"should use paper as the first play"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+it(<span class="string">&quot;should use paper as the first play&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="comment">// First play always paper, as all bots have 0 wins</span>
     <span class="comment">// NB: Should randomise the first bot :)</span>
-    expect(play()).toEqual(<span class="string">"paper"</span>);
+    expect(play()).toEqual(<span class="string">&quot;paper&quot;</span>);
 });
 
-it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });
+it(<span class="string">&quot;should win the first hand against rock and increment winning tally&quot;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    result({ test: <span class="string">&quot;rock&quot;</span>, lee: <span class="string">&quot;paper&quot;</span>, winner: <span class="string">&quot;lee&quot;</span>, draw: <span class="literal">false</span> });
     expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);
 });
 </pre></td></tr></table></figure>
@@ -541,9 +541,9 @@ it(<span class="string">"should win the first hand against rock and increment wi
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Domain_names_to_buy">Domain names to buy</h2>
-<p>Today I have listed some domain names to buy, including “domainnamestobuy.com” (should really stick them on there!). I was prompted to have this spring clean as I attempt to consolidate hosting providers and domain name registrars over the coming months.</p>
+<p>Today I have listed some domain names to buy, including &#x201C;domainnamestobuy.com&#x201D; (should really stick them on there!). I was prompted to have this spring clean as I attempt to consolidate hosting providers and domain name registrars over the coming months.</p>
 <h2 id="Current_list">Current list</h2>
-<p>The following domain names are now for sale on <a href="http://www.sedo.co.uk/main.php3?language=e&amp;partnerid=315645" target="_blank">sedo</a> (at the time of writing this some 1 or 2 listings are still pending):</p>
+<p>The following domain names are now for sale on <a href="http://www.sedo.co.uk/main.php3?language=e&#x26;partnerid=315645" target="_blank" rel="external">sedo</a> (at the time of writing this some 1 or 2 listings are still pending):</p>
 <ul>
 <li>backingmusic.com (backing music, bought for $2,325 10 years ago)</li>
 <li>bidzer.co.uk (a possible bidding auction site)</li>
@@ -559,7 +559,7 @@ it(<span class="string">"should win the first hand against rock and increment wi
 <li>myweightapp.co.uk (weight app)</li>
 <li>webdevelopmentmanchester.com (local web development)</li>
 </ul>
-<p>It’s difficult to price a domain, but everything is negotiable, especially to my blog readers :) Make me an offer.</p>
+<p>It&#x2019;s difficult to price a domain, but everything is negotiable, especially to my blog readers :) Make me an offer.</p>
 <p>Most of the domain names are hotel booking based, iFindRooms would also make a pretty good app name.</p>
 
       
@@ -605,11 +605,11 @@ it(<span class="string">"should win the first hand against rock and increment wi
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="functional-js_(λ)">functional.js (λ)</h2>
-<p>functional.js is a functional JavaScript library I’m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank">point-free / tacit</a> programming in JavaScript.</p>
-<p>I’ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I’ve also started on some array functions. These array functions aren’t specifically unique, but they’re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
+        <h2 id="functional-js_(&#x3BB;)">functional.js (&#x3BB;)</h2>
+<p>functional.js is a functional JavaScript library I&#x2019;m (still) writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank" rel="external">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank" rel="external">point-free / tacit</a> programming in JavaScript.</p>
+<p>I&#x2019;ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I&#x2019;ve also started on some array functions. These array functions aren&#x2019;t specifically unique, but they&#x2019;re handy and we can&#x2019;t really do without them. As always, everything can be curried. (curryable?).</p>
 <h2 id="Examples">Examples</h2>
-<h3 id="You’re_the_λ-first">You’re the λ.first</h3>
+<h3 id="You&#x2019;re_the_&#x3BB;-first">You&#x2019;re the &#x3BB;.first</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -633,14 +633,14 @@ it(<span class="string">"should win the first hand against rock and increment wi
     <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> firstEven = λ.first(even);
-<span class="keyword">var</span> firstOdd = λ.first(odd);
+<span class="keyword">var</span> firstEven = &#x3BB;.first(even);
+<span class="keyword">var</span> firstOdd = &#x3BB;.first(odd);
 
 expect(firstEven(items)).toEqual(<span class="number">2</span>);
 expect(firstOdd(items)).toEqual(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<h3 id="My_λ-last">My λ.last</h3>
+<h3 id="My_&#x3BB;-last">My &#x3BB;.last</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -664,14 +664,14 @@ expect(firstOdd(items)).toEqual(<span class="number">1</span>);
     <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> lastEven = λ.last(even);
-<span class="keyword">var</span> lastOdd = λ.last(odd);
+<span class="keyword">var</span> lastEven = &#x3BB;.last(even);
+<span class="keyword">var</span> lastOdd = &#x3BB;.last(odd);
 
 expect(lastEven(items)).toEqual(<span class="number">2</span>);
 expect(lastOdd(items)).toEqual(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<h3 id="My_λ-every(thing)">My λ.every(thing)</h3>
+<h3 id="My_&#x3BB;-every(thing)">My &#x3BB;.every(thing)</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -695,15 +695,15 @@ expect(lastOdd(items)).toEqual(<span class="number">1</span>);
     <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> everyEven = λ.every(even);
-<span class="keyword">var</span> everyOdd = λ.every(odd);
+<span class="keyword">var</span> everyEven = &#x3BB;.every(even);
+<span class="keyword">var</span> everyOdd = &#x3BB;.every(odd);
 
 expect(everyEven(items)).toEqual(<span class="literal">true</span>);
 expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
 </pre></td></tr></table></figure>
 
 <p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
-<h3 id="λ-partition">λ.partition</h3>
+<h3 id="&#x3BB;-partition">&#x3BB;.partition</h3>
 <p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
@@ -722,7 +722,7 @@ expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
     <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
 };
 
-<span class="keyword">var</span> partitionEven = λ.partition(even);
+<span class="keyword">var</span> partitionEven = &#x3BB;.partition(even);
 
 <span class="keyword">var</span> result = partitionEven(items);
 
@@ -730,7 +730,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 </pre></td></tr></table></figure>
 
 <h2 id="Contribute,_Contribute,_Contribute">Contribute, Contribute, Contribute</h2>
-<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there’s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank">GitHub</a>.</p>
+<p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there&#x2019;s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">GitHub</a>.</p>
 
       
     </div>
@@ -778,11 +778,11 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
         <h2 id="The_PhoneGap-Gap">The PhoneGap-Gap</h2>
 <p>Having a central registry or repository for all Cordova / PhoneGap plugins (both core and 3rd party) seems like an obvious thing to have. Unfortunately, no-one had <em>actually done it</em>.</p>
 <p>As a Cordova developer, I did often wonder while writing a plugin if someone else had already written one.</p>
-<blockquote>“<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>“</blockquote>
+<blockquote>&#x201C;<strong>If only there was a place I could search for plugins and instantly find out what platforms and engines they support.</strong>&#x201C;</blockquote>
 
 <h2 id="Making_dreams_come_true">Making dreams come true</h2>
-<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That’s right, <em>I’ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
-<h3 id="PlugReg"><a href="http://www.plugreg.com" target="_blank">PlugReg</a></h3>
+<p>Failing that, a Plugin Registry for Cordova / PhoneGap. That&#x2019;s right, <em>I&#x2019;ve done it</em>, hence there not being a blog post for a couple of days. Busy busy busy.</p>
+<h3 id="PlugReg"><a href="http://www.plugreg.com" target="_blank" rel="external">PlugReg</a></h3>
 <p>PlugReg is written using nodejs, of course. Here are some of the preliminary features that have been implemented:</p>
 <ul>
 <li><strong>Submit</strong>. Submit plugins automagically with a GitHub url</li>
@@ -794,7 +794,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 <li><strong>Latest Plugins</strong>. List of the latest plugins added</li>
 </ul>
 <h2 id="Suggestions,_comments_and_feedback">Suggestions, comments and feedback</h2>
-<p>All welcome, one thing I’m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
+<p>All welcome, one thing I&#x2019;m wondering if might be helpful for the site is user ratings and possibly user comments? What do you guys think?</p>
 <p>Please add your own plugins or any plugins you have used.</p>
 
       
@@ -841,12 +841,12 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
     <div class="entry" itemprop="articleBody">
       
         <h2 id="iOS_7_is_coming">iOS 7 is coming</h2>
-<p>The latest rumour is the 10th of September, in any case, it’s coming, get your apps ready now if you haven’t already. Don’t ignore this advice, devices running iOS7 running apps that were built for iOS6 (or earlier!) will stick out like a sore thumb.</p>
-<h2 id="What’s_changing">What’s changing</h2>
+<p>The latest rumour is the 10th of September, in any case, it&#x2019;s coming, get your apps ready now if you haven&#x2019;t already. Don&#x2019;t ignore this advice, devices running iOS7 running apps that were built for iOS6 (or earlier!) will stick out like a sore thumb.</p>
+<h2 id="What&#x2019;s_changing">What&#x2019;s changing</h2>
 <h3 id="The_user_interface">The user interface</h3>
-<p>One of the main changes is the look and feel and Apple want you to reflect these new guidelines in your apps. - The <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank">iOS 7 UI Transition Guide</a> (Apple login required) explains this in detail but it impacts textures, gradients, shadows, fonts, colours, navigation, buttons, arrows, keyboards, gauges, icons, actually, EVERYTHING.</p>
+<p>One of the main changes is the look and feel and Apple want you to reflect these new guidelines in your apps. - The <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank" rel="external">iOS 7 UI Transition Guide</a> (Apple login required) explains this in detail but it impacts textures, gradients, shadows, fonts, colours, navigation, buttons, arrows, keyboards, gauges, icons, actually, EVERYTHING.</p>
 <h3 id="New_APIs">New APIs</h3>
-<p>It’s not just all fluff. There are many changes coming to APIs, including:</p>
+<p>It&#x2019;s not just all fluff. There are many changes coming to APIs, including:</p>
 <ul>
 <li>Multitasking</li>
 <li>UIKit</li>
@@ -860,7 +860,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 <p>Who knows, there might even be <a href="/iphone-fingerprint-recognition-for-developers/">Fingerprint recognition</a>.</p>
 <h2 id="The_upshot">The upshot</h2>
 <p>In order for your existing apps to run properly and effectively on iOS 7, your code is likely to need changes. In some cases these changes could be extensive, depending on the complexity of the app.</p>
-<p>If you don’t upgrade your app, it’ll be 100x worse than when we made the upgrade to retina images or to the slightly larger 4” screen on the iPhone 5.</p>
+<p>If you don&#x2019;t upgrade your app, it&#x2019;ll be 100x worse than when we made the upgrade to retina images or to the slightly larger 4&#x201D; screen on the iPhone 5.</p>
 
       
     </div>
@@ -907,48 +907,48 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
       
         <h2 id="The_old_Social_Message_plugin">The old Social Message plugin</h2>
 <p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
-<p>The plugin bridged functionality between PhoneGap / Cordova’s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
+<p>The plugin bridged functionality between PhoneGap / Cordova&#x2019;s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn&#x2019;t follow any <em>strict</em> standards.</p>
 <h2 id="New_plugin_architecture">New plugin architecture</h2>
-<p>If you’re a developer for PhoneGap / Cordova, you’ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
-<p>I’m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
+<p>If you&#x2019;re a developer for PhoneGap / Cordova, you&#x2019;ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
+<p>I&#x2019;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank" rel="external">Social Message plugin</a> has been rewritten to support the &#x201C;add plugin&#x201D; command.</p>
 <h2 id="Usage">Usage</h2>
 <h3 id="1_step_install">1 step install</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git
 </pre></td></tr></table></figure>
 
-<p><strong>Way-hey!</strong> That’s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
+<p><strong>Way-hey!</strong> That&#x2019;s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
 <h3 id="In_your_JavaScript">In your JavaScript</h3>
-<p>After your deviceready event has been fired, you can simply pass a message object with a “text” property to the send function:</p>
+<p>After your deviceready event has been fired, you can simply pass a message object with a &#x201C;text&#x201D; property to the send function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 </pre></td><td class="code"><pre><span class="keyword">var</span> message = {
-    text: <span class="string">"This is a test message"</span>
+    text: <span class="string">&quot;This is a test message&quot;</span>
 };
 window.socialmessage.send(message);
 </pre></td></tr></table></figure>
 
-<p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, add an “activityTypes” array to your message object:</p>
+<p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, add an &#x201C;activityTypes&#x201D; array to your message object:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 </pre></td><td class="code"><pre><span class="keyword">var</span> message = {
-    text: <span class="string">"This is a test message"</span>,
-    activityTypes: [<span class="string">"PostToFacebook"</span>, <span class="string">"PostToTwitter"</span>]
+    text: <span class="string">&quot;This is a test message&quot;</span>,
+    activityTypes: [<span class="string">&quot;PostToFacebook&quot;</span>, <span class="string">&quot;PostToTwitter&quot;</span>]
 };
 window.socialmessage.send(message);
 </pre></td></tr></table></figure>
 
 <p>This example will allow the user to only post the message to Facebook or Twitter.</p>
-<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank">here</a>. You should omit the “UIActivityType” prefix when adding to your array.</p>
+<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank" rel="external">here</a>. You should omit the &#x201C;UIActivityType&#x201D; prefix when adding to your array.</p>
 <h2 id="Platform_support">Platform support</h2>
-<p>The plugin is currently only implemented for iOS but I’m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
-<h2 id="Just_a_thought…">Just a thought…</h2>
-<p>Wouldn’t it be great if there was some kind of plugin registry like node package manager… <em><a href="http://www.plugreg.com" target="_blank">cough</a></em></p>
+<p>The plugin is currently only implemented for iOS but I&#x2019;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
+<h2 id="Just_a_thought&#x2026;">Just a thought&#x2026;</h2>
+<p>Wouldn&#x2019;t it be great if there was some kind of plugin registry like node package manager&#x2026; <em><a href="http://www.plugreg.com" target="_blank" rel="external">cough</a></em></p>
 
       
     </div>
