@@ -55,6 +55,73 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-06-10T11:39:51.000Z" itemprop="datePublished">10th Jun 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/Cordova-PhoneGap-iOS-8-Beta/" itemprop="url">Cordova / PhoneGap iOS 8 Beta</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="iOS_8_Beta_and_Cordova_&#x3C;=_3-5-0">iOS 8 Beta and Cordova &lt;= 3.5.0</h2>
+<p>If you&#x2019;ve had a play around with iOS 8 beta (<a href="http://ilee.co.uk/touch-id-with-cordova-phonegap/" target="_blank" rel="external">like me</a>), you&#x2019;ll probably have noticed there&#x2019;s <em>an issue</em>.</p>
+<p><img src="/img/cordova-ios8.png" alt="Cordova / PhoneGap iOS 8"></p>
+<h2 id="WebKit_iOS_8">WebKit iOS 8</h2>
+<p>If you take a look at the <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/RN-iOSSDK-8.0/index.html" target="_blank" rel="external">WebKit iOS 8 release notes</a> you&#x2019;ll see it makes specific mention of Cordova / PhoneGap:</p>
+<blockquote><strong>Applications that use Apache Cordova / PhoneGap are broken due to a bug that causes the window.navigator.userAgent object to become undefined when window.navigator is replaced by a pure JavaScript wrapper object.</strong></blockquote>
+
+<p>Essentially, what happens is Cordova / PhoneGap replaces the <code>window.navigator</code>, as you can see <a href="https://github.com/apache/cordova-js/blob/2c375dd4f585b3fb29ff67ec455918c3a333fc7a/src/common/init.js#L64" target="_blank" rel="external">here</a>.</p>
+<h2 id="The_solution">The solution</h2>
+<p>Although this will be fixed in Cordova 3.6.0 when support for the new Cordova bridge under iOS 8 WKWebView is implemented, Eddy Verbruggen has come up with a <a href="https://gist.github.com/EddyVerbruggen/cd02c73162180793513e#file-ios8-beta-phonegap-fix" target="_blank" rel="external">neat little fix</a> to check if the <code>navigator.userAgent</code> is undefined and assign a return value to it:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {
+    navigator.__defineGetter__(<span class="string">&apos;userAgent&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span>(<span class="string">&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit&quot;</span>);
+    });
+}
+</pre></td></tr></table></figure>
+
+<p>Also, targeting 7.0 (which I doubt you&#x2019;re doing if you&#x2019;re playing with iOS 8 beta) should also still work.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-06-03T12:35:46.000Z" itemprop="datePublished">3rd Jun 2014</time>
       
       
@@ -941,100 +1008,6 @@ camera = dotject(<span class="string">&quot;settings.encoding.format,output.data
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-01-19T10:59:01.000Z" itemprop="datePublished">19th Jan 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/new-features-in-grunt-timer-v03/" itemprop="url">New Features in grunt-timer v0.3</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="New_features_of_&#x201C;grunt-timer&#x201D;">New features of &#x201C;grunt-timer&#x201D;</h2>
-<p>I&#x2019;m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer</a>! The best part about this release is that it&#x2019;s entirely down to the efforts of the open source community.</p>
-<h2 id="What&#x2019;s_new">What&#x2019;s new</h2>
-<p>There are 3 new features, implemented as interchangeable options:</p>
-<h3 id="friendlyTime">friendlyTime</h3>
-<p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
-
-<h3 id="deferLogs">deferLogs</h3>
-<p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { deferLogs: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
-
-<p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
-
-<h3 id="totalOnly">totalOnly</h3>
-<p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { totalOnly: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
-
-<p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
-
-<h2 id="Credits">Credits</h2>
-<h3 id="Contributors">Contributors</h3>
-<ul>
-<li>Thanks to <a href="https://github.com/geekdave" target="_blank" rel="external">Dave Cadwallader</a> for the implementation of the <em>friendlyTime</em> and <em>deferLogs</em> options.</li>
-<li>Thanks to <a href="https://github.com/carlherbst" target="_blank" rel="external">Carl Herbst</a> for the implementation of the <em>totalOnly</em> option.</li>
-</ul>
-<h2 id="Pull_requests">Pull requests</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">here</a> and you can create pull requests <a href="https://github.com/leecrossley/grunt-timer/pulls" target="_blank" rel="external">here</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1088,6 +1061,10 @@ camera = dotject(<span class="string">&quot;settings.encoding.format,output.data
   <ul class="entry">
     
       <li>
+        <a href="/Cordova-PhoneGap-iOS-8-Beta/">Cordova / PhoneGap iOS 8 Beta</a>
+      </li>
+    
+      <li>
         <a href="/touch-id-with-cordova-phonegap/">Touch ID with Cordova / PhoneGap</a>
       </li>
     
@@ -1123,10 +1100,6 @@ camera = dotject(<span class="string">&quot;settings.encoding.format,output.data
         <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1140,7 +1113,7 @@ camera = dotject(<span class="string">&quot;settings.encoding.format,output.data
   
     <li><a href="/tags/android/">android</a><small>8</small></li>
   
-    <li><a href="/tags/app/">app</a><small>11</small></li>
+    <li><a href="/tags/app/">app</a><small>12</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1150,11 +1123,11 @@ camera = dotject(<span class="string">&quot;settings.encoding.format,output.data
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>20</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>21</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>46</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>18</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>19</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

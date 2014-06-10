@@ -55,6 +55,100 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-01-19T10:59:01.000Z" itemprop="datePublished">19th Jan 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/new-features-in-grunt-timer-v03/" itemprop="url">New Features in grunt-timer v0.3</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="New_features_of_&#x201C;grunt-timer&#x201D;">New features of &#x201C;grunt-timer&#x201D;</h2>
+<p>I&#x2019;m pleased to announce the v0.3 release of <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer</a>! The best part about this release is that it&#x2019;s entirely down to the efforts of the open source community.</p>
+<h2 id="What&#x2019;s_new">What&#x2019;s new</h2>
+<p>There are 3 new features, implemented as interchangeable options:</p>
+<h3 id="friendlyTime">friendlyTime</h3>
+<p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<h3 id="deferLogs">deferLogs</h3>
+<p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { deferLogs: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<h3 id="totalOnly">totalOnly</h3>
+<p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { totalOnly: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
+</pre></td></tr></table></figure>
+
+<h2 id="Credits">Credits</h2>
+<h3 id="Contributors">Contributors</h3>
+<ul>
+<li>Thanks to <a href="https://github.com/geekdave" target="_blank" rel="external">Dave Cadwallader</a> for the implementation of the <em>friendlyTime</em> and <em>deferLogs</em> options.</li>
+<li>Thanks to <a href="https://github.com/carlherbst" target="_blank" rel="external">Carl Herbst</a> for the implementation of the <em>totalOnly</em> option.</li>
+</ul>
+<h2 id="Pull_requests">Pull requests</h2>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">here</a> and you can create pull requests <a href="https://github.com/leecrossley/grunt-timer/pulls" target="_blank" rel="external">here</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-01-08T09:15:23.000Z" itemprop="datePublished">8th Jan 2014</time>
       
       
@@ -781,61 +875,6 @@ myMedia.play();
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-28T09:57:53.000Z" itemprop="datePublished">28th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/npm-cardiac-arrest/" itemprop="url">npm Cardiac Arrest</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="It&#x2019;s_happening_again">It&#x2019;s happening again</h2>
-<h3 id="Beep,_beep,_beeeeeeep">Beep, beep, beeeeeeep</h3>
-<p>The node package manager &#x201C;<a href="https://npmjs.org/" target="_blank" rel="external">npm</a>&#x201C; is once again grinding to a halt. A <a href="http://blog.nodejs.org/2013/11/26/npm-post-mortem/" target="_blank" rel="external">post-mortem</a> was published on the official nodejs blog after the recent downtime (November 4th / November 15th 2013), but it&#x2019;s problems are far from resolved (as demonstrated today).</p>
-<p><img src="/img/npm-beat.png" alt="npm Cardiac Arrest"></p>
-<h2 id="Keep_it_beating,_keep_it_awesome">Keep it beating, keep it awesome</h2>
-<p>With no other alternative, npm is fundamental to node. More infrastructure is needed to continue to operate the npm registry (multi-master approach and <strong>throw hardware and people at it</strong>).</p>
-<p>In my personal opinion (and I know others echo this sentiment) there also needs to be a change to the way npm handles its dependencies. When currently installing a package, half of the registry is downloaded with it. There are ideas, such as materialising a vector of [package, version] -&gt; hash, but this is exceptionally tricky.</p>
-<p>The npm registry has served over 150 million requests and 33 million package downloads in the last week. This is 10 times as many requests and downloads as this time last year, with all signs pointing to further exponential growth.</p>
-<h2 id="Donate">Donate</h2>
-<p><strong>I&#x2019;ve donated</strong> and I also continue to host my personal node projects on nodejitsu. If you&#x2019;re a developer that&#x2019;s ever used npm, <a href="https://scalenpm.org/" target="_blank" rel="external">donate now on the official site</a> and keep npm everything it needs to be for the community.</p>
-<p><img src="/img/npm-thanks.png" alt="Thanks"></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -891,6 +930,10 @@ myMedia.play();
   <ul class="entry">
     
       <li>
+        <a href="/Cordova-PhoneGap-iOS-8-Beta/">Cordova / PhoneGap iOS 8 Beta</a>
+      </li>
+    
+      <li>
         <a href="/touch-id-with-cordova-phonegap/">Touch ID with Cordova / PhoneGap</a>
       </li>
     
@@ -926,10 +969,6 @@ myMedia.play();
         <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/new-features-in-grunt-timer-v03/">New Features in grunt-timer v0.3</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -943,7 +982,7 @@ myMedia.play();
   
     <li><a href="/tags/android/">android</a><small>8</small></li>
   
-    <li><a href="/tags/app/">app</a><small>11</small></li>
+    <li><a href="/tags/app/">app</a><small>12</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -953,11 +992,11 @@ myMedia.play();
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>20</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>21</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>46</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>18</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>19</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

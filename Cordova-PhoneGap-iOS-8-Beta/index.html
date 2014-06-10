@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Sat Nav Map Directions for PhoneGap | iLee</title>
+  <title>Cordova / PhoneGap iOS 8 Beta | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="Get native &quot;sat nav&quot; style map directions with Cordova / PhoneGap">
+  <meta name="description" content="My Cordova / PhoneGap plugin for in-app authentication (Touch ID fingerprint recognition).">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Sat Nav Map Directions for PhoneGap"/>
+  <meta property="og:title" content="Cordova / PhoneGap iOS 8 Beta"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="https://2.gravatar.com/avatar/467b6e8a473f45a15ac9514a30c15c3d?s=150" />
+  <meta property="og:image" content="http://ilee.co.uk/img/cordova-ios8.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,34 +54,39 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2014-02-24T18:25:21.000Z" itemprop="datePublished">24th Feb 2014</time>
+        <time datetime="2014-06-10T11:39:51.000Z" itemprop="datePublished">10th Jun 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Sat Nav Map Directions for PhoneGap</h1>
+    <h1 class="title" itemprop="name headline">Cordova / PhoneGap iOS 8 Beta</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Maps_with_directions">Maps with directions</h2>
-<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank" rel="external">Cordova &#x201C;Directions&#x201D; Plugin</a> to utilise native maps apps for &#x201C;sat nav&#x201D; style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">here</a>.</p>
-<h2 id="Install_the_plugin">Install the plugin</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
+        <h2 id="iOS_8_Beta_and_Cordova_&#x3C;=_3-5-0">iOS 8 Beta and Cordova &lt;= 3.5.0</h2>
+<p>If you&#x2019;ve had a play around with iOS 8 beta (<a href="http://ilee.co.uk/touch-id-with-cordova-phonegap/" target="_blank" rel="external">like me</a>), you&#x2019;ll probably have noticed there&#x2019;s <em>an issue</em>.</p>
+<p><img src="/img/cordova-ios8.png" alt="Cordova / PhoneGap iOS 8"></p>
+<h2 id="WebKit_iOS_8">WebKit iOS 8</h2>
+<p>If you take a look at the <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/RN-iOSSDK-8.0/index.html" target="_blank" rel="external">WebKit iOS 8 release notes</a> you&#x2019;ll see it makes specific mention of Cordova / PhoneGap:</p>
+<blockquote><strong>Applications that use Apache Cordova / PhoneGap are broken due to a bug that causes the window.navigator.userAgent object to become undefined when window.navigator is replaced by a pure JavaScript wrapper object.</strong></blockquote>
+
+<p>Essentially, what happens is Cordova / PhoneGap replaces the <code>window.navigator</code>, as you can see <a href="https://github.com/apache/cordova-js/blob/2c375dd4f585b3fb29ff67ec455918c3a333fc7a/src/common/init.js#L64" target="_blank" rel="external">here</a>.</p>
+<h2 id="The_solution">The solution</h2>
+<p>Although this will be fixed in Cordova 3.6.0 when support for the new Cordova bridge under iOS 8 WKWebView is implemented, Eddy Verbruggen has come up with a <a href="https://gist.github.com/EddyVerbruggen/cd02c73162180793513e#file-ios8-beta-phonegap-fix" target="_blank" rel="external">neat little fix</a> to check if the <code>navigator.userAgent</code> is undefined and assign a return value to it:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {
+    navigator.__defineGetter__(<span class="string">&apos;userAgent&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span>(<span class="string">&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit&quot;</span>);
+    });
+}
 </pre></td></tr></table></figure>
 
-<p>That&#x2019;s all the installation steps thanks to Cordova&#x2019;s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
-<h2 id="Get_directions">Get directions</h2>
-<p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">&quot;51.50722&quot;</span>, <span class="string">&quot;-0.12750&quot;</span>); <span class="comment">// latitude, longitude</span>
-</pre></td></tr></table></figure>
-
-<p>That&#x2019;s it! Really, it&#x2019;s that simple. The Google maps app will open on Android and give directions from the device&#x2019;s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
-<h2 id="Platforms">Platforms</h2>
-<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">GitHub</a>.</p>
-<p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
+<p>Also, targeting 7.0 (which I doubt you&#x2019;re doing if you&#x2019;re playing with iOS 8 beta) should also still work.</p>
 
       
     </div>
@@ -101,7 +106,7 @@
         
   
   <div class="tags">
-    <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/wp8/" itemprop="keywords">wp8</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/app/" itemprop="keywords">app</a>, <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
