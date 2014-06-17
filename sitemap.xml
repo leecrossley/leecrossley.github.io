@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/adds-addition-puzzle-game/</loc>
+    <lastmod>2014-06-17T07:08:43.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/Cordova-PhoneGap-iOS-8-Beta/</loc>
     <lastmod>2014-06-10T12:08:57.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/touch-id-with-cordova-phonegap/</loc>
     <lastmod>2014-06-03T13:19:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://ilee.co.uk/adds-addition-puzzle-game/</loc>
-    <lastmod>2014-05-08T19:43:55.000Z</lastmod>
   </url>
   <url>
     <loc>http://ilee.co.uk/css-translate3d-performance-hack/</loc>
@@ -286,6 +286,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2014-06-12T10:54:16.288Z</lastmod>
+    <lastmod>2014-06-17T07:08:53.537Z</lastmod>
   </url>
 </urlset>
