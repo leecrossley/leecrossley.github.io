@@ -65,14 +65,14 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="JSON5">JSON5</h2>
-<p>I get excited by new tech, especially when it&#x2019;s JavaScript related. It usually makes me do a little dance.</p>
-<p>The proposed extension to JSON, &#x201C;<strong>JSON5</strong>&#x201C; unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
-<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank" rel="external">official site</a> but I&#x2019;m going to have a whinge about why it&#x2019;s <strong>completely pointless and unimaginative poppycock</strong>.</p>
+<p>I get excited by new tech, especially when it’s JavaScript related. It usually makes me do a little dance.</p>
+<p>The proposed extension to JSON, “<strong>JSON5</strong>“ unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
+<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank" rel="external">official site</a> but I’m going to have a whinge about why it’s <strong>completely pointless and unimaginative poppycock</strong>.</p>
 <h2 id="The_reason_behind_JSON5">The reason behind JSON5</h2>
 <p>To quote the proposal:</p>
 <blockquote>
 
-<p>&#x201C;JSON isn&#x2019;t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can&#x2019;t have trailing commas; comments aren&#x2019;t supported.&#x201D;</p>
+<p>“JSON isn’t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can’t have trailing commas; comments aren’t supported.”</p>
 <footer><strong>- aseemk</strong></footer></blockquote>
 
 
@@ -83,7 +83,7 @@
 <li>Trailing commas for object properties</li>
 </ul>
 <h2 id="The_benefits">The benefits</h2>
-<p><strong>There isn&#x2019;t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
+<p><strong>There isn’t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -94,22 +94,22 @@
 8
 </pre></td><td class="code"><pre>{
     why: [
-        <span class="string">&quot;is&quot;</span>,
-        <span class="string">&quot;this&quot;</span>,
-        <span class="string">&quot;better&quot;</span>,
+        <span class="string">"is"</span>,
+        <span class="string">"this"</span>,
+        <span class="string">"better"</span>,
     ],
-    <span class="comment">// (it isn&apos;t)</span>
+    <span class="comment">// (it isn't)</span>
 }
 </pre></td></tr></table></figure>
 
 <h3 id="Inline_comments">Inline comments</h3>
-<p>Property names should be descriptive enough to be obvious without comments, otherwise what you&#x2019;re doing is probably wrong.</p>
-<p>Don&#x2019;t say &#x201C;we need to comment our config files&#x201D;. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
+<p>Property names should be descriptive enough to be obvious without comments, otherwise what you’re doing is probably wrong.</p>
+<p>Don’t say “we need to comment our config files”. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
 <h3 id="Commas">Commas</h3>
-<p>This isn&#x2019;t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
+<p>This isn’t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
 <h2 id="Conclusion">Conclusion</h2>
-<p>If it isn&#x2019;t broken, don&#x2019;t try to fix it. The approach of the proposal appears to be &#x201C;what <em>could</em> we add&#x201D; and seems mainly be suited to less technical people who modify config files.</p>
-<p>Of course, I&#x2019;d love for you to challenge my views&#x2026;</p>
+<p>If it isn’t broken, don’t try to fix it. The approach of the proposal appears to be “what <em>could</em> we add” and seems mainly be suited to less technical people who modify config files.</p>
+<p>Of course, I’d love for you to challenge my views…</p>
 
       
     </div>

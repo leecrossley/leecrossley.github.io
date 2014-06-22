@@ -65,13 +65,13 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="iOS7_elements_with_HTML_and_CSS">iOS7 elements with HTML and CSS</h2>
-<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don&#x2019;t seem to have implemented the <em>useful</em> elements.</p>
+<p>Since the early beta versions of iOS7, front-end developers have been replicating features of the new interface with HTML and CSS. There are <strong>many</strong> implementations of control center popup, but people don’t seem to have implemented the <em>useful</em> elements.</p>
 <h2 id="The_UINavigationBar">The UINavigationBar</h2>
 <p>Almost every app has a navigation bar. As a Cordova / PhoneGap developer, I thought it would be interesting to see if I could come close to implementing the new iOS7 UINavigationBar style in HTML and CSS, since no one else had (after googling and searching sites such as codepen).</p>
 <h2 id="My_implementation">My implementation</h2>
-<p>The tricky part is obviously the transparency / blur / &#x201C;frosting&#x201D; effects, so here&#x2019;s how I set about it.</p>
+<p>The tricky part is obviously the transparency / blur / “frosting” effects, so here’s how I set about it.</p>
 <h3 id="The_transparency">The transparency</h3>
-<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn&#x2019;t find a way to add any sort of blur effect to this element without distorting the header content.</p>
+<p>Using background rgba for alpha transparency on the usual header element (absolute or fix positioned etc), I was able to show the content underneath. This works well but I couldn’t find a way to add any sort of blur effect to this element without distorting the header content.</p>
 <figure class="highlight css"><figcaption><span>header styles </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -140,12 +140,12 @@
 <h3 id="iScroll">iScroll</h3>
 <p>I added <a href="https://github.com/cubiq/iscroll" target="_blank" rel="external">iScroll</a> to the mix, as I usually use this when developing mobile apps. It required a little modification to the usual setup (around the top positioning and adding a padding instead) but showcases the iOS7 style navigation well.</p>
 <h2 id="Demo">Demo</h2>
-<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank" rel="external">here</a>, feel free to fork and make your own changes or improvements. I&#x2019;m also open to feedback as usual.</p>
+<p>You can see a working demo and all the associated code <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank" rel="external">here</a>, feel free to fork and make your own changes or improvements. I’m also open to feedback as usual.</p>
 <h2 id="update"><strong>UPDATE</strong></h2>
 
-<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn&#x2019;t actually applying the blur to elements underneath the header because they aren&#x2019;t nested.</p>
+<p>It turns out that I must have been tipsy to see the blur effect in the code above. It wasn’t actually applying the blur to elements underneath the header because they aren’t nested.</p>
 <p>The only solution I could think up was to clone the body, convert this to a canvas and apply the blur to that. I then probe the scroll event to displace the blurred canvas at the correct y offset.</p>
-<p>Sounds hacky, but it&#x2019;s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place&#x2026;</em>). Not sure it&#x2019;s worth it, but I&#x2019;ll do some performance testing.</p>
+<p>Sounds hacky, but it’s not too bad (<em>other than hiding the header when cloning the body and forcing iScroll to show overflow until the canvas is generated, oh and pulling in additional 3rd party libraries and actually cloning the body in the first place…</em>). Not sure it’s worth it, but I’ll do some performance testing.</p>
 <p>The <a href="http://codepen.io/leecrossley/details/JEexG" target="_blank" rel="external">example code</a> has been updated, feel free to fork.</p>
 
       

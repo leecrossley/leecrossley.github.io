@@ -64,20 +64,20 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="New_version_of_&#x201C;grunt-timer&#x201D;">New version of &#x201C;grunt-timer&#x201D;</h2>
+        <h2 id="New_version_of_“grunt-timer”">New version of “grunt-timer”</h2>
 <p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I&#x2019;ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank" rel="external">README</a> is up to date.</p>
+<p>I’ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank" rel="external">README</a> is up to date.</p>
 <h2 id="Open_source">Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I&#x2019;ve now made several improvements and fixes:</p>
+<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I’ve now made several improvements and fixes:</p>
 <ol>
-<li><p>Tasks (that aren&#x2019;t really tasks) taking no time are no longer logged.</p>
+<li><p>Tasks (that aren’t really tasks) taking no time are no longer logged.</p>
 <ul>
-<li>Let&#x2019;s say you have a task &#x201C;mytask&#x201D; that has a &#x201C;mytask:dist&#x201D; configuration. &#x201C;mytask:dist&#x201D; is actually what should be timed (according to the &#x201C;nameArgs&#x201D; property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
+<li>Let’s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
 </ul>
 </li>
 <li><p>A total elapsed time of all logged tasks is now also logged.</p>
 <ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn&#x2019;t itself a summary. It still has to appear after the &#x201C;Done, without errors&#x201D; unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
+<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn’t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
 </ul>
 </li>
 <li><p>The initialisation period no longer contributes to logged times.</p>
@@ -87,7 +87,7 @@
 </li>
 </ol>
 <h2 id="Source_code">Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">here</a>. I&#x2019;m open to pull requests and suggestions as always.</p>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">here</a>. I’m open to pull requests and suggestions as always.</p>
 
       
     </div>

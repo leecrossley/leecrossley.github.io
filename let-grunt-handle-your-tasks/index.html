@@ -65,32 +65,32 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Grunt_-_the_task_runner_for_JavaScript">Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn&#x2019;t take sick days, pays attention and watches what you&#x2019;re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It&#x2019;s easy to configure and once it&#x2019;s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
-<p>I&#x2019;m just going to cover the basics here for now.</p>
+<p>Let grunt handle all your JavaScript tasks. It doesn’t take sick days, pays attention and watches what you’re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It’s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I’m just going to cover the basics here for now.</p>
 <h2 id="Getting_the_ball_rolling">Getting the ball rolling</h2>
-<p>Grunt is easy to set up. I&#x2019;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
 <h3 id="The_Grunt_CLI">The Grunt CLI</h3>
-<p>Assuming you&#x2019;re a serious developer, you&#x2019;ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#x2019;re ready, run:</p>
+<p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm install <span class="attribute">-g</span> grunt<span class="attribute">-cli</span>
 </pre></td></tr></table></figure>
 
-<p>You can now run &#x201C;grunt&#x201D; from anywhere. Happy times.</p>
+<p>You can now run “grunt” from anywhere. Happy times.</p>
 <h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
-<p>Here&#x2019;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-watch&quot;</span>);
-grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-jshint&quot;</span>);
-grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-jasmine&quot;</span>);
-grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>);
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
-<p>You can then define some tasks in your Gruntfile.js, here&#x2019;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -98,9 +98,9 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 5
 6
 </pre></td><td class="code"><pre>jasmine: {
-    src: <span class="string">&quot;functional.min.js&quot;</span>,
+    src: <span class="string">"functional.min.js"</span>,
     options: {
-        specs: <span class="string">&quot;spec.js&quot;</span>
+        specs: <span class="string">"spec.js"</span>
     }
 }
 </pre></td></tr></table></figure>
@@ -112,14 +112,14 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 </pre></td></tr></table></figure>
 
 <h3 id="Combining_tasks">Combining tasks</h3>
-<p>In the above example, it&#x2019;s unlikely that you&#x2019;ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#x2019;s easy to combine your tasks:</p>
+<p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">&quot;test&quot;</span>, [<span class="string">&quot;jshint&quot;</span>, <span class="string">&quot;uglify&quot;</span>, <span class="string">&quot;jasmine&quot;</span>]);
+</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
 </pre></td></tr></table></figure>
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
 <h3 id="Watching_for_changes">Watching for changes</h3>
-<p><strong>I&#x2019;m addicted to automation, give me more!</strong> You won&#x2019;t want to keep typing &#x201C;grunt test&#x201D; and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -129,10 +129,10 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 7
 </pre></td><td class="code"><pre>watch: {
     files: [
-        <span class="string">&quot;*.js&quot;</span>,
-        <span class="string">&quot;!functional.min.js&quot;</span>
+        <span class="string">"*.js"</span>,
+        <span class="string">"!functional.min.js"</span>
     ],
-    tasks: [<span class="string">&quot;test&quot;</span>]
+    tasks: [<span class="string">"test"</span>]
 }
 </pre></td></tr></table></figure>
 

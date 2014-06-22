@@ -67,7 +67,7 @@
         <h2 id="CSS_transition_performance">CSS transition performance</h2>
 <p>When I started out developing apps with Cordova / PhoneGap, there were several performance hacks I used to help CSS animations become smoother, i.e. force GPU acceleration.</p>
 <h3 id="The_CSS_transform_hacks">The CSS transform hacks</h3>
-<p>Depending on the scenario, I&#x2019;d usually adopt one of the following (and I&#x2019;d be careful about which elements they were applied to):</p>
+<p>Depending on the scenario, I’d usually adopt one of the following (and I’d be careful about which elements they were applied to):</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -97,12 +97,12 @@
 </pre></td></tr></table></figure>
 
 <h3 id="Memory_allocation">Memory allocation</h3>
-<p>These hacks were never a hard and fast rule, and as developers don&#x2019;t have control over browser memory, it was easy to create memory issues.</p>
+<p>These hacks were never a hard and fast rule, and as developers don’t have control over browser memory, it was easy to create memory issues.</p>
 <h2 id="Beware">Beware</h2>
-<p>After applying varies permutations of these hacks to a game I&#x2019;m developing with Cordova / PhoneGap, it appears that even using the hacks sparingly and with caution, the performance of the transitions are degraded.</p>
+<p>After applying various permutations of these hacks to a game I’m developing with Cordova / PhoneGap, it appears that even using the hacks sparingly and with caution, the performance of the transitions are degraded.</p>
 <p>Transitions are jerkier than without the hacks and it hits the performance of the native code when used in parallel (e.g. <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">native transitions</a>). It also forces font rendering to GPU control instead of the operating system rendering scheme, making text appear slightly pixellated on occasion.</p>
 <h3 id="Conclusion">Conclusion</h3>
-<p>In my opinion, with well developed apps and the latest browsers / hardware, these hacks are now redundant (and are likely to make things worse). The chances are, you probably don&#x2019;t need to use them anymore.</p>
+<p>In my opinion, with well developed apps and the latest browsers / hardware, these hacks are now redundant (and are likely to make things worse). The chances are, you probably don’t need to use them anymore.</p>
 <p>To combat performance issues, you should look at other contributing factors, like the number of elements and use of intensive styles, such as box shadow.</p>
 
       

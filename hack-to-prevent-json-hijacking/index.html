@@ -65,17 +65,17 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="JSON_hijacking">JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn&#x2019;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank" rel="external">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#x2019;s a nice little hack to prevent the hijack.</p>
+<p>I recently needed to ensure a JSON service response couldn’t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank" rel="external">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there’s a nice little hack to prevent the hijack.</p>
 <p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
 <h2 id="The_hack">The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#x2019;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<p>Because you aren&#x2019;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">&quot;while(1);&quot;</span>.length));
+</pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
 </pre></td></tr></table></figure>
 
 <p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
@@ -84,13 +84,13 @@
 </pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
 </pre></td></tr></table></figure>
 
-<p>Personally, I&#x2019;d like to lead the JSON response with the throwing of an error message :)</p>
+<p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">&quot;JSON THIEF&quot;</span>;
+</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
 </pre></td></tr></table></figure>
 
 <h2 id="Limitations">Limitations</h2>
-<p>Using this quick and easy hack means you don&#x2019;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It&#x2019;s not however a solution for cross-site request forgery itself. Maybe I&#x2019;ll cover that on another, less sunny day.</p>
+<p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
 
       
     </div>

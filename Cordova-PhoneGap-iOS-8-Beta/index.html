@@ -64,11 +64,11 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="iOS_8_Beta_and_Cordova_&#x3C;=_3-5-0">iOS 8 Beta and Cordova &lt;= 3.5.0</h2>
-<p>If you&#x2019;ve had a play around with iOS 8 beta (<a href="http://ilee.co.uk/touch-id-with-cordova-phonegap/" target="_blank" rel="external">like me</a>), you&#x2019;ll probably have noticed there&#x2019;s <em>an issue</em>.</p>
+        <h2 id="iOS_8_Beta_and_Cordova_&lt;=_3-5-0">iOS 8 Beta and Cordova &lt;= 3.5.0</h2>
+<p>If you’ve had a play around with iOS 8 beta (<a href="http://ilee.co.uk/touch-id-with-cordova-phonegap/" target="_blank" rel="external">like me</a>), you’ll probably have noticed there’s <em>an issue</em>.</p>
 <p><img src="/img/cordova-ios8.png" alt="Cordova / PhoneGap iOS 8"></p>
 <h2 id="WebKit_iOS_8">WebKit iOS 8</h2>
-<p>If you take a look at the <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/RN-iOSSDK-8.0/index.html" target="_blank" rel="external">WebKit iOS 8 release notes</a> you&#x2019;ll see it makes specific mention of Cordova / PhoneGap:</p>
+<p>If you take a look at the <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/RN-iOSSDK-8.0/index.html" target="_blank" rel="external">WebKit iOS 8 release notes</a> you’ll see it makes specific mention of Cordova / PhoneGap:</p>
 <blockquote><strong>Applications that use Apache Cordova / PhoneGap are broken due to a bug that causes the window.navigator.userAgent object to become undefined when window.navigator is replaced by a pure JavaScript wrapper object.</strong></blockquote>
 
 <p>Essentially, what happens is Cordova / PhoneGap replaces the <code>window.navigator</code>, as you can see <a href="https://github.com/apache/cordova-js/blob/2c375dd4f585b3fb29ff67ec455918c3a333fc7a/src/common/init.js#L64" target="_blank" rel="external">here</a>.</p>
@@ -80,13 +80,13 @@
 4
 5
 </pre></td><td class="code"><pre><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {
-    navigator.__defineGetter__(<span class="string">&apos;userAgent&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span>(<span class="string">&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit&quot;</span>);
+    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);
     });
 }
 </pre></td></tr></table></figure>
 
-<p>Also, targeting 7.0 (which I doubt you&#x2019;re doing if you&#x2019;re playing with iOS 8 beta) should also still work.</p>
+<p>Also, targeting 7.0 (which I doubt you’re doing if you’re playing with iOS 8 beta) should also still work.</p>
 
       
     </div>

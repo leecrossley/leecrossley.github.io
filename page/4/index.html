@@ -66,16 +66,16 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Sluggish_and_unresponsive">Sluggish and unresponsive</h2>
-<p>If you&#x2019;ve done any kind of mobile development that&#x2019;s HTML based, you&#x2019;ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
+<p>If you’ve done any kind of mobile development that’s HTML based, you’ve probably been troubled by the <strong>300ms delay plague</strong>. That measly 300ms can make a real impact of the perceived performance of your app, which should be a user experience priority.</p>
 <h2 id="Why_the_delay?">Why the delay?</h2>
 <p>Mobiles and tablets automatically add a 300ms delay between the instant an element is clicked before firing the click event, the reason for this is the browser is waiting to see if you are actually performing a double click.</p>
 <h2 id="The_solution">The solution</h2>
-<p>I&#x2019;ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank" rel="external">FT Labs</a> that seems to have hit the nail on the head.</p>
+<p>I’ve implemented many (many) hacks in the past in various apps to prevent this lack of responsiveness but today I found a library by <a href="http://labs.ft.com/" target="_blank" rel="external">FT Labs</a> that seems to have hit the nail on the head.</p>
 <h3 id="FastClick"><a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">FastClick</a></h3>
-<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you&#x2019;re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank" rel="external">here on your mobile</a> for a working example.</p>
-<p>There&#x2019;s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
+<p>Simply include the JavaScript file, and a simple call of FastClick.attach(document.body); when you’re ready will eliminate that delay. Take a look <a href="http://ftlabs.github.io/fastclick/examples/layer.html" target="_blank" rel="external">here on your mobile</a> for a working example.</p>
+<p>There’s support for every package manager under the sun, take a look at the github readme for more details and for advanced usage.</p>
 <h2 id="Re-instantiating">Re-instantiating</h2>
-<p>There&#x2019;s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
+<p>There’s one small issue, dynamically adding elements to the page (which is frequent in mobile development), requires you to re-instantiate FastClick. This obviously has a small overhead. I try to preload what I can (within reason), as this also helps the user experience. </p>
 <p>Happy FastClick-ing.</p>
 
       
@@ -124,19 +124,19 @@
         <h2 id="Hack_Manchester">Hack Manchester</h2>
 <p><a href="http://www.hackmanchester.com/" target="_blank" rel="external">Hack Manchester</a> is the premier 24-hour coding competition based in Manchester, run by <a href="https://twitter.com/ruby_gem" target="_blank" rel="external">@ruby_gem</a> and <a href="https://twitter.com/theallseeingpie" target="_blank" rel="external">@theallseeingpie</a> (with help from others). This year (as before) it was held at the <a href="http://www.mosi.org.uk/" target="_blank" rel="external">Museum of Science and Industry</a> on the 26th and 27th of October 2013 as part of <a href="http://www.manchestersciencefestival.com/" target="_blank" rel="external">Manchester Science Festival</a>.</p>
 <h2 id="We_won_again!">We won again!</h2>
-<p>I blogged a few weeks ago (<a href="/road-to-hack-manchester">the road to Hack Manchester</a>) about winning back in 2012 and what it takes to win based on the lessons we learnt. Looks like it was good advice because <strong>WE&#x2019;VE GONE AND DONE IT AGAIN!</strong> Amazing job from my team mates <a href="https://twitter.com/edhiley" target="_blank" rel="external">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank" rel="external">@ryansroberts</a>. This gives me a crazy record of 3 hack events and 3 wins.</p>
+<p>I blogged a few weeks ago (<a href="/road-to-hack-manchester">the road to Hack Manchester</a>) about winning back in 2012 and what it takes to win based on the lessons we learnt. Looks like it was good advice because <strong>WE’VE GONE AND DONE IT AGAIN!</strong> Amazing job from my team mates <a href="https://twitter.com/edhiley" target="_blank" rel="external">@edhiley</a> and <a href="https://twitter.com/ryansroberts" target="_blank" rel="external">@ryansroberts</a>. This gives me a crazy record of 3 hack events and 3 wins.</p>
 <h2 id="The_challenge">The challenge</h2>
 <p>The challenge (sponsored by <a href="https://twitter.com/WebAppUK" target="_blank" rel="external">Web Applications UK</a>) was to write a game. More specifically, to write a browser-based game with a travel theme.</p>
-<p>For anyone who doesn&#x2019;t know what a browser is (there seem to be quite a few), it&#x2019;s a computer program with a graphical user interface for displaying HTML files. So, we came up with a travel themed game (written in HTML / CSS / JavaScript for both the <a href="https://github.com/leecrossley/appsassin/tree/master/client/www" target="_blank" rel="external">mobile clients</a> and server). Nothing to dispute there.</p>
+<p>For anyone who doesn’t know what a browser is (there seem to be quite a few), it’s a computer program with a graphical user interface for displaying HTML files. So, we came up with a travel themed game (written in HTML / CSS / JavaScript for both the <a href="https://github.com/leecrossley/appsassin/tree/master/client/www" target="_blank" rel="external">mobile clients</a> and server). Nothing to dispute there.</p>
 <p>Anyway, here is the more detailed brief we were given:</p>
 <blockquote>
 
-<p>We&#x2019;re looking for the most entertaining and damn right addictive game you can muster. Have fun with it and create something great. The most original idea, with the best use of the travel theme and some impressive features thrown in will bag the prize&#x2026;</p>
+<p>We’re looking for the most entertaining and damn right addictive game you can muster. Have fun with it and create something great. The most original idea, with the best use of the travel theme and some impressive features thrown in will bag the prize…</p>
 <footer><strong>- Web Applications UK</strong></footer></blockquote>
 
 
-<h2 id="&#x201C;Appsassin&#x201D;">&#x201C;Appsassin&#x201D;</h2>
-<p>Our concept was to assassinate other players with your mobile phone (we supported Android and iOS, but it also probably works on Windows Phone and BlackBerry, with it being browser based), hence the comical name &#x201C;appsassin&#x201D; and url &#x201C;appsass.in&#x201D; :)</p>
+<h2 id="“Appsassin”">“Appsassin”</h2>
+<p>Our concept was to assassinate other players with your mobile phone (we supported Android and iOS, but it also probably works on Windows Phone and BlackBerry, with it being browser based), hence the comical name “appsassin” and url “appsass.in” :)</p>
 <h3 id="The_game">The game</h3>
 <h4 id="Signup">Signup</h4>
 <ul>
@@ -150,7 +150,7 @@
 <li>You can track your targets location (in realtime) via a map</li>
 <li>Text messages are sent when you are within 100 meters of your target</li>
 <li>Text messages are sent when the player after you is within 100 meters of you</li>
-<li>You &#x201C;kill&#x201D; your target by taking a picture of their face (and it passing facial recognition)</li>
+<li>You “kill” your target by taking a picture of their face (and it passing facial recognition)</li>
 <li>If you kill a target, you get their target</li>
 <li>The winner is the last one standing</li>
 </ul>
@@ -164,9 +164,9 @@
 <li>OpenLayers / OpenStreetMap</li>
 <li>Clockwork SMS</li>
 </ul>
-<p>All the source code for the hack day code is available on <a href="https://github.com/leecrossley/appsassin" target="_blank" rel="external">github</a>, let me know if you&#x2019;d like me to go into detail on any of the aspects.</p>
+<p>All the source code for the hack day code is available on <a href="https://github.com/leecrossley/appsassin" target="_blank" rel="external">github</a>, let me know if you’d like me to go into detail on any of the aspects.</p>
 <h2 id="What_next?">What next?</h2>
-<p>We&#x2019;re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank" rel="external">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank" rel="external">@edhiley</a>, including the music).</p>
+<p>We’re planning to release a new version of Appsassin for public consumption. Until then, you can <a href="https://vimeo.com/77907408" target="_blank" rel="external">watch our video of us playing it</a> (professionally produced by team member <a href="https://twitter.com/edhiley" target="_blank" rel="external">@edhiley</a>, including the music).</p>
 <h2 id="Thanks">Thanks</h2>
 <p>A special thanks again to all the sponsors of the event and everyone involved in the organising and running. A huge success, again.</p>
 
@@ -214,12 +214,12 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Structured_data">Structured data</h2>
-<p>You&#x2019;ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
-<p>By using Structured Data, you&#x2019;re allowing search engines and bots to produce &#x201C;Rich Snippets&#x201D; from your data, as the structure and semantic meaning is defined.</p>
+<p>You’ve probably heard of Structured Data, it comes in several different formats, microdata, microformats, RDFa / RDFa Lite but Google are now officially recommending that you use the microdata format.</p>
+<p>By using Structured Data, you’re allowing search engines and bots to produce “Rich Snippets” from your data, as the structure and semantic meaning is defined.</p>
 <h3 id="Microdata">Microdata</h3>
-<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank" rel="external">W3C HTML Microdata Draft</a>, or you can just carry on reading and I&#x2019;ll show you how simple it really is.</p>
+<p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank" rel="external">W3C HTML Microdata Draft</a>, or you can just carry on reading and I’ll show you how simple it really is.</p>
 <h2 id="This_blog">This blog</h2>
-<p>Let&#x2019;s take this blog as an example. I&#x2019;ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank" rel="external">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
+<p>Let’s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank" rel="external">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
 <figure class="highlight html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -233,14 +233,14 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">&quot;post&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;post-content&quot;</span>&gt;</span>
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;icon&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">&quot;2013-10-25T09:45:35.000Z&quot;</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">&quot;title&quot;</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
         <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;entry&quot;</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
             <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
             ...
         <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -261,14 +261,14 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">&quot;post&quot;</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">&quot;http://schema.org/BlogPosting&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;post-content&quot;</span>&gt;</span>
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
         <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;icon&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">&quot;2013-10-25T09:45:35.000Z&quot;</span> <span class="attribute">itemprop</span>=<span class="value">&quot;datePublished&quot;</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">&quot;title&quot;</span> <span class="attribute">itemprop</span>=<span class="value">&quot;name headline&quot;</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span> <span class="attribute">itemprop</span>=<span class="value">"datePublished"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">itemprop</span>=<span class="value">"name headline"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
         <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;entry&quot;</span> <span class="attribute">itemprop</span>=<span class="value">&quot;articleBody&quot;</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span> <span class="attribute">itemprop</span>=<span class="value">"articleBody"</span>&gt;</span>
             <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
             ...
         <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -278,11 +278,11 @@
 
 <p>There are 2 main differences:</p>
 <ul>
-<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I&#x2019;m writing a blog post and that I&#x2019;m following the Schema.org standard.</li>
-<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don&#x2019;t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
+<li>I have added <em>itemscope</em> and <em>itemtype</em> attributes to the top level article element, which allows bots to understand that I’m writing a blog post and that I’m following the Schema.org standard.</li>
+<li>I have added various <em>itemprop</em> attributes to certain elements within the article. This allows bots to understand which element relates to which property from Schema.org. <strong>Please note</strong>, you don’t need to use every property on Schema.org(!), just pick what is appropriate to your content.</li>
 </ul>
 <h2 id="Testing">Testing</h2>
-<p>You&#x2019;ll want to ensure that what you&#x2019;ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank" rel="external">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank" rel="external">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank" rel="external">W3C Validator</a>.</p>
+<p>You’ll want to ensure that what you’ve done is right. Fortunately, Google have a free <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank" rel="external">Rich Snippets testing tool</a>. You can see the results for this blog <a href="http://www.google.com/webmasters/tools/richsnippets?q=ilee.co.uk" target="_blank" rel="external">here</a>. You should also double check that your HTML is still valid using the <a href="http://validator.w3.org/" target="_blank" rel="external">W3C Validator</a>.</p>
 <p><strong>There will be a day when you ALWAYS use structured data, make that day today.</strong></p>
 
       
@@ -329,8 +329,8 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="PlugReg">PlugReg</h2>
-<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/" target="_blank" rel="external">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank" rel="external">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I&#x2019;ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
-<h3 id="What&#x2019;s_changed">What&#x2019;s changed</h3>
+<p>2 months ago, <a href="http://ilee.co.uk/plugin-registry-for-cordova-phonegap/" target="_blank" rel="external">I wrote about</a> my new plugin registry, <a href="http://www.plugreg.com/" target="_blank" rel="external">PlugReg</a>. It now boasts about 200 different plugins from over 100 authors. I’ve taken some feedback on board and implemented a new feature to help you find the plugins you need for your apps.</p>
+<h3 id="What’s_changed">What’s changed</h3>
 <p>Some of the new features and bug fixes:</p>
 <ul>
 <li><strong>Platform Filters</strong>. You can now filter your search results, or all plugins by platform</li>
@@ -356,7 +356,7 @@ plugins.sort(byCase);
 
 <p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
 <h2 id="Suggestions">Suggestions</h2>
-<p>Please keep the suggestions coming, I&#x2019;m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven&#x2019;t already.</p>
+<p>Please keep the suggestions coming, I’m keen to push forward with new features and improvements. Add your own plugins or any plugins you have used if you haven’t already.</p>
 
       
     </div>
@@ -403,23 +403,23 @@ plugins.sort(byCase);
       
         <h2 id="HTTP_status_codes">HTTP status codes</h2>
 <p>Every response from a server carries an HTTP status code, this provides clients with the ability to formally identify the status of the response and has other uses, such as identifying a type of error.</p>
-<p>I&#x2019;m currently working with a &#x201C;<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">RESTful</a>&#x201C; (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank" rel="external">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
+<p>I’m currently working with a “<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">RESTful</a>“ (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank" rel="external">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
 <p>An API especially should use the correct status codes so that responses to basic requests can be defined by status codes, without the need for any additional data.</p>
 <h2 id="The_basics">The basics</h2>
 <ul>
 <li><strong>1xx</strong> - Hang on</li>
 <li><strong>2xx</strong> - <a href="http://www.youtube.com/watch?v=erETKfL9LbU" target="_blank" rel="external">Sha-ting</a></li>
 <li><strong>3xx</strong> - Move away</li>
-<li><strong>4xx</strong> - That&#x2019;s your bad</li>
-<li><strong>5xx</strong> - That&#x2019;s my bad</li>
+<li><strong>4xx</strong> - That’s your bad</li>
+<li><strong>5xx</strong> - That’s my bad</li>
 </ul>
-<p>OK, so I&#x2019;m not being totally serious with these. I&#x2019;m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="external">Wikipedia</a> for the list.</p>
+<p>OK, so I’m not being totally serious with these. I’m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="external">Wikipedia</a> for the list.</p>
 <h2 id="Test_your_status_codes">Test your status codes</h2>
 <p>There are some online tools to check your status codes, <a href="http://httpstatus.io/" target="_blank" rel="external">httpstatus.io</a> looks good (and ends with .io, so it <em>must</em> be cool).</p>
-<h2 id="I&#x2019;m_a_tea_pot">I&#x2019;m a tea pot</h2>
+<h2 id="I’m_a_tea_pot">I’m a tea pot</h2>
 <p>The Hyper Text Coffee Pot Control Protocol is a nonessential and humorous communications protocol for controlling, monitoring, and diagnosing coffee pots and has the following status code (yes this is real):</p>
 <ul>
-<li><strong>418</strong> I&#x2019;m a teapot (may be short and/or stout)</li>
+<li><strong>418</strong> I’m a teapot (may be short and/or stout)</li>
 </ul>
 <p>Time for a coffee.</p>
 
@@ -467,27 +467,27 @@ plugins.sort(byCase);
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Format_frustration">Format frustration</h2>
-<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank" rel="external">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank" rel="external">see here</a>). It turns out it&#x2019;s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
+<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank" rel="external">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank" rel="external">see here</a>). It turns out it’s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
 <p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
 <h2 id="The_right_way">The right way</h2>
 <p>Follow these simple guideline(s):</p>
 <ul>
 <li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
 <li>Capitalise the first letter</li>
-<li>Write in the imperative (e.g. &#x201C;Fix bug&#x201D; or &#x201C;Add file&#x201D; not &#x201C;Fixed bug&#x201D; or &#x201C;Added file&#x201D;)</li>
-<li>Don&#x2019;t end with a full stop</li>
+<li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
+<li>Don’t end with a full stop</li>
 <li>Reference issue numbers with a #</li>
 </ul>
 <p>Optional:</p>
 <ul>
 <li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
-<li>Prefix with &#x201C;area: &#x201C; where the area is an identifier for the area of the code the commit relates to (personally I don&#x2019;t do this but it can be useful in some circumstances)</li>
+<li>Prefix with “area: “ where the area is an identifier for the area of the code the commit relates to (personally I don’t do this but it can be useful in some circumstances)</li>
 </ul>
 <h2 id="Why?">Why?</h2>
 <p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
-<p>If you take a look at auto generated git messages, you&#x2019;ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
+<p>If you take a look at auto generated git messages, you’ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
 <h2 id="Automated_user_git_messages">Automated user git messages</h2>
-<p>Bad bad bad. You&#x2019;re not adding any value by doing this. You can always alias if you don&#x2019;t want to type git commit -m.</p>
+<p>Bad bad bad. You’re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
 
       
     </div>
@@ -536,18 +536,18 @@ plugins.sort(byCase);
 <p>A <a href="https://twitter.com/VickiHigham" target="_blank" rel="external">friend</a> today asked me a very interesting question:</p>
 <blockquote>
 
-<p>&#x201C;Can you see a reason people would launch on iOS first?&#x201D; &#x2026; &#x201C;they don&#x2019;t have the biggest market share&#x201D;</p>
+<p>“Can you see a reason people would launch on iOS first?” … “they don’t have the biggest market share”</p>
 <footer><strong>- @VickiHigham</strong></footer></blockquote>
 
 
 <p><img src="/img/app-platforms.png" alt="Mobile App Platforms"></p>
-<p>This got me thinking. Yes, it&#x2019;s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
-<p>I&#x2019;ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
+<p>This got me thinking. Yes, it’s true that there are many more Android devices than iOS devices (both mobile and tablets) in circulation. In terms of app downloads and more importantly revenue generated from paid apps and in app purchases, iOS has always been a clear winner in my experience (more than 10x), meaning that iOS is the most lucrative app market.</p>
+<p>I’ve generally released iOS apps first, probably because of higher volume of grossing apps. </p>
 <h3 id="The_curveball">The curveball</h3>
-<p>In reality, it doesn&#x2019;t actually doesn&#x2019;t make sense to develop for iOS first if you&#x2019;re going to be targeting multiple platforms (especially if you&#x2019;re using something like Cordova / PhoneGap)&#x2026; let me convince you why.</p>
+<p>In reality, it doesn’t actually doesn’t make sense to develop for iOS first if you’re going to be targeting multiple platforms (especially if you’re using something like Cordova / PhoneGap)… let me convince you why.</p>
 <h2 id="Developing_apps_for_Android_first">Developing apps for Android first</h2>
-<h3 id="It&#x2019;s_all_about_the_review_process">It&#x2019;s all about the review process</h3>
-<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank" rel="external">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can&#x2019;t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
+<h3 id="It’s_all_about_the_review_process">It’s all about the review process</h3>
+<p>iOS apps have to go through the cumbersome <a href="https://developer.apple.com/appstore/guidelines.html" target="_blank" rel="external">Apple review process</a>, meaning delays of up to 2 weeks (or sometimes longer), where you can’t make any changes to your app or have anyone using it. Subsequent releases also have to  go through the review process, meaning bug fixes take longer to reach customers. Windows Phone has a similar review process.</p>
 <p>If you were to develop apps for Android first, because of the fast release process there would be a raft of benefits:</p>
 <ul>
 <li>The app could potentially be released quicker</li>
@@ -555,7 +555,7 @@ plugins.sort(byCase);
 <li>A more robust version could then be released to iOS</li>
 </ul>
 <h2 id="Other_considerations">Other considerations</h2>
-<p>Of course, there are other considerations, such as target location, device capabilities etc but we should be at least questioning the &#x201C;iOS First&#x201D; approach that seems to have become the default.</p>
+<p>Of course, there are other considerations, such as target location, device capabilities etc but we should be at least questioning the “iOS First” approach that seems to have become the default.</p>
 
       
     </div>
@@ -601,17 +601,17 @@ plugins.sort(byCase);
     <div class="entry" itemprop="articleBody">
       
         <h2 id="JSON_hijacking">JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn&#x2019;t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank" rel="external">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there&#x2019;s a nice little hack to prevent the hijack.</p>
+<p>I recently needed to ensure a JSON service response couldn’t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank" rel="external">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there’s a nice little hack to prevent the hijack.</p>
 <p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
 <h2 id="The_hack">The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it&#x2019;s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
+<p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
 </pre></td></tr></table></figure>
 
-<p>Because you aren&#x2019;t using a JSONP request, you have the ability to modify the response, e.g.</p>
+<p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">&quot;while(1);&quot;</span>.length));
+</pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
 </pre></td></tr></table></figure>
 
 <p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
@@ -620,13 +620,13 @@ plugins.sort(byCase);
 </pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
 </pre></td></tr></table></figure>
 
-<p>Personally, I&#x2019;d like to lead the JSON response with the throwing of an error message :)</p>
+<p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">&quot;JSON THIEF&quot;</span>;
+</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
 </pre></td></tr></table></figure>
 
 <h2 id="Limitations">Limitations</h2>
-<p>Using this quick and easy hack means you don&#x2019;t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It&#x2019;s not however a solution for cross-site request forgery itself. Maybe I&#x2019;ll cover that on another, less sunny day.</p>
+<p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
 
       
     </div>
@@ -672,7 +672,7 @@ plugins.sort(byCase);
     <div class="entry" itemprop="articleBody">
       
         <h2 id="isNumeric">isNumeric</h2>
-<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it&#x2019;s really not a lot of code, but took a little while to get just right. It&#x2019;s tested with every type of numeric I could think up (and also non-numerics).</p>
+<p>Today I wrote a (very small) node package to allow you to determine if a JavaScript object is numeric or not. It turns out it’s really not a lot of code, but took a little while to get just right. It’s tested with every type of numeric I could think up (and also non-numerics).</p>
 <h3 id="Using_npm">Using npm</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm <span class="keyword">install</span> isnumeric
@@ -680,7 +680,7 @@ plugins.sort(byCase);
 
 <p>To then include isnumeric in your node app:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="built_in">require</span>(<span class="string">&quot;isnumeric&quot;</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="built_in">require</span>(<span class="string">"isnumeric"</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="Direct_dependency">Direct dependency</h3>
@@ -692,14 +692,14 @@ plugins.sort(byCase);
 3
 4
 </pre></td><td class="code"><pre><span class="keyword">var</span> isNumeric = <span class="function"><span class="keyword">function</span> <span class="params">(obj)</span> {</span>
-    obj = <span class="keyword">typeof</span>(obj) === <span class="string">&quot;string&quot;</span> ? obj.replace(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;.&quot;</span>) : obj;
-    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(obj)) &amp;&amp; <span class="built_in">isFinite</span>(obj) &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(obj).toLowerCase() !== <span class="string">&quot;[object array]&quot;</span>;
+    obj = <span class="keyword">typeof</span>(obj) === <span class="string">"string"</span> ? obj.replace(<span class="string">","</span>, <span class="string">"."</span>) : obj;
+    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(obj)) &amp;&amp; <span class="built_in">isFinite</span>(obj) &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(obj).toLowerCase() !== <span class="string">"[object array]"</span>;
 };
 </pre></td></tr></table></figure>
 
-<p>The first line of the function could be omitted if you weren&#x2019;t concerned with supporting comma decimals (e.g. &#x201C;1,1&#x201D;) like in some countries.</p>
+<p>The first line of the function could be omitted if you weren’t concerned with supporting comma decimals (e.g. “1,1”) like in some countries.</p>
 <h2 id="The_tests">The tests</h2>
-<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank" rel="external">64 tests</a>! so it&#x2019;s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
+<p>There are currently <a href="https://github.com/leecrossley/isNumeric/blob/master/spec.js" target="_blank" rel="external">64 tests</a>! so it’s pretty well tested. I certainly win the award for smallest amount of code with most amount of tests :)</p>
 <p>Any disagreements or improvements please pull request.</p>
 
       
@@ -747,31 +747,31 @@ plugins.sort(byCase);
       
         <p><img src="/img/iphone5s.png" alt="iLee iPhone 5s"></p>
 <h2 id="Mobile_app_developer">Mobile app developer</h2>
-<p>As an app developer, I&#x2019;m burdened with buying mobiles and tablets all the time and have <a href="/more-mobile-devices-than-socks/">more mobile devices than socks</a>. Having said that, I&#x2019;m actually planning to use my new iPhone for day-to-day usage too (i.e. actually making phone calls).</p>
+<p>As an app developer, I’m burdened with buying mobiles and tablets all the time and have <a href="/more-mobile-devices-than-socks/">more mobile devices than socks</a>. Having said that, I’m actually planning to use my new iPhone for day-to-day usage too (i.e. actually making phone calls).</p>
 <h2 id="Crazy_queuing">Crazy queuing</h2>
-<p><strong>I didn&#x2019;t queue</strong> for my new iPhone 5s, I also didn&#x2019;t <a href="http://news.sky.com/story/1144613/apple-iphone-fights-as-homeless-hired-to-queue" target="_blank" rel="external">pay the homeless</a> to queue for me. I ordered in 60 seconds from the comfort of my home, on the o2 website and it arrived the next working day. Some people really need to get some common sense.</p>
+<p><strong>I didn’t queue</strong> for my new iPhone 5s, I also didn’t <a href="http://news.sky.com/story/1144613/apple-iphone-fights-as-homeless-hired-to-queue" target="_blank" rel="external">pay the homeless</a> to queue for me. I ordered in 60 seconds from the comfort of my home, on the o2 website and it arrived the next working day. Some people really need to get some common sense.</p>
 <h2 id="Thoughts_on_day_one">Thoughts on day one</h2>
 <h3 id="The_good_bits">The good bits</h3>
 <ul>
 <li>Configuring from another iPhone backup was simple.</li>
 <li>The Apple A7 chip is <em>fast</em>, I feel the performance increase doing anything on the device.</li>
-<li>I&#x2019;m no photographer but the 8 megapixel camera with dual LED flash does live up to (some of) the hype. Burst mode is pretty cool too.</li>
-<li>The Touch ID home button is a <em>nice touch</em>, even if it <a href="http://istouchidhackedyet.com/" target="_blank" rel="external">may have been hacked</a> already. You wouldn&#x2019;t use an iPhone if you had security concerns though, right? :)</li>
-<li>Free Apple apps. Sweet. Probably won&#x2019;t use them though.</li>
-<li>Apparently I can <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/news/newly-released-apple-iphone-5s-on-ebay-for-2000-8831594.html" target="_blank" rel="external">sell it for up to &#xA3;2K</a> right now on ebay.</li>
+<li>I’m no photographer but the 8 megapixel camera with dual LED flash does live up to (some of) the hype. Burst mode is pretty cool too.</li>
+<li>The Touch ID home button is a <em>nice touch</em>, even if it <a href="http://istouchidhackedyet.com/" target="_blank" rel="external">may have been hacked</a> already. You wouldn’t use an iPhone if you had security concerns though, right? :)</li>
+<li>Free Apple apps. Sweet. Probably won’t use them though.</li>
+<li>Apparently I can <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/news/newly-released-apple-iphone-5s-on-ebay-for-2000-8831594.html" target="_blank" rel="external">sell it for up to £2K</a> right now on ebay.</li>
 </ul>
 <h3 id="The_maybe-good_bits">The maybe-good bits</h3>
 <ul>
-<li>iBeacon, we&#x2019;ll see. Not surprised it&#x2019;s not a standard of course.</li>
+<li>iBeacon, we’ll see. Not surprised it’s not a standard of course.</li>
 </ul>
 <h3 id="The_not-so-good_bits">The not-so-good bits</h3>
 <ul>
-<li>The screen, it&#x2019;s just OK. When can we have edge-to-edge displays?</li>
-<li>Battery life, it&#x2019;s depleting at the same fast rate as I&#x2019;m used too. I&#x2019;ve <a href="http://www.ebay.co.uk/itm/130897161738" target="_blank" rel="external">bought this</a> to overcome this slightly.</li>
-<li>A bit disappointed that there aren&#x2019;t many other innovative features.</li>
+<li>The screen, it’s just OK. When can we have edge-to-edge displays?</li>
+<li>Battery life, it’s depleting at the same fast rate as I’m used too. I’ve <a href="http://www.ebay.co.uk/itm/130897161738" target="_blank" rel="external">bought this</a> to overcome this slightly.</li>
+<li>A bit disappointed that there aren’t many other innovative features.</li>
 </ul>
 <h2 id="Summary">Summary</h2>
-<p>It&#x2019;s pretty shiny. I can make phone calls.</p>
+<p>It’s pretty shiny. I can make phone calls.</p>
 
       
     </div>

@@ -67,48 +67,48 @@
       
         <h2 id="The_old_Social_Message_plugin">The old Social Message plugin</h2>
 <p>Almost a year ago, I wrote an open source plugin for PhoneGap / Cordova. The plugin allowed PhoneGap developers to easily post messages from their app to services like Facebook and Twitter utilising the native share features.</p>
-<p>The plugin bridged functionality between PhoneGap / Cordova&#x2019;s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn&#x2019;t follow any <em>strict</em> standards.</p>
+<p>The plugin bridged functionality between PhoneGap / Cordova’s UIWebView and the native iOS application. It was composed of a single JavaScript interface and a native objective-c implementation but didn’t follow any <em>strict</em> standards.</p>
 <h2 id="New_plugin_architecture">New plugin architecture</h2>
-<p>If you&#x2019;re a developer for PhoneGap / Cordova, you&#x2019;ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
-<p>I&#x2019;m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank" rel="external">Social Message plugin</a> has been rewritten to support the &#x201C;add plugin&#x201D; command.</p>
+<p>If you’re a developer for PhoneGap / Cordova, you’ve probably noticed that with the version 3.0 CLI installing plugins is <strong>really easy</strong>. The only drawback is that older plugins will need to be updated to work.</p>
+<p>I’m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank" rel="external">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
 <h2 id="Usage">Usage</h2>
 <h3 id="1_step_install">1 step install</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git
 </pre></td></tr></table></figure>
 
-<p><strong>Way-hey!</strong> That&#x2019;s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
+<p><strong>Way-hey!</strong> That’s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
 <h3 id="In_your_JavaScript">In your JavaScript</h3>
-<p>After your deviceready event has been fired, you can simply pass a message object with a &#x201C;text&#x201D; property to the send function:</p>
+<p>After your deviceready event has been fired, you can simply pass a message object with a “text” property to the send function:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 </pre></td><td class="code"><pre><span class="keyword">var</span> message = {
-    text: <span class="string">&quot;This is a test message&quot;</span>
+    text: <span class="string">"This is a test message"</span>
 };
 window.socialmessage.send(message);
 </pre></td></tr></table></figure>
 
-<p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, add an &#x201C;activityTypes&#x201D; array to your message object:</p>
+<p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, add an “activityTypes” array to your message object:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 </pre></td><td class="code"><pre><span class="keyword">var</span> message = {
-    text: <span class="string">&quot;This is a test message&quot;</span>,
-    activityTypes: [<span class="string">&quot;PostToFacebook&quot;</span>, <span class="string">&quot;PostToTwitter&quot;</span>]
+    text: <span class="string">"This is a test message"</span>,
+    activityTypes: [<span class="string">"PostToFacebook"</span>, <span class="string">"PostToTwitter"</span>]
 };
 window.socialmessage.send(message);
 </pre></td></tr></table></figure>
 
 <p>This example will allow the user to only post the message to Facebook or Twitter.</p>
-<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank" rel="external">here</a>. You should omit the &#x201C;UIActivityType&#x201D; prefix when adding to your array.</p>
+<p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank" rel="external">here</a>. You should omit the “UIActivityType” prefix when adding to your array.</p>
 <h2 id="Platform_support">Platform support</h2>
-<p>The plugin is currently only implemented for iOS but I&#x2019;m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
-<h2 id="Just_a_thought&#x2026;">Just a thought&#x2026;</h2>
-<p>Wouldn&#x2019;t it be great if there was some kind of plugin registry like node package manager&#x2026; <em><a href="http://www.plugreg.com" target="_blank" rel="external">cough</a></em></p>
+<p>The plugin is currently only implemented for iOS but I’m working on Android and Windows Phone 8 support, based on my old plugin and using the new standard.</p>
+<h2 id="Just_a_thought…">Just a thought…</h2>
+<p>Wouldn’t it be great if there was some kind of plugin registry like node package manager… <em><a href="http://www.plugreg.com" target="_blank" rel="external">cough</a></em></p>
 
       
     </div>
@@ -153,15 +153,15 @@ window.socialmessage.send(message);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="David_monitors_your_node-js_dependencies_to_ensure_they&#x2019;re_up_to_date">David monitors your node.js dependencies to ensure they&#x2019;re up to date</h2>
+        <h2 id="David_monitors_your_node-js_dependencies_to_ensure_they’re_up_to_date">David monitors your node.js dependencies to ensure they’re up to date</h2>
 <p><a href="https://david-dm.org/" target="_blank" rel="external">David</a> is a great site that lets you (and your users) know if your node.js project dependencies (and dev dependencies) are at the latest stable version.</p>
-<p>Here&#x2019;s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer" target="_blank" rel="external">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
+<p>Here’s an example of my <a href="https://david-dm.org/leecrossley/grunt-timer" target="_blank" rel="external">grunt-timer on David</a>, that I blogged about <a href="/timing-grunt-task-duration/">here</a>.</p>
 <p>At the time of writing this, the dependencies and dev dependencies are all up to date (and green).</p>
 <h2 id="Using_David">Using David</h2>
-<p>David is free for public repos on Github, I don&#x2019;t think there is a private repo version yet and you can&#x2019;t use other providers such as bitbucket.</p>
+<p>David is free for public repos on Github, I don’t think there is a private repo version yet and you can’t use other providers such as bitbucket.</p>
 <p>Provided you have a package.json file for your node project, David will use this to automagically do everything for you :)</p>
 <h3 id="David_informs_with_badges">David informs with badges</h3>
-<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they&#x2019;re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
+<p>You can add a badge to your README or similar (<a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">grunt-timer example here</a>). Simply do david-dm.org/[username]/[repo].png, and they’re served via https e.g. david-dm.org/leecrossley/grunt-timer.png</p>
 <h3 id="David_informs_with_RSS">David informs with RSS</h3>
 <p>If you really want an RSS feed, David will give you one. Similar to badges, but replace .png with /rss.xml e.g. david-dm.org/leecrossley/grunt-timer/rss.xml</p>
 <h2 id="Improvements">Improvements</h2>
@@ -171,7 +171,7 @@ window.socialmessage.send(message);
 <li>Version info from npm is cached for a whole day, this is too long.</li>
 <li>package.json files from GitHub are cached for an hour. Could use GitHub service hooks to get the package.json changes.</li>
 </ul>
-<p>If I see &#x201C;<a href="https://github.com/alanshaw" target="_blank" rel="external">David</a>&#x201C; in the pub, I&#x2019;ll get him a beer. You should too.</p>
+<p>If I see “<a href="https://github.com/alanshaw" target="_blank" rel="external">David</a>“ in the pub, I’ll get him a beer. You should too.</p>
 
       
     </div>
@@ -216,31 +216,31 @@ window.socialmessage.send(message);
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="The_&#x201C;strict_mode&#x201D;_pragma">The &#x201C;strict mode&#x201D; pragma</h2>
-<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as &#x201C;strict mode&#x201D;. I first came across this when using <a href="http://www.jslint.com/" target="_blank" rel="external">jslint</a> many moons ago with it&#x2019;s &#x201C;missing &#x2018;use strict&#x2019; pragma&#x201D; error message.</p>
+        <h2 id="The_“strict_mode”_pragma">The “strict mode” pragma</h2>
+<p>Since ECMAScript 5 (JavaScript 1.8.5) JavaScript developers have been able to place their code (down to a specific file or function) in a strict operating context, known as “strict mode”. I first came across this when using <a href="http://www.jslint.com/" target="_blank" rel="external">jslint</a> many moons ago with it’s “missing ‘use strict’ pragma” error message.</p>
 <p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
 <h2 id="How_to_use_it">How to use it</h2>
-<p>You invoke strict mode by placing the string &#x201C;use strict&#x201D; at the top of your JavaScript file or function.</p>
+<p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
 <figure class="highlight javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="pi">&quot;use strict&quot;</span>;
+</pre></td><td class="code"><pre><span class="pi">"use strict"</span>;
 </pre></td></tr></table></figure>
 
 <h2 id="Why_use_it">Why use it</h2>
 <p>All it does it enforce good practices, here are a few examples:</p>
 <h3 id="Duplicate_properties">Duplicate properties</h3>
 <p>Duplicate properties become a thing of the past. A syntax exception will be thrown if you attempt to declare a duplicate.</p>
-<h3 id="The_&#x201C;with&#x201D;_statement">The &#x201C;with&#x201D; statement</h3>
-<p>Forget it (if you ever knew about it). It&#x2019;s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
+<h3 id="The_“with”_statement">The “with” statement</h3>
+<p>Forget it (if you ever knew about it). It’s bad practice and the strict operating context abolishes it, it will throw a syntax exception.</p>
 <h3 id="Variable_declaration">Variable declaration</h3>
 <p>You must always declare your variables before assigning them. This is good practice anyway and should always be done to prevent random global variables that can be accessed in any scope.</p>
 <h2 id="A_note_on_browsers">A note on browsers</h2>
-<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it&#x2019;s best to test your JavaScript (as always) in all browsers.</p>
-<h2 id="Let&#x2019;s_end_on_a_laugh">Let&#x2019;s end on a laugh</h2>
-<p>The strict operating context won&#x2019;t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank" rel="external">this</a>:</p>
+<p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it’s best to test your JavaScript (as always) in all browsers.</p>
+<h2 id="Let’s_end_on_a_laugh">Let’s end on a laugh</h2>
+<p>The strict operating context won’t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank" rel="external">this</a>:</p>
 <figure class="highlight javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="pi">&quot;use strict&quot;</span>;
-alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<span class="string">&quot;Robin&quot;</span>-<span class="number">1</span>) + <span class="string">&quot;Batman&quot;</span>);
+</pre></td><td class="code"><pre><span class="pi">"use strict"</span>;
+alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
 </pre></td></tr></table></figure>
       
     </div>
@@ -285,32 +285,32 @@ alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="What_has_&#x201C;Walter_White&#x201D;_got_to_do_with_actual_colours_and_HTML?">What has &#x201C;Walter White&#x201D; got to do with actual colours and HTML?</h2>
-<p>Breaking Bad is a bit of a hot topic at the moment (I&#x2019;m a fan myself) but you&#x2019;re probably thinking <strong>where on earth is he going with this, &#x201C;Walter White&#x201D; isn&#x2019;t a valid colour</strong>. Let me explain before you think I&#x2019;ve gone mad.</p>
+        <h2 id="What_has_“Walter_White”_got_to_do_with_actual_colours_and_HTML?">What has “Walter White” got to do with actual colours and HTML?</h2>
+<p>Breaking Bad is a bit of a hot topic at the moment (I’m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn’t a valid colour</strong>. Let me explain before you think I’ve gone mad.</p>
 <h3 id="Example">Example</h3>
 <figure class="highlight html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">&quot;Walter White&quot;</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
 </pre></td></tr></table></figure>
 
-<p>The above code snippet will actually colour the text &#x201C;Walter White&#x201D;, in a Breaking Bad green, automatically.</p>
-<p>Don&#x2019;t believe me? Here&#x2019;s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank" rel="external">live demo</a>. Apologies for the use of a font tag.</p>
+<p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
+<p>Don’t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank" rel="external">live demo</a>. Apologies for the use of a font tag.</p>
 <h2 id="What_is_going_on_here?!">What is going on here?!</h2>
 <p>It does seem crazy but fortunately there is some <strong>science</strong> behind it :)</p>
 <h3 id="The_cooking_process">The cooking process</h3>
 <ol>
-<li>Replace all invalid hexadecimal characters with &#x201C;0&#x201D;</li>
+<li>Replace all invalid hexadecimal characters with “0”</li>
 <li>Divide all hexadecimal characters into 3 even groups (pad if necessary)</li>
 <li>Take the first 2 hexadecimal characters from each group</li>
 </ol>
-<p><strong>Et voil&#xE0;!</strong></p>
-<p>No? Let&#x2019;s step through the example.</p>
+<p><strong>Et voilà!</strong></p>
+<p>No? Let’s step through the example.</p>
 <ol>
-<li>&#x201C;Walter White&#x201D; becomes &#x201C;0a00e000000e&#x201D; when replacing invalid hexadecimal characters with &#x201C;0&#x201D;</li>
-<li>&#x201C;0a00e000000e&#x201D; is 12 characters long, so dividing into 3 groups gives &#x201C;0a00 e000 000e&#x201D;</li>
-<li>Taking the first 2 hexadecimal characters from each group in &#x201C;0a00 e000 000e&#x201D; produces &#x201C;0a e0 00&#x201D;</li>
+<li>“Walter White” becomes “0a00e000000e” when replacing invalid hexadecimal characters with “0”</li>
+<li>“0a00e000000e” is 12 characters long, so dividing into 3 groups gives “0a00 e000 000e”</li>
+<li>Taking the first 2 hexadecimal characters from each group in “0a00 e000 000e” produces “0a e0 00”</li>
 </ol>
-<p><strong>&#x201C;Walter White&#x201D; = &#x201C;#0ae000&#x201D;</strong></p>
-<p>I would have expected it to be blue, but I&#x2019;m guessing the process isn&#x2019;t 100% pure :)</p>
+<p><strong>“Walter White” = “#0ae000”</strong></p>
+<p>I would have expected it to be blue, but I’m guessing the process isn’t 100% pure :)</p>
 
       
     </div>
@@ -356,19 +356,19 @@ alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Using_JavaScript_to_change_the_page_url_without_reloading">Using JavaScript to change the page url without reloading</h2>
-<p>Not many web developers know but it&#x2019;s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won&#x2019;t even try to get the new url and it doesn&#x2019;t matter if it doesn&#x2019;t exist on the server.</p>
-<p>I&#x2019;m not talking about just changing &#x201C;the bit after the hash (#)&#x201D; I&#x2019;m referring to the entire relative url. I&#x2019;m also not talking about iFrames either - this solution isn&#x2019;t a hack, it&#x2019;s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p>Not many web developers know but it’s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won’t even try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
+<p>I’m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I’m also not talking about iFrames either - this solution isn’t a hack, it’s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
 <p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
-<h2 id="How_it&#x2019;s_done">How it&#x2019;s done</h2>
+<h2 id="How_it’s_done">How it’s done</h2>
 <p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
 <h3 id="The_history-pushState()_function">The history.pushState() function</h3>
 <p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
 <ul>
 <li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
 </li>
-<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven&#x2019;t implemented the document title change based on this parameter, although you can do it manually if required (document.title = &#x201C;your title&#x201D;).</p>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven’t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
 </li>
-<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be &#x201C;loaded&#x201D; into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won&#x2019;t try to get the new url and it doesn&#x2019;t matter if it doesn&#x2019;t exist on the server.</p>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
 </li>
 </ul>
 <figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -377,15 +377,15 @@ alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<
 4
 5
 </pre></td><td class="code"><pre><span class="keyword">var</span> state = {
-  <span class="string">&quot;canBeAnything&quot;</span>: <span class="literal">true</span>
+  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
 };
-history.pushState(state, <span class="string">&quot;New Title&quot;</span>, <span class="string">&quot;/new-page&quot;</span>);
+history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
 expect(history.state).toEqual(state);
 </pre></td></tr></table></figure>
 
-<p>The above example will update the url in the address bar to be &#x201C;/new-page&#x201D; without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
 <h3 id="The_history-replaceState()_function">The history.replaceState() function</h3>
-<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I&#x2019;ve never bothered to use this one.</p>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I’ve never bothered to use this one.</p>
 <h3 id="The_onpopstate_event">The onpopstate event</h3>
 <p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
 <h2 id="Back_to_the_future">Back to the future</h2>
@@ -440,11 +440,11 @@ expect(history.state).toEqual(state);
         <h2 id="Timing_is_everything">Timing is everything</h2>
 <p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
 <p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank" rel="external">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don&#x2019;t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
+<p>Obviously you don’t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
 <h2 id="grunt-timer">grunt-timer</h2>
 <p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2 id="Shouldn&#x2019;t_this_be_part_of_Grunt?">Shouldn&#x2019;t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it&#x2019;s a little hacky the way I&#x2019;ve done it using hooks and the time isn&#x2019;t 100% accurate.</p>
+<h2 id="Shouldn’t_this_be_part_of_Grunt?">Shouldn’t this be part of Grunt?</h2>
+<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
 <h2 id="How_do_I_use_it?">How do I use it?</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
@@ -453,7 +453,7 @@ expect(history.state).toEqual(state);
 
 <p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">&quot;grunt-timer&quot;</span>);
+</pre></td><td class="code"><pre><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);
 </pre></td></tr></table></figure>
 
 <p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
@@ -467,16 +467,16 @@ expect(history.state).toEqual(state);
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>Running <span class="string">&quot;run:500&quot;</span> (run) <span class="keyword">task</span>
+</pre></td><td class="code"><pre>Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span>
 <span class="number">500</span>ms <span class="keyword">task</span> ran
-Task <span class="string">&apos;run:500&apos;</span> took <span class="number">502</span>ms
+Task <span class="string">'run:500'</span> took <span class="number">502</span>ms
 </pre></td></tr></table></figure>
 
 <h2 id="Issues">Issues</h2>
-<p>I haven&#x2019;t spent too much time on this so far, and there are a couple of issues that exist:</p>
+<p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
 <ul>
-<li>The last task duration is output after the &#x201C;Done, without errors&#x201D;.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn&#x2019;t be, or if they are, should be a summary of all the multitasks).</li>
+<li>The last task duration is output after the “Done, without errors”.</li>
+<li>Tasks that wrap multi-tasks are currently output (shouldn’t be, or if they are, should be a summary of all the multitasks).</li>
 </ul>
 <p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">git repo</a>.</p>
 
@@ -525,12 +525,12 @@ Task <span class="string">&apos;run:500&apos;</span> took <span class="number">5
       
         <h2 id="Detecting_shake_events_in_your_PhoneGap_/_Cordova_apps">Detecting shake events in your <a href="http://phonegap.com/" target="_blank" rel="external">PhoneGap</a> / Cordova apps</h2>
 <p>Last year I wrote a cross-platform app for a client (iOS and Android), where a last minute requirement was added to randomise something on the screen when the mobile device was shaken.</p>
-<p>I was a bit worried at first, as there weren&#x2019;t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
+<p>I was a bit worried at first, as there weren’t any core or 3rd party plugins to do this out of the box. Then I realised, it must be pretty easy to do with the device accelerometer.</p>
 <h2 id="The_gist">The gist</h2>
 <p>I wrote a <a href="https://gist.github.com/leecrossley/4078996" target="_blank" rel="external">shake.js gist</a> 10 months ago, which uses the navigator.accelerometer to watch and get the devices acceleration. It took quite a while to tweak the variables to get it just right but <a href="/more-mobile-devices-than-socks/">testing on real iPhone and Android devices</a> helped my trial and error.</p>
-<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank" rel="external">a published tech author</a> in his latest book. All of this past me by until recently, as I don&#x2019;t generally monitor my gists :)</p>
+<p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank" rel="external">a published tech author</a> in his latest book. All of this past me by until recently, as I don’t generally monitor my gists :)</p>
 <h2 id="Using_shake-js">Using shake.js</h2>
-<p>If you&#x2019;re interested in using shake.js, it&#x2019;s pretty simple. It&#x2019;s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
+<p>If you’re interested in using shake.js, it’s pretty simple. It’s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
 <figure class="highlight javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -544,7 +544,7 @@ Task <span class="string">&apos;run:500&apos;</span> took <span class="number">5
   <span class="comment">// Code fired when a shake is detected</span>
 };
 
-<span class="comment">// Start watching for shake gestures and call &quot;onShake&quot;</span>
+<span class="comment">// Start watching for shake gestures and call "onShake"</span>
 shake.startWatch(onShake);
 
 <span class="comment">// Stop watching for shake gestures</span>
@@ -552,8 +552,8 @@ shake.stopWatch();
 </pre></td></tr></table></figure>
 
 <h2 id="Platforms">Platforms</h2>
-<p>Even though I&#x2019;ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
-<p>Don&#x2019;t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank" rel="external">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
+<p>Even though I’ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
+<p>Don’t be an <a href="http://youtu.be/PWgvGjAhvIw?t=3m54s" target="_blank" rel="external">Outkast</a> - Shake it, shake, shake it, shake it (oh oh).</p>
 
       
     </div>
@@ -599,32 +599,32 @@ shake.stopWatch();
     <div class="entry" itemprop="articleBody">
       
         <h2 id="Grunt_-_the_task_runner_for_JavaScript">Grunt - the task runner for JavaScript</h2>
-<p>Let grunt handle all your JavaScript tasks. It doesn&#x2019;t take sick days, pays attention and watches what you&#x2019;re doing.</p>
-<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It&#x2019;s easy to configure and once it&#x2019;s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
-<p>I&#x2019;m just going to cover the basics here for now.</p>
+<p>Let grunt handle all your JavaScript tasks. It doesn’t take sick days, pays attention and watches what you’re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It’s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I’m just going to cover the basics here for now.</p>
 <h2 id="Getting_the_ball_rolling">Getting the ball rolling</h2>
-<p>Grunt is easy to set up. I&#x2019;ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
 <h3 id="The_Grunt_CLI">The Grunt CLI</h3>
-<p>Assuming you&#x2019;re a serious developer, you&#x2019;ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you&#x2019;re ready, run:</p>
+<p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>npm install <span class="attribute">-g</span> grunt<span class="attribute">-cli</span>
 </pre></td></tr></table></figure>
 
-<p>You can now run &#x201C;grunt&#x201D; from anywhere. Happy times.</p>
+<p>You can now run “grunt” from anywhere. Happy times.</p>
 <h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
-<p>Here&#x2019;s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-watch&quot;</span>);
-grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-jshint&quot;</span>);
-grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-jasmine&quot;</span>);
-grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>);
+</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
+grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 </pre></td></tr></table></figure>
 
-<p>You can then define some tasks in your Gruntfile.js, here&#x2019;s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -632,9 +632,9 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 5
 6
 </pre></td><td class="code"><pre>jasmine: {
-    src: <span class="string">&quot;functional.min.js&quot;</span>,
+    src: <span class="string">"functional.min.js"</span>,
     options: {
-        specs: <span class="string">&quot;spec.js&quot;</span>
+        specs: <span class="string">"spec.js"</span>
     }
 }
 </pre></td></tr></table></figure>
@@ -646,14 +646,14 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 </pre></td></tr></table></figure>
 
 <h3 id="Combining_tasks">Combining tasks</h3>
-<p>In the above example, it&#x2019;s unlikely that you&#x2019;ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it&#x2019;s easy to combine your tasks:</p>
+<p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">&quot;test&quot;</span>, [<span class="string">&quot;jshint&quot;</span>, <span class="string">&quot;uglify&quot;</span>, <span class="string">&quot;jasmine&quot;</span>]);
+</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
 </pre></td></tr></table></figure>
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
 <h3 id="Watching_for_changes">Watching for changes</h3>
-<p><strong>I&#x2019;m addicted to automation, give me more!</strong> You won&#x2019;t want to keep typing &#x201C;grunt test&#x201D; and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
 <figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -663,10 +663,10 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 7
 </pre></td><td class="code"><pre>watch: {
     files: [
-        <span class="string">&quot;*.js&quot;</span>,
-        <span class="string">&quot;!functional.min.js&quot;</span>
+        <span class="string">"*.js"</span>,
+        <span class="string">"!functional.min.js"</span>
     ],
-    tasks: [<span class="string">&quot;test&quot;</span>]
+    tasks: [<span class="string">"test"</span>]
 }
 </pre></td></tr></table></figure>
 
@@ -740,11 +740,11 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 <p>I recently read an accepted answer on Stack Overflow that stated:</p>
 <blockquote>
 
-<p>&#x201C;<em>If you&#x2019;re in the global scope then there&#x2019;s no difference.</em>&#x201C;</p>
+<p>“<em>If you’re in the global scope then there’s no difference.</em>“</p>
 <footer><strong>- Stack Overflow</strong></footer></blockquote>
 
 
-<p>I&#x2019;m sorry but I don&#x2019;t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank" rel="external">for this</a>:</p>
+<p>I’m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank" rel="external">for this</a>:</p>
 <figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
@@ -771,7 +771,7 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 }
 
 <span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  alert(<span class="string">&quot;func1 success&quot;</span>);
+  alert(<span class="string">"func1 success"</span>);
 };
 
 <span class="keyword">try</span> {
@@ -781,17 +781,17 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 }
 
 <span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-  alert(<span class="string">&quot;func2 success&quot;</span>);
+  alert(<span class="string">"func2 success"</span>);
 }
 </pre></td></tr></table></figure>
 
-<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it&#x2019;s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
+<p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it’s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
 <ul>
 <li>func1 (var format) is defined <strong>at</strong> runtime</li>
-<li>func2 is defined <strong>before</strong> runtime, they&#x2019;re &#x201C;<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank" rel="external">hoisted</a>&#x201C;</li>
+<li>func2 is defined <strong>before</strong> runtime, they’re “<a href="http://en.wikipedia.org/wiki/Variable_hoisting#hoisting" target="_blank" rel="external">hoisted</a>“</li>
 </ul>
 <h2 id="Function_expressions">Function expressions</h2>
-<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn&#x2019;t. To give the function itself a name, you could do:</p>
+<p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn’t. To give the function itself a name, you could do:</p>
 <figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
@@ -799,9 +799,9 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 </pre></td></tr></table></figure>
 
 <h2 id="Best_practice">Best practice</h2>
-<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/" target="_blank" rel="external">Multiple Function Composition</a> you&#x2019;re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
+<p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/" target="_blank" rel="external">Multiple Function Composition</a> you’re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
 <h2 id="CoffeeScript_fans">CoffeeScript fans</h2>
-<p>If you&#x2019;re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there&#x2019;s only one way you can define a function in coffeescript:</p>
+<p>If you’re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there’s only one way you can define a function in coffeescript:</p>
 <figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="function"><span class="title">func</span> = -&gt;</span>
 </pre></td></tr></table></figure>
@@ -857,17 +857,17 @@ grunt.loadNpmTasks(<span class="string">&quot;grunt-contrib-uglify&quot;</span>)
 <p><img src="/img/socks.png" alt="Socks"></p>
 <h2 id="Why_should_I_use_real_mobiles_and_tablets?">Why should I use real mobiles and tablets?</h2>
 <h3 id="Connection_types_and_failure">Connection types and failure</h3>
-<p>If you&#x2019;re transferring data you need to ensure it works with any type of connection (whether it&#x2019;s via 2G, 3G, 4G or WIFI etc) and if that connection fails, it&#x2019;s handled elegantly. You should also test for switching connection types. Different devices also have different connection possibilities.</p>
+<p>If you’re transferring data you need to ensure it works with any type of connection (whether it’s via 2G, 3G, 4G or WIFI etc) and if that connection fails, it’s handled elegantly. You should also test for switching connection types. Different devices also have different connection possibilities.</p>
 <h3 id="3rd_party_alerts_and_notifications">3rd party alerts and notifications</h3>
-<p>To ensure your app responds appropriately when there&#x2019;s an unexpected condition, such as an incoming phone call, message, email, push notification or other type of intrusive alert.</p>
+<p>To ensure your app responds appropriately when there’s an unexpected condition, such as an incoming phone call, message, email, push notification or other type of intrusive alert.</p>
 <h3 id="Performance">Performance</h3>
-<p>If you&#x2019;re using a simulator running on a top spec laptop, expect the performance on a mobile or tablet device to be different. The hardware and software features of a real device are never entirely replicated using an emulator. Different devices also have different performance.</p>
+<p>If you’re using a simulator running on a top spec laptop, expect the performance on a mobile or tablet device to be different. The hardware and software features of a real device are never entirely replicated using an emulator. Different devices also have different performance.</p>
 <h3 id="You_got_the_touch">You got the touch</h3>
 <p>Touch screen interfaces with multi-gesture support are impossible to accurately replicate on emulators and simulators. Different devices often have different touch screen interfaces.</p>
-<h2 id="They&#x2019;re_expensive!">They&#x2019;re expensive!</h2>
-<p>Physical devices are costly to acquire, once you have 20 (and that&#x2019;s really not a lot) you could have easily spent &#xA3;10K! These devices grow old quickly and their resale value drops drastically, not that you can sell them anyway, you need them for legacy testing.</p>
+<h2 id="They’re_expensive!">They’re expensive!</h2>
+<p>Physical devices are costly to acquire, once you have 20 (and that’s really not a lot) you could have easily spent £10K! These devices grow old quickly and their resale value drops drastically, not that you can sell them anyway, you need them for legacy testing.</p>
 <h2 id="Old_devices">Old devices</h2>
-<p>It&#x2019;s not just the new, cutting edge devices you need to buy (although they are usually the most expensive), it&#x2019;s the old legacy devices that often use older operating system versions you need too. I&#x2019;ve trawled ebay many times looking for devices that have a specific issue.</p>
+<p>It’s not just the new, cutting edge devices you need to buy (although they are usually the most expensive), it’s the old legacy devices that often use older operating system versions you need too. I’ve trawled ebay many times looking for devices that have a specific issue.</p>
 <h2 id="Come_on,_keep_up">Come on, keep up</h2>
 <p>With the mobile and tablet market developing at an incredibly fast rate, new devices are launched regularly, so you might as well keep your bank card out of your wallet.</p>
 <h2 id="Competitions">Competitions</h2>

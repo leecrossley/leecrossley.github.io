@@ -66,9 +66,9 @@
       
         <h2 id="iPhone_fingerprint_recognition">iPhone fingerprint recognition</h2>
 <p>In August 2013 (before Touch ID or the iPhone 5s were released) I wrote a <a href="http://ilee.co.uk/iphone-fingerprint-recognition-for-developers/" target="_blank" rel="external">blog post</a> guessing that the hardware and software capabilities of fingerprint recognition could be just around the corner and might become available to app developers.</p>
-<p>Apple, to much disappointment, kept the API private with iOS 7 but <strong>this has all changed with the (beta) release of iOS 8</strong>. Now, <a href="https://www.youtube.com/watch?v=Cf_qfX9cKsQ" target="_blank" rel="external">you got the touch</a>&#x2026;</p>
+<p>Apple, to much disappointment, kept the API private with iOS 7 but <strong>this has all changed with the (beta) release of iOS 8</strong>. Now, <a href="https://www.youtube.com/watch?v=Cf_qfX9cKsQ" target="_blank" rel="external">you got the touch</a>…</p>
 <h2 id="The_local_authentication_framework">The local authentication framework</h2>
-<p>The moment Xcode 6 beta had finished downloading, the first thing I did was create a dummy project with the newly available &#x201C;Local Authentication&#x201D; framework. It took me <em>quite some time</em> to realise that adding the reference (either <code>#import &lt;LocalAuthentication/LocalAuthentication.h&gt;</code> or as a module <code>@import LocalAuthentication</code>) broke the build if you don&#x2019;t target a real device (learn from me here and save yourself some time!).</p>
+<p>The moment Xcode 6 beta had finished downloading, the first thing I did was create a dummy project with the newly available “Local Authentication” framework. It took me <em>quite some time</em> to realise that adding the reference (either <code>#import &lt;LocalAuthentication/LocalAuthentication.h&gt;</code> or as a module <code>@import LocalAuthentication</code>) broke the build if you don’t target a real device (learn from me here and save yourself some time!).</p>
 <h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
 <p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
 <p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a>.</p>
@@ -87,7 +87,7 @@
 <li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">&quot;text&quot;</span>);
+</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
 </pre></td></tr></table></figure>
 
 <h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>

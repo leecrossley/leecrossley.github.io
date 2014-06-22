@@ -65,17 +65,17 @@
     <div class="entry" itemprop="articleBody">
       
         <h2 id="console-log()">console.log()</h2>
-<p>If you&#x2019;ve ever touched JavaScript in your life, you&#x2019;ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
+<p>If you’ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
 <h2 id="The_problem">The problem</h2>
-<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you&#x2019;re looking for, to help identify it! e.g.</p>
+<p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you’re looking for, to help identify it! e.g.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>console.log(<span class="string">&quot;MY GROUP&quot;</span>);
+</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
 console.log(info1);
 console.log(info2);
-console.log(<span class="string">&quot;MY GROUP END&quot;</span>);
+console.log(<span class="string">"MY GROUP END"</span>);
 </pre></td></tr></table></figure>
 
 <h2 id="The_solution">The solution</h2>
@@ -84,7 +84,7 @@ console.log(<span class="string">&quot;MY GROUP END&quot;</span>);
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>console.group(<span class="string">&quot;My group&quot;</span>);
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
 console.log(info1);
 console.log(info2);
 </pre></td></tr></table></figure>
@@ -95,7 +95,7 @@ console.log(info2);
 2
 3
 4
-</pre></td><td class="code"><pre>console.group(<span class="string">&quot;My group&quot;</span>);
+</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
 console.log(info1);
 console.log(info2);
 console.groupEnd();
@@ -107,7 +107,7 @@ console.groupEnd();
 2
 3
 4
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">&quot;My group&quot;</span>);
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
 console.log(info1);
 console.log(info2);
 console.groupEnd();
@@ -115,17 +115,17 @@ console.groupEnd();
 
 <h2 id="Objects_and_arrays">Objects and arrays</h2>
 <h3 id="console-table()">console.table()</h3>
-<p>If you&#x2019;re logging objects and/or arrays in your groups, there&#x2019;s another winner for you in the form of <code>console.table()</code>:</p>
+<p>If you’re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">&quot;My group&quot;</span>);
+</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
 console.table({
-    info1: { message: <span class="string">&quot;message 1&quot;</span> },
-    info2: { message: <span class="string">&quot;message 2&quot;</span> }
+    info1: { message: <span class="string">"message 1"</span> },
+    info2: { message: <span class="string">"message 2"</span> }
 });
 console.groupEnd();
 </pre></td></tr></table></figure>

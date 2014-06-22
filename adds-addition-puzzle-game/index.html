@@ -64,44 +64,44 @@
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <p><a href="http://playadds.com" target="_blank" rel="external">Adds</a> is a simple mobile and tablet game, created by myself with Cordova / PhoneGap. It&#x2019;s been several months in development and I have been sharing most of my experiences as I&#x2019;ve been going along, but I think it&#x2019;s time to <em>sum up</em>.</p>
+        <p><a href="http://playadds.com" target="_blank" rel="external">Adds</a> is a simple mobile and tablet game, created by myself with Cordova / PhoneGap. It’s been several months in development and I have been sharing most of my experiences as I’ve been going along, but I think it’s time to <em>sum up</em>.</p>
 <p>Yesterday, I finally released version 1. The app landing (promo) page can be found <a href="http://playadds.com" target="_blank" rel="external">here</a>.</p>
 <p><img src="http://playadds.com/images/iphone.png" alt="iPhone teaser"></p>
 <h2 id="The_concept">The concept</h2>
-<p>To play, you swipe over numbers in a grid to add up to a total at the top. It&#x2019;s very easy to play, but difficult to master.</p>
-<p>You can swipe in any combination of directions (up, down, left or right) but you can&#x2019;t go back on yourself (use the same number twice) or move diagonally.</p>
-<p>It was tricky to implement the main game grid in JavaScript (especially with the touch interactions) but now, it&#x2019;s exceptionally stable, testable and portable. I wrote about some of the early logic <a href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/" target="_blank" rel="external">here</a> last November.</p>
+<p>To play, you swipe over numbers in a grid to add up to a total at the top. It’s very easy to play, but difficult to master.</p>
+<p>You can swipe in any combination of directions (up, down, left or right) but you can’t go back on yourself (use the same number twice) or move diagonally.</p>
+<p>It was tricky to implement the main game grid in JavaScript (especially with the touch interactions) but now, it’s exceptionally stable, testable and portable. I wrote about some of the early logic <a href="http://ilee.co.uk/get-adjacent-squares-on-a-grid/" target="_blank" rel="external">here</a> last November.</p>
 <h2 id="The_game">The game</h2>
 <p>The game is broken up into 3 main sections:</p>
 <h3 id="1-_Endless_play">1. Endless play</h3>
 <p>This is where players battle it out to reach the highest score and the sky is the limit! The core concept is that you start off with 10 seconds on the clock and for each number in your answer, you gain a point and an extra second.</p>
 <p>There are 3 different difficulty modes available for selection, Easy, Medium and Hard. You must score 50 or more in Easy mode to unlock Medium and 50 or more in Medium to unlock Hard. There are no in app purchases to shortcut this. The difference between these difficulties is the grid size. Easy is a 3x3 grid, Medium 4x4 and Hard 5x5.</p>
 <p>What people might not realise about the endless mode is that all the difficulties do get progressively harder (every 50 points you score to be exact). What I mean by harder this time is both the numbers in the grid and the totals get bigger.</p>
-<p>The trick is to store up as much time right at the start and pass if it&#x2019;s not immediately obvious.</p>
+<p>The trick is to store up as much time right at the start and pass if it’s not immediately obvious.</p>
 <h3 id="2-_Levels">2. Levels</h3>
-<p>There are currently 15 unique levels. 5 branded &#x201C;Cadet&#x201D;, 5 branded &#x201C;Lieutenant&#x201D; and 5 branded &#x201C;Captain&#x201D;. All Cadet levels are on a 3x3 grid, Lieutenant 4x4 and Captain 5x5.</p>
-<p>Each level has it&#x2019;s own &#x201C;theme&#x201D;, such as only odd numbers on the grid or even negative numbers&#x2026; but I don&#x2019;t want to spoil too much for you :)</p>
+<p>There are currently 15 unique levels. 5 branded “Cadet”, 5 branded “Lieutenant” and 5 branded “Captain”. All Cadet levels are on a 3x3 grid, Lieutenant 4x4 and Captain 5x5.</p>
+<p>Each level has it’s own “theme”, such as only odd numbers on the grid or even negative numbers… but I don’t want to spoil too much for you :)</p>
 <p>The levels start off easy and get progressively harder. 3-5 (the fifth Captain level) is exceptionally hard and I have only completed it once myself! Although you will be satisfied with the gratification of beating level 3-5, you are also rewarded by having the time trial mode unlocked for free.</p>
 <h3 id="3-_Time_trial_mode">3. Time trial mode</h3>
-<p>Accessible after completion of all 15 levels, or via in app purchase, time trial mode does exactly what it says on the tin. Choose your grid size (3x3, 4x4, 5x5) and your duration (90s or 180s) and you&#x2019;re off.</p>
+<p>Accessible after completion of all 15 levels, or via in app purchase, time trial mode does exactly what it says on the tin. Choose your grid size (3x3, 4x4, 5x5) and your duration (90s or 180s) and you’re off.</p>
 <h2 id="Hints_and_tips">Hints and tips</h2>
 <ul>
-<li><p><strong>Remember to pass</strong>. Don&#x2019;t waste time if a solution isn&#x2019;t immediately obvious. You do lose a point for passing, but it&#x2019;s worth it in time gained. There&#x2019;s also a &#x201C;Gold Pass&#x201D; in app purchase that allows you to pass without ever losing a point.</p>
+<li><p><strong>Remember to pass</strong>. Don’t waste time if a solution isn’t immediately obvious. You do lose a point for passing, but it’s worth it in time gained. There’s also a “Gold Pass” in app purchase that allows you to pass without ever losing a point.</p>
 </li>
 <li><p><strong>Use the smallest numbers</strong>. You get a point for every number in your answer, so it makes sense to use the longest answer (most numbers).</p>
 </li>
-<li><p><strong>Don&#x2019;t guess</strong>. Five wrong guesses in a row will lose you 5 points. Epic fail.</p>
+<li><p><strong>Don’t guess</strong>. Five wrong guesses in a row will lose you 5 points. Epic fail.</p>
 </li>
 </ul>
 <h2 id="Leaderboards">Leaderboards</h2>
-<p>There&#x2019;s a leaderboard for everything. I didn&#x2019;t want simply passing a level to be enough, I wanted players to complete to see how fast they could complete a level. Thanks to my <a href="http://ilee.co.uk/using-game-center-with-phonegap/" target="_blank" rel="external">game center plugin</a> friends and family can compare scores and times. They can also battle against everyone else in the world.</p>
+<p>There’s a leaderboard for everything. I didn’t want simply passing a level to be enough, I wanted players to complete to see how fast they could complete a level. Thanks to my <a href="http://ilee.co.uk/using-game-center-with-phonegap/" target="_blank" rel="external">game center plugin</a> friends and family can compare scores and times. They can also battle against everyone else in the world.</p>
 <h2 id="Platforms">Platforms</h2>
-<p>The game is currently optimised for iOS 7 devices (iPhone, iPod touch and iPad). Thanks to Cordova / PhoneGap and the way I have developed it, it&#x2019;s considerably easier to port to other platforms, such as Android and WP8. This is currently a work in progress dependant on demand.</p>
+<p>The game is currently optimised for iOS 7 devices (iPhone, iPod touch and iPad). Thanks to Cordova / PhoneGap and the way I have developed it, it’s considerably easier to port to other platforms, such as Android and WP8. This is currently a work in progress dependant on demand.</p>
 <h3 id="Device_sizes">Device sizes</h3>
-<p>There were several different screen sizes to consider while developing the interface, such as the shorter iPhone 4 screen (320&#xD7;480 or 640&#xD7;960 retina), the taller iPhone 5 resolution (640&#xD7;1136) and of course the various iPads. I wanted to ensure I used exactly the same code for each.</p>
-<p>By utilising clever media queries and base font sizes, I was able to adjust sizes relatively easily keeping the same game play. I still had to create the million splash screens and icons though :). Essentially, the numbers grid itself is 1.5x bigger on tablets and things become a little more spaced out. The flip <a href="http://ilee.co.uk/native-page-transitions-with-phonegap/" target="_blank" rel="external">transitions</a> are omitted from tablets (replaced with a quick quick fade), as they just didn&#x2019;t feel right on the larger screen, even the iPad mini.</p>
+<p>There were several different screen sizes to consider while developing the interface, such as the shorter iPhone 4 screen (320×480 or 640×960 retina), the taller iPhone 5 resolution (640×1136) and of course the various iPads. I wanted to ensure I used exactly the same code for each.</p>
+<p>By utilising clever media queries and base font sizes, I was able to adjust sizes relatively easily keeping the same game play. I still had to create the million splash screens and icons though :). Essentially, the numbers grid itself is 1.5x bigger on tablets and things become a little more spaced out. The flip <a href="http://ilee.co.uk/native-page-transitions-with-phonegap/" target="_blank" rel="external">transitions</a> are omitted from tablets (replaced with a quick quick fade), as they just didn’t feel right on the larger screen, even the iPad mini.</p>
 <h2 id="Plugins">Plugins</h2>
-<p>Naturally, I&#x2019;ve had to use/write some Cordova plugins to achieve the games required functionality, here&#x2019;s a list (excluding any core plugins):</p>
+<p>Naturally, I’ve had to use/write some Cordova plugins to achieve the games required functionality, here’s a list (excluding any core plugins):</p>
 <ul>
 <li><a href="https://github.com/leecrossley/cordova-plugin-game-center" target="_blank" rel="external">Game Center</a></li>
 <li><a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">Native Transitions</a></li>
@@ -112,14 +112,14 @@
 </ul>
 <h2 id="Frameworks">Frameworks</h2>
 <p>None. No CSS/UI frameworks. No JavaScript frameworks.</p>
-<p>I refuse to use frameworks, it&#x2019;s the best way to create a fluid, light weight, performant app.</p>
+<p>I refuse to use frameworks, it’s the best way to create a fluid, light weight, performant app.</p>
 <h2 id="Number_puzzle_games">Number puzzle games</h2>
-<p>There has been a increase in number based puzzle games recently, such as &#x201C;Threes&#x201D; and &#x201C;2048&#x201D;.</p>
-<p>I actually started the development for <a href="https://itunes.apple.com/gb/app/adds/id742044838" target="_blank" rel="external">Adds</a> back in October 2013 and I&#x2019;m hoping to follow in similar footsteps to other number games released during my development. I do believe that my app is unique in its approach and not just another &#x201C;numbers on a grid&#x201D; game.</p>
+<p>There has been a increase in number based puzzle games recently, such as “Threes” and “2048”.</p>
+<p>I actually started the development for <a href="https://itunes.apple.com/gb/app/adds/id742044838" target="_blank" rel="external">Adds</a> back in October 2013 and I’m hoping to follow in similar footsteps to other number games released during my development. I do believe that my app is unique in its approach and not just another “numbers on a grid” game.</p>
 <h2 id="Final_notes">Final notes</h2>
 <p>I hope you enjoy my little game and become an add-ict too. I can now add like a boss.</p>
-<p>If you&#x2019;re a developer and want a free promo code because you don&#x2019;t want to pay the 69p, I have a couple left - DM me on twitter.</p>
-<p>Please send your feedback to me, it&#x2019;s the only way I can improve, even if I bite your head off and go defensive :)</p>
+<p>If you’re a developer and want a free promo code because you don’t want to pay the 69p, I have a couple left - DM me on twitter.</p>
+<p>Please send your feedback to me, it’s the only way I can improve, even if I bite your head off and go defensive :)</p>
 
       
     </div>
