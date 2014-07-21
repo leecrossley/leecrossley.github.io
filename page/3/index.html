@@ -55,6 +55,85 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-12-02T11:24:44.000Z" itemprop="datePublished">2nd Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/plugreg-v07-is-now-live/" itemprop="url">PlugReg v0.7 Is Now Live</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="What’s_new">What’s new</h2>
+<p>It’s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank" rel="external">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank" rel="external">@plugreg on twitter</a>.</p>
+<h3 id="Features">Features</h3>
+<p>Here are some of the new features that have been implemented for v0.7:</p>
+<ul>
+<li><strong>Plugin details</strong>. New design and more info has been added:<ul>
+<li>Version number</li>
+<li>Last modified</li>
+<li>Stars</li>
+<li>Issues</li>
+</ul>
+</li>
+<li><strong>Avatars</strong>. Now hotlinks to gravatar or github identicons</li>
+<li><strong>Homepage</strong>. A new homepage design, giving various stats, such as:<ul>
+<li>Total number of plugins</li>
+<li>Total number of authors</li>
+<li>Recently Added Plugins (and when they were added)</li>
+<li>Recently Updated Plugins (and when they were updated)</li>
+<li>Authors with the Most Plugins (and how many plugins each)</li>
+<li>Authors with the Most Stars (combined from all their plugins)</li>
+<li>Plugins with the Most Stars (and how many stars)</li>
+<li>Plugins with the Most Issues (and how many issues)</li>
+</ul>
+</li>
+<li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
+<li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
+</ul>
+<h3 id="Refresh">Refresh</h3>
+<p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
+<h3 id="API">API</h3>
+<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you’d like to use it.</p>
+<h3 id="Bugs">Bugs</h3>
+<p>There are also many, many bug fixes.</p>
+<h2 id="Future_updates">Future updates</h2>
+<p>Further updates are on the way shortly. If you’d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank" rel="external">@plugreg</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-28T09:57:53.000Z" itemprop="datePublished">28th Nov 2013</time>
       
       
@@ -862,159 +941,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-05T08:42:47.000Z" itemprop="datePublished">5th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/froute-simple-nodejs-routing/" itemprop="url">froute - Simple Node.js Routing</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="froute">froute</h2>
-<p><a href="https://github.com/leecrossley/froute" target="_blank" rel="external">froute</a> provides simple, powerful and <strong>functional routing</strong> for node with expressive template matching. I wrote this in a day, that’s how simple it is (and that includes the awesome logo that I <em>know</em> you want on a t-shirt).</p>
-<p><img src="/img/froute.png" alt="froute"></p>
-<h2 id="Getting_started">Getting started</h2>
-<p>Install via npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> froute
-</pre></td></tr></table></figure>
-
-<p>Require the module in the usual way:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);
-</pre></td></tr></table></figure>
-
-<h2 id="Using_froute">Using froute</h2>
-<p>There are essentially 2 or 3 functions you need to use.</p>
-<h3 id="Register_routes">Register routes</h3>
-<p>You register a route using the <strong>bind</strong> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apples"</span>;
-
-<span class="comment">// Bind the static route and it's handler</span>
-froute.bind(template, handler); <span class="comment">// true</span>
-</pre></td></tr></table></figure>
-
-<p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
-froute.bind(template, handler); <span class="comment">// true</span>
-</pre></td></tr></table></figure>
-
-<h3 id="Unregister_routes">Unregister routes</h3>
-<p>You unregister a route using the <strong>unbind</strong> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
-</pre></td></tr></table></figure>
-
-<p>Unbound templates are returned by the unbind function.</p>
-<h3 id="Dispatch">Dispatch</h3>
-<p>When a url comes in, you call dispatch:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
-</pre></td></tr></table></figure>
-
-<p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
-<h3 id="Full_example">Full example</h3>
-<p>A full example illustrating how the handler function works with params:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
-    resultParams;
-
-<span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> {</span>
-    resultParams = params;
-});
-
-froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
-
-<span class="comment">// assertions</span>
-expect(bindResult).toBeTruthy();
-expect(dispatchResult).toBeTruthy();
-expect(froute.list().length).toEqual(<span class="number">1</span>);
-expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
-</pre></td></tr></table></figure>
-
-<h2 id="Behind_the_scenes">Behind the scenes</h2>
-<h3 id="froute-picker">froute-picker</h3>
-<p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank" rel="external">here</a>. It can also be used in isolation:</p>
-<h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
-    picked = picker.pick(template),
-    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
-    result = matchUrl(picked);
-
-<span class="comment">// assertions</span>
-expect(result.type).toEqual(<span class="string">"gala"</span>);
-expect(result.size).toEqual(<span class="string">"large"</span>);
-</pre></td></tr></table></figure>
-
-<h3 id="functional-js">functional.js</h3>
-<p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
-<h2 id="Issues_and_contributions">Issues and contributions</h2>
-<p>I’m open to pull requests as always, there are lots of advancements that can be made to the froute-picker.</p>
-<h2 id="An_apple_a_day">An apple a day</h2>
-<p>… might keep the doctor away. With froute, you might even lower your blood pressure :)</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1070,6 +996,10 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   <ul class="entry">
     
       <li>
+        <a href="/Sign-Releases-with-Cordova-Android/">Sign Releases with Cordova Android</a>
+      </li>
+    
+      <li>
         <a href="/Cordova-PhoneGap-iOS-8-Beta/">Cordova / PhoneGap iOS 8 Beta</a>
       </li>
     
@@ -1105,10 +1035,6 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
         <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
       </li>
     
-      <li>
-        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1120,9 +1046,9 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>8</small></li>
+    <li><a href="/tags/android/">android</a><small>9</small></li>
   
-    <li><a href="/tags/app/">app</a><small>12</small></li>
+    <li><a href="/tags/app/">app</a><small>13</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1136,7 +1062,7 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
   
     <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>19</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>20</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

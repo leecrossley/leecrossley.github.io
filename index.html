@@ -55,6 +55,91 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-07-21T06:33:15.000Z" itemprop="datePublished">21st Jul 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/Sign-Releases-with-Cordova-Android/" itemprop="url">Sign Releases with Cordova Android</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="The_Cordova_CLI">The Cordova CLI</h2>
+<p>Since the Cordova CLI was introduced about a year ago, building and deploying Cordova apps for development has become incredibly simple and automatable. E.g. for Android:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova build android
+</pre></td></tr></table></figure>
+
+<p>and you can also run the app directly on the device / emulator</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ cordova run android
+$ cordova emulate android
+</pre></td></tr></table></figure>
+
+<p>If you want to build a release version of an APK from the command line for production, this is also possible. However, this does not <em>sign</em> your release:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova build android --release
+</pre></td></tr></table></figure>
+
+<p>Here are the 2 methods I use / have used to achieve API signing for production / distribution. Don’t worry, neither of them use Eclipse!:</p>
+<p><img src="/img/android-signing.png" alt="Android signing"></p>
+<p><strong>Note:</strong> Before you can use either of these methods, you must have generated a private key, see <a href="http://developer.android.com/tools/publishing/app-signing.html#cert" target="_blank" rel="external">Obtain a suitable private key</a> on the Android Developer website.</p>
+<h2 id="Method_1">Method 1</h2>
+<h3 id="Use_jarsigner_directly">Use jarsigner directly</h3>
+<p>This is the method I used to use and it isn’t Cordova CLI specific (it’s part of the Java SDK build tools and this method is part of their <a href="http://developer.android.com/tools/publishing/app-signing.html#signapp" target="_blank" rel="external">standard documentation</a>). After you have created your APK (<code>cordova build android --release</code>) you can run the following command:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ jarsigner <span class="attribute">-verbose</span> <span class="attribute">-sigalg</span> SHA1withRSA <span class="attribute">-digestalg</span> SHA1 <span class="attribute">-keystore</span> release_key_name<span class="built_in">.</span>keystore app_name<span class="built_in">.</span>apk alias_name
+</pre></td></tr></table></figure>
+
+<p>Jarsigner will prompt for the password and sign the APK.</p>
+<h2 id="Method_2_(best)">Method 2 (best)</h2>
+<h3 id="Part_of_the_CLI_workflow">Part of the CLI workflow</h3>
+<p>This is now my preferred method and hooks directly into the <code>cordova build android --release</code> command.</p>
+<p>Create an <code>ant.properties</code> file in <code>platforms/android/</code> with a keystore path and alias name:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>key.store=/path/to/keystore/release_key_name.keystore
+key.alias=alias_name
+</pre></td></tr></table></figure>
+
+<p>The standard Cordova CLI release build process will now prompt for the password and automatically sign the APK, ready for upload to Google Play, or other distribution method. The APK will be created at <code>platforms/android/ant-build/app_name-release.apk</code>.</p>
+<p>Happy release automation.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-06-10T11:39:51.000Z" itemprop="datePublished">10th Jun 2014</time>
       
       
@@ -947,67 +1032,6 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-01-31T18:00:30.000Z" itemprop="datePublished">31st Jan 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/debugging-wp8-in-phonegap/" itemprop="url">Debugging WP8 in PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Windows_Phone_8">Windows Phone 8</h2>
-<p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank" rel="external">reported an issue</a> that prevents the WP8 platform from even being used with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
-<p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you’re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
-<h2 id="Show_me_the_errors">Show me the errors</h2>
-<p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
-    window.external.Notify(<span class="string">"Error in Application: "</span> +
-        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
-}
-</pre></td></tr></table></figure>
-
-<p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
-<p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank" rel="external">here</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1061,6 +1085,10 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   <ul class="entry">
     
       <li>
+        <a href="/Sign-Releases-with-Cordova-Android/">Sign Releases with Cordova Android</a>
+      </li>
+    
+      <li>
         <a href="/Cordova-PhoneGap-iOS-8-Beta/">Cordova / PhoneGap iOS 8 Beta</a>
       </li>
     
@@ -1096,10 +1124,6 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
         <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
       </li>
     
-      <li>
-        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1111,9 +1135,9 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>8</small></li>
+    <li><a href="/tags/android/">android</a><small>9</small></li>
   
-    <li><a href="/tags/app/">app</a><small>12</small></li>
+    <li><a href="/tags/app/">app</a><small>13</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1127,7 +1151,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   
     <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>19</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>20</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

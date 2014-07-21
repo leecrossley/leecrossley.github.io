@@ -55,6 +55,67 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-01-31T18:00:30.000Z" itemprop="datePublished">31st Jan 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/debugging-wp8-in-phonegap/" itemprop="url">Debugging WP8 in PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Windows_Phone_8">Windows Phone 8</h2>
+<p>Developing or porting a Cordova / PhoneGap app to WP8 can be particularly tricky. There are lots of gotchas, which are usually difficult to identify without experience. Today I <a href="https://issues.apache.org/jira/browse/CB-5957" target="_blank" rel="external">reported an issue</a> that prevents the WP8 platform from even being used with the latest <em>stable</em> version of Cordova. It really does get less attention that iOS and Android.</p>
+<p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you’re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
+<h2 id="Show_me_the_errors">Show me the errors</h2>
+<p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
+    window.external.Notify(<span class="string">"Error in Application: "</span> +
+        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
+}
+</pre></td></tr></table></figure>
+
+<p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
+<p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank" rel="external">here</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-01-19T10:59:01.000Z" itemprop="datePublished">19th Jan 2014</time>
       
       
@@ -796,85 +857,6 @@ myMedia.play();
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-02T11:24:44.000Z" itemprop="datePublished">2nd Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/plugreg-v07-is-now-live/" itemprop="url">PlugReg v0.7 Is Now Live</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="What’s_new">What’s new</h2>
-<p>It’s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank" rel="external">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank" rel="external">@plugreg on twitter</a>.</p>
-<h3 id="Features">Features</h3>
-<p>Here are some of the new features that have been implemented for v0.7:</p>
-<ul>
-<li><strong>Plugin details</strong>. New design and more info has been added:<ul>
-<li>Version number</li>
-<li>Last modified</li>
-<li>Stars</li>
-<li>Issues</li>
-</ul>
-</li>
-<li><strong>Avatars</strong>. Now hotlinks to gravatar or github identicons</li>
-<li><strong>Homepage</strong>. A new homepage design, giving various stats, such as:<ul>
-<li>Total number of plugins</li>
-<li>Total number of authors</li>
-<li>Recently Added Plugins (and when they were added)</li>
-<li>Recently Updated Plugins (and when they were updated)</li>
-<li>Authors with the Most Plugins (and how many plugins each)</li>
-<li>Authors with the Most Stars (combined from all their plugins)</li>
-<li>Plugins with the Most Stars (and how many stars)</li>
-<li>Plugins with the Most Issues (and how many issues)</li>
-</ul>
-</li>
-<li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
-<li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
-</ul>
-<h3 id="Refresh">Refresh</h3>
-<p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
-<h3 id="API">API</h3>
-<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you’d like to use it.</p>
-<h3 id="Bugs">Bugs</h3>
-<p>There are also many, many bug fixes.</p>
-<h2 id="Future_updates">Future updates</h2>
-<p>Further updates are on the way shortly. If you’d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank" rel="external">@plugreg</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -930,6 +912,10 @@ myMedia.play();
   <ul class="entry">
     
       <li>
+        <a href="/Sign-Releases-with-Cordova-Android/">Sign Releases with Cordova Android</a>
+      </li>
+    
+      <li>
         <a href="/Cordova-PhoneGap-iOS-8-Beta/">Cordova / PhoneGap iOS 8 Beta</a>
       </li>
     
@@ -965,10 +951,6 @@ myMedia.play();
         <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
       </li>
     
-      <li>
-        <a href="/debugging-wp8-in-phonegap/">Debugging WP8 in PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -980,9 +962,9 @@ myMedia.play();
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>8</small></li>
+    <li><a href="/tags/android/">android</a><small>9</small></li>
   
-    <li><a href="/tags/app/">app</a><small>12</small></li>
+    <li><a href="/tags/app/">app</a><small>13</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -996,7 +978,7 @@ myMedia.play();
   
     <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>19</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>20</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

@@ -4,12 +4,64 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-07-20T16:48:05.788Z</updated>
+  <updated>2014-07-21T07:17:39.962Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Sign Releases with Cordova Android]]></title>
+    <link href="http://ilee.co.uk/Sign-Releases-with-Cordova-Android/"/>
+    <id>http://ilee.co.uk/Sign-Releases-with-Cordova-Android/</id>
+    <published>2014-07-21T06:33:15.000Z</published>
+    <updated>2014-07-21T07:17:09.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="The_Cordova_CLI">The Cordova CLI</h2>
+<p>Since the Cordova CLI was introduced about a year ago, building and deploying Cordova apps for development has become incredibly simple and automatable. E.g. for Android:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova build android
+</pre></td></tr></table></figure>
+
+<p>and you can also run the app directly on the device / emulator</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ cordova run android
+$ cordova emulate android
+</pre></td></tr></table></figure>
+
+<p>If you want to build a release version of an APK from the command line for production, this is also possible. However, this does not <em>sign</em> your release:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ cordova build android --release
+</pre></td></tr></table></figure>
+
+<p>Here are the 2 methods I use / have used to achieve API signing for production / distribution. Don’t worry, neither of them use Eclipse!:</p>
+<p><img src="/img/android-signing.png" alt="Android signing"></p>
+<p><strong>Note:</strong> Before you can use either of these methods, you must have generated a private key, see <a href="http://developer.android.com/tools/publishing/app-signing.html#cert" target="_blank" rel="external">Obtain a suitable private key</a> on the Android Developer website.</p>
+<h2 id="Method_1">Method 1</h2>
+<h3 id="Use_jarsigner_directly">Use jarsigner directly</h3>
+<p>This is the method I used to use and it isn’t Cordova CLI specific (it’s part of the Java SDK build tools and this method is part of their <a href="http://developer.android.com/tools/publishing/app-signing.html#signapp" target="_blank" rel="external">standard documentation</a>). After you have created your APK (<code>cordova build android --release</code>) you can run the following command:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ jarsigner <span class="attribute">-verbose</span> <span class="attribute">-sigalg</span> SHA1withRSA <span class="attribute">-digestalg</span> SHA1 <span class="attribute">-keystore</span> release_key_name<span class="built_in">.</span>keystore app_name<span class="built_in">.</span>apk alias_name
+</pre></td></tr></table></figure>
+
+<p>Jarsigner will prompt for the password and sign the APK.</p>
+<h2 id="Method_2_(best)">Method 2 (best)</h2>
+<h3 id="Part_of_the_CLI_workflow">Part of the CLI workflow</h3>
+<p>This is now my preferred method and hooks directly into the <code>cordova build android --release</code> command.</p>
+<p>Create an <code>ant.properties</code> file in <code>platforms/android/</code> with a keystore path and alias name:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>key.store=/path/to/keystore/release_key_name.keystore
+key.alias=alias_name
+</pre></td></tr></table></figure>
+
+<p>The standard Cordova CLI release build process will now prompt for the password and automatically sign the APK, ready for upload to Google Play, or other distribution method. The APK will be created at <code>platforms/android/ant-build/app_name-release.apk</code>.</p>
+<p>Happy release automation.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Cordova / PhoneGap iOS 8 Beta]]></title>
     <link href="http://ilee.co.uk/Cordova-PhoneGap-iOS-8-Beta/"/>
@@ -1106,52 +1158,5 @@ myMedia.play();
 <p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank" rel="external">git repo</a>.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[PlugReg v0.7 Is Now Live]]></title>
-    <link href="http://ilee.co.uk/plugreg-v07-is-now-live/"/>
-    <id>http://ilee.co.uk/plugreg-v07-is-now-live/</id>
-    <published>2013-12-02T11:24:44.000Z</published>
-    <updated>2013-12-02T11:46:16.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="What’s_new">What’s new</h2>
-<p>It’s now even easier to find Cordova / PhoneGap plugins on <a href="http://www.plugreg.com" target="_blank" rel="external">plugreg</a>. To keep up to date with the latest plugreg and plugin related information follow <a href="https://twitter.com/plugreg" target="_blank" rel="external">@plugreg on twitter</a>.</p>
-<h3 id="Features">Features</h3>
-<p>Here are some of the new features that have been implemented for v0.7:</p>
-<ul>
-<li><strong>Plugin details</strong>. New design and more info has been added:<ul>
-<li>Version number</li>
-<li>Last modified</li>
-<li>Stars</li>
-<li>Issues</li>
-</ul>
-</li>
-<li><strong>Avatars</strong>. Now hotlinks to gravatar or github identicons</li>
-<li><strong>Homepage</strong>. A new homepage design, giving various stats, such as:<ul>
-<li>Total number of plugins</li>
-<li>Total number of authors</li>
-<li>Recently Added Plugins (and when they were added)</li>
-<li>Recently Updated Plugins (and when they were updated)</li>
-<li>Authors with the Most Plugins (and how many plugins each)</li>
-<li>Authors with the Most Stars (combined from all their plugins)</li>
-<li>Plugins with the Most Stars (and how many stars)</li>
-<li>Plugins with the Most Issues (and how many issues)</li>
-</ul>
-</li>
-<li><strong>Search</strong>. Search is now weighted based on plugin stars</li>
-<li><strong>Plugin list</strong>. Now contains the number of plugin stars</li>
-</ul>
-<h3 id="Refresh">Refresh</h3>
-<p>All plugin details are now updated/refreshed every 30 minutes (this includes issues / stars etc).</p>
-<h3 id="API">API</h3>
-<p>A basic API is now available listing details of all the indexed plugins - get in touch for more details if you’d like to use it.</p>
-<h3 id="Bugs">Bugs</h3>
-<p>There are also many, many bug fixes.</p>
-<h2 id="Future_updates">Future updates</h2>
-<p>Further updates are on the way shortly. If you’d like to suggest an improvement or report an issue, you can do so on Twitter <a href="https://twitter.com/plugreg" target="_blank" rel="external">@plugreg</a></p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-    <category scheme="http://ilee.co.uk/tags/web/" term="web"/>
   </entry>
 </feed>
