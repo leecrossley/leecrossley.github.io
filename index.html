@@ -55,6 +55,98 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-07-22T07:16:09.000Z" itemprop="datePublished">22nd Jul 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/Target-Android-Phones-Not-Tablets/" itemprop="url">Target Android Phones Not Tablets</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Screen_size_and_density">Screen size and density</h2>
+<p>Android devices come in a vast array of different screen sizes and screen densities. This makes it tricky to say “this app should only be available to phones” on the Google Play store.</p>
+<p>Here is the most <em>concise</em> way I can find to achieve the desired result. Include the <code>&lt;compatible-screens&gt;</code> element in the <code>AndroidManifest.xml</code> file like this (my original gist <a href="https://gist.github.com/leecrossley/b8e4ef90e51581353110" target="_blank" rel="external">here</a>):</p>
+<h3 id="AndroidManifest-xml">AndroidManifest.xml</h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">manifest</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span>
+    <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
+        <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">manifest</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<h2 id="480_vs_xxhdpi">480 vs xxhdpi</h2>
+<p>The <code>android:screenDensity=&quot;480&quot;</code> can also be written as <code>android:screenDensity=&quot;xxhdpi&quot;</code> but depending on the min SDK version you are targeting, the <code>xxhdpi</code> may be unrecognised and cause a build failure. Fortunately, <code>480</code> has the same result because the standard quantised dpi for <code>xxhdpi</code> is 480.</p>
+<h2 id="xxxhdpi">xxxhdpi</h2>
+<p>I’ve seen <code>xxxhdpi</code> in the Android source but I’ve not seen a phone with the capability yet. I imagine this will have a standard quantised dpi of 640, so you will able to use this similar trick in future.</p>
+<p>Now all you have to do is create the 100s of assets you need to actually support these screen densities.</p>
+<p><strong>What’s next? CastlemaineHDPI? (XXXX).</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-07-21T06:33:15.000Z" itemprop="datePublished">21st Jul 2014</time>
       
       
@@ -950,88 +1042,6 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-02-06T19:20:06.000Z" itemprop="datePublished">6th Feb 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/are-you-a-dot-guru/" itemprop="url">Are You a Dot Guru?</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="The_-guru_top_level_domain">The .guru top level domain</h2>
-<p>The “.guru” top level domain (TLD) became available for public registration this week. More than 20,000 .guru domain names have already been snapped up, proving it to be the most popular of the new public TLDs.</p>
-<p><img src="/img/guru.png" alt="dot guru"></p>
-<h3 id="Going,_going…">Going, going…</h3>
-<p>Are you considered an expert in a particular field, product or category? If you are a guru, there might still be time to register your .guru domain name.</p>
-<blockquote>
-
-<p><strong>Take a quick search on <a href="http://www.shareasale.com/r.cfm?B=210738&amp;U=912360&amp;M=25581&amp;urllink=https://iwantmyname.com/domains/dot-guru" target="_blank" rel="external">iwantmyname</a> to see what’s available.</strong></p>
-</blockquote>
-
-
-<h2 id="I’m_a_dot_guru">I’m a dot guru</h2>
-<p>I quickly registered a couple of .guru domain names. I plan to utilise them as opposed to selling them, although someone has listed 3dprinting.guru for $7500 and mine are better than that.. so we’ll see.</p>
-<p>There are also others listed for silly prices (and unlikely to sell?), I’ve seen one on ebay for $20K (or best offer, admittedly).</p>
-<h2 id="Trademarks">Trademarks</h2>
-<p>As you’d expect, most companies have registered their trademarks as domains (e.g. Apple have registered iphone.guru and pretty much all their products). There are however some registrations that do not belong to the trademark holders :) … <em>opens popcorn</em></p>
-<h2 id="Other_TLDs">Other TLDs</h2>
-<p>Other popular TLDs now available include:</p>
-<ul>
-<li>.bike</li>
-<li>.clothing</li>
-<li>.singles</li>
-<li>.ventures</li>
-<li>.plumbing</li>
-<li>.holdings</li>
-<li>.equipment</li>
-<li>.lighting</li>
-<li>.estate</li>
-<li>.graphics</li>
-<li>.camera</li>
-<li>.gallery</li>
-</ul>
-<p>Note that .guru is more popular than all of the above put together.</p>
-<h2 id="Is_this_the_end_of_-com?">Is this the end of .com?</h2>
-<p><a href="http://www.youtube.com/watch?v=kxRX6LXDpWs" target="_blank" rel="external">No</a>. To put things into perspective, there have been more than <strong>five times as many</strong> .com registrations than .guru registrations since Wednesday.</p>
-<p>Even skype and twitter (at the time of writing this) aren’t picking up that domain.guru is a URL, even with a protocol prefix!</p>
-<p>The .com TLD isn’t going anywhere. Past new TLDs such as .co didn’t replace the .com and neither will any of the proposed future new TLDs. </p>
-<p>The new TLDs do have their place and are needed in the overcrowded .com world.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -1085,6 +1095,10 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   <ul class="entry">
     
       <li>
+        <a href="/Target-Android-Phones-Not-Tablets/">Target Android Phones Not Tablets</a>
+      </li>
+    
+      <li>
         <a href="/Sign-Releases-with-Cordova-Android/">Sign Releases with Cordova Android</a>
       </li>
     
@@ -1120,10 +1134,6 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
         <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1135,9 +1145,9 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>9</small></li>
+    <li><a href="/tags/android/">android</a><small>10</small></li>
   
-    <li><a href="/tags/app/">app</a><small>13</small></li>
+    <li><a href="/tags/app/">app</a><small>14</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1151,7 +1161,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
   
     <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>20</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>21</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

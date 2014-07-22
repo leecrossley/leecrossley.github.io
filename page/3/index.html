@@ -55,6 +55,81 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-12-03T08:44:40.000Z" itemprop="datePublished">3rd Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/pause-between-grunt-tasks/" itemprop="url">Pause between Grunt Tasks</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Pause_for_debugging">Pause for debugging</h2>
+<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
+<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
+<h2 id="grunt-pause">grunt-pause</h2>
+<p>I’ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, “<a href="https://npmjs.org/package/grunt-pause" target="_blank" rel="external">grunt-pause.js</a>“. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank" rel="external">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
+<h2 id="Grunt_core">Grunt core</h2>
+<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
+<p>If this package gets used, I’ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
+<h2 id="Usage">Usage</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-pause <span class="comment">## --save-dev</span>
+</pre></td></tr></table></figure>
+
+<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> pause = <span class="built_in">require</span>(<span class="string">"grunt-pause"</span>);
+</pre></td></tr></table></figure>
+
+<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    pause.init(grunt);
+</pre></td></tr></table></figure>
+
+<h2 id="Sample_output">Sample output</h2>
+<p>Sample screenshot of the console output:</p>
+<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
+<h2 id="Improvements?">Improvements?</h2>
+<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
+<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank" rel="external">git repo</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-12-02T11:24:44.000Z" itemprop="datePublished">2nd Dec 2013</time>
       
       
@@ -873,74 +948,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/update-to-my-grunt-timer/" itemprop="url">Update to My grunt-timer</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="New_version_of_“grunt-timer”">New version of “grunt-timer”</h2>
-<p>I recently blogged about <a href="/let-grunt-handle-your-tasks/">Grunt</a> (the JavaScript task runner), and about an early version of my <a href="/timing-grunt-task-duration/">grunt-timer</a> node package, for logging the elapsed execution time for each task as they are run by Grunt.</p>
-<p>I’ve now released a new version of <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer</a>. The usage remains the same as before, so I wont repeat the old blog post on how to use it. Also, the <a href="https://github.com/leecrossley/grunt-timer/blob/master/README.md" target="_blank" rel="external">README</a> is up to date.</p>
-<h2 id="Open_source">Open source</h2>
-<p>Open source is a great way to get software tested. Thanks to issues logged against the grunt-timer github repository, I’ve now made several improvements and fixes:</p>
-<ol>
-<li><p>Tasks (that aren’t really tasks) taking no time are no longer logged.</p>
-<ul>
-<li>Let’s say you have a task “mytask” that has a “mytask:dist” configuration. “mytask:dist” is actually what should be timed (according to the “nameArgs” property). Therefore I have omitted tasks that take 2ms or less from the output. This was a serious issue with the previous version.</li>
-</ul>
-</li>
-<li><p>A total elapsed time of all logged tasks is now also logged.</p>
-<ul>
-<li>By adding a high intensity summary output at the end, it makes is more obvious that the the last entry isn’t itself a summary. It still has to appear after the “Done, without errors” unfortunately, due to the way the hooking for the task name change works. <em>*Please let me know if you can see a way around this</em></li>
-</ul>
-</li>
-<li><p>The initialisation period no longer contributes to logged times.</p>
-<ul>
-<li>i.e. The time that is elapsed before your tasks are actually run (which is minimal) is not output, nor is it part of the summary. I decided that this initialisation time was irrelevant and only confusing the results.</li>
-</ul>
-</li>
-</ol>
-<h2 id="Source_code">Source code</h2>
-<p>The full source code is available <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">here</a>. I’m open to pull requests and suggestions as always.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -996,6 +1003,10 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   <ul class="entry">
     
       <li>
+        <a href="/Target-Android-Phones-Not-Tablets/">Target Android Phones Not Tablets</a>
+      </li>
+    
+      <li>
         <a href="/Sign-Releases-with-Cordova-Android/">Sign Releases with Cordova Android</a>
       </li>
     
@@ -1031,10 +1042,6 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
         <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
       </li>
     
-      <li>
-        <a href="/are-you-a-dot-guru/">Are You a Dot Guru?</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1046,9 +1053,9 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>9</small></li>
+    <li><a href="/tags/android/">android</a><small>10</small></li>
   
-    <li><a href="/tags/app/">app</a><small>13</small></li>
+    <li><a href="/tags/app/">app</a><small>14</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -1062,7 +1069,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
   
     <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>20</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>21</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

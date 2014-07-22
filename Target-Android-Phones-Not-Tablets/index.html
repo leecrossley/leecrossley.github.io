@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hack to Prevent JSON Hijacking | iLee</title>
+  <title>Target Android Phones Not Tablets | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="A quick and easy example and explanation of how to prevent &#39;JSON Hijacking&#39;">
+  <meta name="description" content="How to restrict Android installs to phones only (not tablets).">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Hack to Prevent JSON Hijacking"/>
+  <meta property="og:title" content="Target Android Phones Not Tablets"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://ih0.redbubble.net/image.14354785.9412/sticker,375x360.u2.png" />
+  <meta property="og:image" content="http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/128/Drives-Android-Smartphone-Metro-icon.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,43 +54,64 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-10-02T16:32:24.000Z" itemprop="datePublished">2nd Oct 2013</time>
+        <time datetime="2014-07-22T07:16:09.000Z" itemprop="datePublished">22nd Jul 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Hack to Prevent JSON Hijacking</h1>
+    <h1 class="title" itemprop="name headline">Target Android Phones Not Tablets</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="JSON_hijacking">JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn’t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank" rel="external">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there’s a nice little hack to prevent the hijack.</p>
-<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
-<h2 id="The_hack">The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
+        <h2 id="Screen_size_and_density">Screen size and density</h2>
+<p>Android devices come in a vast array of different screen sizes and screen densities. This makes it tricky to say “this app should only be available to phones” on the Google Play store.</p>
+<p>Here is the most <em>concise</em> way I can find to achieve the desired result. Include the <code>&lt;compatible-screens&gt;</code> element in the <code>AndroidManifest.xml</code> file like this (my original gist <a href="https://gist.github.com/leecrossley/b8e4ef90e51581353110" target="_blank" rel="external">here</a>):</p>
+<h3 id="AndroidManifest-xml">AndroidManifest.xml</h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">manifest</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span>
+    <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
+        <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">manifest</span>&gt;</span>
 </pre></td></tr></table></figure>
 
-<p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
-</pre></td></tr></table></figure>
-
-<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
-<p>Facebook use a similar variation to achieve the same result:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
-</pre></td></tr></table></figure>
-
-<p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
-</pre></td></tr></table></figure>
-
-<h2 id="Limitations">Limitations</h2>
-<p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
+<h2 id="480_vs_xxhdpi">480 vs xxhdpi</h2>
+<p>The <code>android:screenDensity=&quot;480&quot;</code> can also be written as <code>android:screenDensity=&quot;xxhdpi&quot;</code> but depending on the min SDK version you are targeting, the <code>xxhdpi</code> may be unrecognised and cause a build failure. Fortunately, <code>480</code> has the same result because the standard quantised dpi for <code>xxhdpi</code> is 480.</p>
+<h2 id="xxxhdpi">xxxhdpi</h2>
+<p>I’ve seen <code>xxxhdpi</code> in the Android source but I’ve not seen a phone with the capability yet. I imagine this will have a standard quantised dpi of 640, so you will able to use this similar trick in future.</p>
+<p>Now all you have to do is create the 100s of assets you need to actually support these screen densities.</p>
+<p><strong>What’s next? CastlemaineHDPI? (XXXX).</strong></p>
 
       
     </div>
@@ -110,7 +131,7 @@
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>, <a href="/tags/web/" itemprop="keywords">web</a>
+    <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/app/" itemprop="keywords">app</a>, <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>
   </div>
 
       

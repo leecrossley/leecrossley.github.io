@@ -4,12 +4,71 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-07-21T07:17:39.962Z</updated>
+  <updated>2014-07-22T07:36:20.470Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Target Android Phones Not Tablets]]></title>
+    <link href="http://ilee.co.uk/Target-Android-Phones-Not-Tablets/"/>
+    <id>http://ilee.co.uk/Target-Android-Phones-Not-Tablets/</id>
+    <published>2014-07-22T07:16:09.000Z</published>
+    <updated>2014-07-22T07:35:46.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Screen_size_and_density">Screen size and density</h2>
+<p>Android devices come in a vast array of different screen sizes and screen densities. This makes it tricky to say “this app should only be available to phones” on the Google Play store.</p>
+<p>Here is the most <em>concise</em> way I can find to achieve the desired result. Include the <code>&lt;compatible-screens&gt;</code> element in the <code>AndroidManifest.xml</code> file like this (my original gist <a href="https://gist.github.com/leecrossley/b8e4ef90e51581353110" target="_blank" rel="external">here</a>):</p>
+<h3 id="AndroidManifest-xml">AndroidManifest.xml</h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">manifest</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
+        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span>
+    <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
+        <span class="comment">&lt;!-- ... --&gt;</span>
+    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">manifest</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<h2 id="480_vs_xxhdpi">480 vs xxhdpi</h2>
+<p>The <code>android:screenDensity=&quot;480&quot;</code> can also be written as <code>android:screenDensity=&quot;xxhdpi&quot;</code> but depending on the min SDK version you are targeting, the <code>xxhdpi</code> may be unrecognised and cause a build failure. Fortunately, <code>480</code> has the same result because the standard quantised dpi for <code>xxhdpi</code> is 480.</p>
+<h2 id="xxxhdpi">xxxhdpi</h2>
+<p>I’ve seen <code>xxxhdpi</code> in the Android source but I’ve not seen a phone with the capability yet. I imagine this will have a standard quantised dpi of 640, so you will able to use this similar trick in future.</p>
+<p>Now all you have to do is create the 100s of assets you need to actually support these screen densities.</p>
+<p><strong>What’s next? CastlemaineHDPI? (XXXX).</strong></p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Sign Releases with Cordova Android]]></title>
     <link href="http://ilee.co.uk/Sign-Releases-with-Cordova-Android/"/>
@@ -1117,46 +1176,6 @@ myMedia.play();
     <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Pause between Grunt Tasks]]></title>
-    <link href="http://ilee.co.uk/pause-between-grunt-tasks/"/>
-    <id>http://ilee.co.uk/pause-between-grunt-tasks/</id>
-    <published>2013-12-03T08:44:40.000Z</published>
-    <updated>2013-12-03T09:11:28.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Pause_for_debugging">Pause for debugging</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">blogged a while ago</a> about the Grunt JavaScript task runner, a great way to automate your JavaScript tasks.</p>
-<p>On complex projects, with numerous multitasks that display output, it occurred to me that you might want to be able to pause the task runner after each task. You may perhaps need to assess the output or check something, then decide whether or not to continue running the remaining tasks.</p>
-<h2 id="grunt-pause">grunt-pause</h2>
-<p>I’ve implemented a Grunt plugin (in a slightly unorthodox manner) to facilitate the pausing, “<a href="https://npmjs.org/package/grunt-pause" target="_blank" rel="external">grunt-pause.js</a>“. It uses the hooker to watch for task changes, then fires off a dynamically added task after each change. The <a href="https://npmjs.org/package/inquirer" target="_blank" rel="external">inquirer</a> node package then kicks in to prompt the developer to either continue (default), or clear the task queue and end the task runner.</p>
-<h2 id="Grunt_core">Grunt core</h2>
-<p>Personally, I think this should be part of the Grunt core. It would be much easier to implement (not hooky hacky), and could be enabled simply with a “—pause” argument on the command line.</p>
-<p>If this package gets used, I’ll consider a pull request to Grunt core for version 0.5.0. This package will still be useful for version 0.4.x etc.</p>
-<h2 id="Usage">Usage</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-pause <span class="comment">## --save-dev</span>
-</pre></td></tr></table></figure>
-
-<p>Add the grunt-pause reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> pause = <span class="built_in">require</span>(<span class="string">"grunt-pause"</span>);
-</pre></td></tr></table></figure>
-
-<p>Add the pause init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    pause.init(grunt);
-</pre></td></tr></table></figure>
-
-<h2 id="Sample_output">Sample output</h2>
-<p>Sample screenshot of the console output:</p>
-<p><img src="https://raw.github.com/leecrossley/grunt-pause/master/grunt-pause.png" alt="Console Screenshot">.</p>
-<h2 id="Improvements?">Improvements?</h2>
-<p>You might not want to have the pause between all tasks, perhaps we could pass an array of exclusions or inclusions when we call <code>pause.init(grunt)</code>?</p>
-<p>As always, issues and pull request on the <a href="https://github.com/leecrossley/grunt-pause" target="_blank" rel="external">git repo</a>.</p>
-]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>
