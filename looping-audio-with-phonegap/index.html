@@ -71,36 +71,12 @@
 <p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
 <blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
-myMedia.play({ numberOfLoops: <span class="number">2</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);</div><div class="line">myMedia.play({ numberOfLoops: <span class="number">2</span> });</div></pre></td></tr></table></figure>
 
 <p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
 <h3 id="Android">Android</h3>
 <p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
-
-<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
-    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
-        myMedia.play();
-    }
-};
-
-myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
-myMedia.play();
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia;</div><div class="line"></div><div class="line"><span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> </span>{</div><div class="line">    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {</div><div class="line">        myMedia.play();</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);</div><div class="line">myMedia.play();</div></pre></td></tr></table></figure>
 
 <p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>
@@ -134,7 +110,7 @@ myMedia.play();
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -180,7 +156,7 @@ myMedia.play();
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -231,7 +207,7 @@ myMedia.play();
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

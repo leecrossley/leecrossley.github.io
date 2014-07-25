@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Page 7 | iLee | developer blog</title>
+  <title>page | iLee | developer blog</title>
   <meta name="author" content="Lee Crossley">
   <meta name="description" content="I write code that sounds awesome and music that&#39;s bug free">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -68,18 +68,10 @@
         <h2 id="The_different_ways_to_declare_a_function_in_JavaScript">The different ways to declare a function in JavaScript</h2>
 <h3 id="To_var,_or_not_to_var">To var, or not to var</h3>
 <p>You can declare a function as you would any other JavaScript variable:</p>
-<figure class="highlight javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <p>Or you can declare it without a var in your statement:</p>
-<figure class="highlight javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> </span>{</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="The_difference">The difference</h2>
 <p>I recently read an accepted answer on Stack Overflow that stated:</p>
@@ -90,45 +82,7 @@
 
 
 <p>I’m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank" rel="external">for this</a>:</p>
-<figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="keyword">try</span> {
-  func1();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  alert(<span class="string">"func1 success"</span>);
-};
-
-<span class="keyword">try</span> {
-  func2();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-  alert(<span class="string">"func2 success"</span>);
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> {</div><div class="line">  func1();</div><div class="line">} <span class="keyword">catch</span> (ex) {</div><div class="line">  alert(ex);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  alert(<span class="string">"func1 success"</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">try</span> {</div><div class="line">  func2();</div><div class="line">} <span class="keyword">catch</span> (ex) {</div><div class="line">  alert(ex);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> </span>{</div><div class="line">  alert(<span class="string">"func2 success"</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it’s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
 <ul>
@@ -137,19 +91,13 @@
 </ul>
 <h2 id="Function_expressions">Function expressions</h2>
 <p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn’t. To give the function itself a name, you could do:</p>
-<figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> </span>{</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <h2 id="Best_practice">Best practice</h2>
 <p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/" target="_blank" rel="external">Multiple Function Composition</a> you’re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
 <h2 id="CoffeeScript_fans">CoffeeScript fans</h2>
 <p>If you’re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there’s only one way you can define a function in coffeescript:</p>
-<figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="function"><span class="title">func</span> = -&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">func</span> = -&gt;</span></div></pre></td></tr></table></figure>
 
 <p>Which is evaluated as a function expression, fortunately.</p>
 <p>Now seriously, get off my blog CoffeeScripters.</p>
@@ -446,53 +394,11 @@
         <h2 id="“Function_Composition”_sounds_complicated,_what_is_it?">“Function Composition” sounds complicated, what is it?</h2>
 <p>It’s actually simple to explain and hopefully understand. (Multiple) function composition is the generation of a <a href="http://en.wikipedia.org/wiki/Higher-order_function" target="_blank" rel="external">high-order function</a> by combining simpler functions. It’s probably easier explained using an example.</p>
 <h3 id="Basic_example_using_functional-js_to_combine_two_functions">Basic example using <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> to combine two functions</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(f, g);
-
-expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello "</span> + a;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{</div><div class="line">    <span class="keyword">return</span> a + <span class="number">1</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> composed = λ.compose(f, g);</div><div class="line"></div><div class="line">expect(composed(<span class="number">1</span>)).toEqual(<span class="string">"hello 2"</span>);</div></pre></td></tr></table></figure>
 
 <p>As you can see, the output from the right-most function is passed as the argument to the next function on the left, you’re then returned “hello 2” as a single result. Thanks to <a href="https://twitter.com/ryansroberts" target="_blank" rel="external">@ryansroberts</a> for this one.</p>
 <h3 id="Example_using_functional-js_to_combine_three_functions">Example using <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> to combine three functions</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> <span class="string">"hello "</span> + a;
-};
-<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a + <span class="number">1</span>;
-};
-<span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> {</span>
-    <span class="keyword">return</span> a * <span class="number">100</span>;
-};
-<span class="keyword">var</span> composed = λ.compose(e, f, g);
-
-expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{</div><div class="line">    <span class="keyword">return</span> <span class="string">"hello "</span> + a;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{</div><div class="line">    <span class="keyword">return</span> a + <span class="number">1</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span> <span class="params">(a)</span> </span>{</div><div class="line">    <span class="keyword">return</span> a * <span class="number">100</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> composed = λ.compose(e, f, g);</div><div class="line"></div><div class="line">expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"hello 201"</span>);</div></pre></td></tr></table></figure>
 
 <p>This example illustrates the combining of multiple functions, passing the output from function “g” as a parameter to function “f”, then passing the output from function “f” as a parameter to function “e”. This leaves you with a single returned result, in this case “hello 201”.</p>
 <h2 id="Ah_ha!_This_is_just_inheritance_for_JavaScript">Ah ha! This is just inheritance for JavaScript</h2>
@@ -550,125 +456,20 @@ expect(composed(<span class="number">2</span>)).toEqual(<span class="string">"he
 <p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank" rel="external">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank" rel="external">jasmine</a> tests are below).</p>
 <p>I’m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank" rel="external">functional-level programming</a> but it’s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">Contributions</a> are more than welcome if you fancy some brain pain.</p>
 <h3 id="Basic_λ-curry_example">Basic λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> {</span>
-    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;
-});
-
-<span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);
-<span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);
-
-expect(result).toEqual(<span class="string">"Hello World"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> </span>{</div><div class="line">    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);</div><div class="line"><span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);</div><div class="line"></div><div class="line">expect(result).toEqual(<span class="string">"Hello World"</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Another_λ-curry_example">Another λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> {</span>
-    <span class="keyword">return</span> arg1 + arg2 + arg3;
-}); 
-
-<span class="keyword">var</span> add3 = add(<span class="number">3</span>),
-    add5 = add3(<span class="number">2</span>);
-
-expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> </span>{</div><div class="line">    <span class="keyword">return</span> arg1 + arg2 + arg3;</div><div class="line">}); </div><div class="line"></div><div class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>),</div><div class="line">    add5 = add3(<span class="number">2</span>);</div><div class="line"></div><div class="line">expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Curried_λ-each_example">Curried λ.each example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> result = [],
-    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];
-
-<span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> result.push(item);
-};
-
-<span class="keyword">var</span> addToResult = λ.each(addTo);
-expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);
-
-addToResult(items);
-expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = [],</div><div class="line">    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> result.push(item);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> addToResult = λ.each(addTo);</div><div class="line">expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line">addToResult(items);</div><div class="line">expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);</div></pre></td></tr></table></figure>
 
 <h3 id="Curried_λ-map_example">Curried λ.map example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
-
-<span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
-    <span class="keyword">return</span> number * <span class="number">2</span>;
-};
-
-<span class="keyword">var</span> doubleMap = λ.map(doubleUp);
-expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = doubleMap(items);
-expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> </span>{</div><div class="line">    <span class="keyword">return</span> number * <span class="number">2</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubleMap = λ.map(doubleUp);</div><div class="line">expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = doubleMap(items);</div><div class="line">expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);</div></pre></td></tr></table></figure>
 
 <h3 id="Curried_λ-reduce_example">Curried λ.reduce example</h3>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> </span>{</div><div class="line">    <span class="keyword">return</span> arg1 * arg2;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);</div><div class="line">expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = multiplyReduceFrom1(items);</div><div class="line">expect(result).toEqual(<span class="number">6</span>);</div></pre></td></tr></table></figure>
 
-<span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> {</span>
-    <span class="keyword">return</span> arg1 * arg2;
-};
-
-<span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);
-expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = multiplyReduceFrom1(items);
-expect(result).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure></p>
 <h2 id="Why?">Why?</h2>
 <p>I like <del>torture</del> to push myself as a developer.</p>
 <h2 id="Great,_but,_erm,_why?">Great, but, erm, why?</h2>
@@ -731,54 +532,14 @@ expect(result).toEqual(<span class="number">6</span>);
         <h2 id="Numbers_don’t_add_up!">Numbers don’t add up!</h2>
 <p><strong>0.1 + 0.2 = 0.30000000000000004</strong></p>
 <p>Sometimes numbers in JavaScript (and other languages) simply don’t appear to add up. <a href="http://codepen.io/leecrossley/pen/DBJcE" target="_blank" rel="external">Don’t believe me?</a>.</p>
-<figure class="highlight javascript"><figcaption><span>0.1 + 0.2 = 0.30000000000000004 </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> x = <span class="number">0.1</span>,
-    y = <span class="number">0.2</span>;
- 
-<span class="keyword">var</span> result = x + y;
- 
-console.log(result);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>0.1 + 0.2 = 0.30000000000000004 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">0.1</span>,</div><div class="line">    y = <span class="number">0.2</span>;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> result = x + y;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(result);</div></pre></td></tr></table></figure>
 
 <p>I discovered this in the early days of programming when building a JavaScript calculator, which fortunately is now nowhere to be seen :)</p>
 <h2 id="Floating_point_numbers">Floating point numbers</h2>
 <p>JavaScript uses <a href="http://en.wikipedia.org/wiki/Floating_point" target="_blank" rel="external">Floating Point Numbers</a>, which don’t cater for an accurate representations of a decimal. This means that as soon as the variable is interpreted at runtime, a rounding issue is introduced. Computers are faster and more efficient at dealing with computations on binary numbers, which produces the issue with the 17th decimal place.</p>
 <h2 id="How_to_fix_it">How to fix it</h2>
 <p><a href="http://codepen.io/leecrossley/pen/hKmEa" target="_blank" rel="external">Here’s an example</a> of how I eliminate the rounding issues.</p>
-<figure class="highlight javascript"><figcaption><span>0.1 + 0.2 = 0.3 </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> x = <span class="number">0.1</span>,
-    y = <span class="number">0.2</span>;
- 
-<span class="keyword">var</span> multiplier = <span class="function"><span class="keyword">function</span> <span class="params">(dec)</span> {</span>
-  <span class="keyword">var</span> str = dec.toString(),
-      match = <span class="regexp">/(?:\.(\d+))?(?:[eE]([+\-]?\d+))?$/</span>.exec(str);
-  <span class="keyword">return</span> <span class="built_in">Math</span>.max(<span class="number">0</span>, (match[<span class="number">1</span>] == <span class="string">'0'</span> ? <span class="number">0</span> : (match[<span class="number">1</span>] || <span class="string">''</span>).length) - (match[<span class="number">2</span>] || <span class="number">0</span>)) * <span class="number">10</span>;
-};
- 
-<span class="keyword">var</span> highestMultiplier = <span class="built_in">Math</span>.max(multiplier(x), multiplier(y));
- 
-<span class="keyword">var</span> result = ((x * highestMultiplier) + (y * highestMultiplier)) / highestMultiplier;
- 
-console.log(result);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>0.1 + 0.2 = 0.3 </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">0.1</span>,</div><div class="line">    y = <span class="number">0.2</span>;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> multiplier = <span class="function"><span class="keyword">function</span> <span class="params">(dec)</span> </span>{</div><div class="line">  <span class="keyword">var</span> str = dec.toString(),</div><div class="line">      match = <span class="regexp">/(?:\.(\d+))?(?:[eE]([+\-]?\d+))?$/</span>.exec(str);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max(<span class="number">0</span>, (match[<span class="number">1</span>] == <span class="string">'0'</span> ? <span class="number">0</span> : (match[<span class="number">1</span>] || <span class="string">''</span>).length) - (match[<span class="number">2</span>] || <span class="number">0</span>)) * <span class="number">10</span>;</div><div class="line">};</div><div class="line"> </div><div class="line"><span class="keyword">var</span> highestMultiplier = <span class="built_in">Math</span>.max(multiplier(x), multiplier(y));</div><div class="line"> </div><div class="line"><span class="keyword">var</span> result = ((x * highestMultiplier) + (y * highestMultiplier)) / highestMultiplier;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(result);</div></pre></td></tr></table></figure>
 
 <p>Essentially, I’m calculating the smallest number, which if multiplied by either number I’m adding together individually, would result in an integer. This is achieved by evaluating the number with the most numbers after the decimal point and what that value is. Once I have the multiplier, I use it on both the numbers I’m adding together, then do the addition, then divide by the multiplier to return the numbers back to their original decimal state.</p>
 <p>By performing the addition on integers, no rounding issues occur.</p>
@@ -936,10 +697,10 @@ console.log(result);
 
 <nav id="pagination">
   
-    <a href="/page/6/" class="alignleft prev">Prev</a>
+    <a href="/page/6/" class="alignleft prev">prev</a>
   
   
-    <a href="/page/8/" class="alignright next">Next</a>
+    <a href="/page/8/" class="alignright next">next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -983,7 +744,7 @@ console.log(result);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -1034,7 +795,7 @@ console.log(result);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

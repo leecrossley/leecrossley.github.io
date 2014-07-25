@@ -73,9 +73,7 @@
 <p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
 <p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a>.</p>
 <h2 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>cordova plugin <span class="keyword">add</span> https://github<span class="preprocessor">.com</span>/leecrossley/cordova-plugin-touchid<span class="preprocessor">.git</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-touchid.git</div></pre></td></tr></table></figure>
 
 <h2 id="Using_the_plugin">Using the plugin</h2>
 <p>Ensure you use the plugin after your deviceready event has been fired and you are targeting a real device.</p>
@@ -86,9 +84,7 @@
 <li>Failure callback (called on error or if authentication fails)</li>
 <li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>
 <p>Although the <code>authenticate()</code> function will return an error if the user is unable to authenticate via Touch ID, you may wish to check support without prompting the user to authenticate. This can be done by passing following arguments to the <code>checkSupport()</code> function:</p>
@@ -96,9 +92,7 @@
 <li>Success callback (called if authentication is possible)</li>
 <li>Not supported callback (called if policy can not be evaluated, with error message)</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.checkSupport(successCallback, notSupportedCallback);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.touchid.checkSupport(successCallback, notSupportedCallback);</div></pre></td></tr></table></figure>
 
 <h3 id="Improvements?">Improvements?</h3>
 <p>Probably. Issues and pull request on the <a href="https://github.com/leecrossley/cordova-plugin-touchide" target="_blank" rel="external">git repo</a> please. Remember this is still beta.</p>
@@ -132,7 +126,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -178,7 +172,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -229,7 +223,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

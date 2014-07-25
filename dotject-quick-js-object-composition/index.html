@@ -70,221 +70,47 @@
 <p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> and it’s λ.reduce function to achieve the “dot notation to object” implementation in very few lines of code.</p>
 <h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> dotject <span class="comment"># --save</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> dotject # <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
 <p>Require the module in the usual way:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);</div></pre></td></tr></table></figure>
 
 <h2 id="Using_dotject">Using dotject</h2>
 <p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank" rel="external">specs</a>, for the project, but I’ll run through examples here:</p>
 <h3 id="Simple_object_composition">Simple object composition</h3>
 <p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.b.c"</span>);
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: {
-      <span class="string">"c"</span>: {}
-    }
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {</div><div class="line">      <span class="string">"c"</span>: {}</div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Separating property names with a comma (similar to JavaScript objects) will create properties at the same level:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>);
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {}
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {}</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>This notation can be combined with the dot style notation:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c"</span>);
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Extend_an_existing_object">Extend an existing object</h3>
 <p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Existing object values are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Existing nested object properties are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: {},
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {},</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_a_value">Assign a value</h3>
 <p>You can assign a value to the last nested property:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: <span class="number">10</span>
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: <span class="number">10</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_multiple_values">Assign multiple values</h3>
 <p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: <span class="number">10</span>
-  },
-  <span class="string">"d"</span>: <span class="string">"test"</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: <span class="number">10</span></div><div class="line">  },</div><div class="line">  <span class="string">"d"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_multiple_values_and_override_existing">Assign multiple values and override existing</h3>
 <p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: <span class="string">"test"</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="“Real_world”_example">“Real world” example</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};
-camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);
-
-{
-  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,
-  <span class="string">"settings"</span>: {
-    <span class="string">"encoding"</span>: {
-      <span class="string">"format"</span>: <span class="string">"JPEG"</span>
-    }
-  },
-  <span class="string">"output"</span>: {
-    <span class="string">"data"</span>: {
-      <span class="string">"base64"</span>: <span class="literal">true</span>
-    }
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};</div><div class="line">camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"settings"</span>: {</div><div class="line">    <span class="string">"encoding"</span>: {</div><div class="line">      <span class="string">"format"</span>: <span class="string">"JPEG"</span></div><div class="line">    }</div><div class="line">  },</div><div class="line">  <span class="string">"output"</span>: {</div><div class="line">    <span class="string">"data"</span>: {</div><div class="line">      <span class="string">"base64"</span>: <span class="literal">true</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="Other_thoughts">Other thoughts</h2>
 <p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank" rel="external">λ.assign</a> (λ.extend) function. I’d be interested to hear your feedback on this, as personally I’m almost always passing a new object, which seems silly.</p>
@@ -320,7 +146,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -366,7 +192,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -417,7 +243,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

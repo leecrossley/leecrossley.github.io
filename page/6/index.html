@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Page 6 | iLee | developer blog</title>
+  <title>page | iLee | developer blog</title>
   <meta name="author" content="Lee Crossley">
   <meta name="description" content="I write code that sounds awesome and music that&#39;s bug free">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -203,35 +203,15 @@
 <p>I’m pleased to announce, my <a href="https://github.com/leecrossley/cordova-plugin-social-message" target="_blank" rel="external">Social Message plugin</a> has been rewritten to support the “add plugin” command.</p>
 <h2 id="Usage">Usage</h2>
 <h3 id="1_step_install">1 step install</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/leecrossley/cordova-plugin-social-message.git</div></pre></td></tr></table></figure>
 
 <p><strong>Way-hey!</strong> That’s it, you are done my good friend. You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a socialmessage object to your root automatically when you build. Good times.</p>
 <h3 id="In_your_JavaScript">In your JavaScript</h3>
 <p>After your deviceready event has been fired, you can simply pass a message object with a “text” property to the send function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> message = {
-    text: <span class="string">"This is a test message"</span>
-};
-window.socialmessage.send(message);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> message = {</div><div class="line">    text: <span class="string">"This is a test message"</span></div><div class="line">};</div><div class="line"><span class="built_in">window</span>.socialmessage.send(message);</div></pre></td></tr></table></figure>
 
 <p>The above code will allow the message to be shared with all built in activity types. If you want to specify activity types to include, add an “activityTypes” array to your message object:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> message = {
-    text: <span class="string">"This is a test message"</span>,
-    activityTypes: [<span class="string">"PostToFacebook"</span>, <span class="string">"PostToTwitter"</span>]
-};
-window.socialmessage.send(message);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> message = {</div><div class="line">    text: <span class="string">"This is a test message"</span>,</div><div class="line">    activityTypes: [<span class="string">"PostToFacebook"</span>, <span class="string">"PostToTwitter"</span>]</div><div class="line">};</div><div class="line"><span class="built_in">window</span>.socialmessage.send(message);</div></pre></td></tr></table></figure>
 
 <p>This example will allow the user to only post the message to Facebook or Twitter.</p>
 <p>A complete list of activity types can be found <a href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIActivity_Class/Reference/Reference.html#//apple_ref/occ/cl/UIActivity" target="_blank" rel="external">here</a>. You should omit the “UIActivityType” prefix when adding to your array.</p>
@@ -351,9 +331,7 @@ window.socialmessage.send(message);
 <p>The strict operating context is (go on, guess) <strong>more strict</strong>, by throwing exceptions under stricter guidelines and by preventing certain actions.</p>
 <h2 id="How_to_use_it">How to use it</h2>
 <p>You invoke strict mode by placing the string “use strict” at the top of your JavaScript file or function.</p>
-<figure class="highlight javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="pi">"use strict"</span>;
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>use strict example </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="pi">"use strict"</span>;</div></pre></td></tr></table></figure>
 
 <h2 id="Why_use_it">Why use it</h2>
 <p>All it does it enforce good practices, here are a few examples:</p>
@@ -367,11 +345,7 @@ window.socialmessage.send(message);
 <p>Implementation of strict mode in browsers is limited and likely to change with future iterations, it’s best to test your JavaScript (as always) in all browsers.</p>
 <h2 id="Let’s_end_on_a_laugh">Let’s end on a laugh</h2>
 <p>The strict operating context won’t spoil your fun running <a href="http://codepen.io/leecrossley/pen/FIbxd" target="_blank" rel="external">this</a>:</p>
-<figure class="highlight javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="pi">"use strict"</span>;
-alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Batman </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="pi">"use strict"</span>;</div><div class="line">alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<span class="string">"Robin"</span>-<span class="number">1</span>) + <span class="string">"Batman"</span>);</div></pre></td></tr></table></figure>
       
     </div>
     <footer>
@@ -418,9 +392,7 @@ alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<
         <h2 id="What_has_“Walter_White”_got_to_do_with_actual_colours_and_HTML?">What has “Walter White” got to do with actual colours and HTML?</h2>
 <p>Breaking Bad is a bit of a hot topic at the moment (I’m a fan myself) but you’re probably thinking <strong>where on earth is he going with this, “Walter White” isn’t a valid colour</strong>. Let me explain before you think I’ve gone mad.</p>
 <h3 id="Example">Example</h3>
-<figure class="highlight html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>Walter White snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">font</span> <span class="attribute">color</span>=<span class="value">"Walter White"</span>&gt;</span>Walter White<span class="tag">&lt;/<span class="title">font</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <p>The above code snippet will actually colour the text “Walter White”, in a Breaking Bad green, automatically.</p>
 <p>Don’t believe me? Here’s a <a href="http://codepen.io/leecrossley/pen/DaLdt" target="_blank" rel="external">live demo</a>. Apologies for the use of a font tag.</p>
@@ -501,17 +473,7 @@ alert(<span class="built_in">Array</span>(<span class="number">16</span>).join(<
 <li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
 </li>
 </ul>
-<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
-  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
-};
-history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
-expect(history.state).toEqual(state);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> state = {</div><div class="line">  <span class="string">"canBeAnything"</span>: <span class="literal">true</span></div><div class="line">};</div><div class="line">history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);</div><div class="line">expect(history.state).toEqual(state);</div></pre></td></tr></table></figure>
 
 <p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
 <h3 id="The_history-replaceState()_function">The history.replaceState() function</h3>
@@ -577,30 +539,16 @@ expect(history.state).toEqual(state);
 <p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
 <h2 id="How_do_I_use_it?">How do I use it?</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-timer <span class="comment">## --save</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> grunt-timer ## <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
 <p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);</div></pre></td></tr></table></figure>
 
 <p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt);</div></pre></td></tr></table></figure>
 
 <h2 id="Example_output">Example output</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span>
-<span class="number">500</span>ms <span class="keyword">task</span> ran
-Task <span class="string">'run:500'</span> took <span class="number">502</span>ms
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span></div><div class="line"><span class="number">500</span>ms <span class="keyword">task</span> ran</div><div class="line"><span class="keyword">Task</span> <span class="string">'run:500'</span> took <span class="number">502</span>ms</div></pre></td></tr></table></figure>
 
 <h2 id="Issues">Issues</h2>
 <p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
@@ -661,25 +609,7 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
 <p>The gist has quite a few stargazers, forks and comments and is about to be mentioned by <a href="https://twitter.com/fzammetti" target="_blank" rel="external">a published tech author</a> in his latest book. All of this past me by until recently, as I don’t generally monitor my gists :)</p>
 <h2 id="Using_shake-js">Using shake.js</h2>
 <p>If you’re interested in using shake.js, it’s pretty simple. It’s not documented on the gist but is pretty self explanatory to any JavaScript developer:</p>
-<figure class="highlight javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="keyword">var</span> onShake = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  <span class="comment">// Code fired when a shake is detected</span>
-};
-
-<span class="comment">// Start watching for shake gestures and call "onShake"</span>
-shake.startWatch(onShake);
-
-<span class="comment">// Stop watching for shake gestures</span>
-shake.stopWatch();
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>shake.js usage </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> onShake = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="comment">// Code fired when a shake is detected</span></div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// Start watching for shake gestures and call "onShake"</span></div><div class="line">shake.startWatch(onShake);</div><div class="line"></div><div class="line"><span class="comment">// Stop watching for shake gestures</span></div><div class="line">shake.stopWatch();</div></pre></td></tr></table></figure>
 
 <h2 id="Platforms">Platforms</h2>
 <p>Even though I’ve only used this on iPhone and Android, in theory it should work on Windows Phone and BlackBerry too, provided the hardware supports it.</p>
@@ -736,74 +666,32 @@ shake.stopWatch();
 <p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
 <h3 id="The_Grunt_CLI">The Grunt CLI</h3>
 <p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm install <span class="attribute">-g</span> grunt<span class="attribute">-cli</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-<span class="keyword">cli</span></div></pre></td></tr></table></figure>
 
 <p>You can now run “grunt” from anywhere. Happy times.</p>
 <h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
 <p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);</div></pre></td></tr></table></figure>
 
 <p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>jasmine: {
-    src: <span class="string">"functional.min.js"</span>,
-    options: {
-        specs: <span class="string">"spec.js"</span>
-    }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jasmine: {</div><div class="line">    src: <span class="string">"functional.min.js"</span>,</div><div class="line">    options: {</div><div class="line">        specs: <span class="string">"spec.js"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank" rel="external">spec.js</a>.</p>
 <p>You can run it by doing:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt jasmine
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">grunt</span> jasmine</div></pre></td></tr></table></figure>
 
 <h3 id="Combining_tasks">Combining tasks</h3>
 <p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);</div></pre></td></tr></table></figure>
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
 <h3 id="Watching_for_changes">Watching for changes</h3>
 <p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>watch: {
-    files: [
-        <span class="string">"*.js"</span>,
-        <span class="string">"!functional.min.js"</span>
-    ],
-    tasks: [<span class="string">"test"</span>]
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">watch: {</div><div class="line">    files: [</div><div class="line">        <span class="string">"*.js"</span>,</div><div class="line">        <span class="string">"!functional.min.js"</span></div><div class="line">    ],</div><div class="line">    tasks: [<span class="string">"test"</span>]</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt watch
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">grunt</span> watch</div></pre></td></tr></table></figure>
 
 <p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
 
@@ -826,10 +714,10 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 <nav id="pagination">
   
-    <a href="/page/5/" class="alignleft prev">Prev</a>
+    <a href="/page/5/" class="alignleft prev">prev</a>
   
   
-    <a href="/page/7/" class="alignright next">Next</a>
+    <a href="/page/7/" class="alignright next">next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -873,7 +761,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -924,7 +812,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

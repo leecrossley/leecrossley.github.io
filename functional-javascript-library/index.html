@@ -69,125 +69,20 @@
 <p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank" rel="external">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank" rel="external">jasmine</a> tests are below).</p>
 <p>I’m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank" rel="external">functional-level programming</a> but it’s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">Contributions</a> are more than welcome if you fancy some brain pain.</p>
 <h3 id="Basic_λ-curry_example">Basic λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> {</span>
-    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;
-});
-
-<span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);
-<span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);
-
-expect(result).toEqual(<span class="string">"Hello World"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> </span>{</div><div class="line">    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);</div><div class="line"><span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);</div><div class="line"></div><div class="line">expect(result).toEqual(<span class="string">"Hello World"</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Another_λ-curry_example">Another λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> {</span>
-    <span class="keyword">return</span> arg1 + arg2 + arg3;
-}); 
-
-<span class="keyword">var</span> add3 = add(<span class="number">3</span>),
-    add5 = add3(<span class="number">2</span>);
-
-expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> </span>{</div><div class="line">    <span class="keyword">return</span> arg1 + arg2 + arg3;</div><div class="line">}); </div><div class="line"></div><div class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>),</div><div class="line">    add5 = add3(<span class="number">2</span>);</div><div class="line"></div><div class="line">expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Curried_λ-each_example">Curried λ.each example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="keyword">var</span> result = [],
-    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];
-
-<span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> result.push(item);
-};
-
-<span class="keyword">var</span> addToResult = λ.each(addTo);
-expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);
-
-addToResult(items);
-expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = [],</div><div class="line">    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> result.push(item);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> addToResult = λ.each(addTo);</div><div class="line">expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line">addToResult(items);</div><div class="line">expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);</div></pre></td></tr></table></figure>
 
 <h3 id="Curried_λ-map_example">Curried λ.map example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
-
-<span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
-    <span class="keyword">return</span> number * <span class="number">2</span>;
-};
-
-<span class="keyword">var</span> doubleMap = λ.map(doubleUp);
-expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = doubleMap(items);
-expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> </span>{</div><div class="line">    <span class="keyword">return</span> number * <span class="number">2</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubleMap = λ.map(doubleUp);</div><div class="line">expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = doubleMap(items);</div><div class="line">expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);</div></pre></td></tr></table></figure>
 
 <h3 id="Curried_λ-reduce_example">Curried λ.reduce example</h3>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> </span>{</div><div class="line">    <span class="keyword">return</span> arg1 * arg2;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);</div><div class="line">expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = multiplyReduceFrom1(items);</div><div class="line">expect(result).toEqual(<span class="number">6</span>);</div></pre></td></tr></table></figure>
 
-<span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> {</span>
-    <span class="keyword">return</span> arg1 * arg2;
-};
-
-<span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);
-expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);
-
-<span class="keyword">var</span> result = multiplyReduceFrom1(items);
-expect(result).toEqual(<span class="number">6</span>);
-</pre></td></tr></table></figure></p>
 <h2 id="Why?">Why?</h2>
 <p>I like <del>torture</del> to push myself as a developer.</p>
 <h2 id="Great,_but,_erm,_why?">Great, but, erm, why?</h2>
@@ -233,7 +128,7 @@ expect(result).toEqual(<span class="number">6</span>);
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -279,7 +174,7 @@ expect(result).toEqual(<span class="number">6</span>);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -330,7 +225,7 @@ expect(result).toEqual(<span class="number">6</span>);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-07-22T07:36:20.470Z</updated>
+  <updated>2014-07-25T07:21:22.734Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -20,43 +20,7 @@
 <p>Android devices come in a vast array of different screen sizes and screen densities. This makes it tricky to say “this app should only be available to phones” on the Google Play store.</p>
 <p>Here is the most <em>concise</em> way I can find to achieve the desired result. Include the <code>&lt;compatible-screens&gt;</code> element in the <code>AndroidManifest.xml</code> file like this (my original gist <a href="https://gist.github.com/leecrossley/b8e4ef90e51581353110" target="_blank" rel="external">here</a>):</p>
 <h3 id="AndroidManifest-xml">AndroidManifest.xml</h3>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">manifest</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
-    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span>
-    <span class="comment">&lt;!-- ... --&gt;</span>
-    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
-        <span class="comment">&lt;!-- ... --&gt;</span>
-    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">manifest</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">manifest</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">application</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">application</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <h2 id="480_vs_xxhdpi">480 vs xxhdpi</h2>
 <p>The <code>android:screenDensity=&quot;480&quot;</code> can also be written as <code>android:screenDensity=&quot;xxhdpi&quot;</code> but depending on the min SDK version you are targeting, the <code>xxhdpi</code> may be unrecognised and cause a build failure. Fortunately, <code>480</code> has the same result because the standard quantised dpi for <code>xxhdpi</code> is 480.</p>
@@ -77,21 +41,13 @@
     <updated>2014-07-21T07:17:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="The_Cordova_CLI">The Cordova CLI</h2>
 <p>Since the Cordova CLI was introduced about a year ago, building and deploying Cordova apps for development has become incredibly simple and automatable. E.g. for Android:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova build android
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova build android</div></pre></td></tr></table></figure>
 
 <p>and you can also run the app directly on the device / emulator</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ cordova run android
-$ cordova emulate android
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cordova run android</div><div class="line">$ cordova emulate android</div></pre></td></tr></table></figure>
 
 <p>If you want to build a release version of an APK from the command line for production, this is also possible. However, this does not <em>sign</em> your release:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova build android --release
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova build android --release</div></pre></td></tr></table></figure>
 
 <p>Here are the 2 methods I use / have used to achieve API signing for production / distribution. Don’t worry, neither of them use Eclipse!:</p>
 <p><img src="/img/android-signing.png" alt="Android signing"></p>
@@ -99,20 +55,14 @@ $ cordova emulate android
 <h2 id="Method_1">Method 1</h2>
 <h3 id="Use_jarsigner_directly">Use jarsigner directly</h3>
 <p>This is the method I used to use and it isn’t Cordova CLI specific (it’s part of the Java SDK build tools and this method is part of their <a href="http://developer.android.com/tools/publishing/app-signing.html#signapp" target="_blank" rel="external">standard documentation</a>). After you have created your APK (<code>cordova build android --release</code>) you can run the following command:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ jarsigner <span class="attribute">-verbose</span> <span class="attribute">-sigalg</span> SHA1withRSA <span class="attribute">-digestalg</span> SHA1 <span class="attribute">-keystore</span> release_key_name<span class="built_in">.</span>keystore app_name<span class="built_in">.</span>apk alias_name
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jarsigner -<span class="keyword">verbose</span> -sigalg SHA1withRSA -digestalg SHA1 -keystore release_key_name.keystore app_name.apk alias_name</div></pre></td></tr></table></figure>
 
 <p>Jarsigner will prompt for the password and sign the APK.</p>
 <h2 id="Method_2_(best)">Method 2 (best)</h2>
 <h3 id="Part_of_the_CLI_workflow">Part of the CLI workflow</h3>
 <p>This is now my preferred method and hooks directly into the <code>cordova build android --release</code> command.</p>
 <p>Create an <code>ant.properties</code> file in <code>platforms/android/</code> with a keystore path and alias name:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>key.store=/path/to/keystore/release_key_name.keystore
-key.alias=alias_name
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">key.store=/path/to/keystore/release_key_name.keystore</div><div class="line">key.alias=alias_name</div></pre></td></tr></table></figure>
 
 <p>The standard Cordova CLI release build process will now prompt for the password and automatically sign the APK, ready for upload to Google Play, or other distribution method. The APK will be created at <code>platforms/android/ant-build/app_name-release.apk</code>.</p>
 <p>Happy release automation.</p>
@@ -137,17 +87,7 @@ key.alias=alias_name
 <p>Essentially, what happens is Cordova / PhoneGap replaces the <code>window.navigator</code>, as you can see <a href="https://github.com/apache/cordova-js/blob/2c375dd4f585b3fb29ff67ec455918c3a333fc7a/src/common/init.js#L64" target="_blank" rel="external">here</a>.</p>
 <h2 id="The_solution">The solution</h2>
 <p>Although this will be fixed in Cordova 3.6.0 when support for the new Cordova bridge under iOS 8 WKWebView is implemented, Eddy Verbruggen has come up with a <a href="https://gist.github.com/EddyVerbruggen/cd02c73162180793513e#file-ios8-beta-phonegap-fix" target="_blank" rel="external">neat little fix</a> to check if the <code>navigator.userAgent</code> is undefined and assign a return value to it:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {
-    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);
-    });
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {</div><div class="line">    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);</div><div class="line">    });</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Also, targeting 7.0 (which I doubt you’re doing if you’re playing with iOS 8 beta) should also still work.</p>
 ]]></content>
@@ -171,9 +111,7 @@ key.alias=alias_name
 <p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
 <p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a>.</p>
 <h2 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>cordova plugin <span class="keyword">add</span> https://github<span class="preprocessor">.com</span>/leecrossley/cordova-plugin-touchid<span class="preprocessor">.git</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-touchid.git</div></pre></td></tr></table></figure>
 
 <h2 id="Using_the_plugin">Using the plugin</h2>
 <p>Ensure you use the plugin after your deviceready event has been fired and you are targeting a real device.</p>
@@ -184,9 +122,7 @@ key.alias=alias_name
 <li>Failure callback (called on error or if authentication fails)</li>
 <li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>
 <p>Although the <code>authenticate()</code> function will return an error if the user is unable to authenticate via Touch ID, you may wish to check support without prompting the user to authenticate. This can be done by passing following arguments to the <code>checkSupport()</code> function:</p>
@@ -194,9 +130,7 @@ key.alias=alias_name
 <li>Success callback (called if authentication is possible)</li>
 <li>Not supported callback (called if policy can not be evaluated, with error message)</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.checkSupport(successCallback, notSupportedCallback);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.touchid.checkSupport(successCallback, notSupportedCallback);</div></pre></td></tr></table></figure>
 
 <h3 id="Improvements?">Improvements?</h3>
 <p>Probably. Issues and pull request on the <a href="https://github.com/leecrossley/cordova-plugin-touchide" target="_blank" rel="external">git repo</a> please. Remember this is still beta.</p>
@@ -286,33 +220,11 @@ key.alias=alias_name
 <p>When I started out developing apps with Cordova / PhoneGap, there were several performance hacks I used to help CSS animations become smoother, i.e. force GPU acceleration.</p>
 <h3 id="The_CSS_transform_hacks">The CSS transform hacks</h3>
 <p>Depending on the scenario, I’d usually adopt one of the following (and I’d be careful about which elements they were applied to):</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;
-    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class">.class</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;</div><div class="line"></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;</div><div class="line">    <span class="comment">/* or */</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ</span>(<span class="number">0</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;
-    <span class="comment">/* or */</span>
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ(<span class="number">0</span>)</span></span></span>;
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ(<span class="number">360</span>deg)</span></span></span>;
-    <span class="comment">/* yep, this worked for me in the past! */</span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class">.class</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ</span>(<span class="number">360deg</span>)</span></span>;</div><div class="line">    <span class="comment">/* yep, this worked for me in the past! */</span></div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
 <h3 id="Memory_allocation">Memory allocation</h3>
 <p>These hacks were never a hard and fast rule, and as developers don’t have control over browser memory, it was easy to create memory issues.</p>
@@ -346,21 +258,11 @@ key.alias=alias_name
 <p>The default keymapping is <code>shift-cmd-J</code> (although this can be configured). You simply highlight your dotject string and press <code>shift-cmd-J</code> to perform the conversion.</p>
 <h3 id="Example">Example</h3>
 <p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}</div></pre></td></tr></table></figure>
 
 <h3 id="The_code">The code</h3>
 <p>It’s essentially 2 lines of code, with a little glue and keymapping:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="comment">// convert the current text selection</span>
-<span class="keyword">var</span> converted = dotject(editor.getSelection().getText());
-<span class="comment">// insert the stringified json in place of the selection</span>
-editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// convert the current text selection</span></div><div class="line"><span class="keyword">var</span> converted = dotject(editor.getSelection().getText());</div><div class="line"><span class="comment">// insert the stringified json in place of the selection</span></div><div class="line">editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));</div></pre></td></tr></table></figure>
 
 <p>This would all be perfect, if it was not for CoffeeScript (I’ve written in JavaScript above).</p>
 ]]></content>
@@ -379,221 +281,47 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 <p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> and it’s λ.reduce function to achieve the “dot notation to object” implementation in very few lines of code.</p>
 <h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> dotject <span class="comment"># --save</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> dotject # <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
 <p>Require the module in the usual way:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);</div></pre></td></tr></table></figure>
 
 <h2 id="Using_dotject">Using dotject</h2>
 <p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank" rel="external">specs</a>, for the project, but I’ll run through examples here:</p>
 <h3 id="Simple_object_composition">Simple object composition</h3>
 <p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.b.c"</span>);
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: {
-      <span class="string">"c"</span>: {}
-    }
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {</div><div class="line">      <span class="string">"c"</span>: {}</div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Separating property names with a comma (similar to JavaScript objects) will create properties at the same level:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>);
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {}
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {}</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>This notation can be combined with the dot style notation:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c"</span>);
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Extend_an_existing_object">Extend an existing object</h3>
 <p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Existing object values are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Existing nested object properties are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: {},
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {},</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_a_value">Assign a value</h3>
 <p>You can assign a value to the last nested property:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: <span class="number">10</span>
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: <span class="number">10</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_multiple_values">Assign multiple values</h3>
 <p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: <span class="number">10</span>
-  },
-  <span class="string">"d"</span>: <span class="string">"test"</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: <span class="number">10</span></div><div class="line">  },</div><div class="line">  <span class="string">"d"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_multiple_values_and_override_existing">Assign multiple values and override existing</h3>
 <p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: <span class="string">"test"</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="“Real_world”_example">“Real world” example</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};
-camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);
-
-{
-  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,
-  <span class="string">"settings"</span>: {
-    <span class="string">"encoding"</span>: {
-      <span class="string">"format"</span>: <span class="string">"JPEG"</span>
-    }
-  },
-  <span class="string">"output"</span>: {
-    <span class="string">"data"</span>: {
-      <span class="string">"base64"</span>: <span class="literal">true</span>
-    }
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};</div><div class="line">camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"settings"</span>: {</div><div class="line">    <span class="string">"encoding"</span>: {</div><div class="line">      <span class="string">"format"</span>: <span class="string">"JPEG"</span></div><div class="line">    }</div><div class="line">  },</div><div class="line">  <span class="string">"output"</span>: {</div><div class="line">    <span class="string">"data"</span>: {</div><div class="line">      <span class="string">"base64"</span>: <span class="literal">true</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="Other_thoughts">Other thoughts</h2>
 <p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank" rel="external">λ.assign</a> (λ.extend) function. I’d be interested to hear your feedback on this, as personally I’m almost always passing a new object, which seems silly.</p>
@@ -629,23 +357,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 </ul>
 <h2 id="The_benefits">The benefits</h2>
 <p><strong>There isn’t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>{
-    why: [
-        <span class="string">"is"</span>,
-        <span class="string">"this"</span>,
-        <span class="string">"better"</span>,
-    ],
-    <span class="comment">// (it isn't)</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    why: [</div><div class="line">        <span class="string">"is"</span>,</div><div class="line">        <span class="string">"this"</span>,</div><div class="line">        <span class="string">"better"</span>,</div><div class="line">    ],</div><div class="line">    <span class="comment">// (it isn't)</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Inline_comments">Inline comments</h3>
 <p>Property names should be descriptive enough to be obvious without comments, otherwise what you’re doing is probably wrong.</p>
@@ -667,16 +379,12 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
     <content type="html"><![CDATA[<h2 id="Maps_with_directions">Maps with directions</h2>
 <p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank" rel="external">Cordova “Directions” Plugin</a> to utilise native maps apps for “sat nav” style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">here</a>.</p>
 <h2 id="Install_the_plugin">Install the plugin</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git</div></pre></td></tr></table></figure>
 
 <p>That’s all the installation steps thanks to Cordova’s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
 <h2 id="Get_directions">Get directions</h2>
 <p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span></div></pre></td></tr></table></figure>
 
 <p>That’s it! Really, it’s that simple. The Google maps app will open on Android and give directions from the device’s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
 <h2 id="Platforms">Platforms</h2>
@@ -746,15 +454,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 <p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you’re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
 <h2 id="Show_me_the_errors">Show me the errors</h2>
 <p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
-    window.external.Notify(<span class="string">"Error in Application: "</span> +
-        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> </span>{</div><div class="line">    <span class="built_in">window</span>.external.Notify(<span class="string">"Error in Application: "</span> +</div><div class="line">        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
 <p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank" rel="external">here</a>.</p>
@@ -775,41 +475,21 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 <p>There are 3 new features, implemented as interchangeable options:</p>
 <h3 id="friendlyTime">friendlyTime</h3>
 <p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <h3 id="deferLogs">deferLogs</h3>
 <p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { deferLogs: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { deferLogs: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <h3 id="totalOnly">totalOnly</h3>
 <p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { totalOnly: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { totalOnly: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <h2 id="Credits">Credits</h2>
 <h3 id="Contributors">Contributors</h3>
@@ -836,29 +516,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 <p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
 <h3 id="Expressjs">Expressjs</h3>
 <p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,
-        wwwUrl = req.protocol + <span class="string">"://www."</span>;
-    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {
-        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);
-    } <span class="keyword">else</span> {
-        next();
-    }
-};
-
-app.all(<span class="string">"*"</span>, redirect);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> </span>{</div><div class="line">    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,</div><div class="line">        wwwUrl = req.protocol + <span class="string">"://www."</span>;</div><div class="line">    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {</div><div class="line">        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        next();</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">app.all(<span class="string">"*"</span>, redirect);</div></pre></td></tr></table></figure>
 
 <h2 id="Configure_webmaster_tools">Configure webmaster tools</h2>
 <p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank" rel="external">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
@@ -898,23 +556,7 @@ app.all(<span class="string">"*"</span>, redirect);
 <li>Font sizes</li>
 </ul>
 <p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600</span>px) </span>{
-  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span></span></span>;
-    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px</span></span>;
-  <span class="rule">}</span></span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600px</span>) </span>{</div><div class="line">  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3px</span> <span class="number">7px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5px</span> <span class="number">0px</span></span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="That’s_not_the_end">That’s not the end</h2>
 <p>The PageSpeed Insights are a great place to start for existing mobile websites, but it’s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank" rel="external">split A/B testing</a> and responding to user feedback too.</p>
@@ -939,35 +581,15 @@ app.all(<span class="string">"*"</span>, redirect);
 <p><a href="http://nodejs.org/download/" target="_blank" rel="external">Download</a> the installer for your OS and install.</p>
 <h3 id="Create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>$ mkdir nodeapp
-$ <span class="built_in">cd</span> nodeapp
-$ touch app.js
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir nodeapp</div><div class="line">$ <span class="built_in">cd</span> nodeapp</div><div class="line">$ touch app.js</div></pre></td></tr></table></figure>
 
 <h3 id="Code">Code</h3>
 <p>In your newly created JavaScript file, add the following code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
-
-http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
-    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
-    res.end(<span class="string">"I know node.js!"</span>);
-}).listen(<span class="number">4000</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line">    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});</div><div class="line">    res.end(<span class="string">"I know node.js!"</span>);</div><div class="line">}).listen(<span class="number">4000</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Run">Run</h3>
 <p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ node app
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node app</div></pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
 <h2 id="Packages">Packages</h2>
@@ -985,9 +607,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
     <content type="html"><![CDATA[<h2 id="Protip">Protip</h2>
 <p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank" rel="external">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
 <p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span></div></pre></td></tr></table></figure>
 
 <h2 id="How_much_faster?">How much faster?</h2>
 <p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
@@ -997,18 +617,10 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <h3 id="Timing">Timing</h3>
 <p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
 <p>Let’s give it a go:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt
-<span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt</div><div class="line"><span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span></div></pre></td></tr></table></figure>
 
 <p>Now let’s clear the cache again and try the European mirror:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt --registry http://registry.npmjs.eu
-<span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt --registry http://registry.npmjs.eu</div><div class="line"><span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span></div></pre></td></tr></table></figure>
 
 <p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
 <p>Damn, now I don’t have long enough to make a coffee.</p>
@@ -1026,9 +638,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <h3 id="Added_depth">Added depth</h3>
 <p>Turns out there’s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank" rel="external">documentation for npm ls</a>.</p>
 <p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span></div></pre></td></tr></table></figure>
 
 <h3 id="Go_global">Go global</h3>
 <p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
@@ -1036,19 +646,14 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. “npm ERR! max depth reached” among others), although there was nothing really wrong.</p>
 <p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
 <h2 id="The_complete_command">The complete command</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null</div></pre></td></tr></table></figure>
 
 <p>If you don’t want to type this out all the time (I certainly don’t), you can alias it up:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span></div></pre></td></tr></table></figure>
 
 <p>Then usage is as simple as:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npmls
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npmls</div></pre></td></tr></table></figure>
+
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
@@ -1071,51 +676,25 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <h3 id="Install">Install</h3>
 <p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">Github</a>.</p>
 <p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git</div></pre></td></tr></table></figure>
 
 <p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
 <h2 id="Transitions">Transitions</h2>
 <h3 id="Flip">Flip</h3>
 <p>Flip page transition, with support for flipping left or right:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
-    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span>
-nativetransitions.flip(duration, direction, onComplete);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span></div><div class="line">nativetransitions.flip(duration, direction, onComplete);</div></pre></td></tr></table></figure>
 
 <h3 id="Curl">Curl</h3>
 <p>Curl page transition, with support for flipping curling up or down:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
-    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span>
-nativetransitions.curl(duration, direction, onComplete);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span></div><div class="line">nativetransitions.curl(duration, direction, onComplete);</div></pre></td></tr></table></figure>
 
 <h3 id="Fade">Fade</h3>
 <p>A simple fade page transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span>
-nativetransitions.fade(duration, onComplete);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span></div><div class="line">nativetransitions.fade(duration, onComplete);</div></pre></td></tr></table></figure>
 
 <h2 id="Example">Example</h2>
 <p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="comment">// Change your html here</span>
-}, <span class="number">50</span>);
-nativetransitions.flip(duration, direction);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// Change your html here</span></div><div class="line">}, <span class="number">50</span>);</div><div class="line">nativetransitions.flip(duration, direction);</div></pre></td></tr></table></figure>
 
 <h2 id="More_transitions?">More transitions?</h2>
 <p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
@@ -1139,36 +718,12 @@ nativetransitions.flip(duration, direction);
 <p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
 <blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
-myMedia.play({ numberOfLoops: <span class="number">2</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);</div><div class="line">myMedia.play({ numberOfLoops: <span class="number">2</span> });</div></pre></td></tr></table></figure>
 
 <p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
 <h3 id="Android">Android</h3>
 <p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
-
-<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
-    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
-        myMedia.play();
-    }
-};
-
-myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
-myMedia.play();
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia;</div><div class="line"></div><div class="line"><span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> </span>{</div><div class="line">    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {</div><div class="line">        myMedia.play();</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);</div><div class="line">myMedia.play();</div></pre></td></tr></table></figure>
 
 <p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>

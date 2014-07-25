@@ -80,17 +80,7 @@
 <li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
 </li>
 </ul>
-<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> state = {
-  <span class="string">"canBeAnything"</span>: <span class="literal">true</span>
-};
-history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);
-expect(history.state).toEqual(state);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> state = {</div><div class="line">  <span class="string">"canBeAnything"</span>: <span class="literal">true</span></div><div class="line">};</div><div class="line">history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);</div><div class="line">expect(history.state).toEqual(state);</div></pre></td></tr></table></figure>
 
 <p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
 <h3 id="The_history-replaceState()_function">The history.replaceState() function</h3>
@@ -132,7 +122,7 @@ expect(history.state).toEqual(state);
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -178,7 +168,7 @@ expect(history.state).toEqual(state);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -229,7 +219,7 @@ expect(history.state).toEqual(state);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

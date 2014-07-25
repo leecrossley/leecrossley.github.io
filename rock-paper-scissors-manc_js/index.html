@@ -77,69 +77,17 @@
 <p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn’t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
 <h3 id="Sub-bots">Sub-bots</h3>
 <p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="comment">// Example sub-bot that always plays "paper"</span>
-bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="keyword">var</span> bot = {};
-    
-    bot.winners = <span class="number">0</span>;
-    bot.lastPlay = <span class="string">""</span>;
-    
-    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-        <span class="keyword">var</span> play = <span class="string">"paper"</span>;
-        bot.lastPlay = play;
-        <span class="keyword">return</span> play;
-    };
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example sub-bot that always plays "paper"</span></div><div class="line">bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> bot = {};</div><div class="line">    </div><div class="line">    bot.winners = <span class="number">0</span>;</div><div class="line">    bot.lastPlay = <span class="string">""</span>;</div><div class="line">    </div><div class="line">    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">var</span> play = <span class="string">"paper"</span>;</div><div class="line">        bot.lastPlay = play;</div><div class="line">        <span class="keyword">return</span> play;</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="keyword">return</span> bot;</div><div class="line">})();</div></pre></td></tr></table></figure>
 
-    <span class="keyword">return</span> bot;
-})();
-</pre></td></tr></table></figure><br>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.<br><br>Given more time and more sub-bots this approach would have become slightly more robust.<br><br>### We’re gonna light it up, like it’s dynamite<br><br>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn’t a good strategy, as water is a weak hand.<br><br>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)<br><br>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.<br><br>## Tests<br><br>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="comment">// Example of my noddy tests</span>
-it(<span class="string">"should init and set opponent"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    init(<span class="string">"test"</span>);
-    expect(bot.opponent).toEqual(<span class="string">"test"</span>);
-});
-
-it(<span class="string">"should use paper as the first play"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="comment">// First play always paper, as all bots have 0 wins</span>
-    <span class="comment">// NB: Should randomise the first bot :)</span>
-    expect(play()).toEqual(<span class="string">"paper"</span>);
-});
-
-it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });
-    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);
-});
-</pre></td></tr></table></figure>
+<p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
+<p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
+<h3 id="We’re_gonna_light_it_up,_like_it’s_dynamite">We’re gonna light it up, like it’s dynamite</h3>
+<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn’t a good strategy, as water is a weak hand.</p>
+<p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
+<p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
+<h2 id="Tests">Tests</h2>
+<p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example of my noddy tests</span></div><div class="line">it(<span class="string">"should init and set opponent"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    init(<span class="string">"test"</span>);</div><div class="line">    expect(bot.opponent).toEqual(<span class="string">"test"</span>);</div><div class="line">});</div><div class="line"></div><div class="line">it(<span class="string">"should use paper as the first play"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// First play always paper, as all bots have 0 wins</span></div><div class="line">    <span class="comment">// NB: Should randomise the first bot :)</span></div><div class="line">    expect(play()).toEqual(<span class="string">"paper"</span>);</div><div class="line">});</div><div class="line"></div><div class="line">it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });</div><div class="line">    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
 
 <h2 id="Result">Result</h2>
 <p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
@@ -174,7 +122,7 @@ it(<span class="string">"should win the first hand against rock and increment wi
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -220,7 +168,7 @@ it(<span class="string">"should win the first hand against rock and increment wi
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -271,7 +219,7 @@ it(<span class="string">"should win the first hand against rock and increment wi
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

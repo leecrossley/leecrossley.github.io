@@ -67,9 +67,7 @@
         <h2 id="Protip">Protip</h2>
 <p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank" rel="external">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
 <p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span></div></pre></td></tr></table></figure>
 
 <h2 id="How_much_faster?">How much faster?</h2>
 <p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
@@ -79,18 +77,10 @@
 <h3 id="Timing">Timing</h3>
 <p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
 <p>Let’s give it a go:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt
-<span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt</div><div class="line"><span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span></div></pre></td></tr></table></figure>
 
 <p>Now let’s clear the cache again and try the European mirror:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt --registry http://registry.npmjs.eu
-<span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt --registry http://registry.npmjs.eu</div><div class="line"><span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span></div></pre></td></tr></table></figure>
 
 <p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
 <p>Damn, now I don’t have long enough to make a coffee.</p>
@@ -124,7 +114,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -170,7 +160,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -221,7 +211,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

@@ -69,43 +69,7 @@
 <p>Android devices come in a vast array of different screen sizes and screen densities. This makes it tricky to say “this app should only be available to phones” on the Google Play store.</p>
 <p>Here is the most <em>concise</em> way I can find to achieve the desired result. Include the <code>&lt;compatible-screens&gt;</code> element in the <code>AndroidManifest.xml</code> file like this (my original gist <a href="https://gist.github.com/leecrossley/b8e4ef90e51581353110" target="_blank" rel="external">here</a>):</p>
 <h3 id="AndroidManifest-xml">AndroidManifest.xml</h3>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">manifest</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span>
-    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span>
-    <span class="comment">&lt;!-- ... --&gt;</span>
-    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
-        <span class="comment">&lt;!-- ... --&gt;</span>
-    <span class="tag">&lt;<span class="title">application</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">manifest</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">manifest</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">compatible-screens</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"small"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"ldpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"mdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"hdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"xhdpi"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">screen</span> <span class="attribute">android:screenSize</span>=<span class="value">"normal"</span> <span class="attribute">android:screenDensity</span>=<span class="value">"480"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">compatible-screens</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">application</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- ... --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">application</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <h2 id="480_vs_xxhdpi">480 vs xxhdpi</h2>
 <p>The <code>android:screenDensity=&quot;480&quot;</code> can also be written as <code>android:screenDensity=&quot;xxhdpi&quot;</code> but depending on the min SDK version you are targeting, the <code>xxhdpi</code> may be unrecognised and cause a build failure. Fortunately, <code>480</code> has the same result because the standard quantised dpi for <code>xxhdpi</code> is 480.</p>
@@ -159,21 +123,13 @@
       
         <h2 id="The_Cordova_CLI">The Cordova CLI</h2>
 <p>Since the Cordova CLI was introduced about a year ago, building and deploying Cordova apps for development has become incredibly simple and automatable. E.g. for Android:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova build android
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova build android</div></pre></td></tr></table></figure>
 
 <p>and you can also run the app directly on the device / emulator</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ cordova run android
-$ cordova emulate android
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cordova run android</div><div class="line">$ cordova emulate android</div></pre></td></tr></table></figure>
 
 <p>If you want to build a release version of an APK from the command line for production, this is also possible. However, this does not <em>sign</em> your release:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova build android --release
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova build android --release</div></pre></td></tr></table></figure>
 
 <p>Here are the 2 methods I use / have used to achieve API signing for production / distribution. Don’t worry, neither of them use Eclipse!:</p>
 <p><img src="/img/android-signing.png" alt="Android signing"></p>
@@ -181,20 +137,14 @@ $ cordova emulate android
 <h2 id="Method_1">Method 1</h2>
 <h3 id="Use_jarsigner_directly">Use jarsigner directly</h3>
 <p>This is the method I used to use and it isn’t Cordova CLI specific (it’s part of the Java SDK build tools and this method is part of their <a href="http://developer.android.com/tools/publishing/app-signing.html#signapp" target="_blank" rel="external">standard documentation</a>). After you have created your APK (<code>cordova build android --release</code>) you can run the following command:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ jarsigner <span class="attribute">-verbose</span> <span class="attribute">-sigalg</span> SHA1withRSA <span class="attribute">-digestalg</span> SHA1 <span class="attribute">-keystore</span> release_key_name<span class="built_in">.</span>keystore app_name<span class="built_in">.</span>apk alias_name
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jarsigner -<span class="keyword">verbose</span> -sigalg SHA1withRSA -digestalg SHA1 -keystore release_key_name.keystore app_name.apk alias_name</div></pre></td></tr></table></figure>
 
 <p>Jarsigner will prompt for the password and sign the APK.</p>
 <h2 id="Method_2_(best)">Method 2 (best)</h2>
 <h3 id="Part_of_the_CLI_workflow">Part of the CLI workflow</h3>
 <p>This is now my preferred method and hooks directly into the <code>cordova build android --release</code> command.</p>
 <p>Create an <code>ant.properties</code> file in <code>platforms/android/</code> with a keystore path and alias name:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>key.store=/path/to/keystore/release_key_name.keystore
-key.alias=alias_name
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">key.store=/path/to/keystore/release_key_name.keystore</div><div class="line">key.alias=alias_name</div></pre></td></tr></table></figure>
 
 <p>The standard Cordova CLI release build process will now prompt for the password and automatically sign the APK, ready for upload to Google Play, or other distribution method. The APK will be created at <code>platforms/android/ant-build/app_name-release.apk</code>.</p>
 <p>Happy release automation.</p>
@@ -252,17 +202,7 @@ key.alias=alias_name
 <p>Essentially, what happens is Cordova / PhoneGap replaces the <code>window.navigator</code>, as you can see <a href="https://github.com/apache/cordova-js/blob/2c375dd4f585b3fb29ff67ec455918c3a333fc7a/src/common/init.js#L64" target="_blank" rel="external">here</a>.</p>
 <h2 id="The_solution">The solution</h2>
 <p>Although this will be fixed in Cordova 3.6.0 when support for the new Cordova bridge under iOS 8 WKWebView is implemented, Eddy Verbruggen has come up with a <a href="https://gist.github.com/EddyVerbruggen/cd02c73162180793513e#file-ios8-beta-phonegap-fix" target="_blank" rel="external">neat little fix</a> to check if the <code>navigator.userAgent</code> is undefined and assign a return value to it:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {
-    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);
-    });
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {</div><div class="line">    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);</div><div class="line">    });</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Also, targeting 7.0 (which I doubt you’re doing if you’re playing with iOS 8 beta) should also still work.</p>
 
@@ -318,9 +258,7 @@ key.alias=alias_name
 <p>The next logical step for me was to create a plugin from my test code, so that I could launch Touch ID authentication right from within my JavaScript.</p>
 <p>The plugin is now in beta release (as is the API and subject to change etc). I have added this to <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a> and you can also view the full source code on <a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a>.</p>
 <h2 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>cordova plugin <span class="keyword">add</span> https://github<span class="preprocessor">.com</span>/leecrossley/cordova-plugin-touchid<span class="preprocessor">.git</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-touchid.git</div></pre></td></tr></table></figure>
 
 <h2 id="Using_the_plugin">Using the plugin</h2>
 <p>Ensure you use the plugin after your deviceready event has been fired and you are targeting a real device.</p>
@@ -331,9 +269,7 @@ key.alias=alias_name
 <li>Failure callback (called on error or if authentication fails)</li>
 <li>Localised text explaining why the app needs authentication. This should be localised and provide a clear reason for why you are requesting that the user performs the authentication, and what action you will be taking.</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.touchid.authenticate(successCallback, failureCallback, <span class="string">"text"</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="touchid-checkSupport()">touchid.checkSupport()</h3>
 <p>Although the <code>authenticate()</code> function will return an error if the user is unable to authenticate via Touch ID, you may wish to check support without prompting the user to authenticate. This can be done by passing following arguments to the <code>checkSupport()</code> function:</p>
@@ -341,9 +277,7 @@ key.alias=alias_name
 <li>Success callback (called if authentication is possible)</li>
 <li>Not supported callback (called if policy can not be evaluated, with error message)</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>window.touchid.checkSupport(successCallback, notSupportedCallback);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.touchid.checkSupport(successCallback, notSupportedCallback);</div></pre></td></tr></table></figure>
 
 <h3 id="Improvements?">Improvements?</h3>
 <p>Probably. Issues and pull request on the <a href="https://github.com/leecrossley/cordova-plugin-touchide" target="_blank" rel="external">git repo</a> please. Remember this is still beta.</p>
@@ -495,33 +429,11 @@ key.alias=alias_name
 <p>When I started out developing apps with Cordova / PhoneGap, there were several performance hacks I used to help CSS animations become smoother, i.e. force GPU acceleration.</p>
 <h3 id="The_CSS_transform_hacks">The CSS transform hacks</h3>
 <p>Depending on the scenario, I’d usually adopt one of the following (and I’d be careful about which elements they were applied to):</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;
-    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class">.class</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;</div><div class="line"></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;</div><div class="line">    <span class="comment">/* or */</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ</span>(<span class="number">0</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;
-    <span class="comment">/* or */</span>
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ(<span class="number">0</span>)</span></span></span>;
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ(<span class="number">360</span>deg)</span></span></span>;
-    <span class="comment">/* yep, this worked for me in the past! */</span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class">.class</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ</span>(<span class="number">360deg</span>)</span></span>;</div><div class="line">    <span class="comment">/* yep, this worked for me in the past! */</span></div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
 <h3 id="Memory_allocation">Memory allocation</h3>
 <p>These hacks were never a hard and fast rule, and as developers don’t have control over browser memory, it was easy to create memory issues.</p>
@@ -587,21 +499,11 @@ key.alias=alias_name
 <p>The default keymapping is <code>shift-cmd-J</code> (although this can be configured). You simply highlight your dotject string and press <code>shift-cmd-J</code> to perform the conversion.</p>
 <h3 id="Example">Example</h3>
 <p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}</div></pre></td></tr></table></figure>
 
 <h3 id="The_code">The code</h3>
 <p>It’s essentially 2 lines of code, with a little glue and keymapping:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="comment">// convert the current text selection</span>
-<span class="keyword">var</span> converted = dotject(editor.getSelection().getText());
-<span class="comment">// insert the stringified json in place of the selection</span>
-editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// convert the current text selection</span></div><div class="line"><span class="keyword">var</span> converted = dotject(editor.getSelection().getText());</div><div class="line"><span class="comment">// insert the stringified json in place of the selection</span></div><div class="line">editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));</div></pre></td></tr></table></figure>
 
 <p>This would all be perfect, if it was not for CoffeeScript (I’ve written in JavaScript above).</p>
 
@@ -654,221 +556,47 @@ editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(co
 <p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> and it’s λ.reduce function to achieve the “dot notation to object” implementation in very few lines of code.</p>
 <h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> dotject <span class="comment"># --save</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> dotject # <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
 <p>Require the module in the usual way:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);</div></pre></td></tr></table></figure>
 
 <h2 id="Using_dotject">Using dotject</h2>
 <p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank" rel="external">specs</a>, for the project, but I’ll run through examples here:</p>
 <h3 id="Simple_object_composition">Simple object composition</h3>
 <p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.b.c"</span>);
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: {
-      <span class="string">"c"</span>: {}
-    }
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {</div><div class="line">      <span class="string">"c"</span>: {}</div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Separating property names with a comma (similar to JavaScript objects) will create properties at the same level:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>);
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {}
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {}</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>This notation can be combined with the dot style notation:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c"</span>);
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Extend_an_existing_object">Extend an existing object</h3>
 <p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});
-
-{
-  <span class="string">"a"</span>: {},
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Existing object values are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Existing nested object properties are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: {},
-    <span class="string">"c"</span>: {}
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {},</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_a_value">Assign a value</h3>
 <p>You can assign a value to the last nested property:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);
-
-{
-  <span class="string">"a"</span>: {
-    <span class="string">"b"</span>: <span class="number">10</span>
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: <span class="number">10</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_multiple_values">Assign multiple values</h3>
 <p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: {
-    <span class="string">"c"</span>: <span class="number">10</span>
-  },
-  <span class="string">"d"</span>: <span class="string">"test"</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: <span class="number">10</span></div><div class="line">  },</div><div class="line">  <span class="string">"d"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Assign_multiple_values_and_override_existing">Assign multiple values and override existing</h3>
 <p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)
-
-{
-  <span class="string">"a"</span>: <span class="literal">true</span>,
-  <span class="string">"b"</span>: <span class="string">"test"</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="“Real_world”_example">“Real world” example</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};
-camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);
-
-{
-  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,
-  <span class="string">"settings"</span>: {
-    <span class="string">"encoding"</span>: {
-      <span class="string">"format"</span>: <span class="string">"JPEG"</span>
-    }
-  },
-  <span class="string">"output"</span>: {
-    <span class="string">"data"</span>: {
-      <span class="string">"base64"</span>: <span class="literal">true</span>
-    }
-  }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};</div><div class="line">camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"settings"</span>: {</div><div class="line">    <span class="string">"encoding"</span>: {</div><div class="line">      <span class="string">"format"</span>: <span class="string">"JPEG"</span></div><div class="line">    }</div><div class="line">  },</div><div class="line">  <span class="string">"output"</span>: {</div><div class="line">    <span class="string">"data"</span>: {</div><div class="line">      <span class="string">"base64"</span>: <span class="literal">true</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="Other_thoughts">Other thoughts</h2>
 <p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank" rel="external">λ.assign</a> (λ.extend) function. I’d be interested to hear your feedback on this, as personally I’m almost always passing a new object, which seems silly.</p>
@@ -938,23 +666,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 </ul>
 <h2 id="The_benefits">The benefits</h2>
 <p><strong>There isn’t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>{
-    why: [
-        <span class="string">"is"</span>,
-        <span class="string">"this"</span>,
-        <span class="string">"better"</span>,
-    ],
-    <span class="comment">// (it isn't)</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    why: [</div><div class="line">        <span class="string">"is"</span>,</div><div class="line">        <span class="string">"this"</span>,</div><div class="line">        <span class="string">"better"</span>,</div><div class="line">    ],</div><div class="line">    <span class="comment">// (it isn't)</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="Inline_comments">Inline comments</h3>
 <p>Property names should be descriptive enough to be obvious without comments, otherwise what you’re doing is probably wrong.</p>
@@ -1011,16 +723,12 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
         <h2 id="Maps_with_directions">Maps with directions</h2>
 <p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank" rel="external">Cordova “Directions” Plugin</a> to utilise native maps apps for “sat nav” style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">here</a>.</p>
 <h2 id="Install_the_plugin">Install the plugin</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git</div></pre></td></tr></table></figure>
 
 <p>That’s all the installation steps thanks to Cordova’s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
 <h2 id="Get_directions">Get directions</h2>
 <p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span>
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span></div></pre></td></tr></table></figure>
 
 <p>That’s it! Really, it’s that simple. The Google maps app will open on Android and give directions from the device’s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
 <h2 id="Platforms">Platforms</h2>
@@ -1047,7 +755,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 <nav id="pagination">
   
   
-    <a href="/page/2/" class="alignright next">Next</a>
+    <a href="/page/2/" class="alignright next">next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -1091,7 +799,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -1142,7 +850,7 @@ camera = dotject(<span class="string">"settings.encoding.format,output.data.base
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

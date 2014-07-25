@@ -78,20 +78,10 @@
 <h2 id="Full_example">Full example</h2>
 <p>Here’s the code you need to play audio that obeys the mute switch:</p>
 <h3 id="Install_the_media_plugin">Install the media plugin</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/apache/cordova-plugin-media.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/apache/cordova-plugin-media.git</div></pre></td></tr></table></figure>
 
 <h3 id="In_your_JavaScript">In your JavaScript</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
-    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);
-    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });
-};
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> </span>{</div><div class="line">    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);</div><div class="line">    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <p>An incontinent mute, goes without saying.</p>
 
@@ -124,7 +114,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -170,7 +160,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -221,7 +211,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

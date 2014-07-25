@@ -68,33 +68,11 @@
 <p>When I started out developing apps with Cordova / PhoneGap, there were several performance hacks I used to help CSS animations become smoother, i.e. force GPU acceleration.</p>
 <h3 id="The_CSS_transform_hacks">The CSS transform hacks</h3>
 <p>Depending on the scenario, I’d usually adopt one of the following (and I’d be careful about which elements they were applied to):</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;
-    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class">.class</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-backface-visibility</span>:<span class="value"> hidden</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">-webkit-perspective</span>:<span class="value"> <span class="number">1000</span></span></span>;</div><div class="line"></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;</div><div class="line">    <span class="comment">/* or */</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ</span>(<span class="number">0</span>)</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate3d(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span></span>;
-    <span class="comment">/* or */</span>
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translateZ(<span class="number">0</span>)</span></span></span>;
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="class">.class</span> <span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ(<span class="number">360</span>deg)</span></span></span>;
-    <span class="comment">/* yep, this worked for me in the past! */</span>
-<span class="rule">}</span></span>
-</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class">.class</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ</span>(<span class="number">360deg</span>)</span></span>;</div><div class="line">    <span class="comment">/* yep, this worked for me in the past! */</span></div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
 <h3 id="Memory_allocation">Memory allocation</h3>
 <p>These hacks were never a hard and fast rule, and as developers don’t have control over browser memory, it was easy to create memory issues.</p>
@@ -134,7 +112,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -180,7 +158,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -231,7 +209,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

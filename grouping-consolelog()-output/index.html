@@ -68,67 +68,25 @@
 <p>If you’ve ever touched JavaScript in your life, you’ll no doubt know about <code>console.log()</code> for debugging. It allows you to log debug information to the console (on most browsers).</p>
 <h2 id="The_problem">The problem</h2>
 <p>If you log large amounts of debug information, it is hard to interpret your console output effectively. In fact, you probably make this even worse by wrapping even more debug information around what you’re looking for, to help identify it! e.g.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>console.log(<span class="string">"MY GROUP"</span>);
-console.log(info1);
-console.log(info2);
-console.log(<span class="string">"MY GROUP END"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"MY GROUP"</span>);</div><div class="line"><span class="built_in">console</span>.log(info1);</div><div class="line"><span class="built_in">console</span>.log(info2);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"MY GROUP END"</span>);</div></pre></td></tr></table></figure>
 
 <h2 id="The_solution">The solution</h2>
 <h3 id="console-group()">console.group()</h3>
 <p>Using <code>console.group()</code> allows you to (go on, guess) group your console output:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
-console.log(info1);
-console.log(info2);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.group(<span class="string">"My group"</span>);</div><div class="line"><span class="built_in">console</span>.log(info1);</div><div class="line"><span class="built_in">console</span>.log(info2);</div></pre></td></tr></table></figure>
 
 <h3 id="console-groupEnd()">console.groupEnd()</h3>
 <p>Using <code>console.groupEnd()</code> allows you to terminate logging to the currently defined console group:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>console.group(<span class="string">"My group"</span>);
-console.log(info1);
-console.log(info2);
-console.groupEnd();
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.group(<span class="string">"My group"</span>);</div><div class="line"><span class="built_in">console</span>.log(info1);</div><div class="line"><span class="built_in">console</span>.log(info2);</div><div class="line"><span class="built_in">console</span>.groupEnd();</div></pre></td></tr></table></figure>
 
 <h3 id="console-groupCollapsed()">console.groupCollapsed()</h3>
 <p>The big hitter, collapse your group by default with <code>console.groupCollapsed()</code> instead of <code>console.group()</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
-console.log(info1);
-console.log(info2);
-console.groupEnd();
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.groupCollapsed(<span class="string">"My group"</span>);</div><div class="line"><span class="built_in">console</span>.log(info1);</div><div class="line"><span class="built_in">console</span>.log(info2);</div><div class="line"><span class="built_in">console</span>.groupEnd();</div></pre></td></tr></table></figure>
 
 <h2 id="Objects_and_arrays">Objects and arrays</h2>
 <h3 id="console-table()">console.table()</h3>
 <p>If you’re logging objects and/or arrays in your groups, there’s another winner for you in the form of <code>console.table()</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>console.groupCollapsed(<span class="string">"My group"</span>);
-console.table({
-    info1: { message: <span class="string">"message 1"</span> },
-    info2: { message: <span class="string">"message 2"</span> }
-});
-console.groupEnd();
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.groupCollapsed(<span class="string">"My group"</span>);</div><div class="line"><span class="built_in">console</span>.table({</div><div class="line">    info1: { message: <span class="string">"message 1"</span> },</div><div class="line">    info2: { message: <span class="string">"message 2"</span> }</div><div class="line">});</div><div class="line"><span class="built_in">console</span>.groupEnd();</div></pre></td></tr></table></figure>
 
 <p><img src="/img/console-output.png" alt="Console Output"></p>
 <p>See the <a href="http://jsfiddle.net/Yb7gT/" target="_blank" rel="external">jsfiddle here</a> - ensure you open the console, then click run.</p>
@@ -163,7 +121,7 @@ console.groupEnd();
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -209,7 +167,7 @@ console.groupEnd();
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -260,7 +218,7 @@ console.groupEnd();
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

@@ -74,30 +74,16 @@
 <p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
 <p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
 <h2 id="How_do_I_use_it?">How do I use it?</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> grunt-timer <span class="comment">## --save</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> grunt-timer ## <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
 <p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);</div></pre></td></tr></table></figure>
 
 <p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt);</div></pre></td></tr></table></figure>
 
 <h2 id="Example_output">Example output</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span>
-<span class="number">500</span>ms <span class="keyword">task</span> ran
-Task <span class="string">'run:500'</span> took <span class="number">502</span>ms
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span></div><div class="line"><span class="number">500</span>ms <span class="keyword">task</span> ran</div><div class="line"><span class="keyword">Task</span> <span class="string">'run:500'</span> took <span class="number">502</span>ms</div></pre></td></tr></table></figure>
 
 <h2 id="Issues">Issues</h2>
 <p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
@@ -136,7 +122,7 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -182,7 +168,7 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -233,7 +219,7 @@ Task <span class="string">'run:500'</span> took <span class="number">502</span>m
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

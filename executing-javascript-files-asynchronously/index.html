@@ -66,9 +66,7 @@
       
         <h2 id="It’s_easy-peasy-lemon-squeezy_with_HTML5">It’s easy-peasy-lemon-squeezy with HTML5</h2>
 <p>The <em>async</em> attribute added to HTML5 makes the job all too simple:</p>
-<figure class="highlight html"><figcaption><span>async attribute </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>async attribute </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"script.js"</span> <span class="attribute">async</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <p>This tells the browser to execute the script at the first opportunity after it has finished downloading, while the page continues parsing and before the window load event.</p>
 <h2 id="Pre-HTML5">Pre-HTML5</h2>
@@ -77,37 +75,7 @@
 <p>There is a <em>defer</em> attribute, with <a href="http://caniuse.com/script-defer" target="_blank" rel="external">pretty good support</a> that will execute when the page has finished parsing. Not as good as executing while the page continues parsing though, like with the async attribute.</p>
 <p>Below is a way to handle the deferred execution of JavaScript files that will work <strong>in all cases</strong>. It’s not perfect, the download doesn’t happen immediately like with the async or defer attributes. Also, it fires at the time of the window load event, not before like the native async attribute (which is included for good measure).</p>
 <p>Here’s the general gist (untested):</p>
-<figure class="highlight javascript"><figcaption><span>general gist </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-<span class="pi">    "use strict"</span>;
-    <span class="function"><span class="keyword">function</span> <span class="title">loadJSAsync</span><span class="params">()</span> {</span>
-        <span class="keyword">var</span> js = document.createElement(<span class="string">"script"</span>);
-        js.type = <span class="string">"text/javascript"</span>;
-        js.src = <span class="string">"script.js"</span>;
-        js.async = <span class="literal">true</span>;
-        <span class="comment">// insert the "js" script tag to the DOM here ...</span>
-    } 
-    <span class="keyword">if</span> (window.attachEvent) {
-        window.attachEvent(<span class="string">"onload"</span>, loadJSAsync);
-    } <span class="keyword">else</span> {
-        window.addEventListener(<span class="string">"load"</span>, loadJSAsync, <span class="literal">false</span>);
-    }
-})();
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>general gist </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line"><span class="pi">    "use strict"</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">loadJSAsync</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">var</span> js = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">        js.type = <span class="string">"text/javascript"</span>;</div><div class="line">        js.src = <span class="string">"script.js"</span>;</div><div class="line">        js.async = <span class="literal">true</span>;</div><div class="line">        <span class="comment">// insert the "js" script tag to the DOM here ...</span></div><div class="line">    } </div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) {</div><div class="line">        <span class="built_in">window</span>.attachEvent(<span class="string">"onload"</span>, loadJSAsync);</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, loadJSAsync, <span class="literal">false</span>);</div><div class="line">    }</div><div class="line">})();</div></pre></td></tr></table></figure>
 
 <p>It basically just delays adding the script tag to the DOM. Maybe there is a way to test for async or defer support and fall back to the window load event hack? I can’t wait for all these old browsers to disappear.</p>
 
@@ -140,7 +108,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -186,7 +154,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -237,7 +205,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

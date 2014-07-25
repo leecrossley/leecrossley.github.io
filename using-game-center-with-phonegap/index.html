@@ -73,48 +73,24 @@
 <p>A game center plugin didn’t exist for Cordova &gt;= 3.0 or that supported the iOS7 API, so I wrote one, open source.</p>
 <h3 id="Install_via_the_CLI">Install via the CLI</h3>
 <p>The below command will install all required code and dependencies (including the GameKit framework), <strong>do not</strong> reference any JavaScript in the HTML, it will be added as part of the cordova platform preparation.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/leecrossley/cordova-plugin-game-center.git</div></pre></td></tr></table></figure>
 
 <h2 id="Basic_usage">Basic usage</h2>
 <h3 id="Auth">Auth</h3>
 <p>It’s recommended that authentication takes place as soon as the deviceready event has been fired (don’t ever attempt to use any plugin code before this, it won’t work). The plugin will then handle the various authentication scenarios (auto-login, signup via a native view controller etc).</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>gamecenter.auth(onSuccess, onError);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gamecenter.auth(onSuccess, onError);</div></pre></td></tr></table></figure>
 
 <p>If there’s an issue, an error message object is passed back to the <code>onError(message)</code> function.</p>
 <p><strong>WARN:</strong> At the time of writing this, rejecting the gamecenter.auth() view controller 3 times in a row (during sign in), will block the app from ever using Game Center on that device. I learned this the hard way and had to reset my phone settings. Sad times.</p>
 <h3 id="Leaderboard">Leaderboard</h3>
 <h4 id="Submitting_a_score">Submitting a score</h4>
 <p>Ensure the user has been (successfully) authenticated and the leaderboard(s) have been configured in iTunes connect (use the leaderboard identifier assigned there as the leaderboardId).</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> scoreData = { 
-    score: <span class="number">100</span>, 
-    leaderboardId: <span class="string">"YOUR_ID"</span>
-};
-gamecenter.submitScore(onSuccess, onError, scoreData);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scoreData = { </div><div class="line">    score: <span class="number">100</span>, </div><div class="line">    leaderboardId: <span class="string">"YOUR_ID"</span></div><div class="line">};</div><div class="line">gamecenter.submitScore(onSuccess, onError, scoreData);</div></pre></td></tr></table></figure>
 
 <h4 id="Showing_the_native_leaderboard">Showing the native leaderboard</h4>
 <p>This is a “quick win” and launches the native Game Center leaderboard view controller for a given period and leaderboard. In other words, there’s no need to do any additional coding or user interface development to display a leaderboard.</p>
 <p>The period options are “today”, “week” or “all”.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> criteria = { 
-    period: <span class="string">"today"</span>,
-    leaderboardId: <span class="string">"YOUR_ID"</span>
-};
-gamecenter.showLeaderboard(onSuccess, onError, criteria);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> criteria = { </div><div class="line">    period: <span class="string">"today"</span>,</div><div class="line">    leaderboardId: <span class="string">"YOUR_ID"</span></div><div class="line">};</div><div class="line">gamecenter.showLeaderboard(onSuccess, onError, criteria);</div></pre></td></tr></table></figure>
 
 <p>Note: the <code>onSuccess()</code> (and <code>onError()</code>) are called as the leaderboard is shown, not closed, so you can know if there’s an issue and handle it.</p>
 <h3 id="iOS_version_support">iOS version support</h3>
@@ -152,7 +128,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -198,7 +174,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -249,7 +225,7 @@ gamecenter.showLeaderboard(onSuccess, onError, criteria);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

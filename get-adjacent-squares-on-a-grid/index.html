@@ -69,19 +69,7 @@
 <h2 id="A_list_of_adjacent_squares">A list of adjacent squares</h2>
 <h3 id="The_grid">The grid</h3>
 <p>Let’s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="attr_selector">[1,1]</span> <span class="attr_selector">[2,1]</span> <span class="attr_selector">[3,1]</span> <span class="attr_selector">[4,1]</span> <span class="attr_selector">[5,1]</span> ..
-<span class="attr_selector">[1,2]</span> <span class="attr_selector">[2,2]</span> <span class="attr_selector">[3,2]</span> <span class="attr_selector">[4,2]</span> <span class="attr_selector">[5,2]</span> ..
-<span class="attr_selector">[1,3]</span> <span class="attr_selector">[2,3]</span> <span class="attr_selector">[3,3]</span> <span class="attr_selector">[4,3]</span> <span class="attr_selector">[5,3]</span> ..
-<span class="attr_selector">[1,4]</span> <span class="attr_selector">[2,4]</span> <span class="attr_selector">[3,4]</span> <span class="attr_selector">[4,4]</span> <span class="attr_selector">[5,4]</span> ..
-<span class="attr_selector">[1,5]</span> <span class="attr_selector">[2,5]</span> <span class="attr_selector">[3,5]</span> <span class="attr_selector">[4,5]</span> <span class="attr_selector">[5,5]</span> ..
-..    ..    ..    ..    ..    ..
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr_selector">[1,1]</span> <span class="attr_selector">[2,1]</span> <span class="attr_selector">[3,1]</span> <span class="attr_selector">[4,1]</span> <span class="attr_selector">[5,1]</span> ..</div><div class="line"><span class="attr_selector">[1,2]</span> <span class="attr_selector">[2,2]</span> <span class="attr_selector">[3,2]</span> <span class="attr_selector">[4,2]</span> <span class="attr_selector">[5,2]</span> ..</div><div class="line"><span class="attr_selector">[1,3]</span> <span class="attr_selector">[2,3]</span> <span class="attr_selector">[3,3]</span> <span class="attr_selector">[4,3]</span> <span class="attr_selector">[5,3]</span> ..</div><div class="line"><span class="attr_selector">[1,4]</span> <span class="attr_selector">[2,4]</span> <span class="attr_selector">[3,4]</span> <span class="attr_selector">[4,4]</span> <span class="attr_selector">[5,4]</span> ..</div><div class="line"><span class="attr_selector">[1,5]</span> <span class="attr_selector">[2,5]</span> <span class="attr_selector">[3,5]</span> <span class="attr_selector">[4,5]</span> <span class="attr_selector">[5,5]</span> ..</div><div class="line">..    ..    ..    ..    ..    ..</div></pre></td></tr></table></figure>
 
 <p>This is actually a two dimensional array, which in reality is just an array of arrays. It’s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it’ll just overcomplicate things.</p>
 <h3 id="Get_adjacent_squares">Get adjacent squares</h3>
@@ -92,9 +80,7 @@
 <li>Add one to the y co-ordinate [x,y+1]</li>
 <li>Take one from the y co-ordinate [x,y-1]</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];</div></pre></td></tr></table></figure>
 
 <p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
 <h3 id="Off_the_grid!">Off the grid!</h3>
@@ -103,51 +89,13 @@
 <li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
 <li>Check the y co-ordinate is greater than or equal to 1, but is also less than or equal to the height of the grid</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height</div></pre></td></tr></table></figure>
 
 <h2 id="The_solution">The solution</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre><span class="keyword">var</span> width = <span class="number">5</span>,
-    height = <span class="number">5</span>;
-
-<span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> {</span>
-    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
-        y = square[<span class="number">1</span>];
-    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> {</span>
-    <span class="keyword">var</span> x = square[<span class="number">0</span>], 
-        y = square[<span class="number">1</span>],
-        adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];
-
-    <span class="keyword">return</span> adjacents.filter(isSquareOnGrid);
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> width = <span class="number">5</span>,</div><div class="line">    height = <span class="number">5</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> </span>{</div><div class="line">    <span class="keyword">var</span> x = square[<span class="number">0</span>], </div><div class="line">        y = square[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> </span>{</div><div class="line">    <span class="keyword">var</span> x = square[<span class="number">0</span>], </div><div class="line">        y = square[<span class="number">1</span>],</div><div class="line">        adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> adjacents.filter(isSquareOnGrid);</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>I’ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span>
-getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span>
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span></div><div class="line">getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span></div></pre></td></tr></table></figure>
 
 <p>Hopefully you’re also now interested in what on earth I’m writing :)</p>
 
@@ -180,7 +128,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -226,7 +174,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -277,7 +225,7 @@ getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <sp
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

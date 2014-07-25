@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Page 2 | iLee | developer blog</title>
+  <title>page | iLee | developer blog</title>
   <meta name="author" content="Lee Crossley">
   <meta name="description" content="I write code that sounds awesome and music that&#39;s bug free">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -152,15 +152,7 @@
 <p>One of the main issues making the platform difficult to develop for is the inability to easily see errors as they occur using the default setup. In contrast, on the Android platform, you’re able to get an extremely verbose output of <em>everything</em> using logcat.</p>
 <h2 id="Show_me_the_errors">Show me the errors</h2>
 <p>I discovered a neat trick over 8 months ago when I was developing a WP8 app in anger. Simply place this code in your app (so that it is executed before any potential errors):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>window.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> {</span>
-    window.external.Notify(<span class="string">"Error in Application: "</span> +
-        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(message, file, line)</span> </span>{</div><div class="line">    <span class="built_in">window</span>.external.Notify(<span class="string">"Error in Application: "</span> +</div><div class="line">        message + <span class="string">". Source File: "</span> + file + <span class="string">", Line: "</span> + line);</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>This code allows you to not only see any thrown errors in the Visual Studio output window, but also the error message itself and the file / line number of the offending code! A bit better than splurging <code>console.log</code>s everywhere :)</p>
 <p>You can see the original gist I wrote <a href="https://gist.github.com/leecrossley/5668675" target="_blank" rel="external">here</a>.</p>
@@ -214,41 +206,21 @@
 <p>There are 3 new features, implemented as interchangeable options:</p>
 <h3 id="friendlyTime">friendlyTime</h3>
 <p>Initialising grunt-timer with this option outputs durations in a friendly hours/minutes/seconds format (as opposed to just milliseconds, which is the default). e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { friendlyTime: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <h3 id="deferLogs">deferLogs</h3>
 <p>Initialising grunt-timer with this option outputs a summary of all task timings at the end of the grunt process (as opposed to between tasks, which is the default). e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { deferLogs: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { deferLogs: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <p><em>deferLogs</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, deferLogs: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <h3 id="totalOnly">totalOnly</h3>
 <p>Initialising grunt-timer with this option only the total time all tasks took to complete. This is useful for having many small, insignificant tasks that would generate considerable output even with deferLogs. e.g:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { totalOnly: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { totalOnly: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <p><em>totalOnly</em> can be used in conjunction with <em>friendlyTime</em>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>module.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
-    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt, { friendlyTime: <span class="literal">true</span>, totalOnly: <span class="literal">true</span> });</div></pre></td></tr></table></figure>
 
 <h2 id="Credits">Credits</h2>
 <h3 id="Contributors">Contributors</h3>
@@ -310,29 +282,7 @@
 <p>I do redirect <code>www.ilee.co.uk</code> to <code>ilee.co.uk</code>, for completeness and SEO reasons. Serving the same content for each url could be considered duplicate content without a redirect. GitHub pages automatically handles this and it’s GitHub’s preferred format (you’ll never see <code>www.github.com</code>, it’s always <code>github.com</code>).</p>
 <h3 id="Expressjs">Expressjs</h3>
 <p>To my horror I realised yesterday that <code>www.plugreg.com</code>, didn’t redirect to <code>plugreg.com</code>. plugreg is written in node.js and uses the expressjs framework, so I wrote a handy little function to handle the www redirect scenario:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,
-        wwwUrl = req.protocol + <span class="string">"://www."</span>;
-    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {
-        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);
-    } <span class="keyword">else</span> {
-        next();
-    }
-};
-
-app.all(<span class="string">"*"</span>, redirect);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> </span>{</div><div class="line">    <span class="keyword">var</span> baseUrl = req.protocol + <span class="string">"://"</span> + req.host,</div><div class="line">        wwwUrl = req.protocol + <span class="string">"://www."</span>;</div><div class="line">    <span class="keyword">if</span> (baseUrl.substring(<span class="number">0</span>, wwwUrl.length) === wwwUrl) {</div><div class="line">        res.redirect(<span class="number">301</span>, baseUrl.replace(<span class="string">"://www."</span>, <span class="string">"://"</span>) + req.url);</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        next();</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">app.all(<span class="string">"*"</span>, redirect);</div></pre></td></tr></table></figure>
 
 <h2 id="Configure_webmaster_tools">Configure webmaster tools</h2>
 <p>Under “site settings” of <a href="https://www.google.com/webmasters/tools/" target="_blank" rel="external">Google Webmaster Tools</a>, you also have the option to set your <em>preferred domain</em>:</p>
@@ -405,23 +355,7 @@ app.all(<span class="string">"*"</span>, redirect);
 <li>Font sizes</li>
 </ul>
 <p>The website provides more info on these. This blog passed all of the user experience first time, except for the sizing of anchor tags. To fix this, I added the following css to my article (content) section: </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600</span>px) </span>{
-  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{
-    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
-    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3</span>px <span class="number">7</span>px</span></span>;
-    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span></span></span>;
-    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5</span>px <span class="number">0</span>px</span></span>;
-  <span class="rule">}</span></span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">600px</span>) </span>{</div><div class="line">  <span class="tag">article</span> <span class="tag">a</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">3px</span> <span class="number">7px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#ecf0f1</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">5px</span> <span class="number">0px</span></span></span>;</div><div class="line">  <span class="rule">}</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="That’s_not_the_end">That’s not the end</h2>
 <p>The PageSpeed Insights are a great place to start for existing mobile websites, but it’s not the end of the road, there are many other considerations (every UX designer and every website will have their own particulars). Consider <a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank" rel="external">split A/B testing</a> and responding to user feedback too.</p>
@@ -478,35 +412,15 @@ app.all(<span class="string">"*"</span>, redirect);
 <p><a href="http://nodejs.org/download/" target="_blank" rel="external">Download</a> the installer for your OS and install.</p>
 <h3 id="Create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>$ mkdir nodeapp
-$ <span class="built_in">cd</span> nodeapp
-$ touch app.js
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir nodeapp</div><div class="line">$ <span class="built_in">cd</span> nodeapp</div><div class="line">$ touch app.js</div></pre></td></tr></table></figure>
 
 <h3 id="Code">Code</h3>
 <p>In your newly created JavaScript file, add the following code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
-
-http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
-    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
-    res.end(<span class="string">"I know node.js!"</span>);
-}).listen(<span class="number">4000</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line">    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});</div><div class="line">    res.end(<span class="string">"I know node.js!"</span>);</div><div class="line">}).listen(<span class="number">4000</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Run">Run</h3>
 <p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ node app
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node app</div></pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
 <h2 id="Packages">Packages</h2>
@@ -559,9 +473,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
         <h2 id="Protip">Protip</h2>
 <p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank" rel="external">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
 <p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span></div></pre></td></tr></table></figure>
 
 <h2 id="How_much_faster?">How much faster?</h2>
 <p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
@@ -571,18 +483,10 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <h3 id="Timing">Timing</h3>
 <p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
 <p>Let’s give it a go:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt
-<span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt</div><div class="line"><span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span></div></pre></td></tr></table></figure>
 
 <p>Now let’s clear the cache again and try the European mirror:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ time npm install grunt --registry http://registry.npmjs.eu
-<span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt --registry http://registry.npmjs.eu</div><div class="line"><span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span></div></pre></td></tr></table></figure>
 
 <p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
 <p>Damn, now I don’t have long enough to make a coffee.</p>
@@ -635,9 +539,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <h3 id="Added_depth">Added depth</h3>
 <p>Turns out there’s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank" rel="external">documentation for npm ls</a>.</p>
 <p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span></div></pre></td></tr></table></figure>
 
 <h3 id="Go_global">Go global</h3>
 <p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
@@ -645,19 +547,14 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. “npm ERR! max depth reached” among others), although there was nothing really wrong.</p>
 <p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
 <h2 id="The_complete_command">The complete command</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null</div></pre></td></tr></table></figure>
 
 <p>If you don’t want to type this out all the time (I certainly don’t), you can alias it up:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span></div></pre></td></tr></table></figure>
 
 <p>Then usage is as simple as:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ npmls
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npmls</div></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -715,51 +612,25 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 <h3 id="Install">Install</h3>
 <p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">Github</a>.</p>
 <p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git</div></pre></td></tr></table></figure>
 
 <p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
 <h2 id="Transitions">Transitions</h2>
 <h3 id="Flip">Flip</h3>
 <p>Flip page transition, with support for flipping left or right:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
-    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span>
-nativetransitions.flip(duration, direction, onComplete);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span></div><div class="line">nativetransitions.flip(duration, direction, onComplete);</div></pre></td></tr></table></figure>
 
 <h3 id="Curl">Curl</h3>
 <p>Curl page transition, with support for flipping curling up or down:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span>
-    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span>
-nativetransitions.curl(duration, direction, onComplete);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span></div><div class="line">nativetransitions.curl(duration, direction, onComplete);</div></pre></td></tr></table></figure>
 
 <h3 id="Fade">Fade</h3>
 <p>A simple fade page transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span>
-nativetransitions.fade(duration, onComplete);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span></div><div class="line">nativetransitions.fade(duration, onComplete);</div></pre></td></tr></table></figure>
 
 <h2 id="Example">Example</h2>
 <p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="comment">// Change your html here</span>
-}, <span class="number">50</span>);
-nativetransitions.flip(duration, direction);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// Change your html here</span></div><div class="line">}, <span class="number">50</span>);</div><div class="line">nativetransitions.flip(duration, direction);</div></pre></td></tr></table></figure>
 
 <h2 id="More_transitions?">More transitions?</h2>
 <p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
@@ -815,36 +686,12 @@ nativetransitions.flip(duration, direction);
 <p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
 <blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);
-myMedia.play({ numberOfLoops: <span class="number">2</span> });
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);</div><div class="line">myMedia.play({ numberOfLoops: <span class="number">2</span> });</div></pre></td></tr></table></figure>
 
 <p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
 <h3 id="Android">Android</h3>
 <p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="keyword">var</span> myMedia;
-
-<span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
-    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {
-        myMedia.play();
-    }
-};
-
-myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);
-myMedia.play();
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia;</div><div class="line"></div><div class="line"><span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> </span>{</div><div class="line">    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {</div><div class="line">        myMedia.play();</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);</div><div class="line">myMedia.play();</div></pre></td></tr></table></figure>
 
 <p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
 <p>Can we have a <code>repeat: true</code> please?</p>
@@ -868,10 +715,10 @@ myMedia.play();
 
 <nav id="pagination">
   
-    <a href="/" class="alignleft prev">Prev</a>
+    <a href="/" class="alignleft prev">prev</a>
   
   
-    <a href="/page/3/" class="alignright next">Next</a>
+    <a href="/page/3/" class="alignright next">next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -915,7 +762,7 @@ myMedia.play();
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -966,7 +813,7 @@ myMedia.play();
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

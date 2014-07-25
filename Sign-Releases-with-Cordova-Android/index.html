@@ -66,21 +66,13 @@
       
         <h2 id="The_Cordova_CLI">The Cordova CLI</h2>
 <p>Since the Cordova CLI was introduced about a year ago, building and deploying Cordova apps for development has become incredibly simple and automatable. E.g. for Android:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova build android
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova build android</div></pre></td></tr></table></figure>
 
 <p>and you can also run the app directly on the device / emulator</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ cordova run android
-$ cordova emulate android
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cordova run android</div><div class="line">$ cordova emulate android</div></pre></td></tr></table></figure>
 
 <p>If you want to build a release version of an APK from the command line for production, this is also possible. However, this does not <em>sign</em> your release:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ cordova build android --release
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova build android --release</div></pre></td></tr></table></figure>
 
 <p>Here are the 2 methods I use / have used to achieve API signing for production / distribution. Don’t worry, neither of them use Eclipse!:</p>
 <p><img src="/img/android-signing.png" alt="Android signing"></p>
@@ -88,20 +80,14 @@ $ cordova emulate android
 <h2 id="Method_1">Method 1</h2>
 <h3 id="Use_jarsigner_directly">Use jarsigner directly</h3>
 <p>This is the method I used to use and it isn’t Cordova CLI specific (it’s part of the Java SDK build tools and this method is part of their <a href="http://developer.android.com/tools/publishing/app-signing.html#signapp" target="_blank" rel="external">standard documentation</a>). After you have created your APK (<code>cordova build android --release</code>) you can run the following command:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ jarsigner <span class="attribute">-verbose</span> <span class="attribute">-sigalg</span> SHA1withRSA <span class="attribute">-digestalg</span> SHA1 <span class="attribute">-keystore</span> release_key_name<span class="built_in">.</span>keystore app_name<span class="built_in">.</span>apk alias_name
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ jarsigner -<span class="keyword">verbose</span> -sigalg SHA1withRSA -digestalg SHA1 -keystore release_key_name.keystore app_name.apk alias_name</div></pre></td></tr></table></figure>
 
 <p>Jarsigner will prompt for the password and sign the APK.</p>
 <h2 id="Method_2_(best)">Method 2 (best)</h2>
 <h3 id="Part_of_the_CLI_workflow">Part of the CLI workflow</h3>
 <p>This is now my preferred method and hooks directly into the <code>cordova build android --release</code> command.</p>
 <p>Create an <code>ant.properties</code> file in <code>platforms/android/</code> with a keystore path and alias name:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>key.store=/path/to/keystore/release_key_name.keystore
-key.alias=alias_name
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">key.store=/path/to/keystore/release_key_name.keystore</div><div class="line">key.alias=alias_name</div></pre></td></tr></table></figure>
 
 <p>The standard Cordova CLI release build process will now prompt for the password and automatically sign the APK, ready for upload to Google Play, or other distribution method. The APK will be created at <code>platforms/android/ant-build/app_name-release.apk</code>.</p>
 <p>Happy release automation.</p>
@@ -135,7 +121,7 @@ key.alias=alias_name
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -181,7 +167,7 @@ key.alias=alias_name
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -232,7 +218,7 @@ key.alias=alias_name
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

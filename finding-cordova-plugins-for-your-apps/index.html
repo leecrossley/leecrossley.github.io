@@ -74,21 +74,7 @@
 <li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
 </ul>
 <p>I fixed the ordering by doing:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
-    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-
-...
-
-plugins.sort(byCase);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span></span>{</div><div class="line">    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());</div><div class="line">}</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">plugins.sort(byCase);</div></pre></td></tr></table></figure>
 
 <p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
 <h2 id="Suggestions">Suggestions</h2>
@@ -123,7 +109,7 @@ plugins.sort(byCase);
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -169,7 +155,7 @@ plugins.sort(byCase);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -220,7 +206,7 @@ plugins.sort(byCase);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

@@ -71,61 +71,9 @@
 <p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank" rel="external">W3C HTML Microdata Draft</a>, or you can just carry on reading and I’ll show you how simple it really is.</p>
 <h2 id="This_blog">This blog</h2>
 <p>Let’s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank" rel="external">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
-<figure class="highlight html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-            ...
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">header</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></div><div class="line">            ...</div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></div></pre></td></tr></table></figure>
 
-<figure class="highlight html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span> <span class="attribute">itemprop</span>=<span class="value">"datePublished"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">itemprop</span>=<span class="value">"name headline"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span> <span class="attribute">itemprop</span>=<span class="value">"articleBody"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-            ...
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">header</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span> <span class="attribute">itemprop</span>=<span class="value">"datePublished"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">itemprop</span>=<span class="value">"name headline"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span> <span class="attribute">itemprop</span>=<span class="value">"articleBody"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></div><div class="line">            ...</div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <p>There are 2 main differences:</p>
 <ul>
@@ -165,7 +113,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -211,7 +159,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -262,7 +210,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

@@ -69,124 +69,19 @@
 <p>I’ve added many new features since my <a href="/functional-javascript-library">last post on this</a> and I’ve also started on some array functions. These array functions aren’t specifically unique, but they’re handy and we can’t really do without them. As always, everything can be curried. (curryable?).</p>
 <h2 id="Examples">Examples</h2>
 <h3 id="You’re_the_λ-first">You’re the λ.first</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> firstEven = λ.first(even);
-<span class="keyword">var</span> firstOdd = λ.first(odd);
-
-expect(firstEven(items)).toEqual(<span class="number">2</span>);
-expect(firstOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> firstEven = λ.first(even);</div><div class="line"><span class="keyword">var</span> firstOdd = λ.first(odd);</div><div class="line"></div><div class="line">expect(firstEven(items)).toEqual(<span class="number">2</span>);</div><div class="line">expect(firstOdd(items)).toEqual(<span class="number">1</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="My_λ-last">My λ.last</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> lastEven = λ.last(even);
-<span class="keyword">var</span> lastOdd = λ.last(odd);
-
-expect(lastEven(items)).toEqual(<span class="number">2</span>);
-expect(lastOdd(items)).toEqual(<span class="number">1</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> lastEven = λ.last(even);</div><div class="line"><span class="keyword">var</span> lastOdd = λ.last(odd);</div><div class="line"></div><div class="line">expect(lastEven(items)).toEqual(<span class="number">2</span>);</div><div class="line">expect(lastOdd(items)).toEqual(<span class="number">1</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="My_λ-every(thing)">My λ.every(thing)</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];
-
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-<span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> everyEven = λ.every(even);
-<span class="keyword">var</span> everyOdd = λ.every(odd);
-
-expect(everyEven(items)).toEqual(<span class="literal">true</span>);
-expect(everyOdd(items)).toEqual(<span class="literal">false</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> odd = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> !== <span class="number">0</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> everyEven = λ.every(even);</div><div class="line"><span class="keyword">var</span> everyOdd = λ.every(odd);</div><div class="line"></div><div class="line">expect(everyEven(items)).toEqual(<span class="literal">true</span>);</div><div class="line">expect(everyOdd(items)).toEqual(<span class="literal">false</span>);</div></pre></td></tr></table></figure>
 
 <p>The actual code needs some performance enhancements (such as breaking out of loops, and possibly making asynchronous?).</p>
 <h3 id="λ-partition">λ.partition</h3>
 <p>If you want to look at something a little more unique, take a look at my partition function, which has also been added recently.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> partitionEven = λ.partition(even);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = partitionEven(items);</div><div class="line"></div><div class="line">expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);</div></pre></td></tr></table></figure>
 
-<span class="keyword">var</span> even = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
-    <span class="keyword">return</span> item % <span class="number">2</span> === <span class="number">0</span>;
-};
-
-<span class="keyword">var</span> partitionEven = λ.partition(even);
-
-<span class="keyword">var</span> result = partitionEven(items);
-
-expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>], [<span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]]);
-</pre></td></tr></table></figure>
 
 <h2 id="Contribute,_Contribute,_Contribute">Contribute, Contribute, Contribute</h2>
 <p>functional.js is starting to be used by people :| (based on downloads and npm downloads anyway) and if you want to contribute there’s plenty TODO. All the code is on <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">GitHub</a>.</p>
@@ -220,7 +115,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -266,7 +161,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -317,7 +212,7 @@ expect(result).toEqual([[<span class="number">6</span>, <span class="number">4</
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

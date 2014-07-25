@@ -74,17 +74,7 @@
 <p>Essentially, what happens is Cordova / PhoneGap replaces the <code>window.navigator</code>, as you can see <a href="https://github.com/apache/cordova-js/blob/2c375dd4f585b3fb29ff67ec455918c3a333fc7a/src/common/init.js#L64" target="_blank" rel="external">here</a>.</p>
 <h2 id="The_solution">The solution</h2>
 <p>Although this will be fixed in Cordova 3.6.0 when support for the new Cordova bridge under iOS 8 WKWebView is implemented, Eddy Verbruggen has come up with a <a href="https://gist.github.com/EddyVerbruggen/cd02c73162180793513e#file-ios8-beta-phonegap-fix" target="_blank" rel="external">neat little fix</a> to check if the <code>navigator.userAgent</code> is undefined and assign a return value to it:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {
-    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);
-    });
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (navigator.userAgent === <span class="literal">undefined</span>) {</div><div class="line">    navigator.__defineGetter__(<span class="string">'userAgent'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span>(<span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit"</span>);</div><div class="line">    });</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Also, targeting 7.0 (which I doubt you’re doing if you’re playing with iOS 8 beta) should also still work.</p>
 
@@ -117,7 +107,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -163,7 +153,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -214,7 +204,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

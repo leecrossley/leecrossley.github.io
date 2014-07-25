@@ -67,18 +67,10 @@
         <h2 id="The_different_ways_to_declare_a_function_in_JavaScript">The different ways to declare a function in JavaScript</h2>
 <h3 id="To_var,_or_not_to_var">To var, or not to var</h3>
 <p>You can declare a function as you would any other JavaScript variable:</p>
-<figure class="highlight javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>With var </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <p>Or you can declare it without a var in your statement:</p>
-<figure class="highlight javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Without var </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> </span>{</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="The_difference">The difference</h2>
 <p>I recently read an accepted answer on Stack Overflow that stated:</p>
@@ -89,45 +81,7 @@
 
 
 <p>I’m sorry but I don’t agree. If that statement was correct, then I would get the same result <a href="http://codepen.io/leecrossley/pen/vfamn" target="_blank" rel="external">for this</a>:</p>
-<figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre><span class="keyword">try</span> {
-  func1();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-  alert(<span class="string">"func1 success"</span>);
-};
-
-<span class="keyword">try</span> {
-  func2();
-} <span class="keyword">catch</span> (ex) {
-  alert(ex);
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> {</span>
-  alert(<span class="string">"func2 success"</span>);
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Same result? </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> {</div><div class="line">  func1();</div><div class="line">} <span class="keyword">catch</span> (ex) {</div><div class="line">  alert(ex);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  alert(<span class="string">"func1 success"</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">try</span> {</div><div class="line">  func2();</div><div class="line">} <span class="keyword">catch</span> (ex) {</div><div class="line">  alert(ex);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span><span class="params">()</span> </span>{</div><div class="line">  alert(<span class="string">"func2 success"</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>As you can see, attempting to call func1 before it has been declared throws an error, whereas func2 is able to be called successfully. This means that <strong>there is a difference</strong> and it’s <strong>nothing to do with scoping</strong>, either locally or globally:</p>
 <ul>
@@ -136,19 +90,13 @@
 </ul>
 <h2 id="Function_expressions">Function expressions</h2>
 <p>I refer to the first (with var) declaration as a function expression. func1 is actually an anonymous function expression, the variable that is assigned the function has a name, func1 but the function itself doesn’t. To give the function itself a name, you could do:</p>
-<figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> {</span>
-};
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Named function expression </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span> <span class="title">funcName</span><span class="params">()</span> </span>{</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <h2 id="Best_practice">Best practice</h2>
 <p>Function expressions are more versatile, if you create a new function with <strong>currying</strong> or <a href="http://ilee.co.uk/multiple-function-composition/" target="_blank" rel="external">Multiple Function Composition</a> you’re using a function expression. Function expressions go hand in hand with functional programming. Personally, I always define my functions as an expression (the first way, using a var), therefore it must be best practice :)</p>
 <h2 id="CoffeeScript_fans">CoffeeScript fans</h2>
 <p>If you’re a CoffeeScripter, <strong>get off my blog</strong> ;). Also, there’s only one way you can define a function in coffeescript:</p>
-<figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="function"><span class="title">func</span> = -&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><figcaption><span>Coffeescript </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">func</span> = -&gt;</span></div></pre></td></tr></table></figure>
 
 <p>Which is evaluated as a function expression, fortunately.</p>
 <p>Now seriously, get off my blog CoffeeScripters.</p>
@@ -182,7 +130,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -228,7 +176,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -279,7 +227,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

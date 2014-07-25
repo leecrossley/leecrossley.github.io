@@ -77,65 +77,21 @@
 <h2 id="Using_grunt-pogo">Using grunt-pogo</h2>
 <p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank" rel="external">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
 <h3 id="Install_as_a_dev_dependency">Install as a dev dependency</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm install grunt-pogo --save-dev
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install grunt-pogo --save-dev</div></pre></td></tr></table></figure>
 
 <h3 id="Load_“grunt-pogo”_in_your_Gruntfile-js">Load “grunt-pogo” in your Gruntfile.js</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);</div></pre></td></tr></table></figure>
 
 <h2 id="The_pogo_task">The pogo task</h2>
 <p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank" rel="external">configuring tasks</a> for more info.</p>
 <h3 id="Example_configuration">Example configuration</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>pogo: {
-    compile: {
-        files: {
-            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]
-        }
-    }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">pogo: {</div><div class="line">    compile: {</div><div class="line">        files: {</div><div class="line">            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
 <h2 id="The_code">The code</h2>
 <h3 id="functional-js">functional.js</h3>
 <p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> {</span>
-    <span class="keyword">var</span> compiled = compile(exists(files.src)),
-        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));
-    grunt.file.write(files.dest, combined);
-});
-
-<span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> {</span>
-    <span class="keyword">return</span> grunt.file.exists(file);
-});
-
-<span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> {</span>
-    <span class="keyword">return</span> compilePogo(grunt.file.read(src));
-});
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> </span>{</div><div class="line">    <span class="keyword">var</span> compiled = compile(exists(files.src)),</div><div class="line">        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));</div><div class="line">    grunt.file.write(files.dest, combined);</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> </span>{</div><div class="line">    <span class="keyword">return</span> grunt.file.exists(file);</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> </span>{</div><div class="line">    <span class="keyword">return</span> compilePogo(grunt.file.read(src));</div><div class="line">});</div></pre></td></tr></table></figure>
 
 <h3 id="Testing">Testing</h3>
 <p>It’s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank" rel="external">Travis CI</a>.</p>
@@ -174,7 +130,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -220,7 +176,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -271,7 +227,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

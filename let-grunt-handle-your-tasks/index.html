@@ -72,74 +72,32 @@
 <p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
 <h3 id="The_Grunt_CLI">The Grunt CLI</h3>
 <p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm install <span class="attribute">-g</span> grunt<span class="attribute">-cli</span>
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-<span class="keyword">cli</span></div></pre></td></tr></table></figure>
 
 <p>You can now run “grunt” from anywhere. Happy times.</p>
 <h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
 <p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
 <p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);
-grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);</div></pre></td></tr></table></figure>
 
 <p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>jasmine: {
-    src: <span class="string">"functional.min.js"</span>,
-    options: {
-        specs: <span class="string">"spec.js"</span>
-    }
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jasmine: {</div><div class="line">    src: <span class="string">"functional.min.js"</span>,</div><div class="line">    options: {</div><div class="line">        specs: <span class="string">"spec.js"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank" rel="external">spec.js</a>.</p>
 <p>You can run it by doing:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt jasmine
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">grunt</span> jasmine</div></pre></td></tr></table></figure>
 
 <h3 id="Combining_tasks">Combining tasks</h3>
 <p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);</div></pre></td></tr></table></figure>
 
 <p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
 <h3 id="Watching_for_changes">Watching for changes</h3>
 <p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
-<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>watch: {
-    files: [
-        <span class="string">"*.js"</span>,
-        <span class="string">"!functional.min.js"</span>
-    ],
-    tasks: [<span class="string">"test"</span>]
-}
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">watch: {</div><div class="line">    files: [</div><div class="line">        <span class="string">"*.js"</span>,</div><div class="line">        <span class="string">"!functional.min.js"</span></div><div class="line">    ],</div><div class="line">    tasks: [<span class="string">"test"</span>]</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>grunt watch
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">grunt</span> watch</div></pre></td></tr></table></figure>
 
 <p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
 
@@ -172,7 +130,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -218,7 +176,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -269,7 +227,7 @@ grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

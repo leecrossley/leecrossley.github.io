@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Page 4 | iLee | developer blog</title>
+  <title>page | iLee | developer blog</title>
   <meta name="author" content="Lee Crossley">
   <meta name="description" content="I write code that sounds awesome and music that&#39;s bug free">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -138,103 +138,39 @@
 <p><img src="/img/froute.png" alt="froute"></p>
 <h2 id="Getting_started">Getting started</h2>
 <p>Install via npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>npm <span class="keyword">install</span> froute
-</pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> froute</span></div></pre></td></tr></table></figure>
 
 <p>Require the module in the usual way:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> froute = <span class="built_in">require</span>(<span class="string">"froute"</span>);</div></pre></td></tr></table></figure>
 
 <h2 id="Using_froute">Using froute</h2>
 <p>There are essentially 2 or 3 functions you need to use.</p>
 <h3 id="Register_routes">Register routes</h3>
 <p>You register a route using the <strong>bind</strong> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apples"</span>;
-
-<span class="comment">// Bind the static route and it's handler</span>
-froute.bind(template, handler); <span class="comment">// true</span>
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> template = <span class="string">"/apples"</span>;</div><div class="line"></div><div class="line"><span class="comment">// Bind the static route and it's handler</span></div><div class="line">froute.bind(template, handler); <span class="comment">// true</span></div></pre></td></tr></table></figure>
 
 <p>You register routes with parameters in the following way (type and size parameters). Any parameters will then be passed to your handler function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;
-froute.bind(template, handler); <span class="comment">// true</span>
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>;</div><div class="line">froute.bind(template, handler); <span class="comment">// true</span></div></pre></td></tr></table></figure>
 
 <h3 id="Unregister_routes">Unregister routes</h3>
 <p>You unregister a route using the <strong>unbind</strong> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.unbind(<span class="string">"/apples"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">froute.unbind(<span class="string">"/apples"</span>);</div></pre></td></tr></table></figure>
 
 <p>Unbound templates are returned by the unbind function.</p>
 <h3 id="Dispatch">Dispatch</h3>
 <p>When a url comes in, you call dispatch:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);</div></pre></td></tr></table></figure>
 
 <p>Your handler will then be called if a route template is matched. If there is no template matched, or handler function to call, froute.dispatch will return false (otherwise true).</p>
 <h3 id="Full_example">Full example</h3>
 <p>A full example illustrating how the handler function works with params:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
-    resultParams;
-
-<span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> {</span>
-    resultParams = params;
-});
-
-froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);
-
-<span class="comment">// assertions</span>
-expect(bindResult).toBeTruthy();
-expect(dispatchResult).toBeTruthy();
-expect(froute.list().length).toEqual(<span class="number">1</span>);
-expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,</div><div class="line">    resultParams;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bindResult = froute.bind(template, <span class="function"><span class="keyword">function</span><span class="params">(params)</span> </span>{</div><div class="line">    resultParams = params;</div><div class="line">});</div><div class="line"></div><div class="line">froute.dispatch(<span class="string">"/apple/gala/size/large"</span>);</div><div class="line"></div><div class="line"><span class="comment">// assertions</span></div><div class="line">expect(bindResult).toBeTruthy();</div><div class="line">expect(dispatchResult).toBeTruthy();</div><div class="line">expect(froute.list().length).toEqual(<span class="number">1</span>);</div><div class="line">expect(resultParams).toEqual({type:<span class="string">"gala"</span>,size:<span class="string">"large"</span>});</div></pre></td></tr></table></figure>
 
 <h2 id="Behind_the_scenes">Behind the scenes</h2>
 <h3 id="froute-picker">froute-picker</h3>
 <p>froute uses the “froute-picker” module for picking parameters from url templates and matching urls to the templates while assigning parameter values. This is an independent node module, full source <a href="https://github.com/leecrossley/froute-picker" target="_blank" rel="external">here</a>. It can also be used in isolation:</p>
 <h4 id="Picking_parameters_from_a_url_template_and_matching_a_url_to_the_template">Picking parameters from a url template and matching a url to the template</h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,
-    picked = picker.pick(template),
-    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);
-    result = matchUrl(picked);
-
-<span class="comment">// assertions</span>
-expect(result.type).toEqual(<span class="string">"gala"</span>);
-expect(result.size).toEqual(<span class="string">"large"</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> template = <span class="string">"/apple/{type}/size/{size}"</span>,</div><div class="line">    picked = picker.pick(template),</div><div class="line">    matchUrl = picker.match(<span class="string">"/apple/gala/size/large"</span>);</div><div class="line">    result = matchUrl(picked);</div><div class="line"></div><div class="line"><span class="comment">// assertions</span></div><div class="line">expect(result.type).toEqual(<span class="string">"gala"</span>);</div><div class="line">expect(result.size).toEqual(<span class="string">"large"</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="functional-js">functional.js</h3>
 <p>What better way to manipulate and perform operations on collections than with <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a>. Some of the above functions for froute support currying (such as the bind function), happy days.</p>
@@ -441,61 +377,9 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 <p>If you want to upset yourself, you can lose a few days reading the <a href="http://www.w3.org/html/wg/drafts/microdata/master/" target="_blank" rel="external">W3C HTML Microdata Draft</a>, or you can just carry on reading and I’ll show you how simple it really is.</p>
 <h2 id="This_blog">This blog</h2>
 <p>Let’s take this blog as an example. I’ve followed the Schema.org <a href="http://schema.org/BlogPosting" target="_blank" rel="external">BlogPosting</a> schema to enrich each blog post with microdata. This enables search engines to understand the structure of the blog post and what the data actually means.</p>
-<figure class="highlight html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-            ...
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>Without microdata </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">header</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></div><div class="line">            ...</div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></div></pre></td></tr></table></figure>
 
-<figure class="highlight html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span> <span class="attribute">itemprop</span>=<span class="value">"datePublished"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">itemprop</span>=<span class="value">"name headline"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span> <span class="attribute">itemprop</span>=<span class="value">"articleBody"</span>&gt;</span>
-            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
-            ...
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
-</pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>With microdata </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">article</span> <span class="attribute">class</span>=<span class="value">"post"</span> <span class="attribute">itemscope</span> <span class="attribute">itemtype</span>=<span class="value">"http://schema.org/BlogPosting"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-content"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">header</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"icon"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">time</span> <span class="attribute">datetime</span>=<span class="value">"2013-10-25T09:45:35.000Z"</span> <span class="attribute">itemprop</span>=<span class="value">"datePublished"</span>&gt;</span>25th Oct 2013<span class="tag">&lt;/<span class="title">time</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span> <span class="attribute">itemprop</span>=<span class="value">"name headline"</span>&gt;</span>Add Structured Data to Your Blog<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"entry"</span> <span class="attribute">itemprop</span>=<span class="value">"articleBody"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>Structured data<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></div><div class="line">            ...</div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">article</span>&gt;</span></div></pre></td></tr></table></figure>
 
 <p>There are 2 main differences:</p>
 <ul>
@@ -559,21 +443,7 @@ expect(result.size).toEqual(<span class="string">"large"</span>);
 <li><strong>Ordering</strong>. Fixed issues with ordering due to case issues</li>
 </ul>
 <p>I fixed the ordering by doing:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span>{</span>
-    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
-
-...
-
-plugins.sort(byCase);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">byCase</span><span class="params">(a, b)</span></span>{</div><div class="line">    <span class="keyword">return</span> a.name.toLowerCase().localeCompare(b.name.toLowerCase());</div><div class="line">}</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">plugins.sort(byCase);</div></pre></td></tr></table></figure>
 
 <p>Does anyone know a better way of doing this with mongodb / mongoose?</p>
 <h2 id="Suggestions">Suggestions</h2>
@@ -826,25 +696,17 @@ plugins.sort(byCase);
 <p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
 <h2 id="The_hack">The hack</h2>
 <p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">while</span>(<span class="number">1</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(<span class="number">1</span>);</div></pre></td></tr></table></figure>
 
 <p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));</div></pre></td></tr></table></figure>
 
 <p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
 <p>Facebook use a similar variation to achieve the same result:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">for</span>(;;);
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(;;);</div></pre></td></tr></table></figure>
 
 <p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;
-</pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;</div></pre></td></tr></table></figure>
 
 <h2 id="Limitations">Limitations</h2>
 <p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
@@ -868,10 +730,10 @@ plugins.sort(byCase);
 
 <nav id="pagination">
   
-    <a href="/page/3/" class="alignleft prev">Prev</a>
+    <a href="/page/3/" class="alignleft prev">prev</a>
   
   
-    <a href="/page/5/" class="alignright next">Next</a>
+    <a href="/page/5/" class="alignright next">next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -915,7 +777,7 @@ plugins.sort(byCase);
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -966,7 +828,7 @@ plugins.sort(byCase);
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

@@ -68,21 +68,7 @@
 <p>It’s pretty standard to bind swipe events to elements. For the game I’m currently writing, I needed to do something a little different. I wanted to be able to allow the user to swipe across multiple elements and handle this in an elegant and resource efficient way.</p>
 <h2 id="The_solution">The solution</h2>
 <p>After testing <em>many solutions</em>, here’s what I came up with (and I think it’s the optimum solution). I’m using <a href="http://zeptojs.com/" target="_blank" rel="external">zeptojs</a> and it’s touch module, although this solution would work with jquery (if you insist), you’d just need to swap out the <code>e.touches</code> with <code>e.originalEvent.touches</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="keyword">var</span> multiSwipe = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
-    <span class="keyword">var</span> touch = e.touches[<span class="number">0</span>],
-        element = $(document.elementFromPoint(touch.clientX, touch.clientY));
-    <span class="comment">// ...</span>
-};
-
-$(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> multiSwipe = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> </span>{</div><div class="line">    <span class="keyword">var</span> touch = e.touches[<span class="number">0</span>],</div><div class="line">        element = $(<span class="built_in">document</span>.elementFromPoint(touch.clientX, touch.clientY));</div><div class="line">    <span class="comment">// ...</span></div><div class="line">};</div><div class="line"></div><div class="line">$(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</span>, multiSwipe);</div></pre></td></tr></table></figure>
 
 <p>Essentially, I’m binding the <code>touchmove</code> event to a parent element, then detecting which element is at the current touch point each time the <code>touchmove</code> event is fired. Pretty simple when it’s written for you. </p>
 <p>This code is about 10 times smaller than my first attempt and works 10 times faster. <code>document.elementFromPoint</code> is a very effective way to return the topmost element which lies under a given point.</p>
@@ -117,7 +103,7 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -163,7 +149,7 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -214,7 +200,7 @@ $(<span class="string">".parent"</span>).bind(<span class="string">"touchmove"</
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>

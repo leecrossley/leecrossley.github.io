@@ -72,35 +72,15 @@
 <p><a href="http://nodejs.org/download/" target="_blank" rel="external">Download</a> the installer for your OS and install.</p>
 <h3 id="Create">Create</h3>
 <p>Create a new directory for your app (optional) and a blank <code>app.js</code> JavaScript file.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>$ mkdir nodeapp
-$ <span class="built_in">cd</span> nodeapp
-$ touch app.js
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir nodeapp</div><div class="line">$ <span class="built_in">cd</span> nodeapp</div><div class="line">$ touch app.js</div></pre></td></tr></table></figure>
 
 <h3 id="Code">Code</h3>
 <p>In your newly created JavaScript file, add the following code:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
-
-http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
-    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});
-    res.end(<span class="string">"I know node.js!"</span>);
-}).listen(<span class="number">4000</span>);
-</pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line">    res.writeHead(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>});</div><div class="line">    res.end(<span class="string">"I know node.js!"</span>);</div><div class="line">}).listen(<span class="number">4000</span>);</div></pre></td></tr></table></figure>
 
 <h3 id="Run">Run</h3>
 <p>Ensure you’re in the directory of your <code>app.js</code> JavaScript file and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ node app
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node app</div></pre></td></tr></table></figure>
 
 <p>Now visit <code>http://localhost:4000/</code> to see your newly created node.js http server in action!</p>
 <h2 id="Packages">Packages</h2>
@@ -136,7 +116,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">comment</h1>
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view or add comments</noscript>
   </div>
@@ -182,7 +162,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 
   
 <div class="widget tag">
-  <h3 class="title">Recent Posts</h3>
+  <h3 class="title">recent_posts</h3>
   <ul class="entry">
     
       <li>
@@ -233,7 +213,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/android/">android</a><small>10</small></li>
