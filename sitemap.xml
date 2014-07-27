@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/about-me/</loc>
+    <lastmod>2014-07-27T08:40:44.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/Target-Android-Phones-Not-Tablets/</loc>
     <lastmod>2014-07-22T07:35:46.000Z</lastmod>
   </url>
@@ -149,10 +153,6 @@
     <lastmod>2013-11-05T09:22:48.000Z</lastmod>
   </url>
   <url>
-    <loc>http://ilee.co.uk/about-me/</loc>
-    <lastmod>2013-10-31T18:37:50.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://ilee.co.uk/say-goodbye-to-mobile-click-delays/</loc>
     <lastmod>2013-10-31T16:55:50.000Z</lastmod>
   </url>
@@ -298,6 +298,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2014-07-25T07:36:23.449Z</lastmod>
+    <lastmod>2014-07-27T08:43:00.451Z</lastmod>
   </url>
 </urlset>
