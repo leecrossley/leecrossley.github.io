@@ -4,12 +4,37 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-07-27T10:08:07.502Z</updated>
+  <updated>2014-08-02T16:53:42.788Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Speed up the Android Emulator]]></title>
+    <link href="http://ilee.co.uk/Speed-up-the-Android-Simulator/"/>
+    <id>http://ilee.co.uk/Speed-up-the-Android-Simulator/</id>
+    <published>2014-08-02T16:35:40.000Z</published>
+    <updated>2014-08-02T16:53:32.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="The_Android_emulator">The Android emulator</h2>
+<p>I’ve always hated the Android emulator, it actually puts me off developing for versions of Android that I don’t have a real device for (fortunitely, I have <a href="/more-mobile-devices-than-socks/">a lot</a>). It’s always better to test on real devices anyway, especially since not all versions of Android are the same, despite the Android version number (“with Samsung Touchwiz” or “with HTC Sense” etc, that are neither wizzy or sensible).</p>
+<p>What’s the main reason why I hate it? Because I have time to make and drink a coffee before it loads. There is is only so much coffee one man can drink.</p>
+<h2 id="How_to_speed_it_up!">How to speed it up!</h2>
+<p>That’s right, it is possible to speed up the emulator (drastically) if you have an Intel VT enabled machine and you’re targeting Android 4.0.3 (API version 15) or greater. This solution doesn’t even touch eclipse, I promise.</p>
+<h3 id="Step_1">Step 1</h3>
+<p>Find out what you’re missing. Run <code>$ android update sdk</code> to launch the Android SDK manager. You’ll notice that each Android version with an API entry of version 15 or greater has an <code>Intel x86 Atom System Image</code> option alongside the ARM system image. You need to install these Intel x86 Atom System Images for each API version you plan to target (you’ll also need each SDK platform if you haven’t installed them already).</p>
+<p>Now when you run <code>android list targets</code> you should see <code>Tag/ABIs : default/x86</code> at the bottom of each target entry (and <code>default/armeabi-v7a</code> if you have that installed too).</p>
+<h3 id="Step_2">Step 2</h3>
+<p>Download the <a href="https://software.intel.com/en-us/Android/articles/intel-hardware-accelerated-execution-manager" target="_blank" rel="external">Intel Hardware Accelerated Execution Manager</a> or HAX(M) for short. This is a hardware-assisted virtualisation engine (hypervisor) that speeds up Android app emulation on a host machine. In combination with Android x86 emulator images it allows for faster Android emulation on Intel VT enabled systems.</p>
+<h3 id="Step_3">Step 3</h3>
+<p>Create your new Android Virtual Devices (AVDs), (more info <a href="http://developer.Android.com/tools/devices/managing-avds-cmdline.html" target="_blank" rel="external">here</a>). The key is to specify which <code>ABI</code> to use, which is missed out from the documentation. e.g:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">$ android create avd -n &lt;NAME&gt;</span> -t &lt;id&gt; --abi default/x86</span></div></pre></td></tr></table></figure>
+
+<p>Sorry for all the coffee you’re going to miss out on.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Target Android Phones Not Tablets]]></title>
     <link href="http://ilee.co.uk/Target-Android-Phones-Not-Tablets/"/>
@@ -704,33 +729,5 @@
     <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
     <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Looping Audio with PhoneGap]]></title>
-    <link href="http://ilee.co.uk/looping-audio-with-phonegap/"/>
-    <id>http://ilee.co.uk/looping-audio-with-phonegap/</id>
-    <published>2013-12-06T10:05:49.000Z</published>
-    <updated>2013-12-06T10:47:47.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Playing_media_on_repeat">Playing media on repeat</h2>
-<p>Playing media is easy with Phonegap / Cordova using the core <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank" rel="external">media plugin</a>. I’m using it in the game I’m writing.</p>
-<p>The issue is, I wanted to be able to play a background music loop on repeat (don’t worry, the user can switch this off in my apps settings, or simply <a href="/phonegap-plays-sound-on-mute/">mute the sound</a>).</p>
-<h3 id="iOS">iOS</h3>
-<p>There’s an “iOS Quirk” that makes this really easy for iOS devices. From the documentation:</p>
-<blockquote>“<strong>numberOfLoops</strong>: Pass this option to the play method to specify the number of times you want the media file to play”</blockquote>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>);</div><div class="line">myMedia.play({ numberOfLoops: <span class="number">2</span> });</div></pre></td></tr></table></figure>
-
-<p>It’s a bit frustrating that you can’t do <code>numberOfLoops: -1</code> to repeat indefinitely, but I can live with it. The issue is, you can’t do this on Android.</p>
-<h3 id="Android">Android</h3>
-<p>Here’s my work around (that I also for iOS too to keep the JavaScript consistent). It’s really frustrating because this could easily be built into the plugin’s native component.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myMedia;</div><div class="line"></div><div class="line"><span class="keyword">var</span> loop = <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> </span>{</div><div class="line">    <span class="keyword">if</span> (status === Media.MEDIA_STOPPED) {</div><div class="line">        myMedia.play();</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">myMedia = <span class="keyword">new</span> Media(<span class="string">"/audio/my.mp3"</span>, <span class="literal">null</span>, <span class="literal">null</span>, loop);</div><div class="line">myMedia.play();</div></pre></td></tr></table></figure>
-
-<p>I’m using the <code>mediaStatus</code> callback that executes when the media status changes, to check to see if the media has stopped playing (it’s finished) and to play the media again.</p>
-<p>Can we have a <code>repeat: true</code> please?</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/android/" term="android"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>
 </feed>

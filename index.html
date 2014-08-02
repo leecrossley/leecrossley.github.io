@@ -55,6 +55,65 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-08-02T16:35:40.000Z" itemprop="datePublished">2nd Aug 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/Speed-up-the-Android-Simulator/" itemprop="url">Speed up the Android Emulator</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="The_Android_emulator">The Android emulator</h2>
+<p>I’ve always hated the Android emulator, it actually puts me off developing for versions of Android that I don’t have a real device for (fortunitely, I have <a href="/more-mobile-devices-than-socks/">a lot</a>). It’s always better to test on real devices anyway, especially since not all versions of Android are the same, despite the Android version number (“with Samsung Touchwiz” or “with HTC Sense” etc, that are neither wizzy or sensible).</p>
+<p>What’s the main reason why I hate it? Because I have time to make and drink a coffee before it loads. There is is only so much coffee one man can drink.</p>
+<h2 id="How_to_speed_it_up!">How to speed it up!</h2>
+<p>That’s right, it is possible to speed up the emulator (drastically) if you have an Intel VT enabled machine and you’re targeting Android 4.0.3 (API version 15) or greater. This solution doesn’t even touch eclipse, I promise.</p>
+<h3 id="Step_1">Step 1</h3>
+<p>Find out what you’re missing. Run <code>$ android update sdk</code> to launch the Android SDK manager. You’ll notice that each Android version with an API entry of version 15 or greater has an <code>Intel x86 Atom System Image</code> option alongside the ARM system image. You need to install these Intel x86 Atom System Images for each API version you plan to target (you’ll also need each SDK platform if you haven’t installed them already).</p>
+<p>Now when you run <code>android list targets</code> you should see <code>Tag/ABIs : default/x86</code> at the bottom of each target entry (and <code>default/armeabi-v7a</code> if you have that installed too).</p>
+<h3 id="Step_2">Step 2</h3>
+<p>Download the <a href="https://software.intel.com/en-us/Android/articles/intel-hardware-accelerated-execution-manager" target="_blank" rel="external">Intel Hardware Accelerated Execution Manager</a> or HAX(M) for short. This is a hardware-assisted virtualisation engine (hypervisor) that speeds up Android app emulation on a host machine. In combination with Android x86 emulator images it allows for faster Android emulation on Intel VT enabled systems.</p>
+<h3 id="Step_3">Step 3</h3>
+<p>Create your new Android Virtual Devices (AVDs), (more info <a href="http://developer.Android.com/tools/devices/managing-avds-cmdline.html" target="_blank" rel="external">here</a>). The key is to specify which <code>ABI</code> to use, which is missed out from the documentation. e.g:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">$ android create avd -n &lt;NAME&gt;</span> -t &lt;id&gt; --abi default/x86</span></div></pre></td></tr></table></figure>
+
+<p>Sorry for all the coffee you’re going to miss out on.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-07-22T07:16:09.000Z" itemprop="datePublished">22nd Jul 2014</time>
       
       
@@ -692,64 +751,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-02-24T18:25:21.000Z" itemprop="datePublished">24th Feb 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/sat-nav-map-directions-for-phonegap/" itemprop="url">Sat Nav Map Directions for PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Maps_with_directions">Maps with directions</h2>
-<p>Today I wrote a <a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-directions" target="_blank" rel="external">Cordova “Directions” Plugin</a> to utilise native maps apps for “sat nav” style direction purposes (using latitude and longitude). You can view the source code <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">here</a>.</p>
-<h2 id="Install_the_plugin">Install the plugin</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/leecrossley/cordova-plugin-directions.git</div></pre></td></tr></table></figure>
-
-<p>That’s all the installation steps thanks to Cordova’s fantastic CLI and streamlined plugin architecture. You <strong>do not</strong> need to reference any JavaScript, the build command will add a directions object to your root automatically.</p>
-<h2 id="Get_directions">Get directions</h2>
-<p>After the deviceready event has been fired, pass latitude and longitude to the <code>navigateTo</code> function:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">directions.navigateTo(<span class="string">"51.50722"</span>, <span class="string">"-0.12750"</span>); <span class="comment">// latitude, longitude</span></div></pre></td></tr></table></figure>
-
-<p>That’s it! Really, it’s that simple. The Google maps app will open on Android and give directions from the device’s current location. Similarly, Bing maps will open on Windows Phone 8.</p>
-<h2 id="Platforms">Platforms</h2>
-<p>I only needed support for Android and Windows Phone 8, it would be easy to add support for iOS too if anyone needs it. As usual, issues and pull requests on <a href="https://github.com/leecrossley/cordova-plugin-directions" target="_blank" rel="external">GitHub</a>.</p>
-<p>Note: <em>I managed to write this entire post without making any one direction jokes.</em></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -803,6 +804,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Speed-up-the-Android-Simulator/">Speed up the Android Emulator</a>
+      </li>
+    
+      <li>
         <a href="/Target-Android-Phones-Not-Tablets/">Target Android Phones Not Tablets</a>
       </li>
     
@@ -838,10 +843,6 @@
         <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
       </li>
     
-      <li>
-        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -853,9 +854,9 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>10</small></li>
+    <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>14</small></li>
+    <li><a href="/tags/app/">app</a><small>15</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   

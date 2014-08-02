@@ -55,6 +55,86 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-07T11:45:23.000Z" itemprop="datePublished">7th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/pogoscript-plugin-for-grunt/" itemprop="url">PogoScript Plugin for Grunt</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="PogoScript">PogoScript</h2>
+<blockquote>
+<p><a href="https://github.com/featurist/pogoscript" target="_blank" rel="external">PogoScript</a> is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.</p>
+</blockquote>
+<p>It’s written and maintained by <a href="https://github.com/featurist" target="_blank" rel="external">featurist</a>, so report issues with the actual compilation directly <a href="https://github.com/featurist/pogoscript/issues" target="_blank" rel="external">here</a>.</p>
+<h2 id="A…_transpiler…_you?">A… transpiler… you?</h2>
+<p>Those who know me will know <strong>I’m not a massive fan of transpilers</strong> (<em>I recently turned down some work due to them forcing the use of a Java to JavaScript compiler</em>) but I’d rather use PogoScript over something like CoffeeScript, if there was no choice.</p>
+<h2 id="Automation">Automation</h2>
+<p>I use <a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a> for automating JavaScript tasks (if you don’t know what <a href="/let-grunt-handle-your-tasks/">Grunt</a> is, where have you been?). The Grunt ecosystem is huge and it’s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p>Although PogoScript already has a CLI <code>pogo -c file.pogo</code>, there wasn’t a Grunt plugin. Knowing how easy Grunt plugins are to write, I wrote one for <em>fun</em>.</p>
+<h2 id="Using_grunt-pogo">Using grunt-pogo</h2>
+<p>The <strong><a href="https://npmjs.org/package/grunt-pogo" target="_blank" rel="external">grunt-pogo</a></strong> plugin requires Grunt <code>~0.4.x</code></p>
+<h3 id="Install_as_a_dev_dependency">Install as a dev dependency</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install grunt-pogo --save-dev</div></pre></td></tr></table></figure>
+
+<h3 id="Load_“grunt-pogo”_in_your_Gruntfile-js">Load “grunt-pogo” in your Gruntfile.js</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-pogo"</span>);</div></pre></td></tr></table></figure>
+
+<h2 id="The_pogo_task">The pogo task</h2>
+<p>You can run the pogo task with the  <code>grunt pogo</code> command, or combine it with other tasks in the usual way. See <a href="http://gruntjs.com/configuring-tasks" target="_blank" rel="external">configuring tasks</a> for more info.</p>
+<h3 id="Example_configuration">Example configuration</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">pogo: {</div><div class="line">    compile: {</div><div class="line">        files: {</div><div class="line">            <span class="string">"file.js"</span>: [<span class="string">"file.pogo"</span>, <span class="string">"file2.pogo"</span>]</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>The input files are an array, so you can combine the output of the PogoScript compilation into a single output JavaScript file.</p>
+<h2 id="The_code">The code</h2>
+<h3 id="functional-js">functional.js</h3>
+<p>Oh yes, the plugin harnesses the power of currying and point free programming via the awesome <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> library. λ.each, λ.select, λ.map all with a lovely dollop of curry, spice and all things nice.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> processFiles = λ.each(<span class="function"><span class="keyword">function</span> <span class="params">(files)</span> </span>{</div><div class="line">    <span class="keyword">var</span> compiled = compile(exists(files.src)),</div><div class="line">        combined = compiled.join(grunt.util.normalizelf(grunt.util.linefeed));</div><div class="line">    grunt.file.write(files.dest, combined);</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> exists = λ.select(<span class="function"><span class="keyword">function</span> <span class="params">(file)</span> </span>{</div><div class="line">    <span class="keyword">return</span> grunt.file.exists(file);</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> compile = λ.map(<span class="function"><span class="keyword">function</span> <span class="params">(src)</span> </span>{</div><div class="line">    <span class="keyword">return</span> compilePogo(grunt.file.read(src));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h3 id="Testing">Testing</h3>
+<p>It’s tested and hooked into <a href="https://travis-ci.org/leecrossley/grunt-pogo" target="_blank" rel="external">Travis CI</a>.</p>
+<h3 id="Source_code">Source code</h3>
+<p>The full source code is available <a href="https://github.com/leecrossley/grunt-pogo" target="_blank" rel="external">on github</a>. You can log issues and pull request there too.</p>
+<h2 id="Future_enhancements">Future enhancements</h2>
+<p>I’d like to expose more options for compilation via the Gruntfile.js, however uglification etc could always be performed as a separate Grunt task. Let me know what you think.</p>
+<p><strong>Compilation automation for the nation</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-06T16:25:14.000Z" itemprop="datePublished">6th Nov 2013</time>
       
       
@@ -663,69 +743,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-02T16:32:24.000Z" itemprop="datePublished">2nd Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/hack-to-prevent-json-hijacking/" itemprop="url">Hack to Prevent JSON Hijacking</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="JSON_hijacking">JSON hijacking</h2>
-<p>I recently needed to ensure a JSON service response couldn’t be misused via external <a href="http://haacked.com/archive/2009/06/25/json-hijacking.aspx" target="_blank" rel="external">JSON hijacking</a>. This is a very common problem, especially in older browsers. Fortunately, there’s a nice little hack to prevent the hijack.</p>
-<p>Microsoft, Google, Facebook etc are all using variations of this to allow AJAX requests on their (same) domain to have full access, while preventing hijacking by others.</p>
-<h2 id="The_hack">The hack</h2>
-<p>Force requests not to use JSONP and allow the Same Origin Policy to do it’s job, by adding a simple (and evil) endless loop to the start of a JSON response:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(<span class="number">1</span>);</div></pre></td></tr></table></figure>
-
-<p>Because you aren’t using a JSONP request, you have the ability to modify the response, e.g.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.responseText.slice(<span class="string">"while(1);"</span>.length));</div></pre></td></tr></table></figure>
-
-<p>Whereas illegitimate users will find themselves sucked into a black hole.</p>
-<p>Facebook use a similar variation to achieve the same result:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(;;);</div></pre></td></tr></table></figure>
-
-<p>Personally, I’d like to lead the JSON response with the throwing of an error message :)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">throw</span> <span class="string">"JSON THIEF"</span>;</div></pre></td></tr></table></figure>
-
-<h2 id="Limitations">Limitations</h2>
-<p>Using this quick and easy hack means you don’t need to mess around storing and managing CSRF (cross-site request forgery) tokens. <strong>Winning</strong>. It’s not however a solution for cross-site request forgery itself. Maybe I’ll cover that on another, less sunny day.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -781,6 +798,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Speed-up-the-Android-Simulator/">Speed up the Android Emulator</a>
+      </li>
+    
+      <li>
         <a href="/Target-Android-Phones-Not-Tablets/">Target Android Phones Not Tablets</a>
       </li>
     
@@ -816,10 +837,6 @@
         <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
       </li>
     
-      <li>
-        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -831,9 +848,9 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>10</small></li>
+    <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>14</small></li>
+    <li><a href="/tags/app/">app</a><small>15</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   

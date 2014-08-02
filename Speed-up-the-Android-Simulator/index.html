@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Removing a Property in JavaScript | iLee</title>
+  <title>Speed up the Android Emulator | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="It&#39;s really easy to remove a property from a JavaScript object and it&#39;s frustrating how scarcely developers use it.">
+  <meta name="description" content="How to speedup the Android emulator">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="Removing a Property in JavaScript"/>
+  <meta property="og:title" content="Speed up the Android Emulator"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
+  <meta property="og:image" content="http://tekytech.com/wp-content/uploads/2014/05/speed-up-Android-phone-tekytech.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,35 +54,31 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-09-16T16:08:22.000Z" itemprop="datePublished">16th Sep 2013</time>
+        <time datetime="2014-08-02T16:35:40.000Z" itemprop="datePublished">2nd Aug 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">Removing a Property in JavaScript</h1>
+    <h1 class="title" itemprop="name headline">Speed up the Android Emulator</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="Remove_a_JavaScript_object_property_with_delete">Remove a JavaScript object property with delete</h2>
-<figure class="highlight javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> };</div><div class="line"><span class="keyword">delete</span> thing.prop1;</div><div class="line">expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });</div></pre></td></tr></table></figure>
+        <h2 id="The_Android_emulator">The Android emulator</h2>
+<p>I’ve always hated the Android emulator, it actually puts me off developing for versions of Android that I don’t have a real device for (fortunitely, I have <a href="/more-mobile-devices-than-socks/">a lot</a>). It’s always better to test on real devices anyway, especially since not all versions of Android are the same, despite the Android version number (“with Samsung Touchwiz” or “with HTC Sense” etc, that are neither wizzy or sensible).</p>
+<p>What’s the main reason why I hate it? Because I have time to make and drink a coffee before it loads. There is is only so much coffee one man can drink.</p>
+<h2 id="How_to_speed_it_up!">How to speed it up!</h2>
+<p>That’s right, it is possible to speed up the emulator (drastically) if you have an Intel VT enabled machine and you’re targeting Android 4.0.3 (API version 15) or greater. This solution doesn’t even touch eclipse, I promise.</p>
+<h3 id="Step_1">Step 1</h3>
+<p>Find out what you’re missing. Run <code>$ android update sdk</code> to launch the Android SDK manager. You’ll notice that each Android version with an API entry of version 15 or greater has an <code>Intel x86 Atom System Image</code> option alongside the ARM system image. You need to install these Intel x86 Atom System Images for each API version you plan to target (you’ll also need each SDK platform if you haven’t installed them already).</p>
+<p>Now when you run <code>android list targets</code> you should see <code>Tag/ABIs : default/x86</code> at the bottom of each target entry (and <code>default/armeabi-v7a</code> if you have that installed too).</p>
+<h3 id="Step_2">Step 2</h3>
+<p>Download the <a href="https://software.intel.com/en-us/Android/articles/intel-hardware-accelerated-execution-manager" target="_blank" rel="external">Intel Hardware Accelerated Execution Manager</a> or HAX(M) for short. This is a hardware-assisted virtualisation engine (hypervisor) that speeds up Android app emulation on a host machine. In combination with Android x86 emulator images it allows for faster Android emulation on Intel VT enabled systems.</p>
+<h3 id="Step_3">Step 3</h3>
+<p>Create your new Android Virtual Devices (AVDs), (more info <a href="http://developer.Android.com/tools/devices/managing-avds-cmdline.html" target="_blank" rel="external">here</a>). The key is to specify which <code>ABI</code> to use, which is missed out from the documentation. e.g:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">$ android create avd -n &lt;NAME&gt;</span> -t &lt;id&gt; --abi default/x86</span></div></pre></td></tr></table></figure>
 
-<p>Simple, done, use it. End of blog post :)</p>
-<p>If it’s not possible to use dot notation (which you always should where you can), you can delete your property like this:</p>
-<figure class="highlight javascript"><figcaption><span>delete </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> thing = { <span class="string">"prop1"</span>: <span class="number">1</span>, <span class="string">"prop2"</span>: <span class="number">2</span> }, i = <span class="number">1</span>;</div><div class="line"><span class="keyword">delete</span> thing[<span class="string">"prop"</span> + i];</div><div class="line">expect(thing).toEqual({ <span class="string">"prop2"</span>: <span class="number">2</span> });</div></pre></td></tr></table></figure>
-
-<h2 id="What_about_deleting_variables_and_functions?">What about deleting variables and functions?</h2>
-<p>This is JavaScript, it’s <strong>not</strong> possible to delete variables e.g.</p>
-<figure class="highlight javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> thing = <span class="string">"something"</span>;</div><div class="line"><span class="keyword">delete</span> thing; <span class="comment">// no no no</span></div></pre></td></tr></table></figure>
-
-<p>It’s <strong>not</strong> possible to delete functions declared in this way either.</p>
-<h2 id="The_DontDelete_attribute">The <em>DontDelete</em> attribute</h2>
-<p>There are also some attributes that can be set on properties to prevent their deletion misuse. <em>DontDelete</em> is an example of these, which is present in the length property:</p>
-<figure class="highlight javascript"><figcaption><span>no no no </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> thing = <span class="string">"something"</span>;</div><div class="line"><span class="keyword">delete</span> thing.length; <span class="comment">// no no no</span></div></pre></td></tr></table></figure>
-
-<h2 id="Strict_mode">Strict mode</h2>
-<p>Obviously since my post on <a href="/what-is-javascript-strict-mode/">JavaScript Strict Mode</a> you’re all using it. This has an impact on the delete command (for better), which would cause the above example attempting to delete the .length property to throw an error, as it should.</p>
-<p>Happy strict deleting.</p>
+<p>Sorry for all the coffee you’re going to miss out on.</p>
 
       
     </div>
@@ -102,7 +98,7 @@
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/android/" itemprop="keywords">android</a>, <a href="/tags/app/" itemprop="keywords">app</a>
   </div>
 
       

@@ -55,6 +55,86 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-08-18T08:47:54.000Z" itemprop="datePublished">18th Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/let-grunt-handle-your-tasks/" itemprop="url">Let Grunt Handle Your Tasks</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Grunt_-_the_task_runner_for_JavaScript">Grunt - the task runner for JavaScript</h2>
+<p>Let grunt handle all your JavaScript tasks. It doesn’t take sick days, pays attention and watches what you’re doing.</p>
+<p>As developers, the more we can automate repetitive tasks, the more time we have to do fun things. Grunt can watch, minify, compile, lint, clean, test, and perform countless other tasks - automatically. There are literally <strong>hundreds</strong> of grunt plugins. It’s easy to configure and once it’s up and running will save you time and effort, more efficiently than an actual grunt. <em>Note to self</em>, write a grunt plugin to make a cup of coffee.</p>
+<p>I’m just going to cover the basics here for now.</p>
+<h2 id="Getting_the_ball_rolling">Getting the ball rolling</h2>
+<p>Grunt is easy to set up. I’ve started to use it on all my JavaScript projects (<em>including apps</em>, but more on that another time).</p>
+<h3 id="The_Grunt_CLI">The Grunt CLI</h3>
+<p>Assuming you’re a serious developer, you’ll already have nodejs installed (and npm, which now comes with it by default). If not, Google it and get it installed. Once you’re ready, run:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-<span class="keyword">cli</span></div></pre></td></tr></table></figure>
+
+<p>You can now run “grunt” from anywhere. Happy times.</p>
+<h3 id="The_Gruntfile-js">The Gruntfile.js</h3>
+<p>Here’s the <a href="https://github.com/leecrossley/functional-js/blob/master/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a> for one of my recent projects, <a href="/functional-javascript-library/">functional.js</a>.</p>
+<p>It uses 4 plugins, which need to be referenced in the package.json (devDependencies) and your Gruntfile.js:</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-watch"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-jshint"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-jasmine"</span>);</div><div class="line">grunt.loadNpmTasks(<span class="string">"grunt-contrib-uglify"</span>);</div></pre></td></tr></table></figure>
+
+<p>You can then define some tasks in your Gruntfile.js, here’s my jasmine task from functional.js that uses grunt-contrib-jasmine.</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">jasmine: {</div><div class="line">    src: <span class="string">"functional.min.js"</span>,</div><div class="line">    options: {</div><div class="line">        specs: <span class="string">"spec.js"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>The configuration for a task is specified as a property on a configuration object, with the same name as the task. This example takes the functional.min.js source and runs the specs in <a href="https://github.com/leecrossley/functional-js/blob/master/spec.js" target="_blank" rel="external">spec.js</a>.</p>
+<p>You can run it by doing:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">grunt</span> jasmine</div></pre></td></tr></table></figure>
+
+<h3 id="Combining_tasks">Combining tasks</h3>
+<p>In the above example, it’s unlikely that you’ll just want to run one task at a time, such as jasmine. I regularly want to lint and minify before running tests. Fortunately with grunt, it’s easy to combine your tasks:</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">"test"</span>, [<span class="string">"jshint"</span>, <span class="string">"uglify"</span>, <span class="string">"jasmine"</span>]);</div></pre></td></tr></table></figure>
+
+<p>This will run the jshint task, the uglify task and then the jasmine task, in that order.</p>
+<h3 id="Watching_for_changes">Watching for changes</h3>
+<p><strong>I’m addicted to automation, give me more!</strong> You won’t want to keep typing “grunt test” and various other commands, even when you have combined tasks. This is where the Grunt watch plugin comes into play. You can configure watch so that it will trigger tasks as soon as files are modified:</p>
+<figure class="highlight javascript"><figcaption><span>Gruntfile.js snippet </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">watch: {</div><div class="line">    files: [</div><div class="line">        <span class="string">"*.js"</span>,</div><div class="line">        <span class="string">"!functional.min.js"</span></div><div class="line">    ],</div><div class="line">    tasks: [<span class="string">"test"</span>]</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>The above configuration will watch all my JavaScript files (but not functional.min.js) and run my combined test task as soon as there is a change. Now I can run:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">grunt</span> watch</div></pre></td></tr></table></figure>
+
+<p>and code in my happy place until I hear an unexpected beep that something is wrong. Ahh, automation.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-08-17T12:12:13.000Z" itemprop="datePublished">17th Aug 2013</time>
       
       
@@ -627,72 +707,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-07T11:54:10.000Z" itemprop="datePublished">7th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/do-we-need-designers-for-the-web/" itemprop="url">Do We Need Designers for the Web?</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="The_world_is_turning_flat">The world is turning flat</h2>
-<p>Print designers that design for the web are stepping close to the edge.</p>
-<p><img src="/img/flat-world.png" alt="The world is flat"></p>
-<h2 id="This_blog">This blog</h2>
-<p>I’m not a designer (this is where anyone that has worked with me recently will try to wind me up). <strong>I’m not a designer</strong>, but this blog looks OK, right? It’s simple, no shadows, no gradients and no interface images (at all, the icons are a font). 99% of the time, that’s what users want, something that’s easy to use and understand. It loads quickly too, but that’s a discussion for another day.</p>
-<h2 id="The_“Flat_UI”_/_“Metro”_era">The “Flat UI” / “Metro” era</h2>
-<p>Companies and organisations have started to publish their own design guidelines and principles, with a very common theme. Less is more. Here are a few:</p>
-<ul>
-<li><p><a href="https://www.gov.uk/designprinciples" target="_blank" rel="external">GOV UK design principles</a> makes it clear that they are be building simple and informative digital services, not websites.</p>
-</li>
-<li><p><a href="http://developer.windowsphone.com/en-us/design/principles" target="_blank" rel="external">Windows Phone design principles</a> outlines their philosophy as clean, uncluttered screens that operate quickly.</p>
-</li>
-<li><p><a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/TransitionGuide/index.html" target="_blank" rel="external">iOS 7 UI Transition Guide</a> (Apple login required) emphasises that the UI should helps users understand and interact with the content and never compete with it.</p>
-</li>
-</ul>
-<p>By now you’ve probably realised I’m not just talking about the web, I’m talking about mobile apps too.</p>
-<h2 id="But_what_about_colours?">But what about colours?</h2>
-<p><strong>Science my friend</strong>. There are tons of colour scheme generators <a href="http://colorschemedesigner.com/" target="_blank" rel="external">here</a> and <a href="https://kuler.adobe.com/create/color-wheel/" target="_blank" rel="external">here</a>, if you’re too lazy to <a href="http://lmgtfy.com/?q=colour+scheme+generators" target="_blank" rel="external">Google it</a>. Or you can use the colour scheme from <a href="http://flatuicolors.com/" target="_blank" rel="external">Flat UI</a>, which this blog uses. You don’t need to worry about gradient colours or shadow colours and depth (sorry if that’s the wrong terminology, <strong>I’m not a designer</strong> remember).</p>
-<h2 id="Good_developers">Good developers</h2>
-<p>A good developer that’s worth their salt should be able to source any required digital assets, generate a colour scheme and produce a series of quick prototypes. The prototype layouts should be iterated based on real user feedback, not from endless design meetings about what people might want something to look like, which produces pointless psds or pdfs.</p>
-<h2 id="Where_does_this_leave_print_designers?">Where does this leave print designers?</h2>
-<p>People still print brochures and leaflets (for some reason). Icon fonts and vector based images are even more important than ever and this is something that print designers should be comfortable in producing.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -748,6 +762,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Speed-up-the-Android-Simulator/">Speed up the Android Emulator</a>
+      </li>
+    
+      <li>
         <a href="/Target-Android-Phones-Not-Tablets/">Target Android Phones Not Tablets</a>
       </li>
     
@@ -783,10 +801,6 @@
         <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
       </li>
     
-      <li>
-        <a href="/sat-nav-map-directions-for-phonegap/">Sat Nav Map Directions for PhoneGap</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -798,9 +812,9 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/android/">android</a><small>10</small></li>
+    <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>14</small></li>
+    <li><a href="/tags/app/">app</a><small>15</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
