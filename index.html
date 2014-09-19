@@ -55,6 +55,77 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-09-19T08:24:52.000Z" itemprop="datePublished">19th Sep 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/iOS-Jailbreak-Detection-with-Cordova/" itemprop="url">iOS Jailbreak Detection with Cordova</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="iOS_jailbreaking">iOS jailbreaking</h2>
+<p>Jailbreaking is a form of <a href="http://en.wikipedia.org/wiki/Privilege_escalation" target="_blank" rel="external">privilege escalation</a> to grant root access to the iOS file system, allowing addition and modification of apps.</p>
+<p>This week saw the release of iOS 8, anyone updating to the latest release will see their devices “un-jailbroken” (locked up, I guess). Although the <a href="https://twitter.com/PanguTeam" target="_blank" rel="external">PanguTeam</a> have released a statement announcing that they are working on an iOS 8 jailbreak.</p>
+<p>Unfortunately, there are still 10s of millions of jailbroken iOS devices, so preventing your app from running on a jailbroken device could lead to a limited userbase and/or bad App Store reviews.</p>
+<h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
+<p>There are many reasons why you might not want certain features of your app to run on jailbroken devices, so I have written a handy little plugin to add an extra layer of security, to detect if the device running the app is jailbroken - right from your JavaScript.</p>
+<p><strong>I recommend you use this plugin to block certain features in your app rather than prevent it from running entirely.</strong></p>
+<ul>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a></li>
+<li><a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a></li>
+<li><a href="http://plugins.cordova.io/#/package/uk.co.ilee.jailbreakdetection" target="_blank" rel="external">Cordova plugins registry</a></li>
+<li><a href="https://build.phonegap.com/plugins/1019" target="_blank" rel="external">PhoneGap build</a> (pending review)</li>
+</ul>
+<h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-jailbreak-detection.git</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>jailbreakdetection</code> object to your root automatically.</p>
+<h2 id="Usage">Usage</h2>
+<h3 id="isJailbroken">isJailbroken</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jailbreakdetection.isJailbroken(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<ul>
+<li><code>successCallback</code> is called with true if the device is Jailbroken, otherwise false</li>
+<li><code>failureCallback</code> is called if there was an error determining if the device is Jailbroken</li>
+</ul>
+<h2 id="Further_development">Further development</h2>
+<p>Issues and pull requests welcome on the <a href="https://github.com/leecrossley/cordova-plugin-jailbreak-detection" target="_blank" rel="external">git repo</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-08-02T16:35:40.000Z" itemprop="datePublished">2nd Aug 2014</time>
       
       
@@ -678,80 +749,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-03-06T17:42:00.000Z" itemprop="datePublished">6th Mar 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/json5-is-pointless-and-unimaginative/" itemprop="url">JSON5 Is Pointless and Unimaginative</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="JSON5">JSON5</h2>
-<p>I get excited by new tech, especially when it’s JavaScript related. It usually makes me do a little dance.</p>
-<p>The proposed extension to JSON, “<strong>JSON5</strong>“ unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
-<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank" rel="external">official site</a> but I’m going to have a whinge about why it’s <strong>completely pointless and unimaginative poppycock</strong>.</p>
-<h2 id="The_reason_behind_JSON5">The reason behind JSON5</h2>
-<p>To quote the proposal:</p>
-<blockquote>
-
-<p>“JSON isn’t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can’t have trailing commas; comments aren’t supported.”</p>
-<footer><strong>- aseemk</strong></footer></blockquote>
-
-
-<p>From that you can deduce the following main proposed features:</p>
-<ul>
-<li>Inline comments</li>
-<li>Trailing commas in arrays</li>
-<li>Trailing commas for object properties</li>
-</ul>
-<h2 id="The_benefits">The benefits</h2>
-<p><strong>There isn’t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    why: [</div><div class="line">        <span class="string">"is"</span>,</div><div class="line">        <span class="string">"this"</span>,</div><div class="line">        <span class="string">"better"</span>,</div><div class="line">    ],</div><div class="line">    <span class="comment">// (it isn't)</span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h3 id="Inline_comments">Inline comments</h3>
-<p>Property names should be descriptive enough to be obvious without comments, otherwise what you’re doing is probably wrong.</p>
-<p>Don’t say “we need to comment our config files”. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
-<h3 id="Commas">Commas</h3>
-<p>This isn’t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
-<h2 id="Conclusion">Conclusion</h2>
-<p>If it isn’t broken, don’t try to fix it. The approach of the proposal appears to be “what <em>could</em> we add” and seems mainly be suited to less technical people who modify config files.</p>
-<p>Of course, I’d love for you to challenge my views…</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -805,6 +802,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Speed-up-the-Android-Simulator/">Speed up the Android Emulator</a>
       </li>
     
@@ -840,10 +841,6 @@
         <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
       </li>
     
-      <li>
-        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -857,7 +854,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>15</small></li>
+    <li><a href="/tags/app/">app</a><small>16</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -867,11 +864,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>21</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>21</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

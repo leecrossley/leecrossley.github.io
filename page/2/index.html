@@ -55,6 +55,80 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-03-06T17:42:00.000Z" itemprop="datePublished">6th Mar 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/json5-is-pointless-and-unimaginative/" itemprop="url">JSON5 Is Pointless and Unimaginative</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="JSON5">JSON5</h2>
+<p>I get excited by new tech, especially when it’s JavaScript related. It usually makes me do a little dance.</p>
+<p>The proposed extension to JSON, “<strong>JSON5</strong>“ unfortunately makes me die a little inside. My blog posts rarely adopt this tone, but I feel very strongly about this.</p>
+<p>You can read more about JSON5 on the <a href="http://json5.org/" target="_blank" rel="external">official site</a> but I’m going to have a whinge about why it’s <strong>completely pointless and unimaginative poppycock</strong>.</p>
+<h2 id="The_reason_behind_JSON5">The reason behind JSON5</h2>
+<p>To quote the proposal:</p>
+<blockquote>
+
+<p>“JSON isn’t the friendliest to write and maintain by hand. Keys need to be quoted; objects and arrays can’t have trailing commas; comments aren’t supported.”</p>
+<footer><strong>- aseemk</strong></footer></blockquote>
+
+
+<p>From that you can deduce the following main proposed features:</p>
+<ul>
+<li>Inline comments</li>
+<li>Trailing commas in arrays</li>
+<li>Trailing commas for object properties</li>
+</ul>
+<h2 id="The_benefits">The benefits</h2>
+<p><strong>There isn’t one. Not one.</strong> If anything, this is teaching bad programming techniques:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    why: [</div><div class="line">        <span class="string">"is"</span>,</div><div class="line">        <span class="string">"this"</span>,</div><div class="line">        <span class="string">"better"</span>,</div><div class="line">    ],</div><div class="line">    <span class="comment">// (it isn't)</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h3 id="Inline_comments">Inline comments</h3>
+<p>Property names should be descriptive enough to be obvious without comments, otherwise what you’re doing is probably wrong.</p>
+<p>Don’t say “we need to comment our config files”. If your config file requires explanation, do it in the documentation with examples, not inline in your JSON!</p>
+<h3 id="Commas">Commas</h3>
+<p>This isn’t me getting hung up on old Internet Explorer 6 and 7 parsing, there is simply no need for trailing commas on objects or arrays. Is it worthy of a new spec to add this as a <em>feature</em>?</p>
+<h2 id="Conclusion">Conclusion</h2>
+<p>If it isn’t broken, don’t try to fix it. The approach of the proposal appears to be “what <em>could</em> we add” and seems mainly be suited to less technical people who modify config files.</p>
+<p>Of course, I’d love for you to challenge my views…</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-02-24T18:25:21.000Z" itemprop="datePublished">24th Feb 2014</time>
       
       
@@ -629,86 +703,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-16T07:11:57.000Z" itemprop="datePublished">16th Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/native-page-transitions-with-phonegap/" itemprop="url">Native Page Transitions with PhoneGap</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
-<h2 id="Stop_the_press!">Stop the press!</h2>
-<p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
-<p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
-<p><strong>I’ve turned page transitions around</strong> (poor pun, I know).</p>
-<p><img src="/img/transition.png" alt="Page transition"></p>
-<h2 id="Video_demo">Video demo</h2>
-<p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank" rel="external">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
-<h2 id="Down_to_business">Down to business</h2>
-<p>If you’re a Cordova / PhoneGap developer, I’m sure you’re already desperate to get started, so I’ll cut to the chase.</p>
-<h3 id="Install">Install</h3>
-<p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">Github</a>.</p>
-<p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git</div></pre></td></tr></table></figure>
-
-<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
-<h2 id="Transitions">Transitions</h2>
-<h3 id="Flip">Flip</h3>
-<p>Flip page transition, with support for flipping left or right:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span></div><div class="line">nativetransitions.flip(duration, direction, onComplete);</div></pre></td></tr></table></figure>
-
-<h3 id="Curl">Curl</h3>
-<p>Curl page transition, with support for flipping curling up or down:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span></div><div class="line">nativetransitions.curl(duration, direction, onComplete);</div></pre></td></tr></table></figure>
-
-<h3 id="Fade">Fade</h3>
-<p>A simple fade page transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span></div><div class="line">nativetransitions.fade(duration, onComplete);</div></pre></td></tr></table></figure>
-
-<h2 id="Example">Example</h2>
-<p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// Change your html here</span></div><div class="line">}, <span class="number">50</span>);</div><div class="line">nativetransitions.flip(duration, direction);</div></pre></td></tr></table></figure>
-
-<h2 id="More_transitions?">More transitions?</h2>
-<p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
-<p><strong>This is pretty flippin’ amazing stuff</strong> (OK, I’ll stop now).</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -764,6 +758,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Speed-up-the-Android-Simulator/">Speed up the Android Emulator</a>
       </li>
     
@@ -799,10 +797,6 @@
         <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
       </li>
     
-      <li>
-        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -816,7 +810,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>15</small></li>
+    <li><a href="/tags/app/">app</a><small>16</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -826,11 +820,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>21</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>21</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

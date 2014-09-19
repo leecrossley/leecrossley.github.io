@@ -4,12 +4,51 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-08-02T17:07:31.942Z</updated>
+  <updated>2014-09-19T08:45:31.801Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[iOS Jailbreak Detection with Cordova]]></title>
+    <link href="http://ilee.co.uk/iOS-Jailbreak-Detection-with-Cordova/"/>
+    <id>http://ilee.co.uk/iOS-Jailbreak-Detection-with-Cordova/</id>
+    <published>2014-09-19T08:24:52.000Z</published>
+    <updated>2014-09-19T08:44:25.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="iOS_jailbreaking">iOS jailbreaking</h2>
+<p>Jailbreaking is a form of <a href="http://en.wikipedia.org/wiki/Privilege_escalation" target="_blank" rel="external">privilege escalation</a> to grant root access to the iOS file system, allowing addition and modification of apps.</p>
+<p>This week saw the release of iOS 8, anyone updating to the latest release will see their devices “un-jailbroken” (locked up, I guess). Although the <a href="https://twitter.com/PanguTeam" target="_blank" rel="external">PanguTeam</a> have released a statement announcing that they are working on an iOS 8 jailbreak.</p>
+<p>Unfortunately, there are still 10s of millions of jailbroken iOS devices, so preventing your app from running on a jailbroken device could lead to a limited userbase and/or bad App Store reviews.</p>
+<h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
+<p>There are many reasons why you might not want certain features of your app to run on jailbroken devices, so I have written a handy little plugin to add an extra layer of security, to detect if the device running the app is jailbroken - right from your JavaScript.</p>
+<p><strong>I recommend you use this plugin to block certain features in your app rather than prevent it from running entirely.</strong></p>
+<ul>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a></li>
+<li><a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a></li>
+<li><a href="http://plugins.cordova.io/#/package/uk.co.ilee.jailbreakdetection" target="_blank" rel="external">Cordova plugins registry</a></li>
+<li><a href="https://build.phonegap.com/plugins/1019" target="_blank" rel="external">PhoneGap build</a> (pending review)</li>
+</ul>
+<h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-jailbreak-detection.git</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>jailbreakdetection</code> object to your root automatically.</p>
+<h2 id="Usage">Usage</h2>
+<h3 id="isJailbroken">isJailbroken</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jailbreakdetection.isJailbroken(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<ul>
+<li><code>successCallback</code> is called with true if the device is Jailbroken, otherwise false</li>
+<li><code>failureCallback</code> is called if there was an error determining if the device is Jailbroken</li>
+</ul>
+<h2 id="Further_development">Further development</h2>
+<p>Issues and pull requests welcome on the <a href="https://github.com/leecrossley/cordova-plugin-jailbreak-detection" target="_blank" rel="external">git repo</a>.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Speed up the Android Emulator]]></title>
     <link href="http://ilee.co.uk/Speed-up-the-Android-Simulator/"/>
@@ -682,53 +721,5 @@
 
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Native Page Transitions with PhoneGap]]></title>
-    <link href="http://ilee.co.uk/native-page-transitions-with-phonegap/"/>
-    <id>http://ilee.co.uk/native-page-transitions-with-phonegap/</id>
-    <published>2013-12-16T07:11:57.000Z</published>
-    <updated>2013-12-19T09:37:47.000Z</updated>
-    <content type="html"><![CDATA[<p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
-<h2 id="Stop_the_press!">Stop the press!</h2>
-<p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
-<p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
-<p><strong>I’ve turned page transitions around</strong> (poor pun, I know).</p>
-<p><img src="/img/transition.png" alt="Page transition"></p>
-<h2 id="Video_demo">Video demo</h2>
-<p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank" rel="external">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
-<h2 id="Down_to_business">Down to business</h2>
-<p>If you’re a Cordova / PhoneGap developer, I’m sure you’re already desperate to get started, so I’ll cut to the chase.</p>
-<h3 id="Install">Install</h3>
-<p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">Github</a>.</p>
-<p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git</div></pre></td></tr></table></figure>
-
-<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
-<h2 id="Transitions">Transitions</h2>
-<h3 id="Flip">Flip</h3>
-<p>Flip page transition, with support for flipping left or right:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span></div><div class="line">nativetransitions.flip(duration, direction, onComplete);</div></pre></td></tr></table></figure>
-
-<h3 id="Curl">Curl</h3>
-<p>Curl page transition, with support for flipping curling up or down:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span></div><div class="line">nativetransitions.curl(duration, direction, onComplete);</div></pre></td></tr></table></figure>
-
-<h3 id="Fade">Fade</h3>
-<p>A simple fade page transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span></div><div class="line">nativetransitions.fade(duration, onComplete);</div></pre></td></tr></table></figure>
-
-<h2 id="Example">Example</h2>
-<p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// Change your html here</span></div><div class="line">}, <span class="number">50</span>);</div><div class="line">nativetransitions.flip(duration, direction);</div></pre></td></tr></table></figure>
-
-<h2 id="More_transitions?">More transitions?</h2>
-<p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
-<p><strong>This is pretty flippin’ amazing stuff</strong> (OK, I’ll stop now).</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
-    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-    <category scheme="http://ilee.co.uk/tags/html/" term="html"/>
   </entry>
 </feed>

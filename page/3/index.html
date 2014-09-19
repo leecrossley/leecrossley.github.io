@@ -55,6 +55,86 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-12-16T07:11:57.000Z" itemprop="datePublished">16th Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/native-page-transitions-with-phonegap/" itemprop="url">Native Page Transitions with PhoneGap</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <p>I was too busy to write any blog posts last week, but this more than makes up for it…</p>
+<h2 id="Stop_the_press!">Stop the press!</h2>
+<p>Having spent copious amounts of time emulating native iOS page transitions with JavaScript, HTML5 and CSS3 in the past, everything is about to change.</p>
+<p>My new Cordova / PhoneGap plugin allows you to use the real native iOS transitions without ever leaving your web view!</p>
+<p><strong>I’ve turned page transitions around</strong> (poor pun, I know).</p>
+<p><img src="/img/transition.png" alt="Page transition"></p>
+<h2 id="Video_demo">Video demo</h2>
+<p>This is so good, for the first time on my blog, it demands a <a href="https://vimeo.com/81980283" target="_blank" rel="external">video demo</a>. Yes, that really is a Cordova web view with a single HTML page.</p>
+<h2 id="Down_to_business">Down to business</h2>
+<p>If you’re a Cordova / PhoneGap developer, I’m sure you’re already desperate to get started, so I’ll cut to the chase.</p>
+<h3 id="Install">Install</h3>
+<p>The source code is available on <a href="https://github.com/leecrossley/cordova-plugin-native-transitions" target="_blank" rel="external">Github</a>.</p>
+<p>Assuming you’re using Cordova 3.x and the CLI, installation is as simple as using the <code>cordova plugin add</code> command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin add https://github.com/leecrossley/cordova-plugin-native-transitions.git</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>nativetransitions</code> object to your root automatically when you build.</p>
+<h2 id="Transitions">Transitions</h2>
+<h3 id="Flip">Flip</h3>
+<p>Flip page transition, with support for flipping left or right:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"right"</span>; <span class="comment">// animation direction - left || right</span></div><div class="line">nativetransitions.flip(duration, direction, onComplete);</div></pre></td></tr></table></figure>
+
+<h3 id="Curl">Curl</h3>
+<p>Curl page transition, with support for flipping curling up or down:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>, <span class="comment">// animation time in seconds</span></div><div class="line">    direction = <span class="string">"down"</span>; <span class="comment">// animation direction - up || down</span></div><div class="line">nativetransitions.curl(duration, direction, onComplete);</div></pre></td></tr></table></figure>
+
+<h3 id="Fade">Fade</h3>
+<p>A simple fade page transition:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duration = <span class="number">0.5</span>; <span class="comment">// animation time in seconds</span></div><div class="line">nativetransitions.fade(duration, onComplete);</div></pre></td></tr></table></figure>
+
+<h2 id="Example">Example</h2>
+<p>Here’s an example of how I suggest you use the plugin in your code, so that you get a realistic transition:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// Change your html here</span></div><div class="line">}, <span class="number">50</span>);</div><div class="line">nativetransitions.flip(duration, direction);</div></pre></td></tr></table></figure>
+
+<h2 id="More_transitions?">More transitions?</h2>
+<p>If you’d like to add more transitions (possibly custom transitions of your own) please pull request. If you’d like something in particular, let me know and I’ll see if I can implement it for you.</p>
+<p><strong>This is pretty flippin’ amazing stuff</strong> (OK, I’ll stop now).</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-12-06T10:05:49.000Z" itemprop="datePublished">6th Dec 2013</time>
       
       
@@ -624,84 +704,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-12T09:25:32.000Z" itemprop="datePublished">12th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/get-adjacent-squares-on-a-grid/" itemprop="url">Get Adjacent Squares on a Grid</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="I’m_writing_a_game!">I’m writing a game!</h2>
-<p>That’s right, I’m writing a (<em>puzzle?</em>) game in JavaScript at the moment. I’ve come across a few features that seem difficult to implement but actually have very simple solutions, so I thought I’d share the first one.</p>
-<h2 id="A_list_of_adjacent_squares">A list of adjacent squares</h2>
-<h3 id="The_grid">The grid</h3>
-<p>Let’s say we have a grid of size x by y, the best way to represent this grid is as an array of x and y co-ordinates (starting from the top left first, as that’s how my brain works these days - thank HTML).</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr_selector">[1,1]</span> <span class="attr_selector">[2,1]</span> <span class="attr_selector">[3,1]</span> <span class="attr_selector">[4,1]</span> <span class="attr_selector">[5,1]</span> ..</div><div class="line"><span class="attr_selector">[1,2]</span> <span class="attr_selector">[2,2]</span> <span class="attr_selector">[3,2]</span> <span class="attr_selector">[4,2]</span> <span class="attr_selector">[5,2]</span> ..</div><div class="line"><span class="attr_selector">[1,3]</span> <span class="attr_selector">[2,3]</span> <span class="attr_selector">[3,3]</span> <span class="attr_selector">[4,3]</span> <span class="attr_selector">[5,3]</span> ..</div><div class="line"><span class="attr_selector">[1,4]</span> <span class="attr_selector">[2,4]</span> <span class="attr_selector">[3,4]</span> <span class="attr_selector">[4,4]</span> <span class="attr_selector">[5,4]</span> ..</div><div class="line"><span class="attr_selector">[1,5]</span> <span class="attr_selector">[2,5]</span> <span class="attr_selector">[3,5]</span> <span class="attr_selector">[4,5]</span> <span class="attr_selector">[5,5]</span> ..</div><div class="line">..    ..    ..    ..    ..    ..</div></pre></td></tr></table></figure>
-
-<p>This is actually a two dimensional array, which in reality is just an array of arrays. It’s crucial to represent the grid like this, it allows for simpler calculations. Don’t attempt to use a one dimensional array of size x * y, as it’ll just overcomplicate things.</p>
-<h3 id="Get_adjacent_squares">Get adjacent squares</h3>
-<p>Using the above logic, we represent a square as an array containing one x and one y co-ordinate (for example [2,2]). To get a square adjacent to another, it’s pretty simple with this system:</p>
-<ul>
-<li>Take one from the x co-ordinate [x-1,y]</li>
-<li>Add one to the x co-ordinate [x+1,y]</li>
-<li>Add one to the y co-ordinate [x,y+1]</li>
-<li>Take one from the y co-ordinate [x,y-1]</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];</div></pre></td></tr></table></figure>
-
-<p>There is a maximum possibility of 4 adjacent squares to any other square.</p>
-<h3 id="Off_the_grid!">Off the grid!</h3>
-<p>Squares that are on the edge of the grid might only have 2 or 3 adjacent squares, so we need to check that a possible adjacent is valid:</p>
-<ul>
-<li>Check the x co-ordinate is greater than or equal to 1, but is also less than or equal to the width of the grid</li>
-<li>Check the y co-ordinate is greater than or equal to 1, but is also less than or equal to the height of the grid</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height</div></pre></td></tr></table></figure>
-
-<h2 id="The_solution">The solution</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> width = <span class="number">5</span>,</div><div class="line">    height = <span class="number">5</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSquareOnGrid</span><span class="params">(square)</span> </span>{</div><div class="line">    <span class="keyword">var</span> x = square[<span class="number">0</span>], </div><div class="line">        y = square[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> x &gt;= <span class="number">1</span> && x &lt;= width && y &gt;= <span class="number">1</span> && y &lt;= height;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAdjacents</span><span class="params">(square)</span> </span>{</div><div class="line">    <span class="keyword">var</span> x = square[<span class="number">0</span>], </div><div class="line">        y = square[<span class="number">1</span>],</div><div class="line">        adjacents = [[x-<span class="number">1</span>,y],[x+<span class="number">1</span>,y],[x,y+<span class="number">1</span>],[x,y-<span class="number">1</span>]];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> adjacents.filter(isSquareOnGrid);</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>I’ve set the height and width of the grid to 5, but they can be anything. To get an array of adjacent squares, you pass the <code>getAdjacents()</code> function a square:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getAdjacents([<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// [1,2],[3,2],[2,3],[2,1]</span></div><div class="line">getAdjacents([<span class="number">5</span>,<span class="number">3</span>]); <span class="comment">// [4,3],[5,4],[5,2]</span></div></pre></td></tr></table></figure>
-
-<p>Hopefully you’re also now interested in what on earth I’m writing :)</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -757,6 +759,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Speed-up-the-Android-Simulator/">Speed up the Android Emulator</a>
       </li>
     
@@ -792,10 +798,6 @@
         <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
       </li>
     
-      <li>
-        <a href="/json5-is-pointless-and-unimaginative/">JSON5 Is Pointless and Unimaginative</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -809,7 +811,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>15</small></li>
+    <li><a href="/tags/app/">app</a><small>16</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -819,11 +821,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>21</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>47</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>21</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

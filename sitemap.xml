@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/iOS-Jailbreak-Detection-with-Cordova/</loc>
+    <lastmod>2014-09-19T08:44:25.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/Speed-up-the-Android-Simulator/</loc>
     <lastmod>2014-08-02T17:07:14.000Z</lastmod>
   </url>
@@ -302,6 +306,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2014-08-02T17:07:32.004Z</lastmod>
+    <lastmod>2014-09-19T08:45:31.864Z</lastmod>
   </url>
 </urlset>
