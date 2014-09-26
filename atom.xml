@@ -4,7 +4,7 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2014-09-19T08:45:31.801Z</updated>
+  <updated>2014-09-26T09:02:00.636Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
@@ -15,7 +15,7 @@
     <link href="http://ilee.co.uk/iOS-Jailbreak-Detection-with-Cordova/"/>
     <id>http://ilee.co.uk/iOS-Jailbreak-Detection-with-Cordova/</id>
     <published>2014-09-19T08:24:52.000Z</published>
-    <updated>2014-09-19T08:44:25.000Z</updated>
+    <updated>2014-09-26T09:01:50.000Z</updated>
     <content type="html"><![CDATA[<h2 id="iOS_jailbreaking">iOS jailbreaking</h2>
 <p>Jailbreaking is a form of <a href="http://en.wikipedia.org/wiki/Privilege_escalation" target="_blank" rel="external">privilege escalation</a> to grant root access to the iOS file system, allowing addition and modification of apps.</p>
 <p>This week saw the release of iOS 8, anyone updating to the latest release will see their devices “un-jailbroken” (locked up, I guess). Although the <a href="https://twitter.com/PanguTeam" target="_blank" rel="external">PanguTeam</a> have released a statement announcing that they are working on an iOS 8 jailbreak.</p>
@@ -27,7 +27,7 @@
 <li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a></li>
 <li><a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a></li>
 <li><a href="http://plugins.cordova.io/#/package/uk.co.ilee.jailbreakdetection" target="_blank" rel="external">Cordova plugins registry</a></li>
-<li><a href="https://build.phonegap.com/plugins/1019" target="_blank" rel="external">PhoneGap build</a> (pending review)</li>
+<li><a href="https://build.phonegap.com/plugins/1019" target="_blank" rel="external">PhoneGap build</a></li>
 </ul>
 <h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-jailbreak-detection.git</div></pre></td></tr></table></figure>
