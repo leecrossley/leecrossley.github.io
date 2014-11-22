@@ -55,6 +55,70 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-11-14T07:56:56.000Z" itemprop="datePublished">14th Nov 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/phonegap-plays-sound-on-mute/" itemprop="url">PhoneGap Plays Sounds on Mute</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="The_Cordova_/_PhoneGap_media_plugin">The Cordova / PhoneGap media plugin</h2>
+<p>As part of my recent game development, there’s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank" rel="external">Media Plugin</a>.</p>
+<h2 id="Working_in_60_seconds,_but…">Working in 60 seconds, but…</h2>
+<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
+<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
+<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
+<h2 id="Why_Why_Why"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank" rel="external">Why Why Why</a></h2>
+<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn’t open (screen is locked).</p>
+<h2 id="The_solution">The solution</h2>
+<p>My initial instinct was to query the state of the mute switch, but I really didn’t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
+<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that’s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
+<h2 id="Full_example">Full example</h2>
+<p>Here’s the code you need to play audio that obeys the mute switch:</p>
+<h3 id="Install_the_media_plugin">Install the media plugin</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/apache/cordova-plugin-media.git</div></pre></td></tr></table></figure>
+
+<h3 id="In_your_JavaScript">In your JavaScript</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> </span>{</div><div class="line">    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);</div><div class="line">    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<p>An incontinent mute, goes without saying.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-11-12T09:25:32.000Z" itemprop="datePublished">12th Nov 2013</time>
       
       
@@ -687,72 +751,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-10-10T08:51:33.000Z" itemprop="datePublished">10th Oct 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/git-commit-message-format/" itemprop="url">Git Commit Message Format</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Format_frustration">Format frustration</h2>
-<p>I recently read a short <em>pro tip</em> by <a href="https://twitter.com/simonowendesign" target="_blank" rel="external">Simon Owen</a> on coderwall about commit messages (<a href="https://coderwall.com/p/pnk0ra" target="_blank" rel="external">see here</a>). It turns out it’s not just me that gets frustrated with incorrectly formatted git commit messages, especially if you pull request or are working on one of my repositories.</p>
-<p>Please read this before you do another git commit. There is a right way and a wrong way to write your git commit messages.</p>
-<h2 id="The_right_way">The right way</h2>
-<p>Follow these simple guideline(s):</p>
-<ul>
-<li>Stick to a maximum of 50 characters for the summary to briefly describe the commit</li>
-<li>Capitalise the first letter</li>
-<li>Write in the imperative (e.g. “Fix bug” or “Add file” not “Fixed bug” or “Added file”)</li>
-<li>Don’t end with a full stop</li>
-<li>Reference issue numbers with a #</li>
-</ul>
-<p>Optional:</p>
-<ul>
-<li>If used, wrap the descriptive body to 72 chars with a blank line above it (I rarely go beyond a summary in practice)</li>
-<li>Prefix with “area: “ where the area is an identifier for the area of the code the commit relates to (personally I don’t do this but it can be useful in some circumstances)</li>
-</ul>
-<h2 id="Why?">Why?</h2>
-<p>Following the guidelines will make it easier for you to review and identify commits (especially with git log, which has no raw wrapping) and it also makes it easier for your fellow developers to work with you.</p>
-<p>If you take a look at auto generated git messages, you’ll see they conform to the above guidelines (e.g. git merge or git revert).</p>
-<h2 id="Automated_user_git_messages">Automated user git messages</h2>
-<p>Bad bad bad. You’re not adding any value by doing this. You can always alias if you don’t want to type git commit -m.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -808,6 +806,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
       </li>
     
@@ -843,10 +845,6 @@
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
-      <li>
-        <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -860,7 +858,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>16</small></li>
+    <li><a href="/tags/app/">app</a><small>17</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -870,11 +868,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

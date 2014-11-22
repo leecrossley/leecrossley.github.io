@@ -55,6 +55,71 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-12-18T13:18:02.000Z" itemprop="datePublished">18th Dec 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/list-node-packages-wo-dependencies/" itemprop="url">List Node Packages w/o Dependencies</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="npm_list">npm list</h2>
+<p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies…). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
+<h3 id="Added_depth">Added depth</h3>
+<p>Turns out there’s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank" rel="external">documentation for npm ls</a>.</p>
+<p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span></div></pre></td></tr></table></figure>
+
+<h3 id="Go_global">Go global</h3>
+<p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
+<h2 id="I’m_getting_errors!">I’m getting errors!</h2>
+<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. “npm ERR! max depth reached” among others), although there was nothing really wrong.</p>
+<p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
+<h2 id="The_complete_command">The complete command</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null</div></pre></td></tr></table></figure>
+
+<p>If you don’t want to type this out all the time (I certainly don’t), you can alias it up:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span></div></pre></td></tr></table></figure>
+
+<p>Then usage is as simple as:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npmls</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-12-16T07:11:57.000Z" itemprop="datePublished">16th Dec 2013</time>
       
       
@@ -640,70 +705,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-11-14T07:56:56.000Z" itemprop="datePublished">14th Nov 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/phonegap-plays-sound-on-mute/" itemprop="url">PhoneGap Plays Sounds on Mute</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="The_Cordova_/_PhoneGap_media_plugin">The Cordova / PhoneGap media plugin</h2>
-<p>As part of my recent game development, there’s a requirement to play short audio sound effects, based on user interaction. There are several options available for doing this but I opted for using a native component using the core Apache <a href="http://www.plugreg.com/plugin/apache/cordova-plugin-media" target="_blank" rel="external">Media Plugin</a>.</p>
-<h2 id="Working_in_60_seconds,_but…">Working in 60 seconds, but…</h2>
-<p>It worked like a treat within seconds of wiring it up, but to my horror, the sound samples were still played when the device (iPhone) was muted by the physical mute button!</p>
-<p><strong>What the!?</strong> Not great if you want to play my game on a train.</p>
-<p><img src="/img/audio-mute.png" alt="Muted Audio"></p>
-<h2 id="Why_Why_Why"><a href="http://youtu.be/9Hp44eaK8Lc?t=44s" target="_blank" rel="external">Why Why Why</a></h2>
-<p>There are various policies that dictate whether or not a sound is played, interrupted or muted. Cordova / PhoneGap creates an audio session, that was originally designed for apps like Spotify and YouTube that want to play media regardless of the phone state and even if the app isn’t open (screen is locked).</p>
-<h2 id="The_solution">The solution</h2>
-<p>My initial instinct was to query the state of the mute switch, but I really didn’t want to write a plugin just to do that - I might as well switch to another option for playing the sounds in the actual web view.</p>
-<p>After delving into the plugin source I found an option, an option (that is not the default) to make the audio session obey the mute switch. <code>playAudioWhenScreenIsLocked</code>. Yes that’s right, setting playAudioWhenScreenIsLocked will force the plugin to react to the state of the hardware mute button.</p>
-<h2 id="Full_example">Full example</h2>
-<p>Here’s the code you need to play audio that obeys the mute switch:</p>
-<h3 id="Install_the_media_plugin">Install the media plugin</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cordova plugin add https://github.com/apache/cordova-plugin-media.git</div></pre></td></tr></table></figure>
-
-<h3 id="In_your_JavaScript">In your JavaScript</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> playAudio = <span class="function"><span class="keyword">function</span> <span class="params">(file)</span> </span>{</div><div class="line">    <span class="keyword">var</span> media = <span class="keyword">new</span> Media(file);</div><div class="line">    media.play({ playAudioWhenScreenIsLocked : <span class="literal">false</span> });</div><div class="line">};</div></pre></td></tr></table></figure>
-
-<p>An incontinent mute, goes without saying.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -759,6 +760,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
       </li>
     
@@ -794,10 +799,6 @@
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
-      <li>
-        <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -811,7 +812,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>16</small></li>
+    <li><a href="/tags/app/">app</a><small>17</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -821,11 +822,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

@@ -55,6 +55,78 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-09-05T07:08:07.000Z" itemprop="datePublished">5th Sep 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/rock-paper-scissors-manc_js/" itemprop="url">Rock Paper Scissors @manc_js</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Manc_JS">Manc JS</h2>
+<p>Last night I attended my first <a href="http://mancjs.com/" target="_blank" rel="external">Manc JS</a>. If you know me, you know that I like a <a href="/road-to-hack-manchester/">good hack</a> and the “Rock Paper Scissors Bots” night lived up to expectations. Props to <a href="https://twitter.com/martinrue" target="_blank" rel="external">@martinrue</a>.</p>
+<h2 id="The_game">The game</h2>
+<p>Each bot played 50 “hands” against each of the other bots. Unlike traditional Rock Paper Scissors, two new entities were introduced:</p>
+<ul>
+<li>“dynamite”, which beats paper, scissors and rock <em>but can only be used a maximum of 5 times per game</em></li>
+<li>“water (balloon)”, which beats dynamite only and <em>can be used any number of times</em></li>
+</ul>
+<p>Bots were comprised of at least 3 functions, “init”, “play” and “result”, which were called by the server running the bots against each other.</p>
+<h2 id="My_approach">My approach</h2>
+<p>Even the most complex of strategies would struggle to beat a truly random opponent, although the “dynamite” hand mitigated this slightly. Nevertheless, I didn’t want to write any random code, it’s way less fun and more unpredictable. I decided it would be much better to consistently secure the top positions on the leaderboard as opposed to go for a random <strong>boom or bust</strong> or <strong>hit and hope</strong>, we are programmers after all.</p>
+<h3 id="Sub-bots">Sub-bots</h3>
+<p>Although we were only allowed to play one hand for each turn, my approach was to create multiple sub-bots that would play silently each time:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example sub-bot that always plays "paper"</span></div><div class="line">bot.paperBot = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> bot = {};</div><div class="line">    </div><div class="line">    bot.winners = <span class="number">0</span>;</div><div class="line">    bot.lastPlay = <span class="string">""</span>;</div><div class="line">    </div><div class="line">    bot.nextPlay = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">var</span> play = <span class="string">"paper"</span>;</div><div class="line">        bot.lastPlay = play;</div><div class="line">        <span class="keyword">return</span> play;</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="keyword">return</span> bot;</div><div class="line">})();</div></pre></td></tr></table></figure>
+
+<p>After the result of each hand was returned by the server, the outcome of whether each sub-bot would have won was recorded. Over the 50 hands, using a greedy approach, the sub-bot that was played was the one with the most amount of winners.</p>
+<p>Given more time and more sub-bots this approach would have become slightly more robust.</p>
+<h3 id="We’re_gonna_light_it_up,_like_it’s_dynamite">We’re gonna light it up, like it’s dynamite</h3>
+<p>I played with a few ideas for dynamite, it appeared quite quickly that most bots played dynamite straight after a draw (as points were carried), so initially I played water straight after a draw then dynamite straight after that. This wasn’t a good strategy, as water is a weak hand.</p>
+<p>The approach I rested on was to not ever bother playing water, ever, and to play dynamite (if any was remaining) 2 hands after a draw, as this appeared to be the least likely time another bot would play it :)</p>
+<p>Obviously, even when dynamite was played, the outcome of whether each sub-bot would have won was still recorded.</p>
+<h2 id="Tests">Tests</h2>
+<p>My code was ugly, but it was linted and had some noddy jasmine tests (using grunt and plugins) for my own sanity and so not to waste too many trial runs.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example of my noddy tests</span></div><div class="line">it(<span class="string">"should init and set opponent"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    init(<span class="string">"test"</span>);</div><div class="line">    expect(bot.opponent).toEqual(<span class="string">"test"</span>);</div><div class="line">});</div><div class="line"></div><div class="line">it(<span class="string">"should use paper as the first play"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="comment">// First play always paper, as all bots have 0 wins</span></div><div class="line">    <span class="comment">// NB: Should randomise the first bot :)</span></div><div class="line">    expect(play()).toEqual(<span class="string">"paper"</span>);</div><div class="line">});</div><div class="line"></div><div class="line">it(<span class="string">"should win the first hand against rock and increment winning tally"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    result({ test: <span class="string">"rock"</span>, lee: <span class="string">"paper"</span>, winner: <span class="string">"lee"</span>, draw: <span class="literal">false</span> });</div><div class="line">    expect(bot.paperBot.winners).toEqual(<span class="number">1</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h2 id="Result">Result</h2>
+<p>Meh, I came 2nd. Not bad out of 17 I guess ;)</p>
+<p>I wish we had more time to play. Maybe this could become an ongoing challenge..?</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-09-04T12:02:18.000Z" itemprop="datePublished">4th Sep 2013</time>
       
       
@@ -631,78 +703,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-20T12:37:41.000Z" itemprop="datePublished">20th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/timing-grunt-task-duration/" itemprop="url">Timing Grunt Task Duration</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Timing_is_everything">Timing is everything</h2>
-<p>I <a href="/let-grunt-handle-your-tasks/">recently blogged</a> about the Grunt JavaScript task runner, a great way to automate repetitive tasks.</p>
-<p>Some plugins I use (such as the <a href="https://npmjs.org/package/grunt-contrib-jasmine" target="_blank" rel="external">jasmine</a> plugin) output how long they take to run (to the console). This is a pretty neat feature, but very few plugins do it.</p>
-<p>Obviously you don’t want to fork each plugin (there are 100s) and implement a timer in each, so I had another idea.</p>
-<h2 id="grunt-timer">grunt-timer</h2>
-<p>I threw <a href="https://npmjs.org/package/grunt-timer" target="_blank" rel="external">grunt-timer.js</a> together in a couple of hours. It uses the documented hooker.(un)hook to (as closely as possible) determine the elapsed execution time for each task as they are run by Grunt.</p>
-<h2 id="Shouldn’t_this_be_part_of_Grunt?">Shouldn’t this be part of Grunt?</h2>
-<p>I think so, possibly as an option that can be configured. It would have been a lot easier to implement too, it’s a little hacky the way I’ve done it using hooks and the time isn’t 100% accurate.</p>
-<p>Hopefully people will find this useful and the equivalent will find its way into the core.</p>
-<h2 id="How_do_I_use_it?">How do I use it?</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> grunt-timer ## <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>Add the grunt-timer reference to the very top of your Gruntfile.js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timer = <span class="built_in">require</span>(<span class="string">"grunt-timer"</span>);</div></pre></td></tr></table></figure>
-
-<p>Add the timer init call at the top of the module.exports function of your Gruntfile.js::</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> </span>{</div><div class="line">    timer.init(grunt);</div></pre></td></tr></table></figure>
-
-<h2 id="Example_output">Example output</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Running <span class="string">"run:500"</span> (run) <span class="keyword">task</span></div><div class="line"><span class="number">500</span>ms <span class="keyword">task</span> ran</div><div class="line"><span class="keyword">Task</span> <span class="string">'run:500'</span> took <span class="number">502</span>ms</div></pre></td></tr></table></figure>
-
-<h2 id="Issues">Issues</h2>
-<p>I haven’t spent too much time on this so far, and there are a couple of issues that exist:</p>
-<ul>
-<li>The last task duration is output after the “Done, without errors”.</li>
-<li>Tasks that wrap multi-tasks are currently output (shouldn’t be, or if they are, should be a summary of all the multitasks).</li>
-</ul>
-<p>Feel free to fork and pull request on the <a href="https://github.com/leecrossley/grunt-timer" target="_blank" rel="external">git repo</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -758,6 +758,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
       </li>
     
@@ -793,10 +797,6 @@
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
-      <li>
-        <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -810,7 +810,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>16</small></li>
+    <li><a href="/tags/app/">app</a><small>17</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -820,11 +820,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

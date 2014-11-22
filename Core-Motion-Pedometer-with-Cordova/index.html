@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS Jailbreak Detection with Cordova | iLee</title>
+  <title>Core Motion Pedometer with Cordova | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="My Cordova / PhoneGap plugin for detecting jailbroken iOS devices">
+  <meta name="description" content="My Cordova / PhoneGap plugin for interfacing with the iOS8 Core Motion Pedometer">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="iOS Jailbreak Detection with Cordova"/>
+  <meta property="og:title" content="Core Motion Pedometer with Cordova"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://icons.iconarchive.com/icons/igh0zt/ios7-style-metro-ui/512/MetroUI-Folder-OS-Security-Approved-icon.png" />
+  <meta property="og:image" content="http://ilee.co.uk/img/foot.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,43 +54,68 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2014-09-19T08:24:52.000Z" itemprop="datePublished">19th Sep 2014</time>
+        <time datetime="2014-11-22T10:55:25.000Z" itemprop="datePublished">22nd Nov 2014</time>
       
       
   
-    <h1 class="title" itemprop="name headline">iOS Jailbreak Detection with Cordova</h1>
+    <h1 class="title" itemprop="name headline">Core Motion Pedometer with Cordova</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="iOS_jailbreaking">iOS jailbreaking</h2>
-<p>Jailbreaking is a form of <a href="http://en.wikipedia.org/wiki/Privilege_escalation" target="_blank" rel="external">privilege escalation</a> to grant root access to the iOS file system, allowing addition and modification of apps.</p>
-<p>This week saw the release of iOS 8, anyone updating to the latest release will see their devices “un-jailbroken” (locked up, I guess). Although the <a href="https://twitter.com/PanguTeam" target="_blank" rel="external">PanguTeam</a> have released a statement announcing that they are working on an iOS 8 jailbreak.</p>
-<p>Unfortunately, there are still 10s of millions of jailbroken iOS devices, so preventing your app from running on a jailbroken device could lead to a limited userbase and/or bad App Store reviews.</p>
-<h2 id="Cordova_/_PhoneGap_plugin">Cordova / PhoneGap plugin</h2>
-<p>There are many reasons why you might not want certain features of your app to run on jailbroken devices, so I have written a handy little plugin to add an extra layer of security, to detect if the device running the app is jailbroken - right from your JavaScript.</p>
-<p><strong>I recommend you use this plugin to block certain features in your app rather than prevent it from running entirely.</strong></p>
+        <h2 id="Core_Motion_SDK">Core Motion SDK</h2>
+<p>Since the introduction of iOS 8 and devices such as the iPhone 5s and iPhone 6/Plus, it’s been possible to write a native Objective-C applications to receive core motion data from device hardware and to process that data.</p>
+<p><img src="/img/foot.png" alt="Pedometer"></p>
+<p>As an advocate of Cordova / PhoneGap, I wanted to bring this functionality to the WebView.</p>
+<h2 id="Pedometer_plugin_for_Cordova">Pedometer plugin for Cordova</h2>
+<p>I have implemented a Core Motion Pedometer Plugin to facilitate the fetching of pedestrian-related pedometer data, such as step counts and other information about the distance travelled. It really is much more than your average “step counter”.</p>
 <ul>
-<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">plugreg</a></li>
-<li><a href="https://github.com/leecrossley/cordova-plugin-touchid" target="_blank" rel="external">Github</a></li>
-<li><a href="http://plugins.cordova.io/#/package/uk.co.ilee.jailbreakdetection" target="_blank" rel="external">Cordova plugins registry</a></li>
-<li><a href="https://build.phonegap.com/plugins/1019" target="_blank" rel="external">PhoneGap build</a></li>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-pedometer" target="_blank" rel="external">plugreg</a></li>
+<li><a href="https://github.com/leecrossley/cordova-plugin-pedometer" target="_blank" rel="external">Github</a></li>
+<li><a href="http://plugins.cordova.io/#/package/uk.co.ilee.pedometer" target="_blank" rel="external">Cordova plugins registry</a></li>
+<li>Currently rejected by PhoneGap build - if you need this, talk to me</li>
 </ul>
 <h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-jailbreak-detection.git</div></pre></td></tr></table></figure>
+<p>Latest version:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-pedometer.git</div></pre></td></tr></table></figure>
 
-<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>jailbreakdetection</code> object to your root automatically.</p>
-<h2 id="Usage">Usage</h2>
-<h3 id="isJailbroken">isJailbroken</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jailbreakdetection.isJailbroken(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+<p>Last published version (note, I’m a often little lazy on this):</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> uk.<span class="keyword">co</span>.ilee.pedometer</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>pedometer</code> object to your root automatically.</p>
+<h2 id="Check_feature_support">Check feature support</h2>
+<p>Some capabilities are not supported on all iOS devices, even with iOS 8, so please ensure you use the check feature support functions.</p>
+<h3 id="isStepCountingAvailable">isStepCountingAvailable</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.isStepCountingAvailable(successCallback, failureCallback);</div></pre></td></tr></table></figure>
 
 <ul>
-<li><code>successCallback</code> is called with true if the device is Jailbroken, otherwise false</li>
-<li><code>failureCallback</code> is called if there was an error determining if the device is Jailbroken</li>
+<li>=&gt; <code>successCallback</code> is called with true if the feature is supported, otherwise false</li>
+<li>=&gt; <code>failureCallback</code> is called if there was an error determining if the feature is supported</li>
 </ul>
-<h2 id="Further_development">Further development</h2>
-<p>Issues and pull requests welcome on the <a href="https://github.com/leecrossley/cordova-plugin-jailbreak-detection" target="_blank" rel="external">git repo</a>.</p>
+<h3 id="isDistanceAvailable">isDistanceAvailable</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.isDistanceAvailable(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<p>Distance estimation indicates the ability to use step information to supply the approximate distance travelled by the user.</p>
+<p>This capability is not supported on all devices, even with iOS 8.</p>
+<h3 id="isFloorCountingAvailable">isFloorCountingAvailable</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.isFloorCountingAvailable(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<p>Floor counting indicates the ability to count the number of floors the user walks up or down using stairs.</p>
+<p>This capability is not supported on all devices, even with iOS 8.</p>
+<h2 id="Live_pedometer_data">Live pedometer data</h2>
+<h3 id="startPedometerUpdates">startPedometerUpdates</h3>
+<p>Starts the delivery of recent pedestrian-related data to your Cordova app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> successHandler = <span class="function"><span class="keyword">function</span> <span class="params">(pedometerData)</span> </span>{</div><div class="line">    <span class="comment">// pedometerData.numberOfSteps;</span></div><div class="line">    <span class="comment">// pedometerData.distance;</span></div><div class="line">    <span class="comment">// pedometerData.floorsAscended;</span></div><div class="line">    <span class="comment">// pedometerData.floorsDescended;</span></div><div class="line">};</div><div class="line">pedometer.startPedometerUpdates(successHandler, onError);</div></pre></td></tr></table></figure>
+
+<p>The success handler is executed when data is available and is called repeatedly from a background thread as new data arrives.</p>
+<p>When the app is suspended, the delivery of updates stops temporarily. Upon returning to foreground or background execution, the pedometer object begins updates again.</p>
+<h3 id="stopPedometerUpdates">stopPedometerUpdates</h3>
+<p>Stops the delivery of recent pedestrian data updates to your Cordova app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.stopPedometerUpdates(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<h2 id="More_framework_features">More framework features</h2>
+<p>Not all features of the framework are implemented. If you’d like me to add something else that is available, let me know. Issues and pull requests welcome as always on the <a href="https://github.com/leecrossley/cordova-plugin-pedometer/issues/new" target="_blank" rel="external">git repo</a>.</p>
 
       
     </div>

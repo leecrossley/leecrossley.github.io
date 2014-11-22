@@ -55,6 +55,102 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-11-22T10:55:25.000Z" itemprop="datePublished">22nd Nov 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/Core-Motion-Pedometer-with-Cordova/" itemprop="url">Core Motion Pedometer with Cordova</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Core_Motion_SDK">Core Motion SDK</h2>
+<p>Since the introduction of iOS 8 and devices such as the iPhone 5s and iPhone 6/Plus, it’s been possible to write a native Objective-C applications to receive core motion data from device hardware and to process that data.</p>
+<p><img src="/img/foot.png" alt="Pedometer"></p>
+<p>As an advocate of Cordova / PhoneGap, I wanted to bring this functionality to the WebView.</p>
+<h2 id="Pedometer_plugin_for_Cordova">Pedometer plugin for Cordova</h2>
+<p>I have implemented a Core Motion Pedometer Plugin to facilitate the fetching of pedestrian-related pedometer data, such as step counts and other information about the distance travelled. It really is much more than your average “step counter”.</p>
+<ul>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-pedometer" target="_blank" rel="external">plugreg</a></li>
+<li><a href="https://github.com/leecrossley/cordova-plugin-pedometer" target="_blank" rel="external">Github</a></li>
+<li><a href="http://plugins.cordova.io/#/package/uk.co.ilee.pedometer" target="_blank" rel="external">Cordova plugins registry</a></li>
+<li>Currently rejected by PhoneGap build - if you need this, talk to me</li>
+</ul>
+<h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
+<p>Latest version:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-pedometer.git</div></pre></td></tr></table></figure>
+
+<p>Last published version (note, I’m a often little lazy on this):</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> uk.<span class="keyword">co</span>.ilee.pedometer</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>pedometer</code> object to your root automatically.</p>
+<h2 id="Check_feature_support">Check feature support</h2>
+<p>Some capabilities are not supported on all iOS devices, even with iOS 8, so please ensure you use the check feature support functions.</p>
+<h3 id="isStepCountingAvailable">isStepCountingAvailable</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.isStepCountingAvailable(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<ul>
+<li>=&gt; <code>successCallback</code> is called with true if the feature is supported, otherwise false</li>
+<li>=&gt; <code>failureCallback</code> is called if there was an error determining if the feature is supported</li>
+</ul>
+<h3 id="isDistanceAvailable">isDistanceAvailable</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.isDistanceAvailable(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<p>Distance estimation indicates the ability to use step information to supply the approximate distance travelled by the user.</p>
+<p>This capability is not supported on all devices, even with iOS 8.</p>
+<h3 id="isFloorCountingAvailable">isFloorCountingAvailable</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.isFloorCountingAvailable(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<p>Floor counting indicates the ability to count the number of floors the user walks up or down using stairs.</p>
+<p>This capability is not supported on all devices, even with iOS 8.</p>
+<h2 id="Live_pedometer_data">Live pedometer data</h2>
+<h3 id="startPedometerUpdates">startPedometerUpdates</h3>
+<p>Starts the delivery of recent pedestrian-related data to your Cordova app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> successHandler = <span class="function"><span class="keyword">function</span> <span class="params">(pedometerData)</span> </span>{</div><div class="line">    <span class="comment">// pedometerData.numberOfSteps;</span></div><div class="line">    <span class="comment">// pedometerData.distance;</span></div><div class="line">    <span class="comment">// pedometerData.floorsAscended;</span></div><div class="line">    <span class="comment">// pedometerData.floorsDescended;</span></div><div class="line">};</div><div class="line">pedometer.startPedometerUpdates(successHandler, onError);</div></pre></td></tr></table></figure>
+
+<p>The success handler is executed when data is available and is called repeatedly from a background thread as new data arrives.</p>
+<p>When the app is suspended, the delivery of updates stops temporarily. Upon returning to foreground or background execution, the pedometer object begins updates again.</p>
+<h3 id="stopPedometerUpdates">stopPedometerUpdates</h3>
+<p>Stops the delivery of recent pedestrian data updates to your Cordova app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pedometer.stopPedometerUpdates(successCallback, failureCallback);</div></pre></td></tr></table></figure>
+
+<h2 id="More_framework_features">More framework features</h2>
+<p>Not all features of the framework are implemented. If you’d like me to add something else that is available, let me know. Issues and pull requests welcome as always on the <a href="https://github.com/leecrossley/cordova-plugin-pedometer/issues/new" target="_blank" rel="external">git repo</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-09-19T08:24:52.000Z" itemprop="datePublished">19th Sep 2014</time>
       
       
@@ -653,102 +749,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-04-22T07:59:29.000Z" itemprop="datePublished">22nd Apr 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/dotject-quick-js-object-composition/" itemprop="url">dotject - Quick JS Object Composition</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="dotject">dotject</h2>
-<p><a href="https://github.com/leecrossley/dotject" target="_blank" rel="external">dotject</a> provides a quick and simple way to compose JavaScript objects using familiar <a href="http://www.ling.helsinki.fi/kit/2009s/clt230/RUR-PLE/html/en/inter/30-dot.htm" target="_blank" rel="external">dot notation</a>.</p>
-<p>The code supports object creation at n levels (nesting) along with same level objects. There’s also functionality to support (multiple) value assignment and value overriding. It might sound complicated but it’s designed to make life easier, the examples below will showcase this.</p>
-<p>dotject harnesses the power of <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">functional.js</a> and it’s λ.reduce function to achieve the “dot notation to object” implementation in very few lines of code.</p>
-<h2 id="Getting_started">Getting started</h2>
-<p>Install via npm:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> dotject # <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
-
-<p>Require the module in the usual way:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dotject = <span class="built_in">require</span>(<span class="string">"dotject"</span>);</div></pre></td></tr></table></figure>
-
-<h2 id="Using_dotject">Using dotject</h2>
-<p>There is a comprehensive list of programatic examples in the <a href="https://raw.githubusercontent.com/leecrossley/dotject/master/dotject-spec.js" target="_blank" rel="external">specs</a>, for the project, but I’ll run through examples here:</p>
-<h3 id="Simple_object_composition">Simple object composition</h3>
-<p>Separating property names with dots (like JavaScript dot notation) will create nested objects:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {</div><div class="line">      <span class="string">"c"</span>: {}</div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>Separating property names with a comma (similar to JavaScript objects) will create properties at the same level:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>This notation can be combined with the dot style notation:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h3 id="Extend_an_existing_object">Extend an existing object</h3>
-<p>Extend an existing object with new properties by passing the existing object as a second (optional) argument:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>:{}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {},</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>Existing object values are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"b.c"</span>, {<span class="string">"a"</span>: <span class="literal">true</span>});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>Existing nested object properties are retained:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.c"</span>, {<span class="string">"a"</span>:{<span class="string">"b"</span>:{}}});</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: {},</div><div class="line">    <span class="string">"c"</span>: {}</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h3 id="Assign_a_value">Assign a value</h3>
-<p>You can assign a value to the last nested property:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a.b"</span>, {}, <span class="number">10</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: {</div><div class="line">    <span class="string">"b"</span>: <span class="number">10</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h3 id="Assign_multiple_values">Assign multiple values</h3>
-<p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b.c,d"</span>, {}, <span class="literal">true</span>, <span class="number">10</span>, <span class="string">"test"</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: {</div><div class="line">    <span class="string">"c"</span>: <span class="number">10</span></div><div class="line">  },</div><div class="line">  <span class="string">"d"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h3 id="Assign_multiple_values_and_override_existing">Assign multiple values and override existing</h3>
-<p>You can assign a values to the last nested properties:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dotject(<span class="string">"a,b"</span>, {<span class="string">"a"</span>: <span class="literal">false</span>}, <span class="literal">true</span>, <span class="string">"test"</span>)</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"a"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"b"</span>: <span class="string">"test"</span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="“Real_world”_example">“Real world” example</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> camera = {isEnabled: <span class="literal">true</span>};</div><div class="line">camera = dotject(<span class="string">"settings.encoding.format,output.data.base64"</span>, camera, <span class="string">"JPEG"</span>, <span class="literal">true</span>);</div><div class="line"></div><div class="line">{</div><div class="line">  <span class="string">"isEnabled"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"settings"</span>: {</div><div class="line">    <span class="string">"encoding"</span>: {</div><div class="line">      <span class="string">"format"</span>: <span class="string">"JPEG"</span></div><div class="line">    }</div><div class="line">  },</div><div class="line">  <span class="string">"output"</span>: {</div><div class="line">    <span class="string">"data"</span>: {</div><div class="line">      <span class="string">"base64"</span>: <span class="literal">true</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="Other_thoughts">Other thoughts</h2>
-<p>I did consider not implementing the ability to extend existing objects, as this would provide cleaner usage and the base library (functional.js) does already have support for this with the <a href="https://github.com/leecrossley/functional-js#basic-%CE%BBassign-%CE%BBextend-example" target="_blank" rel="external">λ.assign</a> (λ.extend) function. I’d be interested to hear your feedback on this, as personally I’m almost always passing a new object, which seems silly.</p>
-<h2 id="Issues_and_pull_requests">Issues and pull requests</h2>
-<p>Please raise any issues / pull requests directly on <a href="https://github.com/leecrossley/dotject/issues" target="_blank" rel="external">github</a>.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -802,6 +802,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
+      </li>
+    
+      <li>
         <a href="/iOS-Jailbreak-Detection-with-Cordova/">iOS Jailbreak Detection with Cordova</a>
       </li>
     
@@ -837,10 +841,6 @@
         <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
       </li>
     
-      <li>
-        <a href="/dotject-quick-js-object-composition/">dotject - Quick JS Object Composition</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -854,7 +854,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>16</small></li>
+    <li><a href="/tags/app/">app</a><small>17</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -864,11 +864,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>22</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>48</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>22</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   
