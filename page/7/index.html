@@ -55,6 +55,78 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-08-21T07:42:46.000Z" itemprop="datePublished">21st Aug 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/changing-url-without-page-refresh/" itemprop="url">Changing Url Without Page Refresh</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Using_JavaScript_to_change_the_page_url_without_reloading">Using JavaScript to change the page url without reloading</h2>
+<p>Not many web developers know but it’s possible to <strong>completely</strong> change the relative url of a webpage without reloading or refreshing the page. In fact, the browser won’t even try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
+<p>I’m not talking about just changing “the bit after the hash (#)” I’m referring to the entire relative url. I’m also not talking about iFrames either - this solution isn’t a hack, it’s a feature of all modern browsers (Chrome, Safari, FF(4+), and IE(10+)).</p>
+<p><img src="/img/google-chrome.png" alt="Google Chrome"></p>
+<h2 id="How_it’s_done">How it’s done</h2>
+<p>HTML5 introduced the concepts of pushState, replaceState and the onpopstate event. These allow programatic modification of the browsers history.</p>
+<h3 id="The_history-pushState()_function">The history.pushState() function</h3>
+<p>This changes the HTTP header referrer for future XMLHttpRequests. It takes three arguments:</p>
+<ul>
+<li><p><strong>State</strong> argument (<em>object</em>). This JavaScript object is used when the onpopstate event is fired (explained below).</p>
+</li>
+<li><p><strong>Title</strong> argument (<em>string</em>). This string is currently used as an internal reference to the title of the page being loaded. Browsers haven’t implemented the document title change based on this parameter, although you can do it manually if required (document.title = “your title”).</p>
+</li>
+<li><p><strong>Url</strong> argument (<em>string</em>). This string is the new url to be “loaded” into the address bar. The url must be relative, or at least have the same origin as the current url. As mentioned above, the browser won’t try to get the new url and it doesn’t matter if it doesn’t exist on the server.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><figcaption><span>history.pushState() example </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> state = {</div><div class="line">  <span class="string">"canBeAnything"</span>: <span class="literal">true</span></div><div class="line">};</div><div class="line">history.pushState(state, <span class="string">"New Title"</span>, <span class="string">"/new-page"</span>);</div><div class="line">expect(history.state).toEqual(state);</div></pre></td></tr></table></figure>
+
+<p>The above example will update the url in the address bar to be “/new-page” without a refreshing or reloading the page. It also updates the browser history in the same way you would expect window.location to.</p>
+<h3 id="The_history-replaceState()_function">The history.replaceState() function</h3>
+<p>Behaves exactly the same as the history.pushState() function, with the exception of not updating the browser history. To be honest, I’ve never bothered to use this one.</p>
+<h3 id="The_onpopstate_event">The onpopstate event</h3>
+<p>This is fired every time one of the above 2 functions are called and essentially updates the history.state object. You can therefore access the current page state object (the first argument passed to pushState() or replaceState()) at any time using history.state. If neither function has yet been called, history.state is likely to be null.</p>
+<h2 id="Back_to_the_future">Back to the future</h2>
+<p>When using the history.pushState() function, as I mentioned, the browser history is updated. This allows you to use history.forward() and history.back() in the usual way, as well as the history forward and back buttons on the browser. history.length is also kept in sync so you can use history.go(n) too.</p>
+<h2 id="Usages">Usages</h2>
+<p>The first place I think I saw this being used was a couple of years ago on Github and it works really well. I implemented something for a client where a whole article was loaded to the page, but only sections were shown at a time (the reason being Google preferred to see the whole RDFa document at once and it was created using a bespoke <a href="/static-site-generators/">static site generator</a>). I used location hashes to swap out the visible sections but could have easily used the history.pushState() function and fallen back to the location hashes for older browsers.</p>
+<p>Have fun relocating.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-08-20T12:37:41.000Z" itemprop="datePublished">20th Aug 2013</time>
       
       
@@ -632,84 +704,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-08-10T14:38:54.000Z" itemprop="datePublished">10th Aug 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/functional-javascript-library/" itemprop="url">A Functional Javascript Library</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="functional-js_(λ)">functional.js (λ)</h2>
-<p>functional.js is (go on, guess) a functional JavaScript library I’m writing. It facilitates <a href="http://en.wikipedia.org/wiki/Currying" target="_blank" rel="external">currying</a> and <a href="http://en.wikipedia.org/wiki/Tacit_programming" target="_blank" rel="external">point-free / tacit</a> programming in JavaScript.</p>
-<p>The library already has support for some <a href="http://en.wikipedia.org/wiki/Higher-order_programming" target="_blank" rel="external">higher-order programming</a>, such as iterating, mapping and reducing (some examples pulled from my <a href="http://pivotal.github.io/jasmine/" target="_blank" rel="external">jasmine</a> tests are below).</p>
-<p>I’m working to add more functions and helpers to support <a href="http://en.wikipedia.org/wiki/Function-level_programming" target="_blank" rel="external">functional-level programming</a> but it’s pretty tough ;). <a href="https://github.com/leecrossley/functional-js" target="_blank" rel="external">Contributions</a> are more than welcome if you fancy some brain pain.</p>
-<h3 id="Basic_λ-curry_example">Basic λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concatenate = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(word1, word2)</span> </span>{</div><div class="line">    <span class="keyword">return</span> word1 + <span class="string">" "</span> + word2;</div><div class="line">});</div><div class="line"></div><div class="line"><span class="keyword">var</span> concatenateHello = concatenate(<span class="string">"Hello"</span>);</div><div class="line"><span class="keyword">var</span> result = concatenateHello(<span class="string">"World"</span>);</div><div class="line"></div><div class="line">expect(result).toEqual(<span class="string">"Hello World"</span>);</div></pre></td></tr></table></figure>
-
-<h3 id="Another_λ-curry_example">Another λ.curry example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = λ.curry(<span class="function"><span class="keyword">function</span><span class="params">(arg1, arg2, arg3)</span> </span>{</div><div class="line">    <span class="keyword">return</span> arg1 + arg2 + arg3;</div><div class="line">}); </div><div class="line"></div><div class="line"><span class="keyword">var</span> add3 = add(<span class="number">3</span>),</div><div class="line">    add5 = add3(<span class="number">2</span>);</div><div class="line"></div><div class="line">expect(add(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add3(<span class="number">2</span>, <span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add3(<span class="number">2</span>)(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div><div class="line">expect(add5(<span class="number">1</span>)).toEqual(<span class="number">6</span>);</div></pre></td></tr></table></figure>
-
-<h3 id="Curried_λ-each_example">Curried λ.each example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = [],</div><div class="line">    items = [<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> addTo = <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>{</div><div class="line">    <span class="keyword">return</span> result.push(item);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> addToResult = λ.each(addTo);</div><div class="line">expect(<span class="keyword">typeof</span> (addToResult)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line">addToResult(items);</div><div class="line">expect(result).toEqual([<span class="string">"f"</span>, <span class="string">"u"</span>, <span class="string">"n"</span>, <span class="string">"c"</span>]);</div></pre></td></tr></table></figure>
-
-<h3 id="Curried_λ-map_example">Curried λ.map example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubleUp = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> </span>{</div><div class="line">    <span class="keyword">return</span> number * <span class="number">2</span>;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubleMap = λ.map(doubleUp);</div><div class="line">expect(<span class="keyword">typeof</span> (doubleMap)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = doubleMap(items);</div><div class="line">expect(result).toEqual([<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]);</div></pre></td></tr></table></figure>
-
-<h3 id="Curried_λ-reduce_example">Curried λ.reduce example</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> multiply = <span class="function"><span class="keyword">function</span> <span class="params">(arg1, arg2)</span> </span>{</div><div class="line">    <span class="keyword">return</span> arg1 * arg2;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> multiplyReduceFrom1 = λ.reduce(multiply, <span class="number">1</span>);</div><div class="line">expect(<span class="keyword">typeof</span> (multiplyReduceFrom1)).toEqual(<span class="string">"function"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = multiplyReduceFrom1(items);</div><div class="line">expect(result).toEqual(<span class="number">6</span>);</div></pre></td></tr></table></figure>
-
-<h2 id="Why?">Why?</h2>
-<p>I like <del>torture</del> to push myself as a developer.</p>
-<h2 id="Great,_but,_erm,_why?">Great, but, erm, why?</h2>
-<p>By extending functions into chains of functions with fewer arguments (currying), you can fix earlier known values and return a function that only accepts future values. This avoids repetition, a good programming practice, and will assist my high-level function refinement.</p>
-<p>Libraries like <a href="http://underscorejs.org/" target="_blank" rel="external">underscore</a> can’t be curried in a regular fashion, as the items come before the iterator (e.g. (items, iterator) not (iterator, items)). There’s also no support for functional-level programming. The idea is that functional.js (λ) will be <em>really</em> lightweight and can  be used as an underscore replacement once it’s been developed further. It also has no dependencies.</p>
-<h2 id="Where_can_I_get_it?">Where can I get it?</h2>
-<ul>
-<li>$ git clone git@github.com:leecrossley/functional-js.git</li>
-<li>$ npm install functional.js</li>
-<li><a href="http://bit.ly/funcmin" target="_blank" rel="external">functional.min.js</a></li>
-</ul>
-<h2 id="I_have_issues">I have issues</h2>
-<p>As long as they’re related, you can report them on <a href="https://github.com/leecrossley/functional-js/issues" target="_blank" rel="external">github</a>.</p>
-<h2 id="Where’s_the_λ_key?">Where’s the λ key?</h2>
-<p>You’re probably reading the wrong blog post :)</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -765,6 +759,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Background-Task-Plugin-for-Cordova/">Background Task Plugin for Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
       </li>
     
@@ -800,10 +798,6 @@
         <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
       </li>
     
-      <li>
-        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -817,7 +811,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>17</small></li>
+    <li><a href="/tags/app/">app</a><small>18</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -827,11 +821,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>24</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>50</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>24</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

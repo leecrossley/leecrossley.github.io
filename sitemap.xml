@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ilee.co.uk/Background-Task-Plugin-for-Cordova/</loc>
+    <lastmod>2015-03-03T14:35:02.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://ilee.co.uk/Core-Motion-Pedometer-with-Cordova/</loc>
     <lastmod>2014-11-22T11:23:36.000Z</lastmod>
   </url>
@@ -310,6 +314,6 @@
   </url>
   <url>
     <loc>http://ilee.co.uk</loc>
-    <lastmod>2015-02-16T19:08:00.216Z</lastmod>
+    <lastmod>2015-03-03T14:35:52.946Z</lastmod>
   </url>
 </urlset>

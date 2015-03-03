@@ -55,6 +55,71 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2015-01-02T11:50:22.000Z" itemprop="datePublished">2nd Jan 2015</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/Background-Task-Plugin-for-Cordova/" itemprop="url">Background Task Plugin for Cordova</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="Brief_overview">Brief overview</h2>
+<p>As part of a recent hackathon, myself and my teammate were struck by a 2am peril. We realised that we needed to run some JavaScript in our Cordova app for a very short period after the app was suspended and screen switched off.</p>
+<p>Fortunately, I figured out a way before we lost too much time (or our minds). Today, I’m open sourcing the plugin for all to use.</p>
+<h2 id="Background_task_plugin">Background task plugin</h2>
+<p>Allows you to run JavaScript when the app is active and for 3 minutes after the app is suspended.</p>
+<ul>
+<li><a href="https://github.com/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">GitHub</a></li>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">plugreg</a></li>
+</ul>
+<h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
+<p>Latest version:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-background-task.git</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>backgroundtask</code> object to your root automatically when you build.</p>
+<h2 id="Usage">Usage</h2>
+<h3 id="Start">Start</h3>
+<p>It’s really simple, pass the JavaScript function you’d like to execute to <code>backgroundtask.start()</code> and your function will continue to run, even if the app is suspended for at least 3 minutes:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroundtask.start(functionToRun);</div></pre></td></tr></table></figure>
+
+<h2 id="Future_development">Future development</h2>
+<p>This plugin is for iOS only and was designed specifically for iOS 8. Issues and pull requests welcome on the <a href="https://github.com/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">git repo</a>.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-11-22T10:55:25.000Z" itemprop="datePublished">22nd Nov 2014</time>
       
       
@@ -686,69 +751,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2014-04-23T07:08:24.000Z" itemprop="datePublished">23rd Apr 2014</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/dotject-atom-text-editor-plugin/" itemprop="url">dotject Atom Text Editor Plugin</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="dotject">dotject</h2>
-<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/" target="_blank" rel="external">yesterday’s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank" rel="external">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it’s now available as an <a href="https://atom.io/packages/dotject" target="_blank" rel="external">Atom plugin</a>.</p>
-<h2 id="Atom">Atom</h2>
-<p>Titled as “a hackable text editor for the 21st Century”, GitHub’s <a href="https://atom.io/" target="_blank" rel="external">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn’t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
-<h2 id="The_Plugin">The Plugin</h2>
-<p>I found it easy to create an Atom plugin for dotject, mainly due to it’s familiarity with <a href="https://www.npmjs.org/" target="_blank" rel="external">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there’s no duplication of the dotject code whatsoever.</p>
-<h3 id="Installation">Installation</h3>
-<p>Use the Atom package manager, which can be found in the Settings view or run <code>apm install dotject</code> from the command line.</p>
-<h3 id="Usage">Usage</h3>
-<p>The default keymapping is <code>shift-cmd-J</code> (although this can be configured). You simply highlight your dotject string and press <code>shift-cmd-J</code> to perform the conversion.</p>
-<h3 id="Example">Example</h3>
-<p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}</div></pre></td></tr></table></figure>
-
-<h3 id="The_code">The code</h3>
-<p>It’s essentially 2 lines of code, with a little glue and keymapping:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// convert the current text selection</span></div><div class="line"><span class="keyword">var</span> converted = dotject(editor.getSelection().getText());</div><div class="line"><span class="comment">// insert the stringified json in place of the selection</span></div><div class="line">editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));</div></pre></td></tr></table></figure>
-
-<p>This would all be perfect, if it was not for CoffeeScript (I’ve written in JavaScript above).</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -802,6 +804,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Background-Task-Plugin-for-Cordova/">Background Task Plugin for Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
       </li>
     
@@ -837,10 +843,6 @@
         <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
       </li>
     
-      <li>
-        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -854,7 +856,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>17</small></li>
+    <li><a href="/tags/app/">app</a><small>18</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -864,11 +866,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>24</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>50</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>24</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

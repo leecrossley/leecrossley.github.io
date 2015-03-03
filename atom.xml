@@ -4,12 +4,45 @@
   <subtitle><![CDATA[I write code that sounds awesome and music that's bug free]]></subtitle>
   <link href="http://ilee.co.uk/atom.xml" rel="self"/>
   <link href="http://ilee.co.uk"/>
-  <updated>2015-02-16T19:08:00.157Z</updated>
+  <updated>2015-03-03T14:35:52.889Z</updated>
   <id>http://ilee.co.uk/</id>
   <author>
     <name><![CDATA[Lee Crossley]]></name>
     <email><![CDATA[leee@hotmail.co.uk]]></email>
   </author>
+  <entry>
+    <title type="html"><![CDATA[Background Task Plugin for Cordova]]></title>
+    <link href="http://ilee.co.uk/Background-Task-Plugin-for-Cordova/"/>
+    <id>http://ilee.co.uk/Background-Task-Plugin-for-Cordova/</id>
+    <published>2015-01-02T11:50:22.000Z</published>
+    <updated>2015-03-03T14:35:02.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Brief_overview">Brief overview</h2>
+<p>As part of a recent hackathon, myself and my teammate were struck by a 2am peril. We realised that we needed to run some JavaScript in our Cordova app for a very short period after the app was suspended and screen switched off.</p>
+<p>Fortunately, I figured out a way before we lost too much time (or our minds). Today, I’m open sourcing the plugin for all to use.</p>
+<h2 id="Background_task_plugin">Background task plugin</h2>
+<p>Allows you to run JavaScript when the app is active and for 3 minutes after the app is suspended.</p>
+<ul>
+<li><a href="https://github.com/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">GitHub</a></li>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">plugreg</a></li>
+</ul>
+<h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
+<p>Latest version:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-background-task.git</div></pre></td></tr></table></figure>
+
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>backgroundtask</code> object to your root automatically when you build.</p>
+<h2 id="Usage">Usage</h2>
+<h3 id="Start">Start</h3>
+<p>It’s really simple, pass the JavaScript function you’d like to execute to <code>backgroundtask.start()</code> and your function will continue to run, even if the app is suspended for at least 3 minutes:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroundtask.start(functionToRun);</div></pre></td></tr></table></figure>
+
+<h2 id="Future_development">Future development</h2>
+<p>This plugin is for iOS only and was designed specifically for iOS 8. Issues and pull requests welcome on the <a href="https://github.com/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">git repo</a>.</p>
+]]></content>
+    <category scheme="http://ilee.co.uk/tags/iphone/" term="iphone"/>
+    <category scheme="http://ilee.co.uk/tags/app/" term="app"/>
+    <category scheme="http://ilee.co.uk/tags/phonegap/" term="phonegap"/>
+    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Core Motion Pedometer with Cordova]]></title>
     <link href="http://ilee.co.uk/Core-Motion-Pedometer-with-Cordova/"/>
@@ -724,35 +757,6 @@
 <h2 id="Packages">Packages</h2>
 <p>You’ll notice in the example above that we’re using <code>http</code>, which is part of the node core. There are over 50,000 3rd party packages available on the <a href="https://npmjs.org/" target="_blank" rel="external">node package manager registry</a>, that should keep you busy for the rest of the year :)</p>
 <p>Happy new year!</p>
-]]></content>
-    <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Using npm in Europe]]></title>
-    <link href="http://ilee.co.uk/using-npm-in-europe/"/>
-    <id>http://ilee.co.uk/using-npm-in-europe/</id>
-    <published>2013-12-20T07:37:13.000Z</published>
-    <updated>2013-12-20T08:12:23.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Protip">Protip</h2>
-<p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank" rel="external">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
-<p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span></div></pre></td></tr></table></figure>
-
-<h2 id="How_much_faster?">How much faster?</h2>
-<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
-<h3 id="Quick_test">Quick test</h3>
-<p>Let’s pick a package with a few dependencies, <code>grunt</code>.</p>
-<p>First, let’s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
-<h3 id="Timing">Timing</h3>
-<p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
-<p>Let’s give it a go:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt</div><div class="line"><span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span></div></pre></td></tr></table></figure>
-
-<p>Now let’s clear the cache again and try the European mirror:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt --registry http://registry.npmjs.eu</div><div class="line"><span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span></div></pre></td></tr></table></figure>
-
-<p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
-<p>Damn, now I don’t have long enough to make a coffee.</p>
 ]]></content>
     <category scheme="http://ilee.co.uk/tags/javascript/" term="javascript"/>
   </entry>

@@ -55,6 +55,69 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2014-04-23T07:08:24.000Z" itemprop="datePublished">23rd Apr 2014</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/dotject-atom-text-editor-plugin/" itemprop="url">dotject Atom Text Editor Plugin</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="dotject">dotject</h2>
+<p>After <a href="http://ilee.co.uk/dotject-quick-js-object-composition/" target="_blank" rel="external">yesterday’s post</a> about <a href="https://github.com/leecrossley/dotject" target="_blank" rel="external">dotject</a>, it quickly became apparent that although some people may find it useful, they wanted the dotject functionality to be part of an IDE. This was always my intention and it’s now available as an <a href="https://atom.io/packages/dotject" target="_blank" rel="external">Atom plugin</a>.</p>
+<h2 id="Atom">Atom</h2>
+<p>Titled as “a hackable text editor for the 21st Century”, GitHub’s <a href="https://atom.io/" target="_blank" rel="external">Atom</a> has created some controversy about being a <em>closed-source open-source</em> text editor (yes you read that right). Although the core isn’t open source, developers have the ability to develop plugins and themes to completely change or enhance the way the editor works.</p>
+<h2 id="The_Plugin">The Plugin</h2>
+<p>I found it easy to create an Atom plugin for dotject, mainly due to it’s familiarity with <a href="https://www.npmjs.org/" target="_blank" rel="external">npm</a> (it also has a root package.json file etc). Under the hood, it even uses my dotject node package, so there’s no duplication of the dotject code whatsoever.</p>
+<h3 id="Installation">Installation</h3>
+<p>Use the Atom package manager, which can be found in the Settings view or run <code>apm install dotject</code> from the command line.</p>
+<h3 id="Usage">Usage</h3>
+<p>The default keymapping is <code>shift-cmd-J</code> (although this can be configured). You simply highlight your dotject string and press <code>shift-cmd-J</code> to perform the conversion.</p>
+<h3 id="Example">Example</h3>
+<p>Highlighting <code>a.b.c,d.e</code> then pressing <code>shift-cmd-J</code> will replace <code>a.b.c,d.e</code> with:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"a"</span>:{<span class="string">"b"</span>:{<span class="string">"c"</span>:{}}},<span class="string">"d"</span>:{<span class="string">"e"</span>:{}}}</div></pre></td></tr></table></figure>
+
+<h3 id="The_code">The code</h3>
+<p>It’s essentially 2 lines of code, with a little glue and keymapping:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// convert the current text selection</span></div><div class="line"><span class="keyword">var</span> converted = dotject(editor.getSelection().getText());</div><div class="line"><span class="comment">// insert the stringified json in place of the selection</span></div><div class="line">editor.getSelection().insertText(<span class="built_in">JSON</span>.stringify(converted));</div></pre></td></tr></table></figure>
+
+<p>This would all be perfect, if it was not for CoffeeScript (I’ve written in JavaScript above).</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2014-04-22T07:59:29.000Z" itemprop="datePublished">22nd Apr 2014</time>
       
       
@@ -670,70 +733,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-12-20T07:37:13.000Z" itemprop="datePublished">20th Dec 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/using-npm-in-europe/" itemprop="url">Using npm in Europe</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Protip">Protip</h2>
-<p>I wrote a short <a href="https://coderwall.com/p/iihlxa" target="_blank" rel="external">protip</a> this morning about the European mirror for npm. Developers in Europe (such as myself, based in Manchester, UK), will find this Germany based mirror significantly faster and possibly more reliable.</p>
-<p>You can force the use of the European mirror by simply appending the <code>--registry http://registry.npmjs.eu</code> flag to the end of your command, however, I recommend you just set up an alias, e.g:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias enpm=<span class="string">"npm --registry http://registry.npmjs.eu"</span></div></pre></td></tr></table></figure>
-
-<h2 id="How_much_faster?">How much faster?</h2>
-<p>Rather than just claim <em>it is faster</em>, I want to take this blog post further and prove that it’s faster.</p>
-<h3 id="Quick_test">Quick test</h3>
-<p>Let’s pick a package with a few dependencies, <code>grunt</code>.</p>
-<p>First, let’s run <code>npm cache clean</code> to remove any data in the npm cache folder. Without supplying a path, this clears the entire cache. A quick run of <code>npm cache ls</code> confirms this.</p>
-<h3 id="Timing">Timing</h3>
-<p>How do we actually go about timing an <code>npm install</code>? Well, there’s a basic command called <code>time</code> that’s built into most shells and allows us to easily see the execution time of a command (both “real time” used and system time). This is accurate enough for what we need.</p>
-<p>Let’s give it a go:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt</div><div class="line"><span class="comment"># =4.71s user 1.69s system 29% cpu 21.573 total</span></div></pre></td></tr></table></figure>
-
-<p>Now let’s clear the cache again and try the European mirror:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ time npm install grunt --registry http://registry.npmjs.eu</div><div class="line"><span class="comment"># =3.75s user 1.48s system 44% cpu 11.799 total</span></div></pre></td></tr></table></figure>
-
-<p>21.573s vs 11.799s means it’s almost <em>twice as fast</em> for me to use the European mirror of the npm registry.</p>
-<p>Damn, now I don’t have long enough to make a coffee.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -789,6 +788,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Background-Task-Plugin-for-Cordova/">Background Task Plugin for Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
       </li>
     
@@ -824,10 +827,6 @@
         <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
       </li>
     
-      <li>
-        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -841,7 +840,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>17</small></li>
+    <li><a href="/tags/app/">app</a><small>18</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -851,11 +850,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>24</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>50</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>24</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

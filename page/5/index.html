@@ -55,6 +55,71 @@
     <header>
       <div class="icon"></div>
       
+        <time datetime="2013-10-15T14:39:29.000Z" itemprop="datePublished">15th Oct 2013</time>
+      
+      
+  
+    <h1 class="title" itemprop="name headline"><a href="/use-the-right-http-status-codes/" itemprop="url">Use the Right HTTP Status Codes</a></h1>
+  
+
+    </header>
+    <div class="entry" itemprop="articleBody">
+      
+        <h2 id="HTTP_status_codes">HTTP status codes</h2>
+<p>Every response from a server carries an HTTP status code, this provides clients with the ability to formally identify the status of the response and has other uses, such as identifying a type of error.</p>
+<p>I’m currently working with a “<a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">RESTful</a>“ (well, advertised as RESTful) <a href="http://en.wikipedia.org/wiki/Application_programming_interface" target="_blank" rel="external">API</a>, where the HTTP status codes are all over the place (hence the reason for this blog post).</p>
+<p>An API especially should use the correct status codes so that responses to basic requests can be defined by status codes, without the need for any additional data.</p>
+<h2 id="The_basics">The basics</h2>
+<ul>
+<li><strong>1xx</strong> - Hang on</li>
+<li><strong>2xx</strong> - <a href="http://www.youtube.com/watch?v=erETKfL9LbU" target="_blank" rel="external">Sha-ting</a></li>
+<li><strong>3xx</strong> - Move away</li>
+<li><strong>4xx</strong> - That’s your bad</li>
+<li><strong>5xx</strong> - That’s my bad</li>
+</ul>
+<p>OK, so I’m not being totally serious with these. I’m also not going to write them out or copy and paste, as there are 1000s of websites that already have. Just check <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="external">Wikipedia</a> for the list.</p>
+<h2 id="Test_your_status_codes">Test your status codes</h2>
+<p>There are some online tools to check your status codes, <a href="http://httpstatus.io/" target="_blank" rel="external">httpstatus.io</a> looks good (and ends with .io, so it <em>must</em> be cool).</p>
+<h2 id="I’m_a_tea_pot">I’m a tea pot</h2>
+<p>The Hyper Text Coffee Pot Control Protocol is a nonessential and humorous communications protocol for controlling, monitoring, and diagnosing coffee pots and has the following status code (yes this is real):</p>
+<ul>
+<li><strong>418</strong> I’m a teapot (may be short and/or stout)</li>
+</ul>
+<p>Time for a coffee.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      <div class="icon"></div>
+      
         <time datetime="2013-10-10T08:51:33.000Z" itemprop="datePublished">10th Oct 2013</time>
       
       
@@ -626,67 +691,6 @@
 
 
 
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      <div class="icon"></div>
-      
-        <time datetime="2013-09-10T12:22:41.000Z" itemprop="datePublished">10th Sep 2013</time>
-      
-      
-  
-    <h1 class="title" itemprop="name headline"><a href="/mongoose-documents-and-jsonstringify/" itemprop="url">Mongoose Docs and JSON.stringify</a></h1>
-  
-
-    </header>
-    <div class="entry" itemprop="articleBody">
-      
-        <h2 id="Mongoose_JS">Mongoose JS</h2>
-<p>If you’re a JavaScript / Node.js developer that uses MongoDB, you’ll probably have already heard of <a href="http://mongoosejs.com/" target="_blank" rel="external">Mongoose</a>. It’s “<em>elegant mongodb object modelling for node.js</em>“ and saves you writing endless mappings, castings and validation. If you’ve not used it before <a href="http://mongoosejs.com/docs/index.html" target="_blank" rel="external">check it out</a>.</p>
-<h2 id="Mongoose_documents_/_objects">Mongoose documents / objects</h2>
-<p>The reason for this post isn’t just to tell you to go and play with Mongoose, I’m hoping people will find this post when the get stuck with something, like I did at the weekend.</p>
-<h3 id="The_problem">The problem</h3>
-<p>I was happily coding away (slightly functionally) when I hit an interesting issue. Here’s a simplified version to help me explain:</p>
-<figure class="highlight javascript"><figcaption><span>The problem </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> addProperty = λ.each(<span class="function"><span class="keyword">function</span><span class="params">(item)</span> </span>{</div><div class="line">    item.newProperty = <span class="string">"anything"</span>;</div><div class="line">});</div><div class="line"></div><div class="line">Items.find(<span class="function"><span class="keyword">function</span><span class="params">(err, items)</span> </span>{</div><div class="line">    addProperty(items);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(items));</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>After adding the property “newProperty” to each of the items, I could then use the property without any issues - as you’d expect. As soon as I tried to JSON.stringify() the items, the new property was omitted! I spent about 15 minutes trying to debug and convince myself the world was broken until I realised why.</p>
-<h3 id="The_reason">The reason</h3>
-<p>The “items” collection is actually an array of special Mongoose documents with various magical properties to help you save an item back again etc. This has it’s own toJSON function that is called when JSON.stringify is called, omitting any modifications to it’s structure since the last save or retrieval.</p>
-<h3 id="The_solution">The solution</h3>
-<p>A quick Google led me to a StackOverflow answer that suggested messing with the Mongoose document, ewww. Fortunately I found a better solution that I posted as an <a href="http://stackoverflow.com/a/18686966/909459" target="_blank" rel="external">answer</a>.</p>
-<figure class="highlight javascript"><figcaption><span>The solution </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Items.find().lean().exec(<span class="function"><span class="keyword">function</span><span class="params">(err, items)</span> </span>{</div><div class="line">    addProperty(items);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(items));</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<p>By specifying the “<a href="http://mongoosejs.com/docs/api.html#query_Query-lean" target="_blank" rel="external">lean</a>“ option when performing a query, you will be returned a plain JavaScript object that behaves in the regular way. Provided you don’t need to save the item again (as this is not a MongooseDocument, no getters and setters are applied) you will be able to call JSON.stringify to your hearts content. It’s faster too, you should probably specify the lean option whenever you need objects for readonly purposes.</p>
-<p>Mystery solved.</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 
 <nav id="pagination">
@@ -742,6 +746,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/Background-Task-Plugin-for-Cordova/">Background Task Plugin for Cordova</a>
+      </li>
+    
+      <li>
         <a href="/Core-Motion-Pedometer-with-Cordova/">Core Motion Pedometer with Cordova</a>
       </li>
     
@@ -777,10 +785,6 @@
         <a href="/css-translate3d-performance-hack/">CSS translate3d Performance Hack</a>
       </li>
     
-      <li>
-        <a href="/dotject-atom-text-editor-plugin/">dotject Atom Text Editor Plugin</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -794,7 +798,7 @@
   
     <li><a href="/tags/android/">android</a><small>11</small></li>
   
-    <li><a href="/tags/app/">app</a><small>17</small></li>
+    <li><a href="/tags/app/">app</a><small>18</small></li>
   
     <li><a href="/tags/design/">design</a><small>2</small></li>
   
@@ -804,11 +808,11 @@
   
     <li><a href="/tags/html/">html</a><small>9</small></li>
   
-    <li><a href="/tags/iphone/">iphone</a><small>23</small></li>
+    <li><a href="/tags/iphone/">iphone</a><small>24</small></li>
   
-    <li><a href="/tags/javascript/">javascript</a><small>49</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>50</small></li>
   
-    <li><a href="/tags/phonegap/">phonegap</a><small>23</small></li>
+    <li><a href="/tags/phonegap/">phonegap</a><small>24</small></li>
   
     <li><a href="/tags/web/">web</a><small>27</small></li>
   

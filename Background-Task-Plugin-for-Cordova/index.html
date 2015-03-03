@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>List Node Packages w/o Dependencies | iLee</title>
+  <title>Background Task Plugin for Cordova | iLee</title>
   <meta name="author" content="Lee Crossley">
-  <meta name="description" content="How to list globally or locally installed packages without dependency trees.">
+  <meta name="description" content="My Cordova / PhoneGap plugin to run JavaScript when the app is suspended">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="List Node Packages w/o Dependencies"/>
+  <meta property="og:title" content="Background Task Plugin for Cordova"/>
   <meta property="og:site_name" content="iLee"/>
-  <meta property="og:image" content="http://dailyjs.com/images/posts/npm-logo.png" />
+  <meta property="og:image" content="http://files.softicons.com/download/android-icons/flat-circles-icon-pack-by-vincent-winberg/png/256x256/Power.png" />
   <link rel="alternate" href="/atom.xml" title="iLee" type="application/atom+xml">
   <link rel="shortcut icon" href="/img/ilee.ico">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -54,37 +54,37 @@
     <header>
       <div class="icon"></div>
       
-        <time datetime="2013-12-18T13:18:02.000Z" itemprop="datePublished">18th Dec 2013</time>
+        <time datetime="2015-01-02T11:50:22.000Z" itemprop="datePublished">2nd Jan 2015</time>
       
       
   
-    <h1 class="title" itemprop="name headline">List Node Packages w/o Dependencies</h1>
+    <h1 class="title" itemprop="name headline">Background Task Plugin for Cordova</h1>
   
 
     </header>
     <div class="entry" itemprop="articleBody">
       
-        <h2 id="npm_list">npm list</h2>
-<p><code>npm list</code> (or <code>npm ls</code> which is my preferred shorthand) is a useful way to determine what npm packages are currently installed. The issue is, you get all their dependencies too (and their dependencies dependencies and their dependencies dependencies dependencies…). A bit frustrating, since this list is usually exceptionally long and no amount of nesting formatting can fully combat this.</p>
-<h3 id="Added_depth">Added depth</h3>
-<p>Turns out there’s an easy way to combat this, although it’s not in the <a href="https://npmjs.org/doc/cli/npm-ls.html" target="_blank" rel="external">documentation for npm ls</a>.</p>
-<p>By adding <code>--depth=0</code> to the end of the command, it only draws out the top of the dependency tree. Happy days:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span></div></pre></td></tr></table></figure>
+        <h2 id="Brief_overview">Brief overview</h2>
+<p>As part of a recent hackathon, myself and my teammate were struck by a 2am peril. We realised that we needed to run some JavaScript in our Cordova app for a very short period after the app was suspended and screen switched off.</p>
+<p>Fortunately, I figured out a way before we lost too much time (or our minds). Today, I’m open sourcing the plugin for all to use.</p>
+<h2 id="Background_task_plugin">Background task plugin</h2>
+<p>Allows you to run JavaScript when the app is active and for 3 minutes after the app is suspended.</p>
+<ul>
+<li><a href="https://github.com/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">GitHub</a></li>
+<li><a href="http://plugreg.com/plugin/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">plugreg</a></li>
+</ul>
+<h3 id="Add_the_plugin_with_the_CLI">Add the plugin with the CLI</h3>
+<p>Latest version:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cordova plugin <span class="built_in">add</span> http<span class="variable">s:</span>//github.<span class="keyword">com</span>/leecrossley/cordova-plugin-background-task.git</div></pre></td></tr></table></figure>
 
-<h3 id="Go_global">Go global</h3>
-<p>This even works for globally installed packages too, by adding the standard <code>-g</code> flag.</p>
-<h2 id="I’m_getting_errors!">I’m getting errors!</h2>
-<p>When I first tried this, I ended up with a bunch of nonsensical errors (e.g. “npm ERR! max depth reached” among others), although there was nothing really wrong.</p>
-<p>You can combat this by adding <code>&quot;$@&quot; 2&gt;/dev/null</code> to the end. This essentially ignores the pointless errors by redirecting them to /dev/null. <em>Nothing to see here, move along</em> :)</p>
-<h2 id="The_complete_command">The complete command</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm ls --depth=<span class="number">0</span> <span class="string">"<span class="variable">$@</span>"</span> <span class="number">2</span>&gt;/dev/null</div></pre></td></tr></table></figure>
+<p>You <strong>do not</strong> need to reference any JavaScript, the Cordova plugin architecture will add a <code>backgroundtask</code> object to your root automatically when you build.</p>
+<h2 id="Usage">Usage</h2>
+<h3 id="Start">Start</h3>
+<p>It’s really simple, pass the JavaScript function you’d like to execute to <code>backgroundtask.start()</code> and your function will continue to run, even if the app is suspended for at least 3 minutes:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroundtask.start(functionToRun);</div></pre></td></tr></table></figure>
 
-<p>If you don’t want to type this out all the time (I certainly don’t), you can alias it up:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ alias npmls=<span class="string">"npm ls --depth=0 "</span><span class="variable">$@</span><span class="string">" 2&gt;/dev/null"</span></div></pre></td></tr></table></figure>
-
-<p>Then usage is as simple as:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npmls</div></pre></td></tr></table></figure>
-
+<h2 id="Future_development">Future development</h2>
+<p>This plugin is for iOS only and was designed specifically for iOS 8. Issues and pull requests welcome on the <a href="https://github.com/leecrossley/cordova-plugin-background-task" target="_blank" rel="external">git repo</a>.</p>
 
       
     </div>
@@ -104,7 +104,7 @@
         
   
   <div class="tags">
-    <a href="/tags/javascript/" itemprop="keywords">javascript</a>
+    <a href="/tags/iphone/" itemprop="keywords">iphone</a>, <a href="/tags/app/" itemprop="keywords">app</a>, <a href="/tags/phonegap/" itemprop="keywords">phonegap</a>, <a href="/tags/javascript/" itemprop="keywords">javascript</a>
   </div>
 
       
